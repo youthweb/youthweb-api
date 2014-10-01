@@ -1,6 +1,8 @@
 Youthweb-API
 ===
 
+Official documentation of the Youthweb API for [youthweb.net](https://youthweb.net).
+
 Status: Draft
 
-Official documentation of the Youthweb API for [youthweb.net](https://youthweb.net).
+Online Dokumentation: http://docs.youthweb.apiary.io/
