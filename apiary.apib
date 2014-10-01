@@ -1,0 +1,123 @@
+FORMAT: 1A
+HOST: http://www.example.com
+
+# Youthweb-API
+
+Status: Draft
+
+Official documentation of the Youthweb API for [youthweb.net](https://youthweb.net).
+
+# Authentication
+
+Description
+
+# Group Users
+
+## Users Collections [/users]
+
+### List all Users [GET]
++ Response 200 (application/json)
+
+### Create a User [POST]
++ Response 200
+
+## Users Object [/users/{id}]
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the User to perform action with. Has example value.
+
+### Retrieve a User [GET]
++ Response 200
+
+### Update a User [POST]
++ Response 200
+
+### Delete a User [DELETE]
++ Response 204
+
+## Friends [/users/{id}/friends]
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the User to perform action with. Has example value.
+
+### List all friends [GET]
++ Response 200
+
+## Events [/users/{id}/events]
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the User to perform action with. Has example value.
+
+### List all events [GET]
++ Response 200
+
+# Group Events
+
+# Group Messages
+
+# Group Comments
+Every comment belongs to a ressource. You always have to provide the *key_name* and the *key_value* of the resource.
+
+## Comments Collection [/comments]
+
+### List all Comments [GET]
++ Request (application/json)
+
+    + Body
+
+            { "key_name": "events", "key_value": 123 }
+
++ Response 200 (application/json)
+
+        { "data": [ { "id": 1, "key_name": "events", "key_value": 123, "comment": "Comment 1", "created_at": "1234567890", "links" : [ { "rel": "self", "uri": "/comments/1" } ] }, { "id": 2, "key_name": "events", "key_value": 123 "comment": "Comment 2", "created_at": "1345678901", "links" : [ { "rel": "self", "uri": "/comments/2" } ] } ] }
+
+### Create a Comment [POST]
++ Request (application/json)
+
+    + Header
+    
+            Foo: Bar
+    
+    + Body
+        
+            { "key_name": "events", "key_value": 123, "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "key_name": "events", "key_value": 123, "title": "Buy cheese and bread for breakfast." }
+
+## Comment Object [/comments/{id}]
+A single Comment object with all its details
+
++ Parameters
+    + id (required, number, `123`) ... Numeric `id` of the Comment to perform action with. Has example value.
+
+### Retrieve a Comment [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            {
+                "data": [
+                    {
+                        "id": 123,
+                        "key_name": "events",
+                        "key_value": 6543
+                        "comment": "Comment 123",
+                        "created_at": "1245678930",
+                        "links" : [
+                            {
+                                "rel": "self",
+                                "uri": "/comments/1" 
+                            }
+                        ]
+                    }
+                ]
+            }
+
+### Remove a Comment [DELETE]
++ Response 204
