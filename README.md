@@ -14,7 +14,7 @@ Online Dokumentation: http://docs.youthweb.apiary.io/
 
 Die API ist im ersten Entwurf über https://youthweb.net erreichbar. Diese URI kann sich in Zukunft ändern.
 
-Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Dieser erste Entwurf erlaub nur lesenden Zugriff, aber in Zukunft wird ein userbasierter Zugriff mit OAuth möglich sein. Die Änderungen an der API werden nicht immer abwärtskompatibel sein, weswegen wir bald eine Versionierung einführen werden.
+Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Dieser erste Entwurf erlaubt nur lesenden Zugriff, aber in Zukunft wird ein userbasierter schreibender Zugriff mit OAuth möglich sein. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir bald eine Versionierung einführen werden.
 
 ## Resources
 
@@ -22,7 +22,7 @@ Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalt
 
 #### Stats
 
-Die Statistiken liefern die aktuellen Zahlen zu den Accounts auf Youthweb. Sie sind über diese URI aufrufbar:
+Die Statistiken liefern die aktuellen Zahlen zu den Accounts auf Youthweb, die auch auf der https://youthweb.net einsehbar sind.
 
 Der Response ist JSON und bietet diese Daten:
 
@@ -31,7 +31,7 @@ Feld | Beschreibung
 user_total | Die Anzahl aller User
 user_online | Die Anzahl der User, die online sind
 
-Beispiel: https://youthweb.net/index.php?action=account&cat=stats
+Beispiel: GET https://youthweb.net/index.php?action=account&cat=stats
 
 ```json
 {
