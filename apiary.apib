@@ -5,7 +5,7 @@ HOST: https://www.youthweb.net
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.0.1 (12.10.2014)
+Aktuelle Version: 0.0.2 (20.12.2014)
 
 Status: Alpha
 
@@ -22,4 +22,22 @@ Keine. Diese Version ist read-only.
 ### Retrieve the account stats [GET]
 + Response 200 (application/json)
 
-        {"user_total":5503,"user_online":74}
+        {"user_total":5503,"user_total_female":2831, "user_total_male":2672,"user_online":74,"user_online_24h":629,"user_online_7d":1035,"user_online_30d":1600,"userpics":3441}
+        
+# Group Forum
+
+## Forum Stats [/index.php?action=forum&cat=stats]
+
+### Retrieve the forum stats [GET]
++ Response 200 (application/json)
+
+        {"authors_total":1480,"threads_total":2094,"posts_total":121387}
+
+# Group Youthgroups
+
+## Youthgroups Stats [/index.php?action=youthgroups&cat=stats]
+
+### Retrieve the youthgroups stats [GET]
++ Response 200 (application/json)
+
+        {"youthgroups_total":614,"users_total":2073}
