@@ -1,5 +1,8 @@
 # Youthweb API
 
+[![Latest Version](https://img.shields.io/github/release/youthweb/youthweb-api.svg?style=flat-square)](https://github.com/youthweb/youthweb-api/releases)
+[![Build Status](http://img.shields.io/travis/youthweb/youthweb-api.svg?style=flat-square)](https://travis-ci.org/youthweb/youthweb-api)
+
 ## Übersicht
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
