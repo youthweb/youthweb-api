@@ -1,20 +1,50 @@
 # Youthweb API
 
+[![Latest Version](https://img.shields.io/github/release/youthweb/youthweb-api.svg?style=flat-square)](https://github.com/youthweb/youthweb-api/releases)
+[![Software License GLPv2](http://img.shields.io/badge/License-GPLv2-brightgreen.svg?style=flat-square)](LICENSE)
+[![Build Status](http://img.shields.io/travis/youthweb/youthweb-api.svg?style=flat-square)](https://travis-ci.org/youthweb/youthweb-api)
+
 ## Übersicht
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.0.2 (20.12.2014)
+Aktuelle Version: 0.0.1 (2014-10-12)
 
 Status: Alpha
 
-Online Dokumentation: http://docs.youthweb.apiary.io/
+Online Dokumentation: http://docs.youthweb0m0p1.apiary.io/
 
 ## URI
 
 Die API ist im ersten Entwurf über https://youthweb.net erreichbar. Diese URI kann sich in Zukunft ändern.
 
-Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Dieser erste Entwurf erlaubt nur lesenden Zugriff, aber in Zukunft wird ein userbasierter schreibender Zugriff mit OAuth möglich sein. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir bald eine Versionierung einführen werden.
+Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Dieser erste Entwurf erlaubt nur lesenden Zugriff, aber in Zukunft wird ein userbasierter schreibender Zugriff mit OAuth möglich sein. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben.
+
+## Contribute
+
+Du kannst mithelfen, diese API zu gestalten, indem du an diesem Projekt mitarbeitest. Wenn die geplante API auf dem Live-Server von Youthweb umgesetzt ist, bekommt die API einen neuen [Release](https://github.com/youthweb/youthweb-api/releases).
+
+### Installation
+
+1. Forke dieses Projekt in deinen eigenen Account.
+2. Clone das Projekt mit ```git clone git@github.com:<username>/youthweb-api.git``` und wechsle in das neue Verzeichnis.
+3. Installiere Composer und alle Abhänigkeiten:
+
+  ```
+  curl http://getcomposer.org/installer | php
+  php composer.phar install
+  ```
+4. Erstelle einen neuen API Mock-Server auf [apiary.io](http://apiary.io/) und kopiere die [API-Blueprint](https://github.com/youthweb/youthweb-api/blob/master/apiary.apib) dorthin. Du kannst auch apiary.io mit Github synchronisieren, um diesen Schritt zu automatisieren.
+5. Passe die ```base_url``` in [behat-dev.yml](https://github.com/youthweb/youthweb-api/blob/master/tests/behat/behat-dev.yml) zu deinem Mockserver an.
+6. Teste deine API mit ```tests/behat/bin/behat -c tests/behat/behat-dev.yml```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
+
+### Änderungen
+
+Du kannst jetzt deine gewünschten Änderungen im  [API-Blueprint](https://github.com/youthweb/youthweb-api/blob/master/apiary.apib) durchführen und diese mit einem [Behat-Feature](https://github.com/youthweb/youthweb-api/tree/master/tests/behat/features) absichern. Vergiss nicht, deine Änderungen zu testen:
+
+```tests/behat/bin/behat -c tests/behat/behat-dev.yml```
+
+Anschließend kannst du deine Änderungen mit einem Pull-Request einreichen.
 
 ## Resources
 
@@ -22,7 +52,7 @@ Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalt
 
 #### Stats
 
-Die Statistiken liefern die aktuellen Zahlen zu den Accounts auf Youthweb, die auch auf der https://youthweb.net einsehbar sind.
+Die Statistiken liefern die aktuellen Zahlen zu den Accounts auf Youthweb, die auch auf [youthweb.net](https://youthweb.net) einsehbar sind.
 
 ##### Request
 
@@ -53,7 +83,7 @@ userpics | integer | 3441 | Die Anzahl der User, die ein Profilbild hochgeladen 
   "user_online_7d": 1035,
   "user_online_30d": 1600,
   "userpics": 3441
-}    
+}
 ```
 
 ### Forum
@@ -81,7 +111,7 @@ posts_total | integer | 121387 | Die Anzahl aller verfasster Posts
   "authors_total": 1480,
   "threads_total": 2094,
   "posts_total": 121387
-}    
+}
 ```
 
 ### Youthgroups
@@ -107,17 +137,9 @@ users_total | integer | 2073 | Die Anzahl der User, die einer Jugendgruppe angeh
 {
   "youthgroups_total": 614,
   "users_total": 2073
-}    
+}
 ```
 
-## History
+## [Changelog](https://github.com/youthweb/youthweb-api/blob/master/CHANGELOG.md)
 
-### 0.0.2
-
-* Die Account-Statistiken liefern mehr Daten
-* In den Account-Statistiken liefert das Feld "user_total" nur noch aktive Accounts
-* Statistiken zum Forum und Jugendgruppen wurden ergänzt
-
-### 0.0.1 (12.10.2014)
-
-* Erster Release
+Der Changelog ist [hier](https://github.com/youthweb/youthweb-api/blob/master/CHANGELOG.md) zu finden und folgt den Empfehlungen von [keepachangelog.com](http://keepachangelog.com/).

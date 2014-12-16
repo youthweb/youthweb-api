@@ -1,0 +1,16 @@
+*~
+*.bak
+Thumbs.db
+desktop.ini
+.DS_Store
+.buildpath
+.project
+.settings
+*.tmproj
+.idea
+
+vendor/*
+tests/behat/bin/behat
+tests/behat/bin/phpunit
+composer.lock
+composer.phar
