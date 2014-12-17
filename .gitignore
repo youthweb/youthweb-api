@@ -12,5 +12,6 @@ desktop.ini
 vendor/*
 tests/behat/bin/behat
 tests/behat/bin/phpunit
+tests/behat/behat-prod.yml
 composer.lock
 composer.phar
