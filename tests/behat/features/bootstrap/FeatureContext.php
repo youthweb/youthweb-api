@@ -8,13 +8,11 @@ use Behat\Gherkin\Node\TableNode;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 
-require_once __DIR__.'/../../../../vendor/phpunit/phpunit/PHPUnit/Autoload.php';
-require_once __DIR__.'/../../../../vendor/phpunit/phpunit/PHPUnit/Framework/Assert/Functions.php';
 
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext implements Context, SnippetAcceptingContext
+class FeatureContext extends PHPUnit_Framework_TestCase implements Context, SnippetAcceptingContext
 {
 	/**
 	 * The Guzzle HTTP Client.
@@ -117,7 +115,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 		} else {
 			$bodyOutput = 'Output is '.$contentType.', which is not JSON and is therefore scary. Run the request manually.';
 		}
-		assertSame((int) $statusCode, (int) $this->getResponse()->getStatusCode(), $bodyOutput);
+		$this->assertSame((int) $statusCode, (int) $this->getResponse()->getStatusCode(), $bodyOutput);
 	}
 
 	/**
@@ -128,7 +126,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 		$payload = $this->getScopePayload();
 		$actualValue = $this->arrayGet($payload, $property);
 
-		assertEquals(
+		$this->assertEquals(
 			$actualValue,
 			$expectedValue,
 			"Asserting the [$property] property in current scope equals [$expectedValue]: ".json_encode($payload)
@@ -150,10 +148,10 @@ class FeatureContext implements Context, SnippetAcceptingContext
 		);
 
 		if (is_object($payload)) {
-			assertTrue(array_key_exists($property, get_object_vars($payload)), $message);
+			$this->assertTrue(array_key_exists($property, get_object_vars($payload)), $message);
 
 		} else {
-			assertTrue(array_key_exists($property, $payload), $message);
+			$this->assertTrue(array_key_exists($property, $payload), $message);
 		}
 	}
 
@@ -166,7 +164,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
 		$actualValue = $this->arrayGet($payload, $property);
 
-		assertTrue(
+		$this->assertTrue(
 			is_array($actualValue),
 			"Asserting the [$property] property in current scope [{$this->scope}] is an array: ".json_encode($payload)
 		);
@@ -181,7 +179,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
 		$actualValue = $this->arrayGet($payload, $property);
 
-		assertTrue(
+		$this->assertTrue(
 			is_object($actualValue),
 			"Asserting the [$property] property in current scope [{$this->scope}] is an object: ".json_encode($payload)
 		);
@@ -195,7 +193,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 		$payload = $this->getScopePayload();
 		$scopePayload = $this->arrayGet($payload, $property);
 
-		assertTrue(
+		$this->assertTrue(
 			is_array($scopePayload) and $scopePayload === [],
 			"Asserting the [$property] property in current scope [{$this->scope}] is an empty array: ".json_encode($payload)
 		);
@@ -208,12 +206,13 @@ class FeatureContext implements Context, SnippetAcceptingContext
 	{
 		$payload = $this->getScopePayload();
 
-		assertCount(
+		$this->assertCount(
 			$count,
 			$this->arrayGet($payload, $property),
 			"Asserting the [$property] property contains [$count] items: ".json_encode($payload)
 		);
 	}
+
 
 	/**
 	 * @Given /^the "([^"]*)" property is an integer$/
@@ -222,7 +221,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 	{
 		$payload = $this->getScopePayload();
 
-		isType(
+		$this->isType(
 			'int',
 			$this->arrayGet($payload, $property),
 			"Asserting the [$property] property in current scope [{$this->scope}] is an integer: ".json_encode($payload)
@@ -236,7 +235,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 	{
 		$payload = $this->getScopePayload();
 
-		isType(
+		$this->isType(
 			'string',
 			$this->arrayGet($payload, $property),
 			"Asserting the [$property] property in current scope [{$this->scope}] is a string: ".json_encode($payload)
@@ -254,7 +253,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
 		$actualValue = $this->arrayGet($payload, $property);
 
-		assertSame(
+		$this->assertSame(
 			$actualValue,
 			$expectedValue,
 			"Asserting the [$property] property in current scope [{$this->scope}] is a string equalling [$expectedValue]."
@@ -268,7 +267,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 	{
 		$payload = $this->getScopePayload();
 
-		assertTrue(
+		$this->assertTrue(
 			gettype($this->arrayGet($payload, $property)) == 'boolean',
 			"Asserting the [$property] property in current scope [{$this->scope}] is a boolean."
 		);
@@ -288,7 +287,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
 		$this->thePropertyIsABoolean($property);
 
-		assertSame(
+		$this->assertSame(
 			$actualValue,
 			$expectedValue == 'true',
 			"Asserting the [$property] property in current scope [{$this->scope}] is a boolean equalling [$expectedValue]."
@@ -305,7 +304,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
 		$this->thePropertyIsAnInteger($property);
 
-		assertSame(
+		$this->assertSame(
 			$actualValue,
 			(int) $expectedValue,
 			"Asserting the [$property] property in current scope [{$this->scope}] is an integer equalling [$expectedValue]."
@@ -322,7 +321,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 
 		$valid = explode("\n", (string) $options);
 
-		assertTrue(
+		$this->assertTrue(
 			in_array($actualValue, $valid),
 			sprintf(
 				"Asserting the [%s] property in current scope [{$this->scope}] is in array of valid options [%s].",
