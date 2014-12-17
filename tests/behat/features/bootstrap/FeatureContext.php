@@ -119,6 +119,20 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	}
 
 	/**
+	 * @Given /^the response contains (\d+) items$/
+	 */
+	public function theResponseContainsItems($count)
+	{
+		$payload = $this->getScopePayload();
+
+		$this->assertCount(
+			$count,
+			get_object_vars($payload),
+			"Asserting the request contains [$count] items: ".json_encode($payload)
+		);
+	}
+
+	/**
 	 * @Given /^the "([^"]*)" property equals "([^"]*)"$/
 	 */
 	public function thePropertyEquals($property, $expectedValue)
