@@ -121,15 +121,15 @@ posts_total | integer | 121387 | Die Anzahl aller verfasster Posts
 }
 ```
 
-### Youthgroups
+### Groups
 
 #### Stats
 
-Die Statistiken liefern die aktuellen Zahlen zu den Jugendgruppen auf Youthweb.
+Die Statistiken liefern die aktuellen Zahlen zu den Gruppen auf Youthweb.
 
 ##### Request
 
-GET https://youthweb.net/index.php?action=youthgroups&cat=stats
+GET https://youthweb.net/index.php?action=groups&cat=stats
 
 ##### Response
 
@@ -137,12 +137,12 @@ Der Response ist JSON und bietet diese Daten:
 
 Feld | Typ | Beispiel | Beschreibung
 -----|-----|----------|-------------
-youthgroups_total | integer | 614 | Die Anzahl der Jugendgruppen auf Youthweb
-users_total | integer | 2073 | Die Anzahl der User, die einer Jugendgruppe angehören
+groups_total | integer | 614 | Die Anzahl der Gruppen auf Youthweb
+users_total | integer | 2073 | Die Anzahl der User, die einer Gruppe angehören
 
 ```json
 {
-  "youthgroups_total": 614,
+  "groups_total": 614,
   "users_total": 2073
 }
 ```
