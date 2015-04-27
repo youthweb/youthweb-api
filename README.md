@@ -47,6 +47,12 @@ Du kannst jetzt deine gewünschten Änderungen im  [API-Blueprint](https://githu
 
 Anschließend kannst du deine Änderungen mit einem Pull-Request einreichen.
 
+## Clients
+
+### PHP
+
+Es gibt einen [objektorientierten Client in PHP](https://github.com/youthweb/php-youthweb-api), der die API abbildet.
+
 ## Resources
 
 ### Account
@@ -57,10 +63,10 @@ Die Statistiken liefern die aktuellen Zahlen zu den Accounts auf Youthweb, die a
 
 Der Response ist JSON und bietet diese Daten:
 
-Feld | Beschreibung
------|-------------
-user_total | Die Anzahl aller User
-user_online | Die Anzahl der User, die online sind
+Feld | Typ | Beispiel | Beschreibung
+-----|-----|----------|-------------
+user_total | integer | 5503 | Die Anzahl aller User
+user_online | integer | 74 | Die Anzahl der User, die online sind
 
 Beispiel: GET https://youthweb.net/index.php?action=account&cat=stats
 
