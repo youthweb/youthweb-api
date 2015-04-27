@@ -3,16 +3,17 @@
 [![Latest Version](https://img.shields.io/github/release/youthweb/youthweb-api.svg?style=flat-square)](https://github.com/youthweb/youthweb-api/releases)
 [![Software License GLPv2](http://img.shields.io/badge/License-GPLv2-brightgreen.svg?style=flat-square)](LICENSE)
 [![Build Status](http://img.shields.io/travis/youthweb/youthweb-api.svg?style=flat-square)](https://travis-ci.org/youthweb/youthweb-api)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/youthweb/youthweb-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Übersicht
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.0.1 (2014-10-12)
+Aktuelle Version: 0.1 (2014-12-17)
 
 Status: Alpha
 
-Online Dokumentation: http://docs.youthweb0m0p1.apiary.io/
+Online Dokumentation: http://docs.youthweb0m1.apiary.io/
 
 ## URI
 
@@ -45,6 +46,12 @@ Du kannst jetzt deine gewünschten Änderungen im  [API-Blueprint](https://githu
 ```tests/behat/bin/behat -c tests/behat/behat-dev.yml```
 
 Anschließend kannst du deine Änderungen mit einem Pull-Request einreichen.
+
+## Clients
+
+### PHP
+
+Es gibt einen [objektorientierten Client in PHP](https://github.com/youthweb/php-youthweb-api), der die API abbildet.
 
 ## Resources
 
