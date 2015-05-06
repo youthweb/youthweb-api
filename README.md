@@ -72,8 +72,11 @@ Beispiel: GET https://youthweb.net/index.php?action=account&cat=stats
 
 ```json
 {
-  "user_total":5503,
-  "user_online":74
+  "data":
+  {
+    "user_total":5503,
+    "user_online":74
+  }
 }
 ```
 
