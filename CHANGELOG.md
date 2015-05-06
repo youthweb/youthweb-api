@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+- Moved response into data namespace #4
+- Better response description and clients section in README.md
 
 ## [0.1] - 2014-12-17
 ### Added
