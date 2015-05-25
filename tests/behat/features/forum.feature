@@ -5,8 +5,7 @@ Feature: forum
 Scenario: Viewing the stats
 	When I request "GET /index.php?action=stats&cat=forum"
 	Then I get a "200" response
-	And scope into the "data" property
-	And scope into the "attributes" property
+	And scope into the "data.attributes" property
 	And the response contains 3 items
 	And the properties exist:
 		"""
