@@ -55,15 +55,15 @@ Es gibt einen [objektorientierten Client in PHP](https://github.com/youthweb/php
 
 ## Resources
 
-### Account
+### Stats
 
-#### Stats
+#### Account
 
 Die Statistiken liefern die aktuellen Zahlen zu den Accounts auf Youthweb, die auch auf [youthweb.net](https://youthweb.net) einsehbar sind.
 
 ##### Request
 
-GET https://youthweb.net/index.php?action=account&cat=stats
+GET https://youthweb.net/index.php?action=stats&cat=account
 
 ##### Response
 
@@ -84,27 +84,30 @@ userpics | integer | 3441 | Die Anzahl der User, die ein Profilbild hochgeladen 
 {
   "data":
   {
-    "user_total": 5503,
-    "user_total_female": 2831,
-    "user_total_male": 2672,
-    "user_online": 74,
-    "user_online_24h": 629,
-    "user_online_7d": 1035,
-    "user_online_30d": 1600,
-    "userpics": 3441
+    "type": "stats",
+    "id": "account",
+    "attributes":
+    {
+      "user_total": 5503,
+      "user_total_female": 2831,
+      "user_total_male": 2672,
+      "user_online": 74,
+      "user_online_24h": 629,
+      "user_online_7d": 1035,
+      "user_online_30d": 1600,
+      "userpics": 3441
+    }
   }
 }
 ```
 
-### Forum
-
-#### Stats
+#### Forum
 
 Die Statistiken liefern die aktuellen Zahlen zum Forum auf Youthweb.
 
 ##### Request
 
-GET https://youthweb.net/index.php?action=forum&cat=stats
+GET https://youthweb.net/index.php?action=stats&cat=forum
 
 ##### Response
 
@@ -120,22 +123,25 @@ posts_total | integer | 121387 | Die Anzahl aller verfasster Posts
 {
   "data":
   {
-    "authors_total": 1480,
-    "threads_total": 2094,
-    "posts_total": 121387
+    "type": "stats",
+    "id": "forum",
+    "attributes":
+    {
+      "authors_total": 1480,
+      "threads_total": 2094,
+      "posts_total": 121387
+    }
   }
 }
 ```
 
-### Groups
-
-#### Stats
+#### Groups
 
 Die Statistiken liefern die aktuellen Zahlen zu den Gruppen auf Youthweb.
 
 ##### Request
 
-GET https://youthweb.net/index.php?action=groups&cat=stats
+GET https://youthweb.net/index.php?action=stats&cat=groups
 
 ##### Response
 
@@ -150,8 +156,13 @@ users_total | integer | 2073 | Die Anzahl der User, die einer Gruppe angehören
 {
   "data":
   {
-    "groups_total": 614,
-    "users_total": 2073
+    "type": "stats",
+    "id": "groups",
+    "attributes":
+    {
+      "groups_total": 614,
+      "users_total": 2073
+    }
   }
 }
 ```
