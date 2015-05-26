@@ -167,6 +167,6 @@ users_total | integer | 2073 | Die Anzahl der User, die einer Gruppe angehören
 }
 ```
 
-## [Changelog](https://github.com/youthweb/youthweb-api/blob/master/CHANGELOG.md)
+## [Changelog](CHANGELOG.md)
 
-Der Changelog ist [hier](https://github.com/youthweb/youthweb-api/blob/master/CHANGELOG.md) zu finden und folgt den Empfehlungen von [keepachangelog.com](http://keepachangelog.com/).
+Der Changelog ist [hier](CHANGELOG.md) zu finden und folgt den Empfehlungen von [keepachangelog.com](http://keepachangelog.com/).
