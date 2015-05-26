@@ -2,8 +2,15 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
-- Moved response into data namespace #4
-- Better response description and clients section in README.md
+### Added
+- New resources `stats/account`, `stats/forum` and `stats/groups`.
+- Better response description and new clients section in README.md.
+
+### Changed
+- responses are now following the [JsonAPI](http://jsonapi.org/) spec.
+
+### Deprecated
+- The `account/stats` resource will be deleted in the next release.
 
 ## [0.1] - 2014-12-17
 ### Added
