@@ -3,4 +3,4 @@ default:
         default:
             contexts:
                 - FeatureContext:
-                    baseUrl: https://private-a32a9-youthweb.apiary-mock.com
+                    baseUrl: http://private-1c938-youthweb0m1.apiary-mock.com
