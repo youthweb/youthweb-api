@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: https://youthweb.net
+HOST: https://www.youthweb.net
 
 # Youthweb API
 
@@ -15,37 +15,17 @@ Github Repository: https://github.com/youthweb/youthweb-api
 
 Keine. Diese Version ist read-only.
 
-# Group Stats
+# Group Account
 
-## Account Stats [/index.php?action=stats&cat=account]
+## Account Stats [/index.php?action=account&cat=stats]
 
 ### Retrieve the account stats [GET]
 + Response 200 (application/json)
 
-    Der Response hat diese Attribute:
+    Der Response hat diesen Inhalt:
     - user_total: 5503 (integer) - Die Anzahl aller User
-    - user_total_female: 2831 (integer) - Die Anzahl der weiblichen User
-    - user_total_male: 2672 (integer) - Die Anzahl der männlichen User
-    - user_online: 74 (integer) - Die Anzahl der User, die im Moment online sind
-    - user_online_24h: 629 (integer) - Die Anzahl der User, die in den letzten 24 Stunden online waren
-    - user_online_7d: 1035 (integer) - Die Anzahl der User, die in den letzten 7 Tagen online waren
-    - user_online_30d: 1600 (integer) - Die Anzahl der User, die in den letzten 30 Tagen online waren
-    - userpics: 3441 (integer) - Die Anzahl der User, die ein Profilbild hochgeladen haben
+    - user_online: 74 (integer) - Die Anzahl der User, die online sind
 
     + Body
 
-            {"data":{"type":"stats","id":"account","attributes":{"user_total":5503,"user_total_female":2831, "user_total_male":2672,"user_online":74,"user_online_24h":629,"user_online_7d":1035,"user_online_30d":1600,"userpics":3441}}}
-
-## Forum Stats [/index.php?action=stats&cat=forum]
-
-### Retrieve the forum stats [GET]
-+ Response 200 (application/json)
-
-        {"data":{"type":"stats","id":"forum","attributes":{"authors_total":1480,"threads_total":2094,"posts_total":121387}}}
-
-## Groups Stats [/index.php?action=stats&cat=groups]
-
-### Retrieve the groups stats [GET]
-+ Response 200 (application/json)
-
-        {"data":{"type":"stats","id":"groups","attributes":{"groups_total":614,"users_total":2073}}}
+            {"data":{"user_total":5503,"user_online":74}}
