@@ -9,11 +9,11 @@
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.1 (2014-12-17)
+Aktuelle Version: 0.2 (2015-06-21)
 
 Status: Alpha
 
-Online Dokumentation: http://docs.youthweb0m1.apiary.io/
+Online Dokumentation: http://docs.youthweb0m2.apiary.io/
 
 ## URI
 
