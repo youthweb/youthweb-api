@@ -11,9 +11,9 @@ Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
 Aktuelle Version: 0.2 (2015-06-21)
 
-Status: Alpha
+Dokumentation: http://docs.youthweb0m2.apiary.io/
 
-Online Dokumentation: http://docs.youthweb0m2.apiary.io/
+Dev-Dokumentation: http://docs.youthweb.apiary.io/
 
 ## URI
 
