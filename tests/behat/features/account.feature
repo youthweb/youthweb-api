@@ -1,4 +1,4 @@
-Feature: account
+Feature: account (deprecated)
 	In order to see the account stats
 	As a visitor
 
