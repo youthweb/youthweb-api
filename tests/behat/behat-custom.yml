@@ -1,6 +1,0 @@
-default:
-    suites:
-        default:
-            contexts:
-                - FeatureContext:
-                    baseUrl: https://private-a32a9-youthweb.apiary-mock.com/
