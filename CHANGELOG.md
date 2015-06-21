@@ -1,7 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [Unreleased][unreleased]
+## [Unreleased]
+
+### Changed
+- short urls to all resources
 
 ## [0.2] - 2015-06-21
 ### Added
@@ -25,6 +28,6 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Resource `account/stats`
 
-[unreleased]: https://github.com/youthweb/youthweb-api/compare/0.2...HEAD
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.2...HEAD
 [0.2]: https://github.com/youthweb/youthweb-api/compare/0.1...0.2
 [0.1]: https://github.com/youthweb/youthweb-api/compare/0.0.1...0.1
