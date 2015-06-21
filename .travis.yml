@@ -7,11 +7,10 @@ php:
 - 7
 
 before_script:
-- travis_retry composer self-update
-- travis_retry composer install --no-interaction --prefer-source
 - npm install -g drakov
 - drakov -f ./apiary.apib -p 3000&
-- sleep 3 # Drakov needs some time to start
+- travis_retry composer self-update
+- travis_retry composer install --no-interaction --prefer-source
 
 script:
 - tests/behat/bin/behat -c tests/behat/behat-dev.yml
