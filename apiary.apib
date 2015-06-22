@@ -5,7 +5,7 @@ HOST: https://youthweb.net
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.2 (2015-06-21)
+Aktuelle Version: 0.2.1 (2015-06-22)
 
 Status: Alpha
 
@@ -17,7 +17,7 @@ Keine. Diese Version ist read-only.
 
 # Group Stats
 
-## Account Stats [/index.php?action=stats&cat=account]
+## Account Stats [/stats/account]
 
 ### Retrieve the account stats [GET]
 + Response 200 (application/json)
@@ -36,14 +36,14 @@ Keine. Diese Version ist read-only.
 
             {"data":{"type":"stats","id":"account","attributes":{"user_total":5503,"user_total_female":2831, "user_total_male":2672,"user_online":74,"user_online_24h":629,"user_online_7d":1035,"user_online_30d":1600,"userpics":3441}}}
 
-## Forum Stats [/index.php?action=stats&cat=forum]
+## Forum Stats [/stats/forum]
 
 ### Retrieve the forum stats [GET]
 + Response 200 (application/json)
 
         {"data":{"type":"stats","id":"forum","attributes":{"authors_total":1480,"threads_total":2094,"posts_total":121387}}}
 
-## Groups Stats [/index.php?action=stats&cat=groups]
+## Groups Stats [/stats/groups]
 
 ### Retrieve the groups stats [GET]
 + Response 200 (application/json)
@@ -52,8 +52,8 @@ Keine. Diese Version ist read-only.
 
 # Group Account
 
-## Account Stats [/index.php?action=account&cat=stats]
-Dieser Request ist @deprecated und wird im nächsten Release entfernt.
+## Account Stats [/account/stats]
+Diese Resource  ist @deprecated und wird mit dem nächsten Minor-Release 0.3 entfernt.
 
 ### Retrieve the account stats [GET]
 + Response 200 (application/json)

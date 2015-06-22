@@ -3,7 +3,7 @@ Feature: stats
 	As a visitor
 
 Scenario: Viewing the account stats
-	When I request "GET /index.php?action=stats&cat=account"
+	When I request "GET /stats/account"
 	Then I get a "200" response
 	And scope into the "data.attributes" property
 	And the response contains 8 items
@@ -20,7 +20,7 @@ Scenario: Viewing the account stats
 		"""
 
 Scenario: Viewing the forum stats
-	When I request "GET /index.php?action=stats&cat=forum"
+	When I request "GET /stats/forum"
 	Then I get a "200" response
 	And scope into the "data.attributes" property
 	And the response contains 3 items
@@ -32,7 +32,7 @@ Scenario: Viewing the forum stats
 		"""
 
 Scenario: Viewing the groups stats
-	When I request "GET /index.php?action=stats&cat=groups"
+	When I request "GET /stats/groups"
 	Then I get a "200" response
 	And scope into the "data.attributes" property
 	And the response contains 2 items
