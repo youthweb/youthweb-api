@@ -11,7 +11,9 @@ Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
 Aktuelle Version: 0.2 (2015-06-21)
 
-Dokumentation: http://docs.youthweb0m2.apiary.io/
+## Dokumentation
+
+Aktuelle Dokumentation: http://docs.youthweb0m2.apiary.io/
 
 Dev-Dokumentation: http://docs.youthweb.apiary.io/
 
@@ -35,13 +37,17 @@ Du kannst mithelfen, diese API zu gestalten, indem du an diesem Projekt mitarbei
   curl http://getcomposer.org/installer | php
   php composer.phar install
   ```
-4. Erstelle einen neuen API Mock-Server auf [apiary.io](http://apiary.io/) und kopiere die [API-Blueprint](https://github.com/youthweb/youthweb-api/blob/master/apiary.apib) dorthin. Du kannst auch apiary.io mit Github synchronisieren, um diesen Schritt zu automatisieren.
-5. Passe die ```base_url``` in [behat-dev.yml](https://github.com/youthweb/youthweb-api/blob/master/tests/behat/behat-dev.yml) zu deinem Mockserver an.
-6. Teste deine API mit ```tests/behat/bin/behat -c tests/behat/behat-dev.yml```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
+4. Installiere die NPM-Abhängigkeiten und starte den Drakov Mock-Server:
+
+  ```
+  npm install
+  drakov -f ./apiary.apib -p 3000&
+  ```
+5. Teste deine API mit ```tests/behat/bin/behat -c tests/behat/behat-dev.yml```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
 
 ### Änderungen
 
-Du kannst jetzt deine gewünschten Änderungen im  [API-Blueprint](https://github.com/youthweb/youthweb-api/blob/master/apiary.apib) durchführen und diese mit einem [Behat-Feature](https://github.com/youthweb/youthweb-api/tree/master/tests/behat/features) absichern. Vergiss nicht, deine Änderungen zu testen:
+Du kannst jetzt deine gewünschten Änderungen im [API-Blueprint](https://github.com/youthweb/youthweb-api/blob/master/apiary.apib) durchführen und diese mit einem [Behat-Feature](https://github.com/youthweb/youthweb-api/tree/master/tests/behat/features) absichern. Vergiss nicht, deine Änderungen zu testen:
 
 ```tests/behat/bin/behat -c tests/behat/behat-dev.yml```
 
@@ -55,117 +61,7 @@ Es gibt einen [objektorientierten Client in PHP](https://github.com/youthweb/php
 
 ## Resources
 
-### Stats
-
-#### Account
-
-Die Statistiken liefern die aktuellen Zahlen zu den Accounts auf Youthweb, die auch auf [youthweb.net](https://youthweb.net) einsehbar sind.
-
-##### Request
-
-GET https://youthweb.net/index.php?action=stats&cat=account
-
-##### Response
-
-Der Response ist JSON und bietet diese Daten:
-
-Feld | Typ | Beispiel | Beschreibung
------|-----|----------|-------------
-user_total | integer | 5503 | Die Anzahl aller User
-user_total_female | integer | 2831 | Die Anzahl der weiblichen User
-user_total_male | integer | 2672 | Die Anzahl der männlichen User
-user_online | integer | 74 | Die Anzahl der User, die im Moment online sind
-user_online_24h | integer | 629 | Die Anzahl der User, die in den letzten 24 Stunden online waren
-user_online_7d | integer | 1035 | Die Anzahl der User, die in den letzten 7 Tagen online waren
-user_online_30d | integer | 1600 | Die Anzahl der User, die in den letzten 30 Tagen online waren
-userpics | integer | 3441 | Die Anzahl der User, die ein Profilbild hochgeladen haben
-
-```json
-{
-  "data":
-  {
-    "type": "stats",
-    "id": "account",
-    "attributes":
-    {
-      "user_total": 5503,
-      "user_total_female": 2831,
-      "user_total_male": 2672,
-      "user_online": 74,
-      "user_online_24h": 629,
-      "user_online_7d": 1035,
-      "user_online_30d": 1600,
-      "userpics": 3441
-    }
-  }
-}
-```
-
-#### Forum
-
-Die Statistiken liefern die aktuellen Zahlen zum Forum auf Youthweb.
-
-##### Request
-
-GET https://youthweb.net/index.php?action=stats&cat=forum
-
-##### Response
-
-Der Response ist JSON und bietet diese Daten:
-
-Feld | Typ | Beispiel | Beschreibung
------|-----|----------|-------------
-authors_total | integer | 1480 | Die Anzahl aller User, die mindestens einen Forenpost verfasst haben
-threads_total | integer | 2094 | Die Anzahl aller Threads
-posts_total | integer | 121387 | Die Anzahl aller verfasster Posts
-
-```json
-{
-  "data":
-  {
-    "type": "stats",
-    "id": "forum",
-    "attributes":
-    {
-      "authors_total": 1480,
-      "threads_total": 2094,
-      "posts_total": 121387
-    }
-  }
-}
-```
-
-#### Groups
-
-Die Statistiken liefern die aktuellen Zahlen zu den Gruppen auf Youthweb.
-
-##### Request
-
-GET https://youthweb.net/index.php?action=stats&cat=groups
-
-##### Response
-
-Der Response ist JSON und bietet diese Daten:
-
-Feld | Typ | Beispiel | Beschreibung
------|-----|----------|-------------
-groups_total | integer | 614 | Die Anzahl der Gruppen auf Youthweb
-users_total | integer | 2073 | Die Anzahl der User, die einer Gruppe angehören
-
-```json
-{
-  "data":
-  {
-    "type": "stats",
-    "id": "groups",
-    "attributes":
-    {
-      "groups_total": 614,
-      "users_total": 2073
-    }
-  }
-}
-```
+Wirf einen Blick in die [Dokumentation](#dokumentation), um alle verfügbaren Resourcen anzuzeigen
 
 ## [Changelog](CHANGELOG.md)
 
