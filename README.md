@@ -9,7 +9,7 @@
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.2 (2015-06-21)
+Aktuelle Version: 0.2.1 (2015-06-22)
 
 ## Dokumentation
 

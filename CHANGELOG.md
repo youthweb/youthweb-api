@@ -3,12 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.1] - 2015-06-22
+
 ### Changed
 - Mockserver apiary.io changed to local Drakov installation, so an apiary.io account isn't necessary.
 - All resources are accessable through short urls.
 
 ### Deprecated
-- Long urls to resources are deprecated, but won't be broken in near future. Use short urls instead.
+- Long urls to resources are deprecated, but won't be broken in near future. The use of short urls is recommended.
 
 ## [0.2] - 2015-06-21
 ### Added
@@ -32,6 +34,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.2...HEAD
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.2.1...HEAD
+[0.2.1]: https://github.com/youthweb/youthweb-api/compare/0.2...0.2.1
 [0.2]: https://github.com/youthweb/youthweb-api/compare/0.1...0.2
 [0.1]: https://github.com/youthweb/youthweb-api/compare/0.0.1...0.1
