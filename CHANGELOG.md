@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Changed
-- short urls to all resources
+- Mockserver apiary.io changed to local Drakov installation, so an apiary.io account isn't necessary.
+- All resources are accessable through short urls.
+
+### Deprecated
+- Long urls to resources are deprecated, but won't be broken in near future. Use short urls instead.
 
 ## [0.2] - 2015-06-21
 ### Added
