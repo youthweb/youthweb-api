@@ -13,7 +13,7 @@ Aktuelle Version: 0.2.1 (2015-06-22)
 
 ## Dokumentation
 
-Aktuelle Dokumentation: http://docs.youthweb0m2.apiary.io/
+Aktuelle Dokumentation: http://docs.youthweb0m2p1.apiary.io/
 
 Dev-Dokumentation: http://docs.youthweb.apiary.io/
 
