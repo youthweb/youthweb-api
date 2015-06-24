@@ -6,6 +6,7 @@ use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\BadResponseException;
 
 
@@ -53,7 +54,7 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	public function __construct($baseUrl)
 	{
-		$this->client = new Client(array('base_url' => $baseUrl));
+		$this->client = new Client(array('base_uri' => $baseUrl));
 	}
 
 	/**
@@ -73,28 +74,27 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 
 		$method = strtolower($httpMethod);
 
-		try {
+		try
+		{
 			switch ($httpMethod) {
 				case 'PUT':
 				case 'POST':
-					$this->response = $this
-						->client
-						->$method($resource, null, $this->requestPayload);
+					$this->response = $this->client->$method($resource, $this->requesPayload);
 					break;
 
 				default:
-					$this->response = $this
-						->client
-						->$method($resource);
+					$this->response = $this->client->$method($resource);
 			}
-		} catch (BadResponseException $e) {
-
+		}
+		catch (BadResponseException $e)
+		{
 			$response = $e->getResponse();
 
 			// Sometimes the request will fail, at which point we have
 			// no response at all. Let Guzzle give an error here, it's
 			// pretty self-explanatory.
-			if ($response === null) {
+			if ($response === null)
+			{
 				throw $e;
 			}
 
@@ -108,13 +108,17 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	public function iGetAResponse($statusCode)
 	{
 		$response = $this->getResponse();
-		$contentType = $response->getHeader('Content-Type');
+		$contentTypes = $response->getHeader('Content-Type');
 
-		if ($contentType === 'application/json') {
-			$bodyOutput = $response->getBody();
-		} else {
-			$bodyOutput = 'Output is '.$contentType.', which is not JSON and is therefore scary. Run the request manually.';
+		if ( in_array('application/json', $contentTypes) )
+		{
+			$bodyOutput = (string) $response->getBody();
 		}
+		else
+		{
+			$bodyOutput = 'Output is ' . implode(', ', $contentTypes) . ', which is not JSON and is therefore scary. Run the request manually.';
+		}
+
 		$this->assertSame((int) $statusCode, (int) $this->getResponse()->getStatusCode(), $bodyOutput);
 	}
 
@@ -125,9 +129,7 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	{
 		$payload = $this->getScopePayload();
 
-		$this->assertCount(
-			$count,
-			get_object_vars($payload),
+		$this->assertCount($count, get_object_vars($payload),
 			"Asserting the request contains [$count] items: ".json_encode($payload)
 		);
 	}
@@ -140,9 +142,7 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 		$payload = $this->getScopePayload();
 		$actualValue = $this->arrayGet($payload, $property);
 
-		$this->assertEquals(
-			$actualValue,
-			$expectedValue,
+		$this->assertEquals($actualValue, $expectedValue,
 			"Asserting the [$property] property in current scope equals [$expectedValue]: ".json_encode($payload)
 		);
 	}
@@ -154,17 +154,14 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	{
 		$payload = $this->getScopePayload();
 
-		$message = sprintf(
-			'Asserting the [%s] property exists in the scope [%s]: %s',
-			$property,
-			$this->scope,
-			json_encode($payload)
-		);
+		$message = sprintf('Asserting the [%s] property exists in the scope [%s]: %s', $property, $this->scope, json_encode($payload));
 
-		if (is_object($payload)) {
+		if (is_object($payload))
+		{
 			$this->assertTrue(array_key_exists($property, get_object_vars($payload)), $message);
-
-		} else {
+		}
+		else
+		{
 			$this->assertTrue(array_key_exists($property, $payload), $message);
 		}
 	}
@@ -295,7 +292,8 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 		$payload = $this->getScopePayload();
 		$actualValue = $this->arrayGet($payload, $property);
 
-		if (! in_array($expectedValue, ['true', 'false'])) {
+		if (! in_array($expectedValue, ['true', 'false']))
+		{
 			throw new \InvalidArgumentException("Testing for booleans must be represented by [true] or [false].");
 		}
 
