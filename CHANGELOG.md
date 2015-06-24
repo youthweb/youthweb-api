@@ -2,9 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Removed
+- The `account/stats` resource was removed.
 
 ## [0.2.1] - 2015-06-22
-
 ### Changed
 - Mockserver apiary.io changed to local Drakov installation, so an apiary.io account isn't necessary.
 - All resources are accessable through short urls.
@@ -34,7 +35,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.2.1...HEAD
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.2.1...develop
 [0.2.1]: https://github.com/youthweb/youthweb-api/compare/0.2...0.2.1
 [0.2]: https://github.com/youthweb/youthweb-api/compare/0.1...0.2
 [0.1]: https://github.com/youthweb/youthweb-api/compare/0.0.1...0.1
