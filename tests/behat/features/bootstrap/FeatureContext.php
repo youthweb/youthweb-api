@@ -76,7 +76,7 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	public function iHaveSetTheContentTypeHeader($content_type)
 	{
-		$this->request_headers[] = array('Content-Type' => $content_type);
+		$this->request_headers['Content-Type'][] = $content_type;
 	}
 
 	/**
@@ -86,6 +86,13 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	{
 		$this->resource = $resource;
 
+		$headers = $this->request_headers;
+
+		if ( isset($headers['Content-Type']) and ! empty($headers['Content-Type']) )
+		{
+			$headers['Content-Type'] = implode(', ', $headers['Content-Type']);
+		}
+
 		$method = strtolower($httpMethod);
 
 		try
@@ -93,11 +100,11 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 			switch ($httpMethod) {
 				case 'PUT':
 				case 'POST':
-					$this->response = $this->client->$method($resource, ['headers' => $this->request_headers, 'body' => $this->requestPayload]);
+					$this->response = $this->client->$method($resource, ['headers' => $headers, 'body' => $this->requestPayload]);
 					break;
 
 				default:
-					$this->response = $this->client->$method($resource, ['headers' => $this->request_headers]);
+					$this->response = $this->client->$method($resource, ['headers' => $headers]);
 			}
 		}
 		catch (BadResponseException $e)
