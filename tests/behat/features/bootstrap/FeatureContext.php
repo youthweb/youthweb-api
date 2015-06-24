@@ -2,6 +2,7 @@
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 
@@ -29,6 +30,11 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 * The request payload
 	 */
 	protected $requestPayload;
+
+	/**
+	 * The request headers
+	 */
+	protected $request_headers = array();
 
 	/**
 	 * The Guzzle HTTP Response.
@@ -66,6 +72,14 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	}
 
 	/**
+	 * @Given I have set the Content-Type Header :arg1
+	 */
+	public function iHaveSetTheContentTypeHeader($content_type)
+	{
+		$this->request_headers[] = array('Content-Type' => $content_type);
+	}
+
+	/**
 	 * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)"$/
 	 */
 	public function iRequest($httpMethod, $resource)
@@ -79,11 +93,11 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 			switch ($httpMethod) {
 				case 'PUT':
 				case 'POST':
-					$this->response = $this->client->$method($resource, $this->requesPayload);
+					$this->response = $this->client->$method($resource, ['headers' => $this->request_headers, 'body' => $this->requestPayload]);
 					break;
 
 				default:
-					$this->response = $this->client->$method($resource);
+					$this->response = $this->client->$method($resource, ['headers' => $this->request_headers]);
 			}
 		}
 		catch (BadResponseException $e)
@@ -98,7 +112,7 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 				throw $e;
 			}
 
-			$this->response = $e->getResponse();
+			$this->response = $response;
 		}
 	}
 
@@ -107,19 +121,19 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	public function iGetAResponse($statusCode)
 	{
-		$response = $this->getResponse();
-		$contentTypes = $response->getHeader('Content-Type');
-
-		if ( in_array('application/json', $contentTypes) )
-		{
-			$bodyOutput = (string) $response->getBody();
-		}
-		else
-		{
-			$bodyOutput = 'Output is ' . implode(', ', $contentTypes) . ', which is not JSON and is therefore scary. Run the request manually.';
-		}
+		$bodyOutput = (string) $this->getResponse()->getBody();
 
 		$this->assertSame((int) $statusCode, (int) $this->getResponse()->getStatusCode(), $bodyOutput);
+	}
+
+	/**
+	 * @Then the Content-Type Header :arg1 exists
+	 */
+	public function theContentTypeHeaderExists($content_type)
+	{
+		$content_types = $this->getResponse()->getHeader('Content-Type');
+
+		$this->assertTrue(in_array($content_type, $content_types), 'Content-Type: ' . implode(', ', $content_types));
 	}
 
 	/**
@@ -392,7 +406,8 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	protected function getResponse()
 	{
-		if (! $this->response) {
+		if ( ! $this->response )
+		{
 			throw new Exception("You must first make a request to check a response.");
 		}
 
@@ -406,7 +421,8 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	protected function getResponsePayload()
 	{
-		if (! $this->responsePayload) {
+		if ( ! $this->responsePayload )
+		{
 			$json = json_decode($this->getResponse()->getBody(true));
 
 			if (json_last_error() !== JSON_ERROR_NONE) {
@@ -452,7 +468,8 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	{
 		$payload = $this->getResponsePayload();
 
-		if (! $this->scope) {
+		if ( ! $this->scope )
+		{
 			return $payload;
 		}
 
