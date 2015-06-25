@@ -71,3 +71,18 @@ Keine. Diese Version ist read-only.
     + Body
 
             {"data":{"type":"stats","id":"groups","attributes":{"groups_total":614,"users_total":2073}}}
+
+# Group _Tests
+
+Testing various behaviours of the API
+
+## No Content-Type [/_tests/no_content_type_header]
+
+Not defining the Header "Content-Type: application/vnd.api+json" will lead to a `406 Not Acceptable` error in the next minor release.
+
+### Request without Content-Type [GET]
++ Response 200 (application/vnd.api+json)
+
+    + Body
+
+            {"meta":{"warnings":["You havn't specified the Header Content-Type: application/vnd.api+json"]}}

@@ -365,6 +365,27 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	}
 
 	/**
+	 * @Then the :arg1 property contains at least:
+	 */
+	public function thePropertyContainsAtLeast($property, PyStringNode $options)
+	{
+		$actualValue = $this->arrayGet($this->getScopePayload(), $property);
+
+		$valids = explode("\n", (string) $options);
+
+		foreach ( $valids as $valid )
+		{
+			$this->assertTrue(in_array($valid, $actualValue),
+				sprintf("Asserting the [%s] property in current scope [{$this->scope}] contains at least [%s].", $property, $valid)
+		);
+		}
+
+
+
+		//throw new PendingException();
+	}
+
+	/**
 	 * @Given /^scope into the first "([^"]*)" property$/
 	 */
 	public function scopeIntoTheFirstProperty($scope)
