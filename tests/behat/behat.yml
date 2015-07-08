@@ -1,14 +1,12 @@
 default:
     suites:
         master:
+            paths:    [ %paths.base%/features ]
             contexts:
                 - FeatureContext:
                     baseUrl: https://youthweb.net/
         develop:
+            paths:    [ %paths.base%/features ]
             contexts:
                 - FeatureContext:
                     baseUrl: http://localhost:3000/
-        custom:
-            contexts:
-                - FeatureContext:
-                    baseUrl: http://private-b8b1f-testapi529.apiary-mock.com
