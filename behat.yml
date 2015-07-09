@@ -1,12 +1,14 @@
 default:
     suites:
         master:
-            paths:    [ %paths.base%/features ]
+            paths:
+                - %paths.base%/features
             contexts:
                 - FeatureContext:
                     baseUrl: https://youthweb.net/
         develop:
-            paths:    [ %paths.base%/features ]
+            paths:
+                - %paths.base%/features
             contexts:
                 - FeatureContext:
                     baseUrl: http://localhost:3000/
