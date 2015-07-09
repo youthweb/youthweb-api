@@ -144,6 +144,16 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	}
 
 	/**
+	 * @Then the Accept Header :arg1 exists
+	 */
+	public function theAcceptHeaderExists($accept_type)
+	{
+		$accept_types = $this->getResponse()->getHeader('Accept');
+
+		$this->assertTrue(in_array($accept_type, $accept_types), 'Accept: ' . implode(', ', $accept_types));
+	}
+
+	/**
 	 * @Given /^the response contains (\d+) items$/
 	 */
 	public function theResponseContainsItems($count)
