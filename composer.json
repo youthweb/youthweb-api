@@ -6,6 +6,6 @@
         "phpunit/phpunit": "~4.0"
     },
     "config": {
-        "bin-dir": "tests/behat/bin/"
+        "bin-dir": "vendor/bin/"
     }
 }

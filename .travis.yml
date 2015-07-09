@@ -12,7 +12,7 @@ before_script:
 - travis_retry composer install --no-interaction --prefer-source
 
 script:
-- tests/behat/bin/behat -c tests/behat/behat-dev.yml
+- vendor/bin/behat --suite=develop
 
 notifications:
   webhooks:

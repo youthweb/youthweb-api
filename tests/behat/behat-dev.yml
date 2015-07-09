@@ -1,6 +1,0 @@
-default:
-    suites:
-        default:
-            contexts:
-                - FeatureContext:
-                    baseUrl: http://localhost:3000/

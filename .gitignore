@@ -9,8 +9,7 @@ desktop.ini
 *.tmproj
 .idea
 
+node_modules/*
 vendor/*
-tests/behat/bin/*
-tests/behat/behat-prod.yml
 composer.lock
 composer.phar
