@@ -5,6 +5,8 @@ php:
 - 5.6
 - 7
 
+sudo: false
+
 before_script:
 - npm install -g drakov
 - drakov -f ./apiary.apib -p 3000&
