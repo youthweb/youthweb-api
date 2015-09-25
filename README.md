@@ -19,7 +19,7 @@ Dev-Dokumentation: http://docs.youthweb.apiary.io/
 
 ## URI
 
-Die API ist im ersten Entwurf über https://youthweb.net erreichbar. Diese URI kann sich in Zukunft ändern.
+Die API ist über https://api.youthweb.net erreichbar.
 
 Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Dieser erste Entwurf erlaubt nur lesenden Zugriff, aber in Zukunft wird ein userbasierter schreibender Zugriff mit OAuth möglich sein. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben.
 
@@ -43,13 +43,13 @@ Du kannst mithelfen, diese API zu gestalten, indem du an diesem Projekt mitarbei
   npm install
   ./node_modules/drakov/drakov -f ./apiary.apib -p 3000
   ```
-5. Teste deine API mit ```tests/behat/bin/behat --suite=develop```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
+5. Teste deine API mit ```vendor/bin/behat --suite=develop```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
 
 ### Änderungen
 
 Du kannst jetzt deine gewünschten Änderungen im [API-Blueprint](https://github.com/youthweb/youthweb-api/blob/master/apiary.apib) durchführen und diese mit einem [Behat-Feature](https://github.com/youthweb/youthweb-api/tree/master/tests/behat/features) absichern. Vergiss nicht, deine Änderungen zu testen:
 
-```tests/behat/bin/behat --suite=develop```
+```vendor/bin/behat --suite=develop```
 
 Anschließend kannst du deine Änderungen mit einem Pull-Request einreichen.
 

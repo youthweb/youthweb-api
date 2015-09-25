@@ -6,7 +6,7 @@ default:
                 - %paths.base%/features/production
             contexts:
                 - FeatureContext:
-                    baseUrl: https://youthweb.net/
+                    baseUrl: https://api.youthweb.net/
         develop:
             paths:
                 - %paths.base%/features/apiblueprint
