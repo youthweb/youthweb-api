@@ -9,7 +9,7 @@
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.2.1 (2015-06-22)
+Aktuelle Version: 0.3-dev
 
 ## Dokumentation
 
@@ -43,13 +43,13 @@ Du kannst mithelfen, diese API zu gestalten, indem du an diesem Projekt mitarbei
   npm install
   ./node_modules/drakov/drakov -f ./apiary.apib -p 3000
   ```
-5. Teste deine API mit ```tests/behat/bin/behat --suite=develop```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
+5. Teste deine API mit ```vendor/bin/behat --suite=develop```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
 
 ### Änderungen
 
 Du kannst jetzt deine gewünschten Änderungen im [API-Blueprint](https://github.com/youthweb/youthweb-api/blob/master/apiary.apib) durchführen und diese mit einem [Behat-Feature](https://github.com/youthweb/youthweb-api/tree/master/tests/behat/features) absichern. Vergiss nicht, deine Änderungen zu testen:
 
-```tests/behat/bin/behat --suite=develop```
+```vendor/bin/behat --suite=develop```
 
 Anschließend kannst du deine Änderungen mit einem Pull-Request einreichen.
 

@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+
+- Response header Content-Type: application/vnd.api+json added
+- Response header Accept: application/vnd.api+json; net.youthweb.api.version=X.X added
+
+### Changed
+
+- Show warning if request header Content-Type: application/vnd.api+json isn't set
+- Show warning if request header Accept: application/vnd.api+json; net.youthweb.api.version=X.X isn't set
+
 ### Removed
 - The `account/stats` resource was removed.
 
