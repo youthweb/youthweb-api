@@ -5,11 +5,20 @@ HOST: https://youthweb.net
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.2.1 (2015-06-22)
+Aktuelle Version: 0.3 (2015-10-11)
 
 Status: Alpha
 
 Github Repository: https://github.com/youthweb/youthweb-api
+
+## Request Header
+
+Diese Header müssen bei jedem Request angegeben werden:
+
+```
+Content-Type: application/vnd.api+json
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3
+```
 
 ## Authentication
 
@@ -22,7 +31,15 @@ Keine. Diese Version ist read-only.
 ### Retrieve the account stats [GET]
 + Request (application/vnd.api+json)
 
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3
+
 + Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3
 
     + Attributes
 
@@ -44,7 +61,15 @@ Keine. Diese Version ist read-only.
 ### Retrieve the forum stats [GET]
 + Request (application/vnd.api+json)
 
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3
+
 + Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3
 
     + Attributes
 
@@ -61,7 +86,15 @@ Keine. Diese Version ist read-only.
 ### Retrieve the groups stats [GET]
 + Request (application/vnd.api+json)
 
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3
+
 + Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3
 
     + Attributes
 
