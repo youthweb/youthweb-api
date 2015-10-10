@@ -2,10 +2,12 @@
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\BadResponseException;
 
 
@@ -28,6 +30,11 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 * The request payload
 	 */
 	protected $requestPayload;
+
+	/**
+	 * The request headers
+	 */
+	protected $request_headers = array();
 
 	/**
 	 * The Guzzle HTTP Response.
@@ -53,7 +60,7 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	public function __construct($baseUrl)
 	{
-		$this->client = new Client(array('base_url' => $baseUrl));
+		$this->client = new Client(array('base_uri' => $baseUrl));
 	}
 
 	/**
@@ -65,40 +72,54 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	}
 
 	/**
+	 * @Given I have set the Content-Type Header :arg1
+	 */
+	public function iHaveSetTheContentTypeHeader($content_type)
+	{
+		$this->request_headers['Content-Type'][] = $content_type;
+	}
+
+	/**
 	 * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)"$/
 	 */
 	public function iRequest($httpMethod, $resource)
 	{
 		$this->resource = $resource;
 
+		$headers = $this->request_headers;
+
+		if ( isset($headers['Content-Type']) and ! empty($headers['Content-Type']) )
+		{
+			$headers['Content-Type'] = implode(', ', $headers['Content-Type']);
+		}
+
 		$method = strtolower($httpMethod);
 
-		try {
+		try
+		{
 			switch ($httpMethod) {
 				case 'PUT':
 				case 'POST':
-					$this->response = $this
-						->client
-						->$method($resource, null, $this->requestPayload);
+					$this->response = $this->client->$method($resource, ['headers' => $headers, 'body' => $this->requestPayload]);
 					break;
 
 				default:
-					$this->response = $this
-						->client
-						->$method($resource);
+					$this->response = $this->client->$method($resource, ['headers' => $headers]);
 			}
-		} catch (BadResponseException $e) {
-
+		}
+		catch (BadResponseException $e)
+		{
 			$response = $e->getResponse();
 
 			// Sometimes the request will fail, at which point we have
 			// no response at all. Let Guzzle give an error here, it's
 			// pretty self-explanatory.
-			if ($response === null) {
+			if ($response === null)
+			{
 				throw $e;
 			}
 
-			$this->response = $e->getResponse();
+			$this->response = $response;
 		}
 	}
 
@@ -107,15 +128,31 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	public function iGetAResponse($statusCode)
 	{
-		$response = $this->getResponse();
-		$contentType = $response->getHeader('Content-Type');
+		$bodyOutput = (string) $this->getResponse()->getBody();
 
-		if ($contentType === 'application/json') {
-			$bodyOutput = $response->getBody();
-		} else {
-			$bodyOutput = 'Output is '.$contentType.', which is not JSON and is therefore scary. Run the request manually.';
-		}
 		$this->assertSame((int) $statusCode, (int) $this->getResponse()->getStatusCode(), $bodyOutput);
+	}
+
+	/**
+	 * @Then the Content-Type Header :arg1 exists
+	 */
+	public function theContentTypeHeaderExists($content_type)
+	{
+		$content_types = $this->getResponse()->getHeader('Content-Type');
+
+		$this->assertTrue(in_array($content_type, $content_types), 'Content-Type: ' . implode(', ', $content_types));
+	}
+
+	/**
+	 * @Then the Accept Header :arg1 exists
+	 */
+	public function theAcceptHeaderExists($accept_type)
+	{
+		$accepts = explode(',', $this->getResponse()->getHeaderLine('Accept'));
+
+		array_walk($accepts, 'trim');
+
+		$this->assertTrue(in_array($accept_type, $accepts), 'Accept: ' . implode(', ', $accepts));
 	}
 
 	/**
@@ -125,9 +162,7 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	{
 		$payload = $this->getScopePayload();
 
-		$this->assertCount(
-			$count,
-			get_object_vars($payload),
+		$this->assertCount($count, get_object_vars($payload),
 			"Asserting the request contains [$count] items: ".json_encode($payload)
 		);
 	}
@@ -140,9 +175,7 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 		$payload = $this->getScopePayload();
 		$actualValue = $this->arrayGet($payload, $property);
 
-		$this->assertEquals(
-			$actualValue,
-			$expectedValue,
+		$this->assertEquals($actualValue, $expectedValue,
 			"Asserting the [$property] property in current scope equals [$expectedValue]: ".json_encode($payload)
 		);
 	}
@@ -154,17 +187,14 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	{
 		$payload = $this->getScopePayload();
 
-		$message = sprintf(
-			'Asserting the [%s] property exists in the scope [%s]: %s',
-			$property,
-			$this->scope,
-			json_encode($payload)
-		);
+		$message = sprintf('Asserting the [%s] property exists in the scope [%s]: %s', $property, $this->scope, json_encode($payload));
 
-		if (is_object($payload)) {
+		if (is_object($payload))
+		{
 			$this->assertTrue(array_key_exists($property, get_object_vars($payload)), $message);
-
-		} else {
+		}
+		else
+		{
 			$this->assertTrue(array_key_exists($property, $payload), $message);
 		}
 	}
@@ -295,7 +325,8 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 		$payload = $this->getScopePayload();
 		$actualValue = $this->arrayGet($payload, $property);
 
-		if (! in_array($expectedValue, ['true', 'false'])) {
+		if (! in_array($expectedValue, ['true', 'false']))
+		{
 			throw new \InvalidArgumentException("Testing for booleans must be represented by [true] or [false].");
 		}
 
@@ -343,6 +374,27 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 				implode(', ', $valid)
 			)
 		);
+	}
+
+	/**
+	 * @Then the :arg1 property contains at least:
+	 */
+	public function thePropertyContainsAtLeast($property, PyStringNode $options)
+	{
+		$actualValue = $this->arrayGet($this->getScopePayload(), $property);
+
+		$valids = explode("\n", (string) $options);
+
+		foreach ( $valids as $valid )
+		{
+			$this->assertTrue(in_array($valid, $actualValue),
+				sprintf("Asserting the [%s] property in current scope [{$this->scope}] contains at least [%s].", $property, $valid)
+		);
+		}
+
+
+
+		//throw new PendingException();
 	}
 
 	/**
@@ -394,7 +446,8 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	protected function getResponse()
 	{
-		if (! $this->response) {
+		if ( ! $this->response )
+		{
 			throw new Exception("You must first make a request to check a response.");
 		}
 
@@ -408,7 +461,8 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	protected function getResponsePayload()
 	{
-		if (! $this->responsePayload) {
+		if ( ! $this->responsePayload )
+		{
 			$json = json_decode($this->getResponse()->getBody(true));
 
 			if (json_last_error() !== JSON_ERROR_NONE) {
@@ -454,7 +508,8 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	{
 		$payload = $this->getResponsePayload();
 
-		if (! $this->scope) {
+		if ( ! $this->scope )
+		{
 			return $payload;
 		}
 

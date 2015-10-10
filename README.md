@@ -9,7 +9,7 @@
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.2.1 (2015-06-22)
+Aktuelle Version: 0.3-dev
 
 ## Dokumentation
 
@@ -19,9 +19,17 @@ Dev-Dokumentation: http://docs.youthweb.apiary.io/
 
 ## URI
 
-Die API ist im ersten Entwurf über https://youthweb.net erreichbar. Diese URI kann sich in Zukunft ändern.
+Die API ist im ersten Entwurf über https://youthweb.net erreichbar. Diese URI wird sich in Zukunft ändern.
 
-Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Dieser erste Entwurf erlaubt nur lesenden Zugriff, aber in Zukunft wird ein userbasierter schreibender Zugriff mit OAuth möglich sein. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben.
+## Autorisierung
+
+Dieser Entwurf der API erlaubt bisher nur lesenden Zugriff, daher wird derzeit noch keine Autorisierung benötigt. In Zukunft wird ein userbasierter lesender Zugriff auf Basis von [JWT](http://jwt.io/) ([RFC 7519](https://tools.ietf.org/html/rfc7519)) möglich sein.
+
+## Versionierung
+
+Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben. Die angefragte Version muss im Request-Header angegeben werden:
+
+`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3`
 
 ## Contribute
 
@@ -41,19 +49,21 @@ Du kannst mithelfen, diese API zu gestalten, indem du an diesem Projekt mitarbei
 
   ```
   npm install
-  drakov -f ./apiary.apib -p 3000&
+  ./node_modules/drakov/drakov -f ./apiary.apib -p 3000
   ```
-5. Teste deine API mit ```tests/behat/bin/behat -c tests/behat/behat-dev.yml```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
+5. Teste deine API mit ```vendor/bin/behat --suite=develop```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
 
 ### Änderungen
 
-Du kannst jetzt deine gewünschten Änderungen im [API-Blueprint](https://github.com/youthweb/youthweb-api/blob/master/apiary.apib) durchführen und diese mit einem [Behat-Feature](https://github.com/youthweb/youthweb-api/tree/master/tests/behat/features) absichern. Vergiss nicht, deine Änderungen zu testen:
+Du kannst jetzt deine gewünschten Änderungen im [API-Blueprint](https://github.com/youthweb/youthweb-api/blob/master/apiary.apib) durchführen und diese mit einem [Behat-Feature](https://github.com/youthweb/youthweb-api/tree/develop/features/apiblueprint) absichern. Vergiss nicht, deine Änderungen zu testen:
 
-```tests/behat/bin/behat -c tests/behat/behat-dev.yml```
+```vendor/bin/behat --suite=develop```
 
 Anschließend kannst du deine Änderungen mit einem Pull-Request einreichen.
 
 ## Clients
+
+Diese Clients vereinfachen den Zugriff auf die API. Wenn du einen eigenen Client entwickelt hast, dann gib uns Bescheid und wir ergänzen ihn hier.
 
 ### PHP
 
@@ -61,8 +71,8 @@ Es gibt einen [objektorientierten Client in PHP](https://github.com/youthweb/php
 
 ## Resources
 
-Wirf einen Blick in die [Dokumentation](#dokumentation), um alle verfügbaren Resourcen anzuzeigen
+Wirf einen Blick in die [Dokumentation](#dokumentation), um alle verfügbaren Resourcen anzuzeigen.
 
-## [Changelog](CHANGELOG.md)
+## Changelog
 
 Der Changelog ist [hier](CHANGELOG.md) zu finden und folgt den Empfehlungen von [keepachangelog.com](http://keepachangelog.com/).

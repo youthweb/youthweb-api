@@ -3,8 +3,10 @@ Feature: stats
 	As a visitor
 
 Scenario: Viewing the account stats
+	Given I have set the Content-Type Header "application/vnd.api+json"
 	When I request "GET /stats/account"
 	Then I get a "200" response
+	And the Content-Type Header "application/vnd.api+json" exists
 	And scope into the "data.attributes" property
 	And the response contains 8 items
 	And the properties exist:
@@ -20,8 +22,10 @@ Scenario: Viewing the account stats
 		"""
 
 Scenario: Viewing the forum stats
+	Given I have set the Content-Type Header "application/vnd.api+json"
 	When I request "GET /stats/forum"
 	Then I get a "200" response
+	And the Content-Type Header "application/vnd.api+json" exists
 	And scope into the "data.attributes" property
 	And the response contains 3 items
 	And the properties exist:
@@ -32,8 +36,10 @@ Scenario: Viewing the forum stats
 		"""
 
 Scenario: Viewing the groups stats
+	Given I have set the Content-Type Header "application/vnd.api+json"
 	When I request "GET /stats/groups"
 	Then I get a "200" response
+	And the Content-Type Header "application/vnd.api+json" exists
 	And scope into the "data.attributes" property
 	And the response contains 2 items
 	And the properties exist:

@@ -3,8 +3,21 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [0.2.1] - 2015-06-22
+## [0.3] - 2015-10-11
+### Added
 
+- Response header Content-Type: application/vnd.api+json added
+- Response header Accept: application/vnd.api+json; net.youthweb.api.version=x.y added
+
+### Changed
+
+- Show warning if request header Content-Type: application/vnd.api+json isn't set
+- Show warning if request header Accept: application/vnd.api+json; net.youthweb.api.version=x.y isn't set
+
+### Removed
+- The `account/stats` resource was removed.
+
+## [0.2.1] - 2015-06-22
 ### Changed
 - Mockserver apiary.io changed to local Drakov installation, so an apiary.io account isn't necessary.
 - All resources are accessable through short urls.
@@ -34,7 +47,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.2.1...HEAD
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.3...develop
+[0.3]: https://github.com/youthweb/youthweb-api/compare/0.2.1...0.3
 [0.2.1]: https://github.com/youthweb/youthweb-api/compare/0.2...0.2.1
 [0.2]: https://github.com/youthweb/youthweb-api/compare/0.1...0.2
 [0.1]: https://github.com/youthweb/youthweb-api/compare/0.0.1...0.1

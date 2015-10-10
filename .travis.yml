@@ -1,10 +1,11 @@
 language: php
 
 php:
-- 5.4
 - 5.5
 - 5.6
 - 7
+
+sudo: false
 
 before_script:
 - npm install -g drakov
@@ -13,7 +14,7 @@ before_script:
 - travis_retry composer install --no-interaction --prefer-source
 
 script:
-- tests/behat/bin/behat -c tests/behat/behat-master.yml
+- vendor/bin/behat --suite=develop
 
 notifications:
   webhooks:
