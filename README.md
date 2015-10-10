@@ -9,11 +9,11 @@
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.3-dev
+Aktuelle Version: 0.4-dev
 
 ## Dokumentation
 
-Aktuelle Dokumentation: http://docs.youthweb0m2p1.apiary.io/
+Aktuelle Dokumentation: http://docs.youthweb0m3.apiary.io/
 
 Dev-Dokumentation: http://docs.youthweb.apiary.io/
 
@@ -55,7 +55,7 @@ Du kannst mithelfen, diese API zu gestalten, indem du an diesem Projekt mitarbei
 
 ### Änderungen
 
-Du kannst jetzt deine gewünschten Änderungen im [API-Blueprint](https://github.com/youthweb/youthweb-api/blob/master/apiary.apib) durchführen und diese mit einem [Behat-Feature](https://github.com/youthweb/youthweb-api/tree/develop/features/apiblueprint) absichern. Vergiss nicht, deine Änderungen zu testen:
+Du kannst jetzt deine gewünschten Änderungen im [API-Blueprint](https://github.com/youthweb/youthweb-api/blob/develop/apiary.apib) durchführen und diese mit einem [Behat-Feature](https://github.com/youthweb/youthweb-api/tree/develop/features/apiblueprint) absichern. Vergiss nicht, deine Änderungen zu testen:
 
 ```vendor/bin/behat --suite=develop```
 
