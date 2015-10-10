@@ -31,7 +31,7 @@ All notable changes to this project will be documented in this file.
 - Better response description and new clients section in README.md.
 
 ### Changed
-- responses are now following the [JsonAPI](http://jsonapi.org/) spec.
+- response bodies are now following the [JSON API](http://jsonapi.org/) spec.
 
 ### Deprecated
 - The `account/stats` resource will be deleted in the next release.
