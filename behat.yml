@@ -12,4 +12,4 @@ default:
                 - %paths.base%/features/apiblueprint
             contexts:
                 - FeatureContext:
-                    baseUrl: http://localhost:3000/
+                    baseUrl: http://private-a32a9-youthweb.apiary-mock.com
