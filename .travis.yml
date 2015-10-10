@@ -14,7 +14,7 @@ before_script:
 - travis_retry composer install --no-interaction --prefer-source
 
 script:
-- vendor/bin/behat --suite=develop
+- vendor/bin/behat --suite=production
 
 notifications:
   webhooks:
