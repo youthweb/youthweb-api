@@ -20,6 +20,7 @@ Scenario: Using the API without Accept API Version Header
 	When I request "GET /stats/account"
 	Then I get a "200" response
 	And the Content-Type Header "application/vnd.api+json" exists
+	And the Accept Header "application/vnd.api+json" exists
 	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.3" exists
 	And scope into the "meta" property
 	And the "warnings" property is an array
