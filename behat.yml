@@ -1,11 +1,5 @@
 default:
     suites:
-        production:
-            paths:
-                - %paths.base%/features/apiblueprint
-            contexts:
-                - FeatureContext:
-                    baseUrl: https://youthweb.net/
         develop:
             paths:
                 - %paths.base%/features/apiblueprint
@@ -18,3 +12,15 @@ default:
             contexts:
                 - FeatureContext:
                     baseUrl: http://localhost:3000/
+        production:
+            paths:
+                - %paths.base%/features/apiblueprint
+            contexts:
+                - FeatureContext:
+                    baseUrl: https://youthweb.net/
+        prod_errors:
+            paths:
+                - %paths.base%/features/errors
+            contexts:
+                - FeatureContext:
+                    baseUrl: https://youthweb.net/

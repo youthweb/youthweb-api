@@ -4,12 +4,34 @@ matrix:
   include:
     - php: 5.5
       env: APIBLUPRINT=./apiary.apib BEHAT_SUITE=develop
+      branches:
+        except:
+          - master
     - php: 5.6
       env: APIBLUPRINT=./apiary.apib BEHAT_SUITE=develop
+      branches:
+        except:
+          - master
     - php: 5.6
       env: APIBLUPRINT=./errors.apib BEHAT_SUITE=errors
+      branches:
+        except:
+          - master
+    - php: 5.6
+      env: APIBLUPRINT=./apiary.apib BEHAT_SUITE=production
+      branches:
+        only:
+          - master
+    - php: 5.6
+      env: APIBLUPRINT=./errors.apib BEHAT_SUITE=prod_errors
+      branches:
+        only:
+          - master
     - php: 7.0
       env: APIBLUPRINT=./apiary.apib BEHAT_SUITE=develop
+      branches:
+        except:
+          - master
   allow_failures:
     - php: 7.0
 
