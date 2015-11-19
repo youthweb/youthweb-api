@@ -11,15 +11,13 @@ matrix:
 sudo: false
 
 before_script:
-- GIT_BRANCH=$(git branch --contains HEAD)
-- echo "$GIT_BRANCH"
-- if [[ "$GIT_BRANCH" == "* headers" ]]; then echo "Branch headers"; fi
-- if [[ "$GIT_BRANCH" == "* master" ]]; then echo "Drakov is not necessary"; else echo "Installing Drakov"; npm install -g drakov; drakov -f ./apiary.apib -p 3000& drakov -f ./errors.apib -p 3001& fi
+- GIT_BRANCH_MASTER="false"
+- if [[ "$GIT_BRANCH_MASTER" == "true" ]]; then echo "Drakov is not necessary"; else echo "Installing Drakov"; npm install -g drakov; drakov -f ./apiary.apib -p 3000& drakov -f ./errors.apib -p 3001& fi
 - travis_retry composer self-update
 - travis_retry composer install --no-interaction --prefer-source
 
 script:
-- if [[ "$GIT_BRANCH" == "* master" ]]; then echo "Testing develop"; vendor/bin/behat --suite=develop; vendor/bin/behat --suite=errors; else echo "Testing production"; vendor/bin/behat --suite=production; fi
+- if [[ "$GIT_BRANCH_MASTER" == "true" ]]; then echo "Testing develop"; vendor/bin/behat --suite=develop; vendor/bin/behat --suite=errors; else echo "Testing production"; vendor/bin/behat --suite=production; fi
 
 notifications:
   webhooks:
