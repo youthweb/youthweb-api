@@ -3,11 +3,13 @@ language: php
 matrix:
   include:
     - php: 5.5
-      env: APIBLUPRINT=./apiary.apib
+      env: APIBLUPRINT=./apiary.apib BEHAT_SUITE=develop
     - php: 5.6
-      env: APIBLUPRINT=./apiary.apib
+      env: APIBLUPRINT=./apiary.apib BEHAT_SUITE=develop
+    - php: 5.6
+      env: APIBLUPRINT=./errors.apib BEHAT_SUITE=errors
     - php: 7.0
-      env: APIBLUPRINT=./apiary.apib
+      env: APIBLUPRINT=./apiary.apib BEHAT_SUITE=develop
   allow_failures:
     - php: 7.0
 
@@ -20,7 +22,7 @@ before_script:
 - travis_retry composer install --no-interaction --prefer-source
 
 script:
-- vendor/bin/behat --suite=develop
+- vendor/bin/behat --suite=$BEHAT_SUITE
 
 notifications:
   webhooks:
