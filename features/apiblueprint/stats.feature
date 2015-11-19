@@ -3,7 +3,8 @@ Feature: stats
 	As a visitor
 
 Scenario: Viewing the account stats
-	Given I have set the Content-Type Header "application/vnd.api+json"
+	Given I have set the "Content-Type" header with "application/vnd.api+json"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.3"
 	When I request "GET /stats/account"
 	Then I get a "200" response
 	And the Content-Type Header "application/vnd.api+json" exists
@@ -22,7 +23,8 @@ Scenario: Viewing the account stats
 		"""
 
 Scenario: Viewing the forum stats
-	Given I have set the Content-Type Header "application/vnd.api+json"
+	Given I have set the "Content-Type" header with "application/vnd.api+json"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.3"
 	When I request "GET /stats/forum"
 	Then I get a "200" response
 	And the Content-Type Header "application/vnd.api+json" exists
@@ -36,7 +38,8 @@ Scenario: Viewing the forum stats
 		"""
 
 Scenario: Viewing the groups stats
-	Given I have set the Content-Type Header "application/vnd.api+json"
+	Given I have set the "Content-Type" header with "application/vnd.api+json"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.3"
 	When I request "GET /stats/groups"
 	Then I get a "200" response
 	And the Content-Type Header "application/vnd.api+json" exists

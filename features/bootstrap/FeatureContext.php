@@ -72,11 +72,11 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	}
 
 	/**
-	 * @Given I have set the Content-Type Header :arg1
+	 * @Given I have set the :arg1 header with :arg2
 	 */
-	public function iHaveSetTheContentTypeHeader($content_type)
+	public function iHaveSetTheHeaderWith($name, $content)
 	{
-		$this->request_headers['Content-Type'][] = $content_type;
+		$this->request_headers[$name] = $content;
 	}
 
 	/**
@@ -87,11 +87,6 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 		$this->resource = $resource;
 
 		$headers = $this->request_headers;
-
-		if ( isset($headers['Content-Type']) and ! empty($headers['Content-Type']) )
-		{
-			$headers['Content-Type'] = implode(', ', $headers['Content-Type']);
-		}
 
 		$method = strtolower($httpMethod);
 
