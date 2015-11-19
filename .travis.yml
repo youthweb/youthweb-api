@@ -1,11 +1,11 @@
 language: php
 
-php:
-- 5.5
-- 5.6
-- 7.0
-
 matrix:
+  include:
+    - php: 5.5
+    - php: 5.6
+    - php: 7.0
+    - env: APIBLUPRINT=./apiary.apib
   allow_failures:
     - php: 7.0
 
@@ -13,7 +13,7 @@ sudo: false
 
 before_script:
 - npm install -g drakov
-- drakov -f ./apiary.apib -p 3000&
+- drakov -f $APIBLUPRINT -p 3000&
 - travis_retry composer self-update
 - travis_retry composer install --no-interaction --prefer-source
 
