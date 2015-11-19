@@ -72,11 +72,11 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	}
 
 	/**
-	 * @Given I have set the Content-Type Header :arg1
+	 * @Given I have set the :arg1 header with :arg2
 	 */
-	public function iHaveSetTheContentTypeHeader($content_type)
+	public function iHaveSetTheHeaderWith($name, $content)
 	{
-		$this->request_headers['Content-Type'][] = $content_type;
+		$this->request_headers[$name][] = $content;
 	}
 
 	/**
@@ -88,10 +88,10 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 
 		$headers = $this->request_headers;
 
-		if ( isset($headers['Content-Type']) and ! empty($headers['Content-Type']) )
-		{
-			$headers['Content-Type'] = implode(', ', $headers['Content-Type']);
-		}
+		// Combine headers
+		array_walk($headers, function(&$content, $name) {
+			$content = implode(', ', $content);
+		});
 
 		$method = strtolower($httpMethod);
 
@@ -150,7 +150,9 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	{
 		$accepts = explode(',', $this->getResponse()->getHeaderLine('Accept'));
 
-		array_walk($accepts, 'trim');
+		array_walk($accepts, function(&$string, $key) {
+			$string = trim($string);
+		});
 
 		$this->assertTrue(in_array($accept_type, $accepts), 'Accept: ' . implode(', ', $accepts));
 	}

@@ -1,20 +1,23 @@
 language: php
 
-php:
-- 5.5
-- 5.6
-- 7
+matrix:
+  include:
+    - php: 5.5
+    - php: 5.6
+    - php: 7.0
+  allow_failures:
+    - php: 7.0
 
 sudo: false
 
 before_script:
-- npm install -g drakov
-- drakov -f ./apiary.apib -p 3000&
+- GIT_BRANCH_MASTER="false"
+- if [[ "$GIT_BRANCH_MASTER" == "true" ]]; then echo "Drakov is not necessary"; else echo "Installing Drakov"; npm install -g drakov; drakov -f ./apiary.apib -p 3000& drakov -f ./errors.apib -p 3001& fi
 - travis_retry composer self-update
 - travis_retry composer install --no-interaction --prefer-source
 
 script:
-- vendor/bin/behat --suite=develop
+- if [[ "$GIT_BRANCH_MASTER" == "true" ]]; then echo "Testing production"; vendor/bin/behat --suite=production; else echo "Testing develop"; vendor/bin/behat --suite=develop; vendor/bin/behat --suite=errors; fi
 
 notifications:
   webhooks:

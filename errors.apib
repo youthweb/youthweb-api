@@ -1,0 +1,40 @@
+FORMAT: 1A
+HOST: https://youthweb.net
+
+# Youthweb API - Errors
+
+Hier werden Fehler und Fehlermeldungen der API getestet
+
+# Group Stats
+
+## Account Stats [/stats/account]
+
+### Retrieve the account stats without content-type header [GET]
++ Request
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3
+
+    + Body
+
+            {"data":{"type":"stats","id":"account","attributes":{"user_total":5503,"user_total_female":2831, "user_total_male":2672,"user_online":74,"user_online_24h":629,"user_online_7d":1035,"user_online_30d":1600,"userpics":3441}},"meta":{"warnings":["You havn't specified the Header Content-Type: application/vnd.api+json. This will be necessary in future releases."]}}
+
+### Retrieve the account stats without accept header [GET]
++ Request(application/vnd.api+json)
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3
+
+    + Body
+
+            {"data":{"type":"stats","id":"account","attributes":{"user_total":5503,"user_total_female":2831, "user_total_male":2672,"user_online":74,"user_online_24h":629,"user_online_7d":1035,"user_online_30d":1600,"userpics":3441}},"meta":{"warnings":["You havn't specified the API version in the Accept Header. The API version will be necessary in future releases."]}}
