@@ -145,7 +145,9 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	{
 		$accepts = explode(',', $this->getResponse()->getHeaderLine('Accept'));
 
-		array_walk($accepts, 'trim');
+		array_walk($accepts, function(&$string, $key) {
+			$string = trim($string);
+		});
 
 		$this->assertTrue(in_array($accept_type, $accepts), 'Accept: ' . implode(', ', $accepts));
 	}
