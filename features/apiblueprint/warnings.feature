@@ -3,7 +3,8 @@ Feature: Header Tests
 	As a visitor
 
 Scenario: Using the API without Content-Type Json API Header
-	Given I have set the "Accept" header with "application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3"
+	Given I have set the "Accept" header with "application/vnd.api+json"
+	Given I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.3"
 	When I request "GET /stats/account"
 	Then I get a "200" response
 	And the Content-Type Header "application/vnd.api+json" exists

@@ -76,7 +76,7 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	public function iHaveSetTheHeaderWith($name, $content)
 	{
-		$this->request_headers[$name] = $content;
+		$this->request_headers[$name][] = $content;
 	}
 
 	/**
@@ -87,6 +87,11 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 		$this->resource = $resource;
 
 		$headers = $this->request_headers;
+
+		// Combine headers
+		array_walk($headers, function(&$content, $name) {
+			$content = implode(', ', $content);
+		});
 
 		$method = strtolower($httpMethod);
 
