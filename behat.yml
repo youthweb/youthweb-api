@@ -15,11 +15,6 @@ default:
         production:
             paths:
                 - %paths.base%/features/apiblueprint
-            contexts:
-                - FeatureContext:
-                    baseUrl: https://youthweb.net/
-        prod_errors:
-            paths:
                 - %paths.base%/features/errors
             contexts:
                 - FeatureContext:
