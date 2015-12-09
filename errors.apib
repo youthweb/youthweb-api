@@ -44,9 +44,9 @@ Hier werden Fehler und Fehlermeldungen der API getestet
             {"errors":[{"title":"Unsupported Media Type","detail":"You're using an unsupported Content-Type. You have to use the Content-Type application/vnd.api+json"}]}
 
 ### Retrieve the account stats without accept header [GET]
-+ Request(application/vnd.api+json)
++ Request (application/vnd.api+json)
 
-+ Response 200 (application/vnd.api+json)
++ Response 406 (application/vnd.api+json)
 
     + Headers
 
@@ -54,4 +54,4 @@ Hier werden Fehler und Fehlermeldungen der API getestet
 
     + Body
 
-            {"data":{"type":"stats","id":"account","attributes":{"user_total":5503,"user_total_female":2831, "user_total_male":2672,"user_online":74,"user_online_24h":629,"user_online_7d":1035,"user_online_30d":1600,"userpics":3441}},"meta":{"warnings":["You havn't specified the API version in the Accept Header. The API version will be necessary in future releases."]}}
+            {"errors":[{"title":"Not Acceptable","detail":"You havn't specified the the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3"}]}
