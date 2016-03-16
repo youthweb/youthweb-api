@@ -31,6 +31,14 @@ Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalt
 
 `Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3`
 
+### Unterstützte Versionen
+
+| Version | Status | Veröffentlicht | Unterstützt bis |
+|---------|--------|----------------|-----------------|
+| **0.3** | :white_check_mark: unterstützt | 2015-10-11 | *n/a* |
+| **0.2** | :warning: veraltet | 2015-06-21 | Release 0.4 |
+| 0.1 | :x: nicht mehr unterstützt | 2014-12-17 | Release 0.3 - 2015-10-11 |
+
 ## Contribute
 
 Du kannst mithelfen, diese API zu gestalten, indem du an diesem Projekt mitarbeitest. Wenn die geplante API auf dem Live-Server von Youthweb umgesetzt ist, bekommt die API einen neuen [Release](https://github.com/youthweb/youthweb-api/releases).
