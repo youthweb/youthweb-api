@@ -64,7 +64,7 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	}
 
 	/**
-	 * @Given /^I have the payload:$/
+	 * @Given I have the payload
 	 */
 	public function iHaveThePayload(PyStringNode $requestPayload)
 	{
