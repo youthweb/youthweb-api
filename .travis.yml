@@ -9,7 +9,7 @@ matrix:
 sudo: false
 
 before_script:
-- if [[ "$TEST_PRODUCTION_SUITE" == "true" ]]; then echo "Drakov is not necessary"; else echo "Installing Drakov"; npm install -g drakov; drakov -f ./apiary.apib -p 3000& drakov -f ./errors.apib -p 3001& fi
+- if [[ "$TEST_PRODUCTION_SUITE" == "true" ]]; then echo "Drakov is not necessary"; else echo "Installing Drakov"; npm install -g drakov@0.1.17; drakov -f ./apiary.apib -p 3000& drakov -f ./errors.apib -p 3001& fi
 - travis_retry composer self-update
 - travis_retry composer install --no-interaction --prefer-source
 
