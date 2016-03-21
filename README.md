@@ -9,8 +9,6 @@
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.4-dev
-
 ## Dokumentation
 
 Aktuelle Dokumentation: http://docs.youthweb0m3.apiary.io/
