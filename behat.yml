@@ -11,11 +11,4 @@ default:
                 - %paths.base%/features/errors
             contexts:
                 - FeatureContext:
-                    baseUrl: http://localhost:3001/
-        production:
-            paths:
-                - %paths.base%/features/apiblueprint
-                - %paths.base%/features/errors
-            contexts:
-                - FeatureContext:
-                    baseUrl: https://youthweb.net/
+                    baseUrl: http://localhost:3000/
