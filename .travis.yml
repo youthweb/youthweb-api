@@ -1,13 +1,10 @@
 language: php
 
-matrix:
-  include:
-    - php: 7.0
-      env: TEST_SUITE=develop
-      env: TEST_FILE=./apiary.apib
-    - php: 7.0
-      env: TEST_SUITE=errors
-      env: TEST_FILE=./errors.apib
+php:
+  - 7.0
+env:
+  - TEST_SUITE=develop TEST_FILE=./apiary.apib
+  - TEST_SUITE=errors TEST_FILE=./errors.apib
 
 sudo: false
 
