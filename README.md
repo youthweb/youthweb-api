@@ -27,7 +27,7 @@ Dieser Entwurf der API erlaubt bisher nur lesenden Zugriff, daher wird derzeit n
 
 Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben. Die angefragte Version muss im Request-Header angegeben werden:
 
-`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3`
+`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.4`
 
 ### Unterstützte Versionen
 
