@@ -61,3 +61,15 @@ Scenario: Using the API with Accept Header without version parameter
 	And the "title" property is a string equalling "Not Acceptable"
 	And the "detail" property exists
 	And the "detail" property is a string equalling "You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.4"
+
+Scenario: Using the API with deprecated version parameter
+	Given I have set the "Content-Type" header with "application/vnd.api+json"
+	And I have set the "Accept" header with "application/vnd.api+json"
+	And I have set the "Accept" application/vnd.api+json; net.youthweb.api.version=0.3"
+	When I request "GET /stats/account"
+	Then I get a "200" response
+	And the Content-Type Header "application/vnd.api+json" exists
+	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.4" exists
+	And the "meta.warnings" property exists
+	And the "meta.warnings" property is an array
+	And the "meta.warning.0" property is a string equalling "You have specified a deprecated API version. Please use the current API version"
