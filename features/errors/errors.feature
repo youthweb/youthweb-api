@@ -65,7 +65,7 @@ Scenario: Using the API with Accept Header without version parameter
 Scenario: Using the API with deprecated version parameter
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" application/vnd.api+json; net.youthweb.api.version=0.3"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.3"
 	When I request "GET /stats/account"
 	Then I get a "200" response
 	And the Content-Type Header "application/vnd.api+json" exists
