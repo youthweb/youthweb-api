@@ -66,10 +66,33 @@ Scenario: Using the API with deprecated version parameter
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.3"
-	When I request "GET /stats/account"
+	When I request "GET /stats/forum"
 	Then I get a "200" response
 	And the Content-Type Header "application/vnd.api+json" exists
 	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.4" exists
-	And the "meta.warnings" property exists
-	And the "meta.warnings" property is an array
-	And the "meta.warning.0" property is a string equalling "You have specified a deprecated API version. Please use the current API version"
+	And the "meta" property exists
+	And the "meta" property is an object
+	And scope into the "meta" property
+	And the "warnings" property exists
+	And the "warnings" property is an array
+	And the "warnings" property contains at least:
+		"""
+		You have specified a deprecated API version. Please use the current API version 0.4
+		"""
+
+Scenario: Using the API with unsupported version parameter
+	Given I have set the "Content-Type" header with "application/vnd.api+json"
+	And I have set the "Accept" header with "application/vnd.api+json"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.2"
+	When I request "GET /stats/group"
+	Then I get a "406" response
+	And the Content-Type Header "application/vnd.api+json" exists
+	And the Accept Header "application/vnd.api+json" exists
+	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.4" exists
+	And the "errors" property exists
+	And the "errors" property is an array
+	And scope into the first "errors" property
+	And the "title" property exists
+	And the "title" property is a string equalling "Not Acceptable"
+	And the "detail" property exists
+	And the "detail" property is a string equalling "You have specified an unsupported API version. Please use the current API version 0.4"
