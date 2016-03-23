@@ -293,6 +293,9 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	public function thePropertyIsAStringEqualling($property, $expectedValue)
 	{
+		// Workaround: Behat wandelt $expectedValue in int um, wenn ein String aus Zahlen übergeben wird
+		$expectedValue = (string) $expectedValue;
+
 		$payload = $this->getScopePayload();
 
 		$this->thePropertyIsAString($property);

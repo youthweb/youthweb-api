@@ -12,6 +12,8 @@ Scenario: Using the API without Content-Type Json API Header
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
+	And the "status" property exists
+	And the "status" property is a string equalling "415"
 	And the "title" property exists
 	And the "title" property is a string equalling "Unsupported Media Type"
 	And the "detail" property exists
@@ -28,6 +30,8 @@ Scenario: Using the API with Content-Type Json API Header and parameter
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
+	And the "status" property exists
+	And the "status" property is a string equalling "415"
 	And the "title" property exists
 	And the "title" property is a string equalling "Unsupported Media Type"
 	And the "detail" property exists
@@ -42,6 +46,8 @@ Scenario: Using the API without Accept Header
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
+	And the "status" property exists
+	And the "status" property is a string equalling "406"
 	And the "title" property exists
 	And the "title" property is a string equalling "Not Acceptable"
 	And the "detail" property exists
@@ -57,6 +63,8 @@ Scenario: Using the API with Accept Header without version parameter
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
+	And the "status" property exists
+	And the "status" property is a string equalling "406"
 	And the "title" property exists
 	And the "title" property is a string equalling "Not Acceptable"
 	And the "detail" property exists
@@ -92,6 +100,8 @@ Scenario: Using the API with unsupported version parameter
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
+	And the "status" property exists
+	And the "status" property is a string equalling "406"
 	And the "title" property exists
 	And the "title" property is a string equalling "Not Acceptable"
 	And the "detail" property exists
