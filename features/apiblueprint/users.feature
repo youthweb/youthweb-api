@@ -7,7 +7,7 @@ Scenario: Requesting a user
 	And I have set the "Accept" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.4"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
-	When I request "GET /users/token"
+	When I request "GET /users/123456"
 	Then I get a "200" response
 	And the "data" property exists
 	And the "data" property is an object
@@ -16,7 +16,7 @@ Scenario: Requesting a user
 	And the "type" property is a string equalling "users"
 	And the "id" property exists
 	And the "attributes" property exists
-	And scope into the "attributes" property
+	And scope into the "data.attributes" property
 	And the response contains 1 items
 	And the properties exist:
 		"""
