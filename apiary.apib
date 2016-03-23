@@ -23,7 +23,7 @@ Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.ver
 ## Authentication
 
 1. Generiere dir [hier](https://youthweb.net/settings/token) ein User-Token. Dieses User-Token wird auch `token_secret` genannt und muss wie ein Passwort geheim gehalten werden.
-2. Sende deinen `username` und dein `token_secret` an `POST /auth/token`, um ein [JWT](http://jwt.io/) zu erhalten. Genauere Informationen sind [hier](http://docs.youthweb0m4.apiary.io/#reference/auth) zu finden.
+2. Sende deinen `username` und dein `token_secret` an `POST /auth/token`, um ein [JWT](http://jwt.io/) zu erhalten. Genauere Informationen sind [hier](#reference/auth) zu finden.
 3. Das JWT ist ein zeitlich begrenztes Token, dass bei allen weiteren Requests im Header mitgegeben wird: `Authorization: Bearer <JWT>`
 
 # Group Stats
