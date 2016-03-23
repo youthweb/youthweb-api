@@ -3,7 +3,7 @@
         "php": ">=5.5",
         "behat/behat": "~3.0",
         "guzzlehttp/guzzle": "~6.0",
-        "phpunit/phpunit": "~4.0"
+        "phpunit/phpunit": "~5.0"
     },
     "config": {
         "bin-dir": "vendor/bin/"
