@@ -105,6 +105,42 @@ Keine. Diese Version ist read-only.
                 + groups_total: 614 (number) - Die Anzahl der Gruppen auf Youthweb
                 + users_total: 2073 (number) - Die Anzahl der User, die einer Gruppe angehören
 
+
+# Group Users
+
+## User [/users/{user_id}]
+
+A user object has the following attributes:
+
++ type
++ id - The User-ID
++ attributes - An object of attributes.
+
++ Parameters
+    + user_id: 123456 (required, number) - ID of the user in form of an integer
+
+### Retrieve a user [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.4
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.4
+
+    + Attributes
+
+        + data (object)
+            + type: `users` (string)
+            + id: `123456` (string) - Die User-ID
+            + attributes (object)
+                + username: `JohnSmith` (string) - Der Username
+
 # Group Auth
 
 ## Token Auth [/auth/token]
