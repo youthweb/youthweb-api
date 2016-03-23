@@ -5,7 +5,7 @@ HOST: https://youthweb.net
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.3 (2015-10-11)
+Aktuelle Version: 0.4 (2016-03-27)
 
 Status: Alpha
 
@@ -22,11 +22,17 @@ Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.ver
 
 ## Authentication
 
-Keine. Diese Version ist read-only.
+1. Generiere dir [hier](https://youthweb.net/settings/token) ein User-Token. Dieses User-Token wird auch `token_secret` genannt und muss wie ein Passwort geheim gehalten werden.
+2. Sende deinen `username` und dein `token_secret` an `POST /auth/token`, um ein [JWT](http://jwt.io/) zu erhalten. Genauere Informationen sind [hier](http://docs.youthweb0m4.apiary.io/#reference/auth) zu finden.
+3. Das JWT ist ein zeitlich begrenztes Token, dass bei allen weiteren Requests im Header mitgegeben wird: `Authorization: Bearer <JWT>`
 
 # Group Stats
 
+Für die Statistiken ist keine Autorisierung nötig.
+
 ## Account Stats [/stats/account]
+
+Liefert Statistiken zu den Accounts.
 
 ### Retrieve the account stats [GET]
 + Request (application/vnd.api+json)
@@ -58,6 +64,8 @@ Keine. Diese Version ist read-only.
 
 ## Forum Stats [/stats/forum]
 
+Liefert Statistiken zum Forum
+
 ### Retrieve the forum stats [GET]
 + Request (application/vnd.api+json)
 
@@ -82,6 +90,8 @@ Keine. Diese Version ist read-only.
                 + posts_total: 121387 (number) - Die Anzahl aller verfasster Posts
 
 ## Groups Stats [/stats/groups]
+
+Liefert Statistiken zu den Gruppen.
 
 ### Retrieve the groups stats [GET]
 + Request (application/vnd.api+json)
@@ -110,7 +120,7 @@ Keine. Diese Version ist read-only.
 
 ## User [/users/{user_id}]
 
-A user object has the following attributes:
+Ein User Objekt hat die folgenden Attribute
 
 + type
 + id - The User-ID
@@ -119,7 +129,7 @@ A user object has the following attributes:
 + Parameters
     + user_id: 123456 (required, number) - ID of the user in form of an integer
 
-### Retrieve a user [GET]
+### Daten zu einem User abrufen [GET]
 + Request (application/vnd.api+json)
 
     + Headers
@@ -145,7 +155,7 @@ A user object has the following attributes:
 
 ## Token Auth [/auth/token]
 
-### Retrieve a token [POST]
+### Ein JWT generieren lassen [POST]
 + Request (application/vnd.api+json)
 
     + Headers

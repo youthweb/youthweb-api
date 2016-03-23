@@ -1,7 +1,19 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.4] - 2016-03-27
+### Added
+
+- Authentication with User-Token and Authorization with Bearer token
+- New resource `users/{user_id}`
+- Tests for Errors with wrong headers
+- Show warning if request header Accept: application/vnd.api+json; net.youthweb.api.version=x.y is set with deprecated version
+
+### Changed
+
+- Show 415 error if request header Content-Type: application/vnd.api+json isn't set
+- Show 406 error if request header Accept: application/vnd.api+json; net.youthweb.api.version=x.y isn't set
+- Show 406 error if request header Accept: application/vnd.api+json; net.youthweb.api.version=x.y is set with unsupported version
 
 ## [0.3] - 2015-10-11
 ### Added

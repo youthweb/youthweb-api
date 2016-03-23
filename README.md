@@ -11,7 +11,7 @@ Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
 ## Dokumentation
 
-Aktuelle Dokumentation: http://docs.youthweb0m3.apiary.io/
+Aktuelle Dokumentation: http://docs.youthweb0m4.apiary.io/
 
 Dev-Dokumentation: http://docs.youthweb.apiary.io/
 
@@ -21,11 +21,17 @@ Die API ist im ersten Entwurf über https://youthweb.net erreichbar. Diese URI w
 
 ## Autorisierung
 
-Dieser Entwurf der API erlaubt bisher nur lesenden Zugriff, daher wird derzeit noch keine Autorisierung benötigt. In Zukunft wird ein userbasierter lesender Zugriff auf Basis von [JWT](http://jwt.io/) ([RFC 7519](https://tools.ietf.org/html/rfc7519)) möglich sein.
+Die meisten Resourcen benötigen eine Autorisierung. Dazu muss sich der Client zuerst authentifizieren.
+
+1. Generiere dir [hier](https://youthweb.net/settings/token) ein User-Token. Dieses User-Token wird auch `token_secret` genannt und muss wie ein Passwort geheim gehalten werden.
+2. Sende deinen `username` und dein `token_secret` an `POST /auth/token`, um ein [JWT](http://jwt.io/) zu erhalten. Genauere Informationen sind [in der Dokumentation](http://docs.youthweb.apiary.io/#reference/auth) zu finden.
+3. Das JWT ist ein zeitlich begrenztes Token, dass bei allen weiteren Requests im Header mitgegeben wird: `Authorization: Bearer <JWT>`
+
+Wenn das JWT fast abgelaufen ist, wird bei Requests automatisch ein neues JWT zur Verfügung gestellt, dass weiter verwendet werden kann. Alternativ kann man sich wie oben beschrieben ein neues JWT anfordern.
 
 ## Versionierung
 
-Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben. Die angefragte Version muss im Request-Header angegeben werden:
+Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben. Die angefragte Version MUSS im Request-Header angegeben werden:
 
 `Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.4`
 
@@ -33,9 +39,9 @@ Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalt
 
 | Version | Status | Veröffentlicht | Unterstützt bis |
 |---------|--------|----------------|-----------------|
-| **0.3** | :white_check_mark: unterstützt | 2015-10-11 | *n/a* |
-| **0.2** | :warning: veraltet | 2015-06-21 | Release 0.4 |
-| 0.1 | :x: nicht mehr unterstützt | 2014-12-17 | Release 0.3 - 2015-10-11 |
+| **0.4** | :white_check_mark: unterstützt | 2016-03-27 | *n/a* |
+| **0.3** | :warning: veraltet | 2015-10-11 | *n/a* |
+| 0.2 und darunter | :x: nicht mehr unterstützt | 2015-06-21 | Release 0.4 - 2016-03-27 |
 
 ## Contribute
 
