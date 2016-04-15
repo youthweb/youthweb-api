@@ -17,8 +17,22 @@ Scenario: Requesting a user
 	And the "id" property exists
 	And the "attributes" property exists
 	And scope into the "data.attributes" property
-	And the response contains 1 items
+	And the response contains 15 items
 	And the properties exist:
 		"""
 		username
+		first_name
+		last_name
+		email
+		birthday
+		created_at
+		last_login
+		zip
+		city
+		description_jesus
+		description_job
+		description_hobbies
+		description_motto
+		picture_thumb_url
+		picture_url
 		"""
