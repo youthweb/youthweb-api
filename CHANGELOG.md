@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Added
+
+- Resource `users/` provides new attributes like `first_name`, `last_name`, `email`, `birthday`, `created_at` and more.
+
 ## [0.4] - 2016-03-27
 ### Added
 
