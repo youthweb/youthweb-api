@@ -1,7 +1,9 @@
-# Change Log
+# Changelog
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.5] - 2016-07-03
 ### Added
 
 - Resource `users/` provides new attributes like `first_name`, `last_name`, `email`, `birthday`, `created_at` and more.
@@ -64,7 +66,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.4...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.5...develop
+[0.5]: https://github.com/youthweb/youthweb-api/compare/0.4...0.5
 [0.4]: https://github.com/youthweb/youthweb-api/compare/0.3...0.4
 [0.3]: https://github.com/youthweb/youthweb-api/compare/0.2.1...0.3
 [0.2.1]: https://github.com/youthweb/youthweb-api/compare/0.2...0.2.1
