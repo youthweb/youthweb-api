@@ -9,7 +9,7 @@ env:
 sudo: false
 
 before_script:
-- echo "Installing Drakov"; npm install -g drakov@0.2.2; drakov -f $TEST_FILE -p 3000&
+- echo "Installing Drakov"; npm install; ./node_modules/.bin/drakov -f $TEST_FILE -p 3000&
 - travis_retry composer self-update
 - travis_retry composer install --no-interaction --prefer-source
 

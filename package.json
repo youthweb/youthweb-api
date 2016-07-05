@@ -1,7 +1,7 @@
 {
   "name": "youthweb-api",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "devDependencies": {
-    "drakov": "0.2.*"
+    "drakov": "^1.0.0"
   }
 }
