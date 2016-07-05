@@ -8,6 +8,10 @@ env:
 
 sudo: false
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 before_script:
 - npm install
 - ./node_modules/.bin/drakov -f $TEST_FILE -p 3000&
