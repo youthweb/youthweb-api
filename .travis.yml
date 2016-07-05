@@ -9,9 +9,10 @@ env:
 sudo: false
 
 before_script:
-- echo "Installing Drakov"; npm install; ./node_modules/.bin/drakov -f $TEST_FILE -p 3000&
+- npm install
+- ./node_modules/.bin/drakov -f $TEST_FILE -p 3000&
 - travis_retry composer self-update
-- travis_retry composer install --no-interaction --prefer-source
+- travis_retry composer install --no-interaction --prefer-dist
 
 script:
 - echo "Testing $TEST_SUITE"; vendor/bin/behat --suite=$TEST_SUITE;

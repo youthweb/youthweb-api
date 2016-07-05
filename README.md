@@ -11,7 +11,7 @@ Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
 ## Dokumentation
 
-Aktuelle Dokumentation: http://docs.youthweb0m4.apiary.io/
+Aktuelle Dokumentation: http://docs.youthweb0m5.apiary.io/
 
 Dev-Dokumentation: http://docs.youthweb.apiary.io/
 
