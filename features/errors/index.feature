@@ -3,7 +3,9 @@ Feature: Index
 	As a visitor
 
 Scenario: Calling the BaseUrl
-	Given I have set the Content-Type Header "application/vnd.api+json"
+	Given I have set the "Content-Type" header with "application/vnd.api+json"
+	And I have set the "Accept" header with "application/vnd.api+json"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.5"
 	When I request "GET /"
 	Then I get a "404" response
 	And the Content-Type Header "application/vnd.api+json" exists
