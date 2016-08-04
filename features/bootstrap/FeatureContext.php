@@ -64,7 +64,7 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	}
 
 	/**
-	 * @Given /^I have the payload:$/
+	 * @Given I have the payload
 	 */
 	public function iHaveThePayload(PyStringNode $requestPayload)
 	{
@@ -72,11 +72,11 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	}
 
 	/**
-	 * @Given I have set the Content-Type Header :arg1
+	 * @Given I have set the :arg1 header with :arg2
 	 */
-	public function iHaveSetTheContentTypeHeader($content_type)
+	public function iHaveSetTheHeaderWith($name, $content)
 	{
-		$this->request_headers['Content-Type'][] = $content_type;
+		$this->request_headers[$name][] = $content;
 	}
 
 	/**
@@ -88,10 +88,10 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 
 		$headers = $this->request_headers;
 
-		if ( isset($headers['Content-Type']) and ! empty($headers['Content-Type']) )
-		{
-			$headers['Content-Type'] = implode(', ', $headers['Content-Type']);
-		}
+		// Combine headers
+		array_walk($headers, function(&$content, $name) {
+			$content = implode(', ', $content);
+		});
 
 		$method = strtolower($httpMethod);
 
@@ -148,9 +148,13 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	public function theAcceptHeaderExists($accept_type)
 	{
-		$accept_types = $this->getResponse()->getHeader('Accept');
+		$accepts = explode(',', $this->getResponse()->getHeaderLine('Accept'));
 
-		$this->assertTrue(in_array($accept_type, $accept_types), 'Accept: ' . implode(', ', $accept_types));
+		array_walk($accepts, function(&$string, $key) {
+			$string = trim($string);
+		});
+
+		$this->assertTrue(in_array($accept_type, $accepts), 'Accept: ' . implode(', ', $accepts));
 	}
 
 	/**
@@ -289,6 +293,9 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	 */
 	public function thePropertyIsAStringEqualling($property, $expectedValue)
 	{
+		// Workaround: Behat wandelt $expectedValue in int um, wenn ein String aus Zahlen übergeben wird
+		$expectedValue = (string) $expectedValue;
+
 		$payload = $this->getScopePayload();
 
 		$this->thePropertyIsAString($property);

@@ -1,0 +1,112 @@
+FORMAT: 1A
+HOST: https://youthweb.net
+
+# Youthweb API - Errors
+
+Hier werden Fehler und Fehlermeldungen der API getestet
+
+# Group Stats
+
+## Account Stats [/stats/account]
+
+### Retrieve the account stats without content-type header [GET]
++ Request
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
++ Response 415 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
+    + Body
+
+            {"errors":[{"status":"415","title":"Unsupported Media Type","detail":"You're using an unsupported Content-Type. You have to use the Content-Type application/vnd.api+json"}]}
+
+### Retrieve the account stats with content-type header and parameter [GET]
++ Request (application/vnd.api+json; parameter=value)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
++ Response 415 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
+    + Body
+
+            {"errors":[{"status":"415","title":"Unsupported Media Type","detail":"You're using an unsupported Content-Type. You have to use the Content-Type application/vnd.api+json"}]}
+
+### Retrieve the account stats with accept header without version parameter [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json
+
++ Response 406 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
+    + Body
+
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5"}]}
+
+### Retrieve the account stats without accept header [GET]
++ Request (application/vnd.api+json)
+
++ Response 406 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
+    + Body
+
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5"}]}
+
+## Forum Stats [/stats/forum]
+
+### Retrieve the forum stats with a deprecated version parameter [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.3
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
+    + Body
+
+            {"data":null,"meta":{"warnings":["You have specified a deprecated API version. Please use the current API version 0.5"]}}
+
+## Group Stats [/stats/group]
+
+### Retrieve the group stats with a unsupported version parameter [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.2
+
++ Response 406 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
+    + Body
+
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You have specified an unsupported API version. Please use the current API version 0.5"}]}

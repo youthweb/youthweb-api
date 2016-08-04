@@ -9,11 +9,9 @@
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.2.1 (2015-06-22)
-
 ## Dokumentation
 
-Aktuelle Dokumentation: http://docs.youthweb0m2p1.apiary.io/
+Aktuelle Dokumentation: http://docs.youthweb0m5.apiary.io/
 
 Dev-Dokumentation: http://docs.youthweb.apiary.io/
 
@@ -21,7 +19,30 @@ Dev-Dokumentation: http://docs.youthweb.apiary.io/
 
 Die API ist über https://api.youthweb.net erreichbar.
 
-Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Dieser erste Entwurf erlaubt nur lesenden Zugriff, aber in Zukunft wird ein userbasierter schreibender Zugriff mit OAuth möglich sein. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben.
+## Autorisierung
+
+Die meisten Resourcen benötigen eine Autorisierung. Dazu muss sich der Client zuerst authentifizieren.
+
+1. Generiere dir [hier](https://youthweb.net/settings/token) ein User-Token. Dieses User-Token wird auch `token_secret` genannt und muss wie ein Passwort geheim gehalten werden.
+2. Sende deinen `username` und dein `token_secret` an `POST /auth/token`, um ein [JWT](http://jwt.io/) zu erhalten. Genauere Informationen sind [in der Dokumentation](http://docs.youthweb.apiary.io/#reference/auth) zu finden.
+3. Das JWT ist ein zeitlich begrenztes Token, dass bei allen weiteren Requests im Header mitgegeben wird: `Authorization: Bearer <JWT>`
+
+Wenn das JWT fast abgelaufen ist, wird bei Requests automatisch ein neues JWT zur Verfügung gestellt, dass weiter verwendet werden kann. Alternativ kann man sich wie oben beschrieben ein neues JWT anfordern.
+
+## Versionierung
+
+Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben. Die angefragte Version MUSS im Request-Header angegeben werden:
+
+`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5`
+
+### Unterstützte Versionen
+
+| Version | Status                         | Veröffentlicht | Unterstützt bis          |
+|---------|--------------------------------|----------------|--------------------------|
+| **0.5** | :white_check_mark: unterstützt | 2016-07-03     | *n/a*                    |
+| **0.4** | :white_check_mark: unterstützt | 2016-03-27     | *n/a*                    |
+| **0.3** | :warning: veraltet             | 2015-10-11     | *n/a*                    |
+| <= 0.2  | :x: nicht mehr unterstützt     | 2015-06-21     | Release 0.4 - 2016-03-27 |
 
 ## Contribute
 
@@ -47,7 +68,7 @@ Du kannst mithelfen, diese API zu gestalten, indem du an diesem Projekt mitarbei
 
 ### Änderungen
 
-Du kannst jetzt deine gewünschten Änderungen im [API-Blueprint](https://github.com/youthweb/youthweb-api/blob/master/apiary.apib) durchführen und diese mit einem [Behat-Feature](https://github.com/youthweb/youthweb-api/tree/master/tests/behat/features) absichern. Vergiss nicht, deine Änderungen zu testen:
+Du kannst jetzt deine gewünschten Änderungen im [API-Blueprint](apiary.apib) durchführen und diese mit einem [Behat-Feature](features/apiblueprint) absichern. Vergiss nicht, deine Änderungen zu testen:
 
 ```vendor/bin/behat --suite=develop```
 
@@ -55,14 +76,16 @@ Anschließend kannst du deine Änderungen mit einem Pull-Request einreichen.
 
 ## Clients
 
+Diese Clients vereinfachen den Zugriff auf die API. Wenn du einen eigenen Client entwickelt hast, dann gib uns Bescheid und wir ergänzen ihn hier.
+
 ### PHP
 
 Es gibt einen [objektorientierten Client in PHP](https://github.com/youthweb/php-youthweb-api), der die API abbildet.
 
 ## Resources
 
-Wirf einen Blick in die [Dokumentation](#dokumentation), um alle verfügbaren Resourcen anzuzeigen
+Wirf einen Blick in die [Dokumentation](#dokumentation), um alle verfügbaren Resourcen anzuzeigen.
 
-## [Changelog](CHANGELOG.md)
+## Changelog
 
 Der Changelog ist [hier](CHANGELOG.md) zu finden und folgt den Empfehlungen von [keepachangelog.com](http://keepachangelog.com/).

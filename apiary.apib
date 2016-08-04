@@ -5,69 +5,191 @@ HOST: https://api.youthweb.net
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.2.1 (2015-06-22)
+Aktuelle Version: 0.5 (2016-07-03)
 
 Status: Alpha
 
 Github Repository: https://github.com/youthweb/youthweb-api
 
+## Request Header
+
+Diese Header müssen bei jedem Request angegeben werden:
+
+```
+Content-Type: application/vnd.api+json
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+```
+
 ## Authentication
 
-Keine. Diese Version ist read-only.
+1. Generiere dir [hier](https://youthweb.net/settings/token) ein User-Token. Dieses User-Token wird auch `token_secret` genannt und muss wie ein Passwort geheim gehalten werden.
+2. Sende deinen `username` und dein `token_secret` an `POST /auth/token`, um ein [JWT](http://jwt.io/) zu erhalten. Genauere Informationen sind [hier](#reference/auth) zu finden.
+3. Das JWT ist ein zeitlich begrenztes Token, dass bei allen weiteren Requests im Header mitgegeben wird: `Authorization: Bearer <JWT>`
 
 # Group Stats
 
+Für die Statistiken ist keine Autorisierung nötig.
+
 ## Account Stats [/stats/account]
+
+Liefert Statistiken zu den Accounts.
 
 ### Retrieve the account stats [GET]
 + Request (application/vnd.api+json)
 
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
 + Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
 
     + Attributes
 
-        + user_total (number) - Die Anzahl aller User
-        + user_total_female (number) - Die Anzahl der weiblichen User
-        + user_total_male (number) - Die Anzahl der männlichen User
-        + user_online (number) - Die Anzahl der User, die im Moment online sind
-        + user_online_24h (number) - Die Anzahl der User, die in den letzten 24 Stunden online waren
-        + user_online_7d (number) - Die Anzahl der User, die in den letzten 7 Tagen online waren
-        + user_online_30d (number) - Die Anzahl der User, die in den letzten 30 Tagen online waren
-        + userpics (number) - Die Anzahl der User, die ein Profilbild hochgeladen haben
-
-    + Body
-
-            {"data":{"type":"stats","id":"account","attributes":{"user_total":5503,"user_total_female":2831, "user_total_male":2672,"user_online":74,"user_online_24h":629,"user_online_7d":1035,"user_online_30d":1600,"userpics":3441}}}
+        + data (object)
+            + type: `stats` (string)
+            + id: `account` (string)
+            + attributes (object)
+                + user_total: 5503 (number) - Die Anzahl aller User
+                + user_total_female: 2831 (number) - Die Anzahl der weiblichen User
+                + user_total_male: 2672 (number) - Die Anzahl der männlichen User
+                + user_online: 74 (number) - Die Anzahl der User, die im Moment online sind
+                + user_online_24h: 629 (number) - Die Anzahl der User, die in den letzten 24 Stunden online waren
+                + user_online_7d: 1035 (number) - Die Anzahl der User, die in den letzten 7 Tagen online waren
+                + user_online_30d: 1600 (number) - Die Anzahl der User, die in den letzten 30 Tagen online waren
+                + userpics: 3441 (number) - Die Anzahl der User, die ein Profilbild hochgeladen haben
 
 ## Forum Stats [/stats/forum]
+
+Liefert Statistiken zum Forum
 
 ### Retrieve the forum stats [GET]
 + Request (application/vnd.api+json)
 
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
 + Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
 
     + Attributes
 
-        + authors_total (number) - Die Anzahl aller User, die mindestens einen Forenpost verfasst haben
-        + threads_total (number) - Die Anzahl aller Threads
-        + posts_total (number) - Die Anzahl aller verfasster Posts
-
-    + Body
-
-            {"data":{"type":"stats","id":"forum","attributes":{"authors_total":1480,"threads_total":2094,"posts_total":121387}}}
+        + data (object)
+            + type: `stats` (string)
+            + id: `forum` (string)
+            + attributes (object)
+                + authors_total: 1480 (number) - Die Anzahl aller User, die mindestens einen Forenpost verfasst haben
+                + threads_total: 2094 (number) - Die Anzahl aller Threads
+                + posts_total: 121387 (number) - Die Anzahl aller verfasster Posts
 
 ## Groups Stats [/stats/groups]
+
+Liefert Statistiken zu den Gruppen.
 
 ### Retrieve the groups stats [GET]
 + Request (application/vnd.api+json)
 
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
 + Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
 
     + Attributes
 
-        + groups_total (number) - Die Anzahl der Gruppen auf Youthweb
-        + users_total (number) - Die Anzahl der User, die einer Gruppe angehören
+        + data (object)
+            + type: `stats` (string)
+            + id: `groups` (string)
+            + attributes (object)
+                + groups_total: 614 (number) - Die Anzahl der Gruppen auf Youthweb
+                + users_total: 2073 (number) - Die Anzahl der User, die einer Gruppe angehören
 
-    + Body
 
-            {"data":{"type":"stats","id":"groups","attributes":{"groups_total":614,"users_total":2073}}}
+# Group Users
+
+## User [/users/{user_id}]
+
+Ein User Objekt hat die folgenden Attribute
+
++ type
++ id - The User-ID
++ attributes - An object of attributes.
+
++ Parameters
+    + user_id: 123456 (required, number) - ID of the user in form of an integer
+
+### Daten zu einem User abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
+    + Attributes
+
+        + data (object)
+            + type: `users` (string)
+            + id: `123456` (string) - Die User-ID
+            + attributes (object)
+                + username: `JohnSmith` (string) - Der Username
+                + `first_name`: `John` (string, nullable) - Der Vorname
+                + `last_name`: `Smith` (string, nullable) - Der Nachname
+                + email: `john_smith@example.org` (string, nullable) - Die E-Mail Adresse
+                + birthday: `1988-03-05` (string, nullable) - Geburtstag im Format YYYY-MM-DD
+                + `created_at`: `2006-01-01T21:00:00+01:00` (string) - Zeitpunkt der Registrierung als ISO-8601
+                + `last_login`: `2016-01-01T22:00:00+02:00` (string) - Zeitpunkt des letzten Logins als ISO-8601
+                + zip: `12345` (string, nullable) - Die Postleitzahl
+                + city: `Jamestown` (string, nullable) - Die Stadt
+                + `description_jesus`: `Lorem ipsum dolor sit amet` (string, nullable) - "Was ich von Jesus halte"
+                + `description_job`: `Lorem ipsum dolor sit amet` (string, nullable) - Der Beruf
+                + `description_hobbies`: `Lorem ipsum dolor sit amet` (string, nullable) - Die Hobbies
+                + `description_motto`: `Lorem ipsum dolor sit amet` (string, nullable) - Das Lebensmotto
+                + `picture_thumb_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Thumbnail)
+                + `picture_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Vollbild)
+
+# Group Auth
+
+## Token Auth [/auth/token]
+
+### Ein JWT generieren lassen [POST]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
+    + Attributes
+
+        + meta (object)
+            + username: `JohnSmith` (string)
+            + `token_secret`: `valid_secret` (string)
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
+    + Attributes
+
+        + meta (object)
+            + token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs` (string)
+            + `token_type`: `Bearer` (string)

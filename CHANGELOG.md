@@ -1,7 +1,38 @@
-# Change Log
+# Changelog
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.5] - 2016-07-03
+### Added
+
+- Resource `users/` provides new attributes like `first_name`, `last_name`, `email`, `birthday`, `created_at` and more.
+
+## [0.4] - 2016-03-27
+### Added
+
+- Authentication with User-Token and Authorization with Bearer token
+- New resource `users/{user_id}`
+- Tests for Errors with wrong headers
+- Show warning if request header Accept: application/vnd.api+json; net.youthweb.api.version=x.y is set with deprecated version
+
+### Changed
+
+- Show 415 error if request header Content-Type: application/vnd.api+json isn't set
+- Show 406 error if request header Accept: application/vnd.api+json; net.youthweb.api.version=x.y isn't set
+- Show 406 error if request header Accept: application/vnd.api+json; net.youthweb.api.version=x.y is set with unsupported version
+
+## [0.3] - 2015-10-11
+### Added
+
+- Response header Content-Type: application/vnd.api+json added
+- Response header Accept: application/vnd.api+json; net.youthweb.api.version=x.y added
+
+### Changed
+
+- Show warning if request header Content-Type: application/vnd.api+json isn't set
+- Show warning if request header Accept: application/vnd.api+json; net.youthweb.api.version=x.y isn't set
+
 ### Removed
 - The `account/stats` resource was removed.
 
@@ -19,7 +50,7 @@ All notable changes to this project will be documented in this file.
 - Better response description and new clients section in README.md.
 
 ### Changed
-- responses are now following the [JsonAPI](http://jsonapi.org/) spec.
+- response bodies are now following the [JSON API](http://jsonapi.org/) spec.
 
 ### Deprecated
 - The `account/stats` resource will be deleted in the next release.
@@ -35,7 +66,10 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.2.1...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.5...develop
+[0.5]: https://github.com/youthweb/youthweb-api/compare/0.4...0.5
+[0.4]: https://github.com/youthweb/youthweb-api/compare/0.3...0.4
+[0.3]: https://github.com/youthweb/youthweb-api/compare/0.2.1...0.3
 [0.2.1]: https://github.com/youthweb/youthweb-api/compare/0.2...0.2.1
 [0.2]: https://github.com/youthweb/youthweb-api/compare/0.1...0.2
 [0.1]: https://github.com/youthweb/youthweb-api/compare/0.0.1...0.1
