@@ -1,9 +1,30 @@
 FORMAT: 1A
-HOST: https://youthweb.net
+HOST: https://api.youthweb.net
 
 # Youthweb API - Errors
 
-Hier werden Fehler und Fehlermeldungen der API getestet
+Hier werden Fehler und Fehlermeldungen der API getestet.
+
+# Group General
+
+## Index [/]
+
+### Request no resource [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
+    + Body
+
+            {"errors":[{"status":"404","title":"Resource not found"}]}
 
 # Group Stats
 

@@ -17,7 +17,7 @@ Dev-Dokumentation: http://docs.youthweb.apiary.io/
 
 ## URI
 
-Die API ist im ersten Entwurf über https://youthweb.net erreichbar. Diese URI wird sich in Zukunft ändern.
+Die API ist über https://api.youthweb.net erreichbar.
 
 ## Autorisierung
 
