@@ -16,9 +16,10 @@ Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalt
 
 | Version | Status                         | Veröffentlicht | Unterstützt bis          |
 |---------|--------------------------------|----------------|--------------------------|
-| **0.5** | :white_check_mark: unterstützt | 2016-07-03     | *n/a*                    |
-| **0.4** | :white_check_mark: unterstützt | 2016-03-27     | *n/a*                    |
-| **0.3** | :warning: veraltet             | 2015-10-11     | *n/a*                    |
+| **0.6** | :white_check_mark: unterstützt | 2016-10-23     | *n/a*                    |
+| **0.5** | :warning: veraltet             | 2016-07-03     | Release 0.7              |
+| **0.4** | :warning: veraltet             | 2016-03-27     | Release 0.7              |
+| 0.3     | :x: nicht mehr unterstützt     | 2015-10-11     | Release 0.6 - 2016-10-23 |
 | <= 0.2  | :x: nicht mehr unterstützt     | 2015-06-21     | Release 0.4 - 2016-03-27 |
 
 {% include links.html %}

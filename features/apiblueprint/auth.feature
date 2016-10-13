@@ -5,7 +5,7 @@ Feature: Request a token
 Scenario: Requesting a token
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.5"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.6"
 	And I have the payload
 		"""
 		{"meta":{"username":"JohnSmith","token_secret":"valid_token"}}
