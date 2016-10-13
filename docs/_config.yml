@@ -6,7 +6,7 @@ output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
 # the url to this site
-url: https://art4.github.io
+url: https://youthweb.github.io
 
 baseurl: /youthweb-api
 
