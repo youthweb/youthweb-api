@@ -1,0 +1,44 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: API Dokumentation
+#  version: 6.0
+  folders:
+
+  - title: Überblick
+    output: web
+    folderitems:
+
+    - title: Home
+      url: /index.html
+      output: web
+      type: homepage
+
+    - title: OAuth2
+      url: /api_oauth2.html
+      output: web
+
+    - title: Versionierung
+      url: /api_versions.html
+      output: web
+
+    - title: Contribute
+      url: /api_contribute.html
+      output: web
+
+  - title: Stats
+    output: web
+    folderitems:
+
+    - title: Stats resource
+      url: /api_resource_stats.html
+      output: web
+
+  - title: Users
+    output: web
+    folderitems:
+
+    - title: Users resource
+      url: /api_resource_users.html
+      output: web
