@@ -165,9 +165,51 @@ Ein User Objekt hat die folgenden Attribute
                 + `picture_thumb_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Thumbnail)
                 + `picture_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Vollbild)
 
+## Me [/me]
+
+Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /users/{user_id}, wenn die User-ID des autorisierten Users nicht bekannt ist.
+
+### Daten zum autorisierten User abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
+    + Attributes
+
+        + data (object)
+            + type: `users` (string)
+            + id: `123456` (string) - Die User-ID
+            + attributes (object)
+                + username: `JohnSmith` (string) - Der Username
+                + `first_name`: `John` (string, nullable) - Der Vorname
+                + `last_name`: `Smith` (string, nullable) - Der Nachname
+                + email: `john_smith@example.org` (string, nullable) - Die E-Mail Adresse
+                + birthday: `1988-03-05` (string, nullable) - Geburtstag im Format YYYY-MM-DD
+                + `created_at`: `2006-01-01T21:00:00+01:00` (string) - Zeitpunkt der Registrierung als ISO-8601
+                + `last_login`: `2016-01-01T22:00:00+02:00` (string) - Zeitpunkt des letzten Logins als ISO-8601
+                + zip: `12345` (string, nullable) - Die Postleitzahl
+                + city: `Jamestown` (string, nullable) - Die Stadt
+                + `description_jesus`: `Lorem ipsum dolor sit amet` (string, nullable) - "Was ich von Jesus halte"
+                + `description_job`: `Lorem ipsum dolor sit amet` (string, nullable) - Der Beruf
+                + `description_hobbies`: `Lorem ipsum dolor sit amet` (string, nullable) - Die Hobbies
+                + `description_motto`: `Lorem ipsum dolor sit amet` (string, nullable) - Das Lebensmotto
+                + `picture_thumb_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Thumbnail)
+                + `picture_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Vollbild)
+
 # Group Auth
 
 ## Token Auth [/auth/token]
+
+Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe https://youthweb.github.io/youthweb-api/api_oauth2.html für mehr Informationen.
 
 ### Ein JWT generieren lassen [POST]
 + Request (application/vnd.api+json)

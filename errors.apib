@@ -131,3 +131,24 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
     + Body
 
             {"errors":[{"status":"406","title":"Not Acceptable","detail":"You have specified an unsupported API version. Please use the current API version 0.5"}]}
+
+# Group Users
+
+## Me [/me]
+
+### Request the /me resource without Bearer token [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
++ Response 401 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+
+    + Body
+
+            {"errors":[{"status":"401","title":"Unauthorized"}]}
