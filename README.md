@@ -11,9 +11,11 @@ Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
 ## Dokumentation
 
-Aktuelle Dokumentation: http://docs.youthweb0m5.apiary.io/
+Offizielle Dokumentation: https://youthweb.github.io/youthweb-api/
 
-Dev-Dokumentation: http://docs.youthweb.apiary.io/
+Aktuelle Dokumentation auf Apiary.io: http://docs.youthweb0m5.apiary.io/
+
+Dev-Dokumentation auf Apiary.io: http://docs.youthweb.apiary.io/
 
 ## URI
 
@@ -21,58 +23,15 @@ Die API ist über https://api.youthweb.net erreichbar.
 
 ## Autorisierung
 
-Die meisten Resourcen benötigen eine Autorisierung. Dazu muss sich der Client zuerst authentifizieren.
-
-1. Generiere dir [hier](https://youthweb.net/settings/token) ein User-Token. Dieses User-Token wird auch `token_secret` genannt und muss wie ein Passwort geheim gehalten werden.
-2. Sende deinen `username` und dein `token_secret` an `POST /auth/token`, um ein [JWT](http://jwt.io/) zu erhalten. Genauere Informationen sind [in der Dokumentation](http://docs.youthweb.apiary.io/#reference/auth) zu finden.
-3. Das JWT ist ein zeitlich begrenztes Token, dass bei allen weiteren Requests im Header mitgegeben wird: `Authorization: Bearer <JWT>`
-
-Wenn das JWT fast abgelaufen ist, wird bei Requests automatisch ein neues JWT zur Verfügung gestellt, dass weiter verwendet werden kann. Alternativ kann man sich wie oben beschrieben ein neues JWT anfordern.
+Hier kannst du lesen, wie du mit deiner App auf geschützte Resourcen der Youthweb-API zugreifen kannst: [OAuth2](https://youthweb.github.io/youthweb-api/api_oauth2.html)
 
 ## Versionierung
 
-Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben. Die angefragte Version MUSS im Request-Header angegeben werden:
-
-`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5`
-
-### Unterstützte Versionen
-
-| Version | Status                         | Veröffentlicht | Unterstützt bis          |
-|---------|--------------------------------|----------------|--------------------------|
-| **0.5** | :white_check_mark: unterstützt | 2016-07-03     | *n/a*                    |
-| **0.4** | :white_check_mark: unterstützt | 2016-03-27     | *n/a*                    |
-| **0.3** | :warning: veraltet             | 2015-10-11     | *n/a*                    |
-| <= 0.2  | :x: nicht mehr unterstützt     | 2015-06-21     | Release 0.4 - 2016-03-27 |
+Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Wie das genau funktioniert, findest du hier: [Versionierung](https://youthweb.github.io/youthweb-api/api_versions.html)
 
 ## Contribute
 
-Du kannst mithelfen, diese API zu gestalten, indem du an diesem Projekt mitarbeitest. Wenn die geplante API auf dem Live-Server von Youthweb umgesetzt ist, bekommt die API einen neuen [Release](https://github.com/youthweb/youthweb-api/releases).
-
-### Installation
-
-1. Forke dieses Projekt in deinen eigenen Account.
-2. Clone das Projekt mit ```git clone git@github.com:<username>/youthweb-api.git``` und wechsle in das neue Verzeichnis.
-3. Installiere Composer und alle Abhänigkeiten:
-
-  ```
-  curl http://getcomposer.org/installer | php
-  php composer.phar install
-  ```
-4. Installiere die NPM-Abhängigkeiten und starte den Drakov Mock-Server:
-
-  ```
-  npm install
-  ./node_modules/drakov/drakov -f ./apiary.apib -p 3000
-  ```
-5. Teste deine API mit ```vendor/bin/behat --suite=develop```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
-
-### Änderungen
-
-Du kannst jetzt deine gewünschten Änderungen im [API-Blueprint](apiary.apib) durchführen und diese mit einem [Behat-Feature](features/apiblueprint) absichern. Vergiss nicht, deine Änderungen zu testen:
-
-```vendor/bin/behat --suite=develop```
-
-Anschließend kannst du deine Änderungen mit einem Pull-Request einreichen.
+Du kannst mithelfen, die Youthweb-API zu gestalten. Hier findest du mehr Informationen dazu: [Contribute](https://youthweb.github.io/youthweb-api/api_contribute.html)
 
 ## Clients
 

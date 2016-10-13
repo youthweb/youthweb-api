@@ -13,7 +13,7 @@ folder: api
 **Request**
 
 ```
-GET https://youthweb.net/users/123456
+GET https://api.youthweb.net/users/123456
 Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
