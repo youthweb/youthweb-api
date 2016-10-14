@@ -24,12 +24,14 @@ Um Bugs oder Features zu testen, solltest du die Änderungen lokal testet. Dazu 
   curl http://getcomposer.org/installer | php
   php composer.phar install
   ```
+
 4. Installiere die NPM-Abhängigkeiten und starte den Drakov Mock-Server:
 
   ```
   npm install
   ./node_modules/drakov/drakov -f ./apiary.apib -p 3000
   ```
+
 5. Teste deine API mit ```vendor/bin/behat --suite=develop```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
 
 ### Änderungen
