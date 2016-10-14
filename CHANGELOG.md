@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 - The endpoint `/auth/token` for access token ist deprecated. Use the OAuth2 authorization instead.
 - The usage of the old URL (https://youthweb.net) for API requests is deprecated. Use the new URL instead.
-- Version 0.4 and 0.5 are now deprecated and support will be dropped in future release. If your apps use this version upgrade them to version 0.7.
+- Version 0.4 and 0.5 are now deprecated and support will be dropped in future release. If your apps use this version upgrade them to version 0.6.
 
 ### Removed
 
