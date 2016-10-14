@@ -83,6 +83,7 @@ Scenario: Using the API with deprecated version parameter
 	And scope into the "meta" property
 	And the "warnings" property exists
 	And the "warnings" property is an array
+	And the "warnings" property contains 1 items
 	And the "warnings" property contains at least:
 		"""
 		You have specified a deprecated API version. Please use the current API version 0.6
