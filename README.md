@@ -13,7 +13,7 @@ Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
 Offizielle Dokumentation: https://youthweb.github.io/youthweb-api/
 
-Aktuelle Dokumentation auf Apiary.io: http://docs.youthweb0m5.apiary.io/
+Aktuelle Dokumentation auf Apiary.io: http://docs.youthweb0m6.apiary.io/
 
 Dev-Dokumentation auf Apiary.io: http://docs.youthweb.apiary.io/
 

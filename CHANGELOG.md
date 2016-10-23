@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.6] - 2016-10-23
 ### Added
 
 - Authorization over OAuth2 Authorization Code Grant, see https://youthweb.github.io/youthweb-api/api_oauth2.html
@@ -85,7 +87,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.5...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.6...develop
+[0.6]: https://github.com/youthweb/youthweb-api/compare/0.5...0.6
 [0.5]: https://github.com/youthweb/youthweb-api/compare/0.4...0.5
 [0.4]: https://github.com/youthweb/youthweb-api/compare/0.3...0.4
 [0.3]: https://github.com/youthweb/youthweb-api/compare/0.2.1...0.3
