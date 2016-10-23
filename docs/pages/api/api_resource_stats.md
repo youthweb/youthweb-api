@@ -13,8 +13,8 @@ folder: api
 **Request**
 
 ```
-GET https://youthweb.net/stats/account
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+GET https://api.youthweb.net/stats/account
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 Content-Type: application/vnd.api+json
 ```
 
@@ -22,7 +22,7 @@ Content-Type: application/vnd.api+json
 
 ```
 Status: 200 OK
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 Content-Type: application/vnd.api+json
 
 {
@@ -48,8 +48,8 @@ Content-Type: application/vnd.api+json
 **Request**
 
 ```
-GET https://youthweb.net/stats/forum
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+GET https://api.youthweb.net/stats/forum
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 Content-Type: application/vnd.api+json
 ```
 
@@ -57,7 +57,7 @@ Content-Type: application/vnd.api+json
 
 ```
 Status: 200 OK
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 Content-Type: application/vnd.api+json
 
 {
@@ -78,8 +78,8 @@ Content-Type: application/vnd.api+json
 **Request**
 
 ```
-GET https://youthweb.net/stats/groups
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+GET https://api.youthweb.net/stats/groups
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 Content-Type: application/vnd.api+json
 ```
 
@@ -87,7 +87,7 @@ Content-Type: application/vnd.api+json
 
 ```
 Status: 200 OK
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 Content-Type: application/vnd.api+json
 
 {

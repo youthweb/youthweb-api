@@ -5,7 +5,7 @@ HOST: https://api.youthweb.net
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Aktuelle Version: 0.5 (2016-07-03)
+Aktuelle Version: 0.6 (2016-10-23)
 
 Status: Alpha
 
@@ -17,7 +17,7 @@ Diese Header müssen bei jedem Request angegeben werden:
 
 ```
 Content-Type: application/vnd.api+json
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 ```
 
 ## Authentication
@@ -39,13 +39,13 @@ Liefert Statistiken zu den Accounts.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 
     + Attributes
 
@@ -71,13 +71,13 @@ Liefert Statistiken zum Forum
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 
     + Attributes
 
@@ -98,13 +98,13 @@ Liefert Statistiken zu den Gruppen.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 
     + Attributes
 
@@ -134,14 +134,54 @@ Ein User Objekt hat die folgenden Attribute
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
+
+    + Attributes
+
+        + data (object)
+            + type: `users` (string)
+            + id: `123456` (string) - Die User-ID
+            + attributes (object)
+                + username: `JohnSmith` (string) - Der Username
+                + `first_name`: `John` (string, nullable) - Der Vorname
+                + `last_name`: `Smith` (string, nullable) - Der Nachname
+                + email: `john_smith@example.org` (string, nullable) - Die E-Mail Adresse
+                + birthday: `1988-03-05` (string, nullable) - Geburtstag im Format YYYY-MM-DD
+                + `created_at`: `2006-01-01T21:00:00+01:00` (string) - Zeitpunkt der Registrierung als ISO-8601
+                + `last_login`: `2016-01-01T22:00:00+02:00` (string) - Zeitpunkt des letzten Logins als ISO-8601
+                + zip: `12345` (string, nullable) - Die Postleitzahl
+                + city: `Jamestown` (string, nullable) - Die Stadt
+                + `description_jesus`: `Lorem ipsum dolor sit amet` (string, nullable) - "Was ich von Jesus halte"
+                + `description_job`: `Lorem ipsum dolor sit amet` (string, nullable) - Der Beruf
+                + `description_hobbies`: `Lorem ipsum dolor sit amet` (string, nullable) - Die Hobbies
+                + `description_motto`: `Lorem ipsum dolor sit amet` (string, nullable) - Das Lebensmotto
+                + `picture_thumb_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Thumbnail)
+                + `picture_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Vollbild)
+
+## Me [/me]
+
+Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /users/{user_id}, wenn die User-ID des autorisierten Users nicht bekannt ist.
+
+### Daten zum autorisierten User abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 
     + Attributes
 
@@ -169,12 +209,14 @@ Ein User Objekt hat die folgenden Attribute
 
 ## Token Auth [/auth/token]
 
+Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe https://youthweb.github.io/youthweb-api/api_oauth2.html für mehr Informationen.
+
 ### Ein JWT generieren lassen [POST]
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 
     + Attributes
 
@@ -186,10 +228,12 @@ Ein User Objekt hat die folgenden Attribute
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.5
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.6
 
     + Attributes
 
         + meta (object)
             + token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs` (string)
             + `token_type`: `Bearer` (string)
+            + `warnings` (array)
+                + `The resource /auth/token is deprecated and will replaced with OAuth2 authorization. Please see https://youthweb.github.io/youthweb-api/api_oauth2.html` (string)

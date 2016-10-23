@@ -3,6 +3,27 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.6] - 2016-10-23
+### Added
+
+- Authorization over OAuth2 Authorization Code Grant, see https://youthweb.github.io/youthweb-api/api_oauth2.html
+- Resource `me/` provides the data for the authorized user
+- New documentation website: https://youthweb.github.io/youthweb-api
+
+### Changed
+
+- Changed the API url from https://youthweb.net to https://api.youthweb.net
+
+### Deprecated
+
+- The endpoint `/auth/token` for access token ist deprecated. Use the OAuth2 authorization instead.
+- The usage of the old URL (https://youthweb.net) for API requests is deprecated. Use the new URL instead.
+- Version 0.4 and 0.5 are now deprecated and support will be dropped in future release. If your apps use this version upgrade them to version 0.6.
+
+### Removed
+
+- **Breaking:** The support for version 0.3 was dropped. Requests with this version and below will get a 406 error response.
+
 ## [0.5] - 2016-07-03
 ### Added
 
@@ -66,7 +87,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.5...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.6...develop
+[0.6]: https://github.com/youthweb/youthweb-api/compare/0.5...0.6
 [0.5]: https://github.com/youthweb/youthweb-api/compare/0.4...0.5
 [0.4]: https://github.com/youthweb/youthweb-api/compare/0.3...0.4
 [0.3]: https://github.com/youthweb/youthweb-api/compare/0.2.1...0.3
