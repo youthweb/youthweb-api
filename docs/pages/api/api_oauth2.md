@@ -109,11 +109,14 @@ Content-Type: application/json
 }
 ```
 
+
 Das `access_token` kannst du nun bei allen API-Requests im Header mitgeben.
 
 Wenn das Access-Token abgelaufen ist, kann Schritt 5 erneut durchgeführt werden, um ein neues Access-Token zu erhalten.
 
 Wenn bei der Anfrage nach dem Access-Token ein Fehler auftritt (z.B. weil das Request-Token abgelaufen ist oder der User dem Client die Berechtigung entzogen hat), muss der Client wieder bei Schritt 1 beginnen.
+
+{% include note.html content="Das Refresh-Token kann noch nicht verwendet werden. Wir arbeiten aber an der Umsetzung des Refresh Token Grants." %}
 
 ## User-Token (Deprecated)
 
