@@ -2,7 +2,7 @@
 title: Scopes
 keywords: Youthweb-API, Oauth2, Scopes
 tags: [getting_started]
-summary: "Die Youthweb-API verwendet OAuth2 zur Authorization"
+summary: "Diese Scopes können bei der Authorization verwendet werden"
 sidebar: api_sidebar
 permalink: api_scopes.html
 folder: api
