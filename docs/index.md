@@ -9,15 +9,15 @@ summary: Dies ist die offizielle API von youthweb.net.
 
 ## Dokumentation
 
-https://youthweb.github.io/youthweb-api/
+[http://developer.youthweb.net](http://developer.youthweb.net/)
 
-Aktuelle Dokumentation auf Apiary.io: http://docs.youthweb0m5.apiary.io/
+Aktuelle Dokumentation auf Apiary.io: [http://docs.youthweb0m6.apiary.io](http://docs.youthweb0m6.apiary.io/)
 
-Dev-Dokumentation auf Apiary.io: http://docs.youthweb.apiary.io/
+Dev-Dokumentation auf Apiary.io: [http://docs.youthweb.apiary.io](http://docs.youthweb.apiary.io/)
 
 ## URI
 
-Die API ist über https://api.youthweb.net erreichbar.
+Die API ist über `https://api.youthweb.net` erreichbar.
 
 ## Autorisierung
 
