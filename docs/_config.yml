@@ -6,9 +6,9 @@ output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
 # the url to this site
-url: https://youthweb.github.io
+url: http://developer.youthweb.net
 
-baseurl: /youthweb-api
+baseurl: /
 
 topnav_title: Youthweb Developer
 # this appears on the top navigation bar next to the home button

@@ -19,6 +19,10 @@ entries:
       url: /api_oauth2.html
       output: web
 
+    - title: Scopes
+      url: /api_scopes.html
+      output: web
+
     - title: Versionierung
       url: /api_versions.html
       output: web

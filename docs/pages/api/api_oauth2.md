@@ -29,7 +29,7 @@ Der Client benötigt einen Request-Token und startet schickt den User (z.B. mith
 * `response_type` mit dem Wert `code`
 * `client_id` mit der Client-ID
 * `redirect_uri` mit der Client Redirect-URL. Dieser Wert ist optional und wenn nicht angegeben, wird die Redirect-URL genommen, die bei der Client-Registrierung angegeben wurde.
-* `scope` mit einer (Leerzeichen getrennten) Liste an Scopes
+* `scope` mit einer (Leerzeichen getrennten) Liste an Scopes, siehe [hier](api_scopes).
 * `state` mit einem CSRF Token. Dieser Wert ist optional, aber wird dringend empfohlen, umd CSRF Angriffe zu verhindern. Der Wert wird beim Response wieder mitgegeben und der Client prüft, ob der Wert der selbe ist wie beim Request.
 
 **Request**
@@ -109,11 +109,14 @@ Content-Type: application/json
 }
 ```
 
+
 Das `access_token` kannst du nun bei allen API-Requests im Header mitgeben.
 
 Wenn das Access-Token abgelaufen ist, kann Schritt 5 erneut durchgeführt werden, um ein neues Access-Token zu erhalten.
 
 Wenn bei der Anfrage nach dem Access-Token ein Fehler auftritt (z.B. weil das Request-Token abgelaufen ist oder der User dem Client die Berechtigung entzogen hat), muss der Client wieder bei Schritt 1 beginnen.
+
+{% include note.html content="Das Refresh-Token kann noch nicht verwendet werden. Wir arbeiten aber an der Umsetzung des Refresh Token Grants." %}
 
 ## User-Token (Deprecated)
 
