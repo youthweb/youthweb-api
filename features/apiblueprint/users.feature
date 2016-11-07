@@ -12,9 +12,11 @@ Scenario: Requesting a user
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
+	And the response contains 4 items
 	And the "type" property exists
 	And the "type" property is a string equalling "users"
 	And the "id" property exists
+	And the "links" property exists
 	And the "attributes" property exists
 	And scope into the "data.attributes" property
 	And the response contains 15 items
@@ -35,4 +37,10 @@ Scenario: Requesting a user
 		description_motto
 		picture_thumb_url
 		picture_url
+		"""
+	And scope into the "data.links" property
+	And the response contains 1 items
+	And the properties exist:
+		"""
+		self
 		"""

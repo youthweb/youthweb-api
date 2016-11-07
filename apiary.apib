@@ -22,9 +22,7 @@ Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.ver
 
 ## Authentication
 
-1. Generiere dir [hier](https://youthweb.net/settings/token) ein User-Token. Dieses User-Token wird auch `token_secret` genannt und muss wie ein Passwort geheim gehalten werden.
-2. Sende deinen `username` und dein `token_secret` an `POST /auth/token`, um ein [JWT](http://jwt.io/) zu erhalten. Genauere Informationen sind [hier](#reference/auth) zu finden.
-3. Das JWT ist ein zeitlich begrenztes Token, dass bei allen weiteren Requests im Header mitgegeben wird: `Authorization: Bearer <JWT>`
+Alle Informationen zur Authentication findest du hier: http://developer.youthweb.net/api_oauth2.html
 
 # Group Stats
 
@@ -164,6 +162,8 @@ Ein User Objekt hat die folgenden Attribute
                 + `description_motto`: `Lorem ipsum dolor sit amet` (string, nullable) - Das Lebensmotto
                 + `picture_thumb_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Thumbnail)
                 + `picture_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Vollbild)
+            + links (object)
+                + self: `/users/123456` (string) - Der Link zu dieser Resource
 
 ## Me [/me]
 
@@ -204,6 +204,8 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
                 + `description_motto`: `Lorem ipsum dolor sit amet` (string, nullable) - Das Lebensmotto
                 + `picture_thumb_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Thumbnail)
                 + `picture_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Vollbild)
+            + links (object)
+                + self: `/users/123456` (string) - Der Link zu dieser Resource
 
 # Group Auth
 
