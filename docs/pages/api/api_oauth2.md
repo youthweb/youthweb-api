@@ -29,7 +29,7 @@ Der Client benötigt einen Request-Token und startet schickt den User (z.B. mith
 * `response_type` mit dem Wert `code`
 * `client_id` mit der Client-ID
 * `redirect_uri` mit der Client Redirect-URL. Dieser Wert ist optional und wenn nicht angegeben, wird die Redirect-URL genommen, die bei der Client-Registrierung angegeben wurde.
-* `scope` mit einer (Leerzeichen getrennten) Liste an Scopes, siehe [hier](api_scopes).
+* `scope` mit einer (Leerzeichen getrennten) Liste an Scopes, siehe [hier][api_scopes].
 * `state` mit einem CSRF Token. Dieser Wert ist optional, aber wird dringend empfohlen, umd CSRF Angriffe zu verhindern. Der Wert wird beim Response wieder mitgegeben und der Client prüft, ob der Wert der selbe ist wie beim Request.
 
 **Request**
@@ -120,7 +120,7 @@ Wenn bei der Anfrage nach dem Access-Token ein Fehler auftritt (z.B. weil das Re
 
 ## User-Token (Deprecated)
 
-{% include note.html content="Der Zugriff über User-Token wird in Zukunft entfernt und sollte daher nicht mehr verwendet werden. Wir planen als Ersatz die Umsetzung des OAuth2 Client Credentials Grant." %}
+{% include warning.html content="Der Zugriff über User-Token wird in Zukunft entfernt und sollte daher nicht mehr verwendet werden. Wir planen als Ersatz die Umsetzung des OAuth2 Client Credentials Grant." %}
 
 1. Generiere dir [hier](https://youthweb.net/settings/token) ein User-Token. Dieses User-Token wird auch `token_secret` genannt und muss wie ein Passwort geheim gehalten werden.
 2. Sende deinen `username` und dein `token_secret` an `POST /auth/token`, um ein [JWT](http://jwt.io/) zu erhalten. Genauere Informationen sind [in der Dokumentation](http://docs.youthweb.apiary.io/#reference/auth) zu finden.
