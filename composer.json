@@ -1,4 +1,5 @@
 {
+    "name": "youthweb/youthweb-api",
     "require": {
         "php": ">=5.5",
         "behat/behat": "~3.0",
