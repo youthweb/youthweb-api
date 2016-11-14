@@ -31,18 +31,22 @@ entries:
       url: /api_general_contribute.html
       output: web
 
-  - title: Stats
+  - title: Resourcen
     output: web
     folderitems:
 
-    - title: Stats resource
-      url: /api_resource_stats.html
+    - title: Übersicht
+      url: /api_endpoint_index.html
       output: web
 
-  - title: Users
-    output: web
-    folderitems:
+    - title: Me
+      url: /api_endpoint_me.html
+      output: web
 
-    - title: Users resource
-      url: /api_resource_users.html
+    - title: Stats
+      url: /api_endpoint_stats.html
+      output: web
+
+    - title: Users
+      url: /api_endpoint_users.html
       output: web
