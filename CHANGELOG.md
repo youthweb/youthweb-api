@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+
+- every resource has now a links section
 
 ## [0.6] - 2016-10-23
 ### Added
