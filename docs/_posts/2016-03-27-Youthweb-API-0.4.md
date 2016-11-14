@@ -2,8 +2,9 @@
 title:  "Youthweb-API 0.4"
 categories: API
 tags: [api, release]
+summary: "Die neue Version der Youthweb-API bringt eine neue Resource mit: Users. Diese Resource ist nur mit einem Access-Token aufrufbar, den man sich jetzt generieren lassen kann. Dafür wird ein Youthweb-Account und ein User-Token benötigt. Die API-Version 0.2 wird jetzt nicht mehr unterstützt."
 ---
-## Änderungen
+## Changelog
 
 ### Neu
 
@@ -18,9 +19,13 @@ tags: [api, release]
 - **Breaking:** Der Response liefert einen 406 Fehler, wenn der Header `Accept: application/vnd.api+json; net.youthweb.api.version=x.y` nicht gesetzt wurde
 - **Breaking:** Der Response liefert einen 415 Fehler, wenn der Header `Accept: application/vnd.api+json; net.youthweb.api.version=x.y` mit einer veralteten Versionsnummer gesetzt wurde
 
-### veraltet
+### Veraltet
 
 - Die API-Version 0.3 ist veraltet, aber wird erstmal weiterhin unterstützt.
+
+### Entfernt
+
+- **Breaking:** Der Support für die Youthweb-API 0.2 wurde eingestellt. Requests mit dieser Versionsnummern werden einen 406 Fehler Response erhalten.
 
 ## Beispiele
 

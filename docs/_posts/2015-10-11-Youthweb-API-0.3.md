@@ -2,8 +2,9 @@
 title:  "Youthweb-API 0.3"
 categories: API
 tags: [api, release]
+summary: "Mit der neuen Version der Youthweb-API passen wir uns weiter an die JSON API Spezifikation an. Es werden jetzt die richtigen Header benötigt, um die API verwenden zu können. Werden die Header nicht oder falsch angegeben, wird zusätzlich eine Warnung zurückgegeben. Zusätzlich sollten Clients jetzt immer die API-Version angeben, mit der sie arbeiten."
 ---
-## Änderungen
+## Changelog
 
 ### Neu
 

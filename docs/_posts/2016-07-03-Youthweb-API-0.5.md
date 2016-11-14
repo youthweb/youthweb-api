@@ -2,8 +2,9 @@
 title:  "Youthweb-API 0.5"
 categories: API
 tags: [api, release]
+summary: "Die neue Version der Youthweb-API zeigt jetzt viel mehr Daten in der Users-Resource an."
 ---
-## Änderungen
+## Changelog
 
 ### Neu
 

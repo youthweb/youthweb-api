@@ -2,9 +2,9 @@
 title:  "Youthweb-API 0.6"
 categories: API
 tags: [api, release]
+summary: "Die neue Version der Youthweb-API bringt eine Autorisierung über OAuth2 mit, die das alte Verfahren über das User-Token ablösen wird. Außerdem haben wir eine eigene URL für die API eingerichtet, die ab jetzt verwendet werden sollte: `https://api.youthweb.net`. Die API-Version 0.3 wird jetzt nicht mehr unterstützt."
 ---
-## Änderungen
-
+## Changelog
 
 ### Neu
 
@@ -14,7 +14,7 @@ tags: [api, release]
 
 ### Änderungen
 
-- Die URL zur Youthweb-API hat sich von https://youthweb.net zu https://api.youthweb.net geändert. Bitte schicke alle API Requests nur noch an die neue URL. Die alte wird aus BC-Gründen aber noch einige Zeit weiter funktionieren.
+- Die URL zur Youthweb-API hat sich von `https://youthweb.net` zu `https://api.youthweb.net` geändert. Bitte schicke alle API Requests nur noch an die neue URL. Die alte wird aus BC-Gründen aber noch einige Zeit weiter funktionieren.
 
 ### Veraltet
 

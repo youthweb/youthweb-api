@@ -2,8 +2,9 @@
 title:  "Youthweb-API 0.2.1"
 categories: API
 tags: [api, release]
+summary: "Die neue Version der Youthweb-API ändert den URL-Aufbau, wie die API angesprochen wird. Außderdem wird jetzt kein Account mehr bei apiary.io benötigt, um die Tests ausführen zu können."
 ---
-## Änderungen
+## Changelog
 
 ### Geändert
 

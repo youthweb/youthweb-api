@@ -2,8 +2,9 @@
 title:  "Youthweb-API 0.2"
 categories: API
 tags: [api, release]
+summary: "Die neue Version der Youthweb-API zeigt jetzt mehr Daten in der Statistik an. Außerdem haben wir das Daten-Format an die JSON API Spezifikation angepasst."
 ---
-## Änderungen
+## Changelog
 
 ### Neu
 
