@@ -9,9 +9,9 @@ All notable changes to this project will be documented in this file.
 ## [0.6] - 2016-10-23
 ### Added
 
-- Authorization over OAuth2 Authorization Code Grant, see https://youthweb.github.io/youthweb-api/api_oauth2.html
+- Authorization over OAuth2 Authorization Code Grant, see http://developer.youthweb.net/api_general_oauth2.html
 - Resource `me/` provides the data for the authorized user
-- New documentation website: https://youthweb.github.io/youthweb-api
+- New documentation website: http://developer.youthweb.net
 
 ### Changed
 

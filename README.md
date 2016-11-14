@@ -11,7 +11,7 @@ Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
 ## Dokumentation
 
-Offizielle Dokumentation: https://youthweb.github.io/youthweb-api/
+Offizielle Dokumentation: http://developer.youthweb.net/
 
 Aktuelle Dokumentation auf Apiary.io: http://docs.youthweb0m6.apiary.io/
 
@@ -23,15 +23,15 @@ Die API ist über https://api.youthweb.net erreichbar.
 
 ## Autorisierung
 
-Hier kannst du lesen, wie du mit deiner App auf geschützte Resourcen der Youthweb-API zugreifen kannst: [OAuth2](https://youthweb.github.io/youthweb-api/api_oauth2.html)
+Hier kannst du lesen, wie du mit deiner App auf geschützte Resourcen der Youthweb-API zugreifen kannst: [OAuth2](http://developer.youthweb.net/api_general_oauth2.html)
 
 ## Versionierung
 
-Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Wie das genau funktioniert, findest du hier: [Versionierung](https://youthweb.github.io/youthweb-api/api_versions.html)
+Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Wie das genau funktioniert, findest du hier: [Versionierung](http://developer.youthweb.net/api_general_versions.html)
 
 ## Contribute
 
-Du kannst mithelfen, die Youthweb-API zu gestalten. Hier findest du mehr Informationen dazu: [Contribute](https://youthweb.github.io/youthweb-api/api_contribute.html)
+Du kannst mithelfen, die Youthweb-API zu gestalten. Hier findest du mehr Informationen dazu: [Contribute](http://developer.youthweb.net/api_general_contribute.html)
 
 ## Clients
 

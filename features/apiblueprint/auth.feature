@@ -24,5 +24,5 @@ Scenario: Requesting a token
 	And the "warnings" property is an array
 	And the "warnings" property contains at least:
 		"""
-		The resource /auth/token is deprecated and will replaced with OAuth2 authorization. Please see https://youthweb.github.io/youthweb-api/api_oauth2.html
+		The resource /auth/token is deprecated and will replaced with OAuth2 authorization. Please see http://developer.youthweb.net/api_general_oauth2.html
 		"""

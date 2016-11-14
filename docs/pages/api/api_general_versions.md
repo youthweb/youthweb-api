@@ -4,7 +4,7 @@ keywords: Youthweb-API, Versionierung
 tags: [getting_started]
 summary: "Die Versionierung der Youthweb-API"
 sidebar: api_sidebar
-permalink: api_versions.html
+permalink: api_general_versions.html
 folder: api
 ---
 

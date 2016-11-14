@@ -16,19 +16,19 @@ entries:
       type: homepage
 
     - title: OAuth2
-      url: /api_oauth2.html
+      url: /api_general_oauth2.html
       output: web
 
     - title: Scopes
-      url: /api_scopes.html
+      url: /api_general_scopes.html
       output: web
 
     - title: Versionierung
-      url: /api_versions.html
+      url: /api_general_versions.html
       output: web
 
     - title: Contribute
-      url: /api_contribute.html
+      url: /api_general_contribute.html
       output: web
 
   - title: Stats

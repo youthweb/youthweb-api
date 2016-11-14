@@ -4,7 +4,7 @@ keywords: Youthweb-API, Contributing, Contribute
 tags: [getting_started]
 summary: "Hilf mit"
 sidebar: api_sidebar
-permalink: api_contribute.html
+permalink: api_general_contribute.html
 folder: api
 ---
 

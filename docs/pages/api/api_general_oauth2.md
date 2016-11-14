@@ -4,7 +4,7 @@ keywords: Youthweb-API, Oauth2, Authorization
 tags: [getting_started]
 summary: "Die Youthweb-API verwendet OAuth2 zur Authorization"
 sidebar: api_sidebar
-permalink: api_oauth2.html
+permalink: api_general_oauth2.html
 folder: api
 ---
 
@@ -29,7 +29,7 @@ Der Client benötigt einen Request-Token und startet schickt den User (z.B. mith
 * `response_type` mit dem Wert `code`
 * `client_id` mit der Client-ID
 * `redirect_uri` mit der Client Redirect-URL. Dieser Wert ist optional und wenn nicht angegeben, wird die Redirect-URL genommen, die bei der Client-Registrierung angegeben wurde.
-* `scope` mit einer (Leerzeichen getrennten) Liste an Scopes, siehe [hier][api_scopes].
+* `scope` mit einer (Leerzeichen getrennten) Liste an Scopes, siehe [hier][api_general_scopes].
 * `state` mit einem CSRF Token. Dieser Wert ist optional, aber wird dringend empfohlen, umd CSRF Angriffe zu verhindern. Der Wert wird beim Response wieder mitgegeben und der Client prüft, ob der Wert der selbe ist wie beim Request.
 
 **Request**
