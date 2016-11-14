@@ -5,7 +5,7 @@ Feature: Request a user
 Scenario: Requesting a user
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.6"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.7"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /users/123456"
 	Then I get a "200" response
