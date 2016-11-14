@@ -114,7 +114,7 @@ Content-Type: application/vnd.api+json
 }
 ```
 
-## Beispiel 2: Foren Statistiken
+### Beispiel 2: Foren Statistiken
 
 **Request**
 
@@ -147,7 +147,7 @@ Content-Type: application/vnd.api+json
 }
 ```
 
-## Beispiel 3: Gruppen Statistiken
+### Beispiel 3: Gruppen Statistiken
 
 **Request**
 

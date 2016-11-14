@@ -1,6 +1,6 @@
 ---
 title: "Endpoint"
-tagName: news
+tagName: endpoint
 search: exclude
 permalink: tag_endpoint.html
 sidebar: api_sidebar

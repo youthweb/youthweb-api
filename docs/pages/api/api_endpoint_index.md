@@ -1,7 +1,7 @@
 ---
 title: Endpoint Übersicht
 keywords: Youthweb-API, Resource, Endpoint
-tags: [getting_started]
+tags: [endpoint]
 summary: "Eine Übersicht über alle Endpoints und Resourcen"
 sidebar: api_sidebar
 permalink: api_endpoint_index.html

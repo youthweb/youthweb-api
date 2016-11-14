@@ -8,7 +8,7 @@ permalink: api_endpoint_me.html
 folder: api
 ---
 
-Dieser Endpoint ist ein Shortcut für /users/{user_id}` und liefert eine [User-Resource][api_endpoint_users]. Er kann zum Beispiel verwendet werden, wenn die User-ID des autorisierten Users nicht bekannt ist, wodurch der `/users`-Endpoint noch nicht verwendet werden kann.
+Dieser Endpoint ist ein Shortcut für `/users/{user_id}` und liefert eine [User-Resource][api_endpoint_users]. Er kann zum Beispiel verwendet werden, wenn die User-ID des autorisierten Users nicht bekannt ist, wodurch der `/users`-Endpoint noch nicht verwendet werden kann.
 
 Siehe den [Endpoint `/users`][api_endpoint_users] für Informationen zur User-Resource.
 

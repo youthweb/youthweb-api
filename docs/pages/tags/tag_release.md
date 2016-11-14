@@ -1,8 +1,8 @@
 ---
-title: "Content types pages"
-tagName: content_types
+title: "Release"
+tagName: release
 search: exclude
-permalink: tag_content_types.html
+permalink: tag_release.html
 sidebar: api_sidebar
 folder: tags
 ---
