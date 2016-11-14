@@ -109,7 +109,6 @@ Content-Type: application/json
 }
 ```
 
-
 Das `access_token` kannst du nun bei allen API-Requests im Header mitgeben.
 
 Wenn das Access-Token abgelaufen ist, kann Schritt 5 erneut durchgeführt werden, um ein neues Access-Token zu erhalten.
