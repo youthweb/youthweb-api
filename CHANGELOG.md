@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.7] - 2016-11-20
 ### Added
 
 - every resource has now a links section
@@ -90,7 +92,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.6...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.7...develop
+[0.7]: https://github.com/youthweb/youthweb-api/compare/0.6...0.7
 [0.6]: https://github.com/youthweb/youthweb-api/compare/0.5...0.6
 [0.5]: https://github.com/youthweb/youthweb-api/compare/0.4...0.5
 [0.4]: https://github.com/youthweb/youthweb-api/compare/0.3...0.4
