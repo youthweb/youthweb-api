@@ -184,6 +184,33 @@ Ein User Objekt hat die folgenden Attribute
 
         + data (User Base)
 
+## Posts of an User [/users/{user_id}/posts]
+
+Liefert die Posts von der Pinnwand eines Users
+
++ Parameters
+    + user_id: 123456 (required, number) - ID of the user
+
+### Posts zu einem User abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+
+    + Attributes
+
+        + data (array[Post Base])
+        + included (array)
+            + (User Base)
+
 ## Me [/me]
 
 Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /users/{user_id}, wenn die User-ID des autorisierten Users nicht bekannt ist.
