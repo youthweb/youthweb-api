@@ -24,6 +24,39 @@ Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.ver
 
 Alle Informationen zur Authentication findest du hier: http://developer.youthweb.net/api_general_oauth2.html
 
+# Group Posts
+
+## Post [/posts/{post_id}]
+
+Ein Post Objekt hat die folgenden Attribute
+
++ type
++ id - The Post-ID
++ attributes - An object of attributes.
+
++ Parameters
+    + post_id: d5a5a2c3-041b-4985-907c-74a2131efc98 (required, string) - ID of the post as a uuid string
+
+### Daten zu einem Post abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+
+    + Attributes
+
+        + data (Post Base)
+        + included (array)
+            + (User Base)
+
 # Group Stats
 
 Für die Statistiken ist keine Autorisierung nötig.
@@ -149,27 +182,7 @@ Ein User Objekt hat die folgenden Attribute
 
     + Attributes
 
-        + data (object)
-            + type: `users` (string)
-            + id: `123456` (string) - Die User-ID
-            + attributes (object)
-                + username: `JohnSmith` (string) - Der Username
-                + `first_name`: `John` (string, nullable) - Der Vorname
-                + `last_name`: `Smith` (string, nullable) - Der Nachname
-                + email: `john_smith@example.org` (string, nullable) - Die E-Mail Adresse
-                + birthday: `1988-03-05` (string, nullable) - Geburtstag im Format YYYY-MM-DD
-                + `created_at`: `2006-01-01T21:00:00+01:00` (string) - Zeitpunkt der Registrierung als ISO-8601
-                + `last_login`: `2016-01-01T22:00:00+02:00` (string) - Zeitpunkt des letzten Logins als ISO-8601
-                + zip: `12345` (string, nullable) - Die Postleitzahl
-                + city: `Jamestown` (string, nullable) - Die Stadt
-                + `description_jesus`: `Lorem ipsum dolor sit amet` (string, nullable) - "Was ich von Jesus halte"
-                + `description_job`: `Lorem ipsum dolor sit amet` (string, nullable) - Der Beruf
-                + `description_hobbies`: `Lorem ipsum dolor sit amet` (string, nullable) - Die Hobbies
-                + `description_motto`: `Lorem ipsum dolor sit amet` (string, nullable) - Das Lebensmotto
-                + `picture_thumb_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Thumbnail)
-                + `picture_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Vollbild)
-            + links (object)
-                + self: `/users/123456` (string) - Der Link zu dieser Resource
+        + data (User Base)
 
 ## Me [/me]
 
@@ -191,27 +204,7 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
 
     + Attributes
 
-        + data (object)
-            + type: `users` (string)
-            + id: `123456` (string) - Die User-ID
-            + attributes (object)
-                + username: `JohnSmith` (string) - Der Username
-                + `first_name`: `John` (string, nullable) - Der Vorname
-                + `last_name`: `Smith` (string, nullable) - Der Nachname
-                + email: `john_smith@example.org` (string, nullable) - Die E-Mail Adresse
-                + birthday: `1988-03-05` (string, nullable) - Geburtstag im Format YYYY-MM-DD
-                + `created_at`: `2006-01-01T21:00:00+01:00` (string) - Zeitpunkt der Registrierung als ISO-8601
-                + `last_login`: `2016-01-01T22:00:00+02:00` (string) - Zeitpunkt des letzten Logins als ISO-8601
-                + zip: `12345` (string, nullable) - Die Postleitzahl
-                + city: `Jamestown` (string, nullable) - Die Stadt
-                + `description_jesus`: `Lorem ipsum dolor sit amet` (string, nullable) - "Was ich von Jesus halte"
-                + `description_job`: `Lorem ipsum dolor sit amet` (string, nullable) - Der Beruf
-                + `description_hobbies`: `Lorem ipsum dolor sit amet` (string, nullable) - Die Hobbies
-                + `description_motto`: `Lorem ipsum dolor sit amet` (string, nullable) - Das Lebensmotto
-                + `picture_thumb_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Thumbnail)
-                + `picture_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Vollbild)
-            + links (object)
-                + self: `/users/123456` (string) - Der Link zu dieser Resource
+        + data (User Base)
 
 # Group Auth
 
@@ -245,3 +238,59 @@ Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe http://de
             + `token_type`: `Bearer` (string)
             + `warnings` (array)
                 + `The resource /auth/token is deprecated and will replaced with OAuth2 authorization. Please see http://developer.youthweb.net/api_general_oauth2.html` (string)
+
+# Data Structures
+
+## Post Base (object)
+
++ type: `posts` (string)
++ id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Die Post-ID
++ attributes (object)
+    + `uuid`: `d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Die Post-ID als UUID
+    + `title`: `The post title` (string) - Der Title, kann auch leer sein
+    + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Post-Inhalt
+    + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
+    + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
+    + `comments_count`: 15 (number) - Die Gesamtanzahl der Kommentare zu diesem Post
+    + `created_at`: `2017-01-01T18:51:02+01:00` (string) - Zeitpunkt der Erstellung als ISO-8601
+    + `updated_at`: `2017-01-03T14:17:11+01:00` (string) - Zeitpunkt der letzten Änderung als ISO-8601
++ `relationships` (object)
+    + `author` (object) - Der Autor des Posts
+        + data (object)
+            + type: `users` (string)
+            + id: `123456` (string)
+        + links (object)
+            + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author` (string)
+            + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author` (string)
+    + parent (object) - Das Elternobjekt, dem dieser Post zugeordnet ist
+        + data (object)
+            + type: `users` (string)
+            + id: `123456` (string)
+        + links (object)
+            + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/parent` (string)
+            + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent` (string)
++ links (object)
+    + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Der Link zu dieser Resource
+
+## User Base (object)
+
++ type: `users` (string)
++ id: `123456` (string) - Die User-ID
++ attributes (object)
+    + username: `JohnSmith` (string) - Der Username
+    + `first_name`: `John` (string, nullable) - Der Vorname
+    + `last_name`: `Smith` (string, nullable) - Der Nachname
+    + email: `john_smith@example.org` (string, nullable) - Die E-Mail Adresse
+    + birthday: `1988-03-05` (string, nullable) - Geburtstag im Format YYYY-MM-DD
+    + `created_at`: `2006-01-01T21:00:00+01:00` (string) - Zeitpunkt der Registrierung als ISO-8601
+    + `last_login`: `2016-01-01T22:00:00+02:00` (string) - Zeitpunkt des letzten Logins als ISO-8601
+    + zip: `12345` (string, nullable) - Die Postleitzahl
+    + city: `Jamestown` (string, nullable) - Die Stadt
+    + `description_jesus`: `Lorem ipsum dolor sit amet` (string, nullable) - "Was ich von Jesus halte"
+    + `description_job`: `Lorem ipsum dolor sit amet` (string, nullable) - Der Beruf
+    + `description_hobbies`: `Lorem ipsum dolor sit amet` (string, nullable) - Die Hobbies
+    + `description_motto`: `Lorem ipsum dolor sit amet` (string, nullable) - Das Lebensmotto
+    + `picture_thumb_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Thumbnail)
+    + `picture_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Vollbild)
++ links (object)
+    + self: `/users/123456` (string) - Der Link zu dieser Resource
