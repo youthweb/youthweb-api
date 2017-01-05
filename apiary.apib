@@ -57,6 +57,55 @@ Ein Post Objekt hat die folgenden Attribute
         + included (array)
             + (User Base)
 
+## Post Author [/posts/{post_id}/author]
+
++ Parameters
+    + post_id: d5a5a2c3-041b-4985-907c-74a2131efc98 (required, string) - ID of the post as a uuid string
+
+### Author zu einem Post abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+
+    + Attributes
+
+        + data (User Base)
+
+## Post Author Relationship [/posts/{post_id}/relationships/author]
+
++ Parameters
+    + post_id: d5a5a2c3-041b-4985-907c-74a2131efc98 (required, string) - ID of the post as a uuid string
+
+### Autor Relationship zu einem Post abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+
+    + Attributes
+
+        + data (User Linkage)
+        + links (object)
+            + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author` (string)
+            + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author` (string)
+
 # Group Stats
 
 Für die Statistiken ist keine Autorisierung nötig.
@@ -283,16 +332,12 @@ Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe http://de
     + `updated_at`: `2017-01-03T14:17:11+01:00` (string) - Zeitpunkt der letzten Änderung als ISO-8601
 + `relationships` (object)
     + `author` (object) - Der Autor des Posts
-        + data (object)
-            + type: `users` (string)
-            + id: `123456` (string)
+        + data (User Linkage)
         + links (object)
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author` (string)
     + parent (object) - Das Elternobjekt, dem dieser Post zugeordnet ist
-        + data (object)
-            + type: `users` (string)
-            + id: `123456` (string)
+        + data (User Linkage)
         + links (object)
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/parent` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent` (string)
@@ -321,3 +366,8 @@ Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe http://de
     + `picture_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Vollbild)
 + links (object)
     + self: `/users/123456` (string) - Der Link zu dieser Resource
+
+## User Linkage (object)
+
++ type: `users` (string)
++ id: `123456` (string) - Die User-ID
