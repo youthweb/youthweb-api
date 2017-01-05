@@ -85,7 +85,7 @@ Ein Post Objekt hat die folgenden Attribute
 + Parameters
     + post_id: d5a5a2c3-041b-4985-907c-74a2131efc98 (required, string) - ID of the post as a uuid string
 
-### Autor Relationship zu einem Post abrufen [GET]
+### Author Relationship zu einem Post abrufen [GET]
 + Request (application/vnd.api+json)
 
     + Headers
@@ -105,6 +105,55 @@ Ein Post Objekt hat die folgenden Attribute
         + links (object)
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author` (string)
+
+## Post Parent [/posts/{post_id}/parent]
+
++ Parameters
+    + post_id: d5a5a2c3-041b-4985-907c-74a2131efc98 (required, string) - ID of the post as a uuid string
+
+### Elternobjekt zu einem Post abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+
+    + Attributes
+
+        + data (User Base)
+
+## Post Parent Relationship [/posts/{post_id}/relationships/parent]
+
++ Parameters
+    + post_id: d5a5a2c3-041b-4985-907c-74a2131efc98 (required, string) - ID of the post as a uuid string
+
+### Parent Relationship zu einem Post abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+
+    + Attributes
+
+        + data (User Linkage)
+        + links (object)
+            + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/parent` (string)
+            + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent` (string)
 
 # Group Stats
 
