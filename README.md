@@ -1,7 +1,7 @@
 # Youthweb API
 
 [![Latest Version](https://img.shields.io/github/release/youthweb/youthweb-api.svg)](https://github.com/youthweb/youthweb-api/releases)
-[![Software License GLPv2](http://img.shields.io/badge/License-GPLv2-brightgreen.svg)](LICENSE)
+[![Software License GLPv3](http://img.shields.io/badge/License-GPLv3-brightgreen.svg)](LICENSE)
 [![Build Status](https://travis-ci.org/youthweb/youthweb-api.svg?branch=develop)](https://travis-ci.org/youthweb/youthweb-api)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/youthweb/youthweb-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
