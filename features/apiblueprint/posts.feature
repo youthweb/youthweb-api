@@ -21,10 +21,9 @@ Scenario: Requesting a post
 	And the "links" property exists
 	And the "attributes" property exists
 	And scope into the "data.attributes" property
-	And the response contains 8 items
+	And the response contains 7 items
 	And the properties exist:
 		"""
-		uuid
 		title
 		content
 		view_allowed_for
