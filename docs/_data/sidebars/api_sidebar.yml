@@ -43,6 +43,10 @@ entries:
       url: /api_endpoint_me.html
       output: web
 
+    - title: Posts
+      url: /api_endpoint_posts.html
+      output: web
+
     - title: Stats
       url: /api_endpoint_stats.html
       output: web

@@ -18,6 +18,7 @@ folder: api
 | Endpoint                              | Beschreibung                                                                       |
 |---------------------------------------|------------------------------------------------------------------------------------|
 | [/me][api_endpoint_me]                | Liefert die User-Resource des autorisierten User                                   |
+| [/posts][api_endpoint_posts]          | Liefert eine Post-Resource                                                         |
 | [/stats][api_endpoint_stats]          | Liefert eine Statisik-Resource                                                     |
 | [/users][api_endpoint_users]          | Liefert eine User-Resource                                                         |
 
