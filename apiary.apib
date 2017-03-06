@@ -379,12 +379,12 @@ Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe http://de
     + `created_at`: `2017-01-01T18:51:02+01:00` (string) - Zeitpunkt der Erstellung als ISO-8601
     + `updated_at`: `2017-01-03T14:17:11+01:00` (string, nullable) - Zeitpunkt der letzten Änderung als ISO-8601
 + `relationships` (object)
-    + `author` (object) - Der Autor des Posts
+    + `author` (object, nullable) - Der Autor des Posts
         + data (User Linkage)
         + links (object)
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author` (string)
-    + parent (object) - Das Elternobjekt, dem dieser Post zugeordnet ist
+    + parent (object, nullable) - Das Elternobjekt, dem dieser Post zugeordnet ist
         + data (User Linkage)
         + links (object)
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/parent` (string)
