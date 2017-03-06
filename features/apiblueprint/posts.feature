@@ -38,13 +38,6 @@ Scenario: Requesting a post
 		"""
 		self
 		"""
-	And scope into the "data.relationships" property
-	And the response contains 2 items
-	And the properties exist:
-		"""
-		author
-		parent
-		"""
 
 Scenario: Requesting the author of a post
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
