@@ -74,6 +74,8 @@ Scenario: Requesting the author relationship of a post
 	Then I get a "200" response
 	And the "data" property exists
 	And the "data" property is an object
+	And the "links" property exists
+	And the "links" property is an object
 	And scope into the "data" property
 	And the response contains 2 items
 	And the "type" property exists
