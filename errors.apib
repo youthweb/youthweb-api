@@ -152,3 +152,43 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
     + Body
 
             {"errors":[{"status":"401","title":"Unauthorized"}]}
+
+# Group Posts
+
+## Forbidden Posts [/posts/f5a5a2c3-041b-4985-907c-74a2131efc98]
+
+### Request a forbidden post [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+
++ Response 403 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+
+    + Body
+
+            {"errors":[{"status":"403","title":"Forbidden","detail":"You have no permission to read this post."}]}
+
+## Not existing Posts [/posts/45a5a2c3-041b-4985-907c-74a2131efc98]
+
+### Request a not existing post [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+
+    + Body
+
+            {"errors":[{"status":"404","title":"Resource not found"}]}
