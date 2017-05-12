@@ -18,8 +18,6 @@ Scenario: Requesting a post without permission
 	And the "status" property is a string equalling "403"
 	And the "title" property exists
 	And the "title" property is a string equalling "Forbidden"
-	And the "detail" property exists
-	And the "detail" property is a string equalling "You have no permission to read this post."
 
 Scenario: Requesting a not existing post
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
