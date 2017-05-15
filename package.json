@@ -7,9 +7,9 @@
   "scripts": {
     "server": "drakov -f ./apiary.apib -p 3000",
     "server:errors": "drakov -f ./errors.apib -p 3000",
-    "test": "bash ./vendor/bin/behat --suite=develop",
-    "test:errors": "bash ./vendor/bin/behat --suite=errors",
+    "test": "vendor/bin/behat --suite=develop",
+    "test:errors": "vendor/bin/behat --suite=errors",
     "docs:build": "jekyll build --source docs/ --destination docs/_site",
-    "docs:watch": "jekyll build --watch --source docs/ --destination docs/_site"
+    "docs:watch": "npm run docs:build -- --watch"
   }
 }
