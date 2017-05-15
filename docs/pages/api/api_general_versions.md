@@ -10,12 +10,13 @@ folder: api
 
 Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben. Die angefragte Version MUSS im Request-Header angegeben werden:
 
-`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7`
+`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.8`
 
 ### Unterstützte Versionen
 
 | Version | Status                         | Veröffentlicht | Unterstützt bis          |
 |---------|--------------------------------|----------------|--------------------------|
+| **0.8** | :white_check_mark: unterstützt | 2017-05-21     | *n/a*                    |
 | **0.7** | :white_check_mark: unterstützt | 2016-11-20     | *n/a*                    |
 | **0.6** | :white_check_mark: unterstützt | 2016-10-23     | *n/a*                    |
 | **0.5** | :warning: veraltet             | 2016-07-03     | Release 0.8              |
