@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+
+- new resource `Post` with new endpoint `/posts/<post_id>`
+- new scope `post:read` to view the posts of a user and his friends
+- new post author endpoints `/posts/<post_id>/author` and `/posts/<post_id>/relationships/author`
+- new post parent endpoints `/posts/<post_id>/parent` and `/posts/<post_id>/relationships/parent`
+- new endpoint `users/<user_id>/posts` to list the posts of a user
+
 ### Changed
 
 - Update LICENSE to GPL v3
