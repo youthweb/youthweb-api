@@ -3,5 +3,13 @@
   "version": "0.7.0",
   "devDependencies": {
     "drakov": "^1.0.0"
+  },
+  "scripts": {
+    "server": "drakov -f ./apiary.apib -p 3000",
+    "server:errors": "drakov -f ./errors.apib -p 3000",
+    "test": "vendor/bin/behat --suite=develop",
+    "test:errors": "vendor/bin/behat --suite=errors",
+    "docs:build": "jekyll build --source docs/ --destination docs/_site",
+    "docs:watch": "npm run docs:build -- --watch"
   }
 }
