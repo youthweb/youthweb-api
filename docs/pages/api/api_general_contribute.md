@@ -12,27 +12,31 @@ Du kannst mithelfen, die Youthweb-API zu gestalten, indem du an diesem Projekt m
 
 ## API
 
-Um Bugs oder Features zu testen, solltest du die Änderungen lokal testet. Dazu benötigst du PHP und NodeJS.
+Um Bugs oder Features zu testen, solltest du die Änderungen lokal testet. Dazu benötigst du [PHP >= 5.6](http://php.net/) und [Node.js mit npm](https://nodejs.org/de/download/).
 
 ### Installation
 
-1. Forke dieses Projekt in deinen eigenen Account.
-2. Clone das Projekt mit ```git clone git@github.com:<username>/youthweb-api.git``` und wechsle in das neue Verzeichnis.
-3. Installiere Composer und alle Abhänigkeiten:
+1.) Forke dieses Projekt in deinen eigenen Account.
+
+2.) Clone das Projekt mit ```git clone git@github.com:<username>/youthweb-api.git``` und wechsle in das neue Verzeichnis.
+
+3.) Installiere Composer und alle Abhänigkeiten:
 
   ```
   curl http://getcomposer.org/installer | php
   php composer.phar install
   ```
 
-4. Installiere die NPM-Abhängigkeiten und starte den Drakov Mock-Server:
+4.) Installiere die npm-Abhängigkeiten und starte den Mock-Server:
 
   ```
   npm install
-  ./node_modules/drakov/drakov -f ./apiary.apib -p 3000
+  npm run server
   ```
 
-5. Teste deine API mit ```vendor/bin/behat --suite=develop```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
+Der Mock-Server muss während der Tests im Hintergrund laufen. Starte ihn daher am besten in einem eigenen Terminal.
+
+5.) Teste deine API mit ```npm run test```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
 
 ### Änderungen
 

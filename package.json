@@ -1,8 +1,9 @@
 {
   "name": "youthweb-api",
   "version": "0.8.0",
+  "private": true,
   "devDependencies": {
-    "drakov": "^1.0.0"
+    "drakov": "^1.0.1"
   },
   "scripts": {
     "server": "drakov -f ./apiary.apib -p 3000",

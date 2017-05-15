@@ -14,6 +14,14 @@ All notable changes to this project will be documented in this file.
 
 - Update LICENSE to GPL v3
 
+### Deprecated
+
+- Version 0.6 and 0.7 are now deprecated and support will be dropped in future. If your apps use this version upgrade them to version 0.8.
+
+### Removed
+
+- **Breaking:** The support for version 0.4 was dropped. Requests with this version and below will get a 406 error response.
+
 ## [0.7] - 2016-11-20
 ### Added
 
