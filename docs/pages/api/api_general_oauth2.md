@@ -12,7 +12,7 @@ Die meisten Resourcen benötigen eine Autorisierung. Dazu benötigt der Client e
 
 ## OAuth2 Authorization Code Grant
 
-Wir haben das OAuth2 Authorization Code Grant umgesetzt, damit Apps nicht mit den Passwörtern der Nutzer arbeiten muss.
+Wir haben das OAuth2 Authorization Code Grant umgesetzt, damit Apps nicht mit den Passwörtern der Nutzer arbeiten müssen.
 
 ### Client registrieren
 
@@ -24,7 +24,7 @@ Hier wird das Holen eines Request-Token und Access-Tokens durch eine App beschri
 
 #### 1. Client autorisieren
 
-Der Client benötigt einen Request-Token und startet schickt den User (z.B. mithilfe eines WebViews) an die Url https://youthweb.net/auth/authorize und schickt im Querystring die folgenden Daten mit:
+Der Client benötigt einen Request-Token und startet schickt den User (z.B. mithilfe eines WebViews) an die Url `https://youthweb.net/auth/authorize` und schickt im Querystring die folgenden Daten mit:
 
 * `response_type` mit dem Wert `code`
 * `client_id` mit der Client-ID
@@ -40,7 +40,7 @@ GET https://youthweb.net/auth/authorize?response_type=code&client_id=JZuZLtoMgjW
 
 #### 2. User-Login
 
-_Wenn der User eingeloggt ist, geht es weiter mit Schritt 3._
+_Wenn der User eingeloggt ist, geht es weiter mit [Schritt 3](#3-anwendung-autorisieren)._
 
 Wenn der User nicht eingeloggt ist, wird er zu einem Login-Formular weitergeleitet.
 
@@ -54,20 +54,20 @@ Nach dem erfolgreichen Login wird der User wieder zurück auf die ursprüngliche
 
 #### 3. Anwendung autorisieren
 
-_Wenn der User den Client bereits erlaubt hat, geht es weiter mit Schritt 4._
+_Wenn der User den Client bereits erlaubt hat, geht es weiter mit [Schritt 4](#4-redirect-url-mit-request-token-aufrufen)._
 
 Der Youthweb-Server verarbeitet jetzt die Parameter aus dem Querystring. Wenn der User diesem Client noch keine Erlaubnis erteilt hat oder im Scope neue Berechtigungen angefragt werden, dann wird der User um Erlaubnis gefragt.
 
-Wenn der User der Berechtigungs-Anfrage zustimmt, geht es weiter mit Schritt 4.
+Wenn der User der Berechtigungs-Anfrage zustimmt, geht es weiter mit [Schritt 4](#4-redirect-url-mit-request-token-aufrufen).
 
 #### 4. Redirect-URL mit Request-Token aufrufen
 
 Wenn der User den Zugriff durch den Client erlaubt, erstellt der Server ein Authorization-Code und leitet auf die übergebene oder beim Client hinterlegte Redirect-URL um. Im Querystring werden dabei die folgenden Daten übertragen:
 
 * `code` mit einem Authorization Code
-* `state` mit dem Wert aus Schritt 1
+* `state` mit dem Wert aus [Schritt 1](#1-client-autorisieren)
 
-Der Client prüft dann, ob der `state`-Parameter den selben Wert wie beim Request in Schritt 1 hat. Wenn nicht, dann sollte der Client abbrechen und wieder mit Schritt 1 beginnen. Wer der `state` stimmt, dann ermittelt der Client den Code-Parameter aus der URL.
+Der Client prüft dann, ob der `state`-Parameter den selben Wert wie beim Request in [Schritt 1](#1-client-autorisieren) hat. Wenn nicht, dann sollte der Client abbrechen und wieder mit Schritt 1 beginnen. Wer der `state` stimmt, dann ermittelt der Client den Code-Parameter aus der URL.
 
 **Beispiel Response-URL**
 
@@ -111,15 +111,15 @@ Content-Type: application/json
 
 Das `access_token` kannst du nun bei allen API-Requests im Header mitgeben.
 
-Wenn das Access-Token abgelaufen ist, kann Schritt 5 erneut durchgeführt werden, um ein neues Access-Token zu erhalten.
+Wenn das Access-Token abgelaufen ist, kann [Schritt 5](#5-access-token-anfragen) erneut durchgeführt werden, um ein neues Access-Token zu erhalten.
 
-Wenn bei der Anfrage nach dem Access-Token ein Fehler auftritt (z.B. weil das Request-Token abgelaufen ist oder der User dem Client die Berechtigung entzogen hat), muss der Client wieder bei Schritt 1 beginnen.
+Wenn bei der Anfrage nach dem Access-Token ein Fehler auftritt (z.B. weil das Request-Token abgelaufen ist oder der User dem Client die Berechtigung entzogen hat), muss der Client wieder bei [Schritt 1](#1-client-autorisieren) beginnen.
 
 {% include note.html content="Das Refresh-Token kann noch nicht verwendet werden. Wir arbeiten aber an der Umsetzung des Refresh Token Grants." %}
 
 ## User-Token (Deprecated)
 
-{% include warning.html content="Der Zugriff über User-Token wird in Zukunft entfernt und sollte daher nicht mehr verwendet werden. Wir planen als Ersatz die Umsetzung des OAuth2 Client Credentials Grant." %}
+{% include warning.html content="Der Zugriff über User-Token ist seit Version 0.6 veraltet. Er wird in Zukunft entfernt und sollte daher nicht mehr verwendet werden. Wir planen als Ersatz die Umsetzung des OAuth2 Client Credentials Grant." %}
 
 1. Generiere dir [hier](https://youthweb.net/settings/token) ein User-Token. Dieses User-Token wird auch `token_secret` genannt und muss wie ein Passwort geheim gehalten werden.
 2. Sende deinen `username` und dein `token_secret` an `POST /auth/token`, um ein [JWT](http://jwt.io/) zu erhalten. Genauere Informationen sind [in der Dokumentation](http://docs.youthweb.apiary.io/#reference/auth) zu finden.
