@@ -1,7 +1,11 @@
 {
     "name": "youthweb/youthweb-api",
+    "description": "Youthweb API",
+    "homepage": "http://developer.youthweb.net/",
+    "keywords": ["youthweb", "api"],
+    "license": "GPL3",
     "require": {
-        "php": ">=5.5",
+        "php": "^5.6 || ^7",
         "behat/behat": "~3.0",
         "guzzlehttp/guzzle": "~6.0",
         "phpunit/phpunit": "~5.0"
