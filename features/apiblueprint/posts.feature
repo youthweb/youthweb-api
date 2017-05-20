@@ -5,7 +5,7 @@ Feature: Interact with a post
 Scenario: Requesting a post
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.8"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.9"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98"
 	Then I get a "200" response
@@ -42,7 +42,7 @@ Scenario: Requesting a post
 Scenario: Requesting the author of a post
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.8"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.9"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author"
 	Then I get a "200" response
@@ -68,7 +68,7 @@ Scenario: Requesting the author of a post
 Scenario: Requesting the author relationship of a post
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.8"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.9"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author"
 	Then I get a "200" response
@@ -93,7 +93,7 @@ Scenario: Requesting the author relationship of a post
 Scenario: Requesting the parent of a post
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.8"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.9"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent"
 	Then I get a "200" response
@@ -119,7 +119,7 @@ Scenario: Requesting the parent of a post
 Scenario: Requesting the parent relationship of a post
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.8"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.9"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/parent"
 	Then I get a "200" response
