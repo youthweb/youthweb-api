@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.8] - 2017-05-21
 ### Added
 
 - new resource `Post` with new endpoint `/posts/<post_id>`
@@ -111,7 +111,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.7...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.8...develop
+[0.8]: https://github.com/youthweb/youthweb-api/compare/0.7...0.8
 [0.7]: https://github.com/youthweb/youthweb-api/compare/0.6...0.7
 [0.6]: https://github.com/youthweb/youthweb-api/compare/0.5...0.6
 [0.5]: https://github.com/youthweb/youthweb-api/compare/0.4...0.5
