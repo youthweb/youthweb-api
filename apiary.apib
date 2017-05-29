@@ -309,6 +309,31 @@ Liefert die Posts von der Pinnwand eines Users
         + included (array)
             + (User Base)
 
+### Post zu einem User erstellen [POST]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.9
+            Authorization: Bearer valid_JWT
+
+    + Attributes
+
+        + data (Post Created)
+
++ Response 201 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.9
+            Location: /posts/d5a5a2c3-041b-4985-907c-74a2131efc98
+
+    + Attributes
+
+        + data (Post Base)
+        + included (array)
+            + (User Base)
+
 ## Me [/me]
 
 Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /users/{user_id}, wenn die User-ID des autorisierten Users nicht bekannt ist.
@@ -391,6 +416,15 @@ Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe http://de
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent` (string)
 + links (object)
     + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Der Link zu dieser Resource
+
+## Post Created (object)
+
++ type: `posts` (string)
++ attributes (object)
+    + `title`: `The post title` (string) - Der Title, kann auch leer sein
+    + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Post-Inhalt
+    + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
+    + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
 
 ## User Base (object)
 

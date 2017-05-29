@@ -158,6 +158,17 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	}
 
 	/**
+	 * @Then the Location Header exists
+	 */
+	public function theLocationHeaderExists()
+	{
+		$location = $this->getResponse()->getHeaderLine('Location');
+
+		$this->assertTrue(is_string($location), $location);
+	}
+
+
+	/**
 	 * @Given /^the response contains (\d+) items$/
 	 */
 	public function theResponseContainsItems($count)
