@@ -101,8 +101,8 @@ Du kannst mit diesem Endpoint nichts ändern.
 
 ## Beziehungen
 
-| Beziehung                               | Beschreibung                                                                       |
-|-----------------------------------------|------------------------------------------------------------------------------------|
-| `/users/{user_id}/posts`                | Liefert die [Post][api_endpoint_posts]-Resourcen von der Pinnwand eines Users      |
+| Beziehung                                             | Beschreibung                                                                       |
+|-------------------------------------------------------|------------------------------------------------------------------------------------|
+| [`/users/{user_id}/posts`][api_endpoint_object_posts] | Liefert die [Post][api_endpoint_posts]-Resourcen von der Pinnwand eines Users      |
 
 {% include links.html %}
