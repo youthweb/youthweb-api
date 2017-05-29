@@ -74,7 +74,7 @@ Content-Type: application/vnd.api+json
 | `attributes.username`            | Der Username des Users                                     | `string`              |
 | `attributes.first_name`          | Der Vorname des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                         | `string` oder `null`  |
 | `attributes.last_name`           | Der Nachname des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                        | `string` oder `null`  |
-| `attributes.email`               | Die des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:email` oder `user:read` erfragt werden.               | `string` oder `null`  |
+| `attributes.email`               | Die E-Mail-Adresse des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:email` oder `user:read` erfragt werden.               | `string` oder `null`  |
 | `attributes.birthday`            | Der Geburtstag des Users im Format YYYY-MM-DD oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden. | `string` oder `null`  |
 | `attributes.created_at`          | Der Registrierzeitpunkt des Users im Format nach ISO-8601 (`2006-01-01T21:00:00+01:00`)                                                 | `string`              |
 | `attributes.last_login`          | Der Zeitpunkt des letzten Logins im Format nach ISO-8601 (`2016-11-14T11:28:47+01:00`)                                                  | `string`              |
