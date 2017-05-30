@@ -164,7 +164,7 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 	{
 		$location = $this->getResponse()->getHeaderLine('Location');
 
-		$this->assertTrue(is_string($location), $location);
+		$this->assertFalse(empty($location), $location);
 	}
 
 
