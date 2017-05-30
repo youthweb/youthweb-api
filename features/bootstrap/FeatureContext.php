@@ -188,7 +188,9 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 		$payload = $this->getScopePayload();
 		$actualValue = $this->arrayGet($payload, $property);
 
-		$this->assertEquals($actualValue, $expectedValue,
+		$this->assertEquals(
+			$expectedValue,
+			$actualValue,
 			"Asserting the [$property] property in current scope equals [$expectedValue]: ".json_encode($payload)
 		);
 	}
@@ -314,8 +316,8 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 		$actualValue = $this->arrayGet($payload, $property);
 
 		$this->assertSame(
-			$actualValue,
 			$expectedValue,
+			$actualValue,
 			"Asserting the [$property] property in current scope [{$this->scope}] is a string equalling [$expectedValue]."
 		);
 	}
@@ -349,8 +351,8 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 		$this->thePropertyIsABoolean($property);
 
 		$this->assertSame(
-			$actualValue,
 			$expectedValue == 'true',
+			$actualValue,
 			"Asserting the [$property] property in current scope [{$this->scope}] is a boolean equalling [$expectedValue]."
 		);
 	}
@@ -366,8 +368,8 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 		$this->thePropertyIsAnInteger($property);
 
 		$this->assertSame(
-			$actualValue,
 			(int) $expectedValue,
+			$actualValue,
 			"Asserting the [$property] property in current scope [{$this->scope}] is an integer equalling [$expectedValue]."
 		);
 	}
@@ -403,14 +405,11 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
 
 		foreach ( $valids as $valid )
 		{
-			$this->assertTrue(in_array($valid, $actualValue),
+			$this->assertTrue(
+				in_array($valid, $actualValue),
 				sprintf("Asserting the [%s] property in current scope [{$this->scope}] contains at least [%s].", $property, $valid)
-		);
+			);
 		}
-
-
-
-		//throw new PendingException();
 	}
 
 	/**
