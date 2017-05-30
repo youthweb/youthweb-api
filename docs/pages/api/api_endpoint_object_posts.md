@@ -167,7 +167,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2M
 
 ### Permissions
 
-- **Schreibrechte**: Du benötigst ein [Access-Token][api_general_oauth2] mit `post:write` Scope, um im Namen eines Users einen Post erstellen zu können.
+- **Schreibrechte**: Du benötigst ein [Access-Token][api_general_oauth2] mit [`post:write`][api_general_scopes] Scope, um im Namen eines Users einen Post erstellen zu können.
 - **Sonstiges**: Es kann sein, dass ein User das Erstellen von Posts an seine Pinnwand verbietet. In diesem Fall wird ein `403 Forbidden` Error zurückgegeben. An die Pinnwand des Users, der den Client autorisiert hat, kann immer gepostet werden.
 
 ### Felder
