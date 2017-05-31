@@ -26,6 +26,35 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
             {"errors":[{"status":"404","title":"Resource not found"}]}
 
+## Invalid JSON API [/users/187654/posts]
+
+### Create a post with invalid JSON API [POST]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.9
+
+    + Attributes
+
+        + data (object)
+            + type: `posts` (string)
+            + attributes (object)
+                + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Post-Inhalt
+        + errors (array)
+            + (object)
+                `detail`: `The members data and errors MUST NOT coexist in the same document.` (string)
+
++ Response 400 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.9
+
+    + Body
+
+            {"errors":[{"status":"400","title":"Bad Request","detail":"Your request format must be valid JSON API."}]}
+
 # Group Stats
 
 ## Account Stats [/stats/account]
