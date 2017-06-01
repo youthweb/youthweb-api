@@ -1,5 +1,5 @@
 ---
-title: {object}/{object_id}/posts
+title: "{object}/{object_id}/posts"
 keywords: Youthweb-API, Resource, Posts
 tags: [endpoint]
 summary: "Dieser Endpoint liefert die Posts zu einer Resource."
