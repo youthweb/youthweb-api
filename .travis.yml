@@ -16,7 +16,7 @@ cache:
 
 before_script:
 - npm install
-- ./node_modules/.bin/drakov -f $TEST_FILE -p 3000&
+- ./node_modules/.bin/drakov --stealthmode -f $TEST_FILE -p 3000&
 - travis_retry composer self-update
 - travis_retry composer install --no-interaction --prefer-dist
 

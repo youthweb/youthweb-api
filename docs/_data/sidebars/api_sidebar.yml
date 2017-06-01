@@ -47,6 +47,10 @@ entries:
       url: /api_endpoint_posts.html
       output: web
 
+    - title: Objekt Posts
+      url: /api_endpoint_object_posts.html
+      output: web
+
     - title: Stats
       url: /api_endpoint_stats.html
       output: web
