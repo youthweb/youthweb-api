@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+
+- create a `Post` on an users pinnwall with the endpoint `/users/<user_id>/posts`
+- new scope `post:write` to create posts in name of a user
 
 ## [0.8] - 2017-05-21
 ### Added
