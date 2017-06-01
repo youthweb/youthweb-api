@@ -36,4 +36,4 @@ Scenario: Sending a request with invalid JSON API
 	And the "title" property exists
 	And the "title" property is a string equalling "Bad Request"
 	And the "detail" property exists
-	And the "detail" property is a string equalling "Your request format must be valid JSON API."
+	And the "detail" property is a string equalling "Your request format must be valid JSON API. The properties `data` and `errors` MUST NOT coexist in Document."
