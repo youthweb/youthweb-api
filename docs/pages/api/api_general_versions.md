@@ -22,14 +22,13 @@ Nach dem Release einer neuen Version garantieren wir den Support der Version ohn
 
 | Version | Status             | Veröffentlicht | Unterstützt bis          |
 |---------|--------------------|----------------|--------------------------|
-| **0.9** | :white_check_mark: | XXXX-XX-XX     | mindestens XXXX-XX-XX    |
+| **0.9** | :white_check_mark: | 2017-06-04     | mindestens 2018-06-04    |
 | **0.8** | :white_check_mark: | 2017-05-21     | mindestens 2018-05-21    |
 | **0.7** | :warning:          | 2016-11-20     | mindestens 2017-11-20    |
 | **0.6** | :warning:          | 2016-10-23     | mindestens 2017-10-23    |
 | **0.5** | :warning:          | 2016-07-03     | mindestens 2017-07-03    |
 | 0.4     | :x:                | 2016-03-27     | Release 0.8 - 2017-05-21 |
 | 0.3     | :x:                | 2015-10-11     | Release 0.6 - 2016-10-23 |
-| <= 0.2  | :x:                | 2015-06-21     | Release 0.4 - 2016-03-27 |
 
 #### Status-Legende
 

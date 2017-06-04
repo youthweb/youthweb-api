@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.9] - 2017-06-04
 ### Added
 
 - create a `Post` on an users pinnwall with the endpoint `/users/<user_id>/posts`
@@ -117,7 +117,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.8...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.9...develop
+[0.9]: https://github.com/youthweb/youthweb-api/compare/0.8...0.9
 [0.8]: https://github.com/youthweb/youthweb-api/compare/0.7...0.8
 [0.7]: https://github.com/youthweb/youthweb-api/compare/0.6...0.7
 [0.6]: https://github.com/youthweb/youthweb-api/compare/0.5...0.6
