@@ -24,6 +24,88 @@ Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.ver
 
 Alle Informationen zur Authentication findest du hier: http://developer.youthweb.net/api_general_oauth2.html
 
+# Group Events
+
+## Event [/events/{event_id}]
+
+Ein Event Objekt hat die folgenden Attribute
+
++ type
++ id - The Event-ID
++ attributes - An object of attributes.
+
++ Parameters
+    + event_id: 4567 (required, string) - ID of the event
+
+### Daten zu einem Event abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+
+    + Attributes
+
+        + data (Event Base)
+        + included (array)
+            + (User Base)
+
+## Event Author [/events/{event_id}/author]
+
++ Parameters
+    + event_id: 4567 (required, string) - ID of the event
+
+### Author zu einem Event abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+
+    + Attributes
+
+        + data (User Base)
+
+## Post Author Relationship [/events/{event_id}/relationships/author]
+
++ Parameters
+    + event_id: 4567 (required, string) - ID of the event
+
+### Author Relationship zu einem Event abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+
+    + Attributes
+
+        + data (User Linkage)
+        + links (object)
+            + self: `/event/4567/relationships/author` (string)
+            + related: `/events/4567/author` (string)
+
 # Group Posts
 
 ## Post [/posts/{post_id}]
@@ -390,6 +472,28 @@ Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe http://de
                 + `The resource /auth/token is deprecated and will replaced with OAuth2 authorization. Please see http://developer.youthweb.net/api_general_oauth2.html` (string)
 
 # Data Structures
+
+## Event Base (object)
+
++ type: `events` (string)
++ id: `4567` (string) - Die Event-ID
++ attributes (object)
+    + `name`: `The event Name` (string) - Der Event-Name
+    + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Die Event-Beschreibung
+    + `start_datetime`: `2017-06-26T08:30:00+01:00` (string) - Start-Zeitpunkt des Events als ISO-8601
+    + `end_datetime`: `2017-07-07T17:00:00+01:00` (string) - End-Zeitpunkt des Events als ISO-8601
+    + `timezone`: `Europe/Berlin` (string) - Die Zeitzone, in der das Event stattfindet
+    + `comments_allowed`: true (boolean) - Kann dieses Event kommentiert werden?
+    + `comments_count`: 7 (number) - Die Gesamtanzahl der Kommentare zu diesem Event
+    + `participants_count`: 15 (number) - Die Gesamtanzahl der User, die Angaben zur Teilnahme an diesem Event gemacht haben
++ `relationships` (object)
+    + `author` (object, nullable) - Der Autor des Posts
+        + data (User Linkage)
+        + links (object)
+            + self: `/events/4567/relationships/author` (string)
+            + related: `/events/4567/author` (string)
++ links (object)
+    + self: `/events/4567` (string) - Der Link zu dieser Resource
 
 ## Post Base (object)
 
