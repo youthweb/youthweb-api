@@ -323,6 +323,46 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
             {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
 
+# Group Events
+
+## Request an event [/events/4567]
+
+### Request an event without authorization [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+
++ Response 401 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+
+    + Body
+
+            {"errors":[{"status":"401","title":"Unauthorized"}]}
+
+## Not existing event [/events/404]
+
+### Request a not existing event [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+
+    + Body
+
+            {"errors":[{"status":"404","title":"Resource not found"}]}
+
 # Data Structures
 
 ## Post Created (object)
