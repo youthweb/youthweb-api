@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+
+- new resource `Event` with new endpoint `/events/<event_id>`
+- new event author endpoints `/events/<event_id>/author` and `/events/<event_id>/relationships/author`
 
 ## [0.9] - 2017-06-04
 ### Added
