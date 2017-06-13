@@ -74,7 +74,7 @@ Content-Type: application/vnd.api+json
 
 ### Felder
 
-Für Informationen zu den Feldern siehe den Response eines einzelnen Events weiter unten.
+Für Informationen zu den Feldern siehe den [Response eines einzelnen Events](#felder-1) weiter unten.
 
 ## Read
 
