@@ -29,8 +29,8 @@ Alle Informationen zur Authentication findest du hier: http://developer.youthweb
 ## Events abrufen [/events?page[start]={start_datetime}&page[end]={end_datetime}]
 
 + Parameters
-    + `start_datetime`: `2017-06-01T00:00:00Z` (string) - Ein ISO 6801 Datum in UTC Timezone für die untere Startzeit der Events. Wenn nicht angegeben, wird aktuelle Zeitpunkt angenommen.
-    + `end_datetime`: `2017-08-01T00:00:00Z` (string) - Ein ISO 6801 Datum in UTC Timezone für die obere Startzeit der Events. Wenn nicht angegeben, wird ein Monat nach `start_datetime` angenommen.
+    + `start_datetime`: `2017-06-01T00:00:00` (string, optional) - Ein ISO 6801 Datum ohne Timezone-Offset in UTC Timezone für die untere Startzeit der Events. Wenn nicht angegeben, wird aktuelle Zeitpunkt angenommen. Ein angegebener Timezone-Offset wird ignoriert.
+    + `end_datetime`: `2017-08-01T00:00:00` (string, optional) - Ein ISO 6801 Datum ohne Timezone-Offset in UTC Timezone für die obere Startzeit der Events. Wenn nicht angegeben, wird ein Monat nach `start_datetime` angenommen. Ein angegebener Timezone-Offset wird ignoriert.
 
 ### Eine Liste von Events anfordern [GET]
 + Request (application/vnd.api+json)
@@ -504,10 +504,10 @@ Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe http://de
 + type: `events` (string)
 + id: `4567` (string) - Die Event-ID
 + attributes (object)
-    + `name`: `The event Name` (string) - Der Event-Name
+    + `name`: `The event name` (string) - Der Event-Name
     + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Die Event-Beschreibung
-    + `start_datetime`: `2017-06-26T08:30:00+01:00` (string) - Start-Zeitpunkt des Events als ISO-8601
-    + `end_datetime`: `2017-07-07T17:00:00+01:00` (string, nullable) - End-Zeitpunkt des Events als ISO-8601
+    + `start_datetime`: `2017-06-26T07:30:00+00:00` (string) - Start-Zeitpunkt des Events als ISO-8601 in der UTC-Timezone
+    + `end_datetime`: `2017-07-07T16:00:00+00:00` (string, nullable) - End-Zeitpunkt des Events als ISO-8601 in der UTC-Timezone
     + `timezone`: `Europe/Berlin` (string) - Die Zeitzone, in der das Event stattfindet
     + `comments_allowed`: true (boolean) - Kann dieses Event kommentiert werden?
     + `comments_count`: 7 (number) - Die Gesamtanzahl der Kommentare zu diesem Event
