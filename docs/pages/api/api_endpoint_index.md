@@ -15,11 +15,13 @@ folder: api
 
 ## Übersicht
 
-| Endpoint                              | Beschreibung                                                                       |
-|---------------------------------------|------------------------------------------------------------------------------------|
-| [/me][api_endpoint_me]                | Liefert die User-Resource des autorisierten User                                   |
-| [/posts][api_endpoint_posts]          | Liefert eine Post-Resource                                                         |
-| [/stats][api_endpoint_stats]          | Liefert eine Statisik-Resource                                                     |
-| [/users][api_endpoint_users]          | Liefert eine User-Resource                                                         |
+| Endpoint                                          | Beschreibung                                                         |
+|---------------------------------------------------|----------------------------------------------------------------------|
+| [/events][api_endpoint_events]                    | Liefert Event-Resourcen                                              |
+| [/me][api_endpoint_me]                            | Liefert die User-Resource des autorisierten User                     |
+| [/{object}/{id}/posts][api_endpoint_object_posts] | Liefert Post-Resourcen zu einem Objekt                               |
+| [/posts][api_endpoint_posts]                      | Liefert Post-Resourcen                                               |
+| [/stats][api_endpoint_stats]                      | Liefert Statisik-Resourcen                                           |
+| [/users][api_endpoint_users]                      | Liefert User-Resourcen                                               |
 
 {% include links.html %}
