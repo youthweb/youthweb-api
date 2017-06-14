@@ -5,16 +5,16 @@ use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
-
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\BadResponseException;
+use PHPUnit\Framework\TestCase;
 
 
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext extends PHPUnit_Framework_TestCase implements Context, SnippetAcceptingContext
+class FeatureContext extends TestCase implements Context, SnippetAcceptingContext
 {
 	/**
 	 * The Guzzle HTTP Client.
