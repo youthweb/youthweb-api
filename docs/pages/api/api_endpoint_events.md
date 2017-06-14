@@ -8,6 +8,8 @@ permalink: api_endpoint_events.html
 folder: api
 ---
 
+Dieser Endpoint liefert die Events, die in einem bestimmten Zeitraum stattfinden oder eine bestimmtes Event.
+
 ## List
 
 ### Request

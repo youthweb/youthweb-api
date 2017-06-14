@@ -8,6 +8,8 @@ permalink: api_endpoint_posts.html
 folder: api
 ---
 
+Dieser Endpoint kann zum Lesen oder Erstellen eines Posts verwendet werden.
+
 ## Read
 
 ### Request

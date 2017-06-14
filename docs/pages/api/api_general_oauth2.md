@@ -10,13 +10,15 @@ folder: api
 
 Die meisten Resourcen benötigen eine Autorisierung. Dazu benötigt der Client ein Access-Token.
 
+## Client registrieren
+
+Als erstes solltest du deine App [hier](https://youthweb.net/settings/clients/new) registrieren, um eine `client_id` und ein `client_secret` zu erhalten. Wenn du deine App nicht registriest, erhält deine App nur auf sehr wenige Bereiche Zugriff; vergleichbar mit dem, was ein nicht eingeloggter Besucher auf Youthweb sehen kann.
+
+Wenn du deine App registriert hast, kannst du folgende Methoden verwenden, um ein Access-Token zu erhalten.
+
 ## OAuth2 Authorization Code Grant
 
 Wir haben das OAuth2 Authorization Code Grant umgesetzt, damit Apps nicht mit den Passwörtern der Nutzer arbeiten müssen.
-
-### Client registrieren
-
-Registriere [hier](https://youthweb.net/settings/clients/new) deine App, um eine `client_id` und ein `client_secret` zu erhalten.
 
 ### Webflow
 

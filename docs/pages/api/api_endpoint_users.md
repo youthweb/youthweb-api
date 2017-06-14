@@ -8,6 +8,8 @@ permalink: api_endpoint_users.html
 folder: api
 ---
 
+Dieser Endpoint liefert Daten zu einem User.
+
 ## Read
 
 ### Request

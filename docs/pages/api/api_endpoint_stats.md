@@ -8,6 +8,8 @@ permalink: api_endpoint_stats.html
 folder: api
 ---
 
+Dieser Endpoint liefert Statistiken zu Usern, Gruppen und Forum.
+
 ## Read
 
 ### Request
