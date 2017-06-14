@@ -7,6 +7,10 @@ All notable changes to this project will be documented in this file.
 - new resource `Event` with new endpoint `/events/<event_id>`
 - new event author endpoints `/events/<event_id>/author` and `/events/<event_id>/relationships/author`
 
+### Changed
+
+- datetime data in Post and User resources are now deliverd always in UTC timezone with offset `+00:00`
+
 ## [0.9] - 2017-06-04
 ### Added
 

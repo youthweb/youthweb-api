@@ -55,8 +55,8 @@ Content-Type: application/vnd.api+json
                 "view_allowed_for": "users",
                 "comments_allowed": true,
                 "comments_count": 15,
-                "created_at": "2016-01-01T21:00:00+01:00",
-                "updated_at": "2016-02-11T17:13:05+01:00",
+                "created_at": "2016-01-01T20:00:00+00:00",
+                "updated_at": "2016-02-11T16:13:05+00:00",
             },
             "relationships": {
                 "author":
@@ -204,8 +204,8 @@ Location: /posts/d5a5a2c3-041b-4985-907c-74a2131efc98
             "view_allowed_for": "users",
             "comments_allowed": true,
             "comments_count": 15,
-            "created_at": "2016-01-01T21:00:00+01:00",
-            "updated_at": "2016-02-11T17:13:05+01:00",
+            "created_at": "2016-01-01T20:00:00+00:00",
+            "updated_at": "2016-02-11T16:13:05+00:00",
         },
         "relationships": {
             "author":

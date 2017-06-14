@@ -48,8 +48,8 @@ Content-Type: application/vnd.api+json
             "view_allowed_for": "users",
             "comments_allowed": true,
             "comments_count": 15,
-            "created_at": "2016-01-01T21:00:00+01:00",
-            "updated_at": "2016-02-11T17:13:05+01:00",
+            "created_at": "2016-01-01T20:00:00+00:00",
+            "updated_at": "2016-02-11T16:13:05+00:00",
         },
         "relationships": {
             "author": {},
@@ -73,8 +73,8 @@ Content-Type: application/vnd.api+json
 | `attributes.view_allowed_for`    | Für wen darf dieser Post sichtbar sein?<br />`all`, `users`, `friends` oder `authors`     | `string`   |
 | `attributes.comments_allowed`    | Sind neue Kommentare zu diesem Post erlaubt?               | `boolean`            |
 | `attributes.comments_count`      | Wie viele Kommentare wurden schon verfasst?                | `integer`             |
-| `attributes.created_at`          | Der Erstellzeitpunkt des Posts im Format nach ISO-8601 (`2006-01-01T21:00:00+01:00`)                                                 | `string`              |
-| `attributes.updated_at`          | Der Zeitpunkt der letzten Änderung im Format nach ISO-8601 (`2016-11-14T11:28:47+01:00`)                                                  | `string`              |
+| `attributes.created_at`          | Der Erstellzeitpunkt des Posts im Format nach ISO-8601 (`2006-01-01T20:00:00+00:00`)                                                 | `string`              |
+| `attributes.updated_at`          | Der Zeitpunkt der letzten Änderung im Format nach ISO-8601 (`2016-11-14T10:28:47+00:00`)                                                  | `string`              |
 | `relationships.author`           | Ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), das auf den Autor verweist | `object`             |
 | `relationships.parent`           | Ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), das auf das Elternobjekt des Posts verweist. | `object`             |
 

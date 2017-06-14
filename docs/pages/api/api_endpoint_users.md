@@ -49,8 +49,8 @@ Content-Type: application/vnd.api+json
             "last_name": "Smith",
             "email": "john_smith@example.org",
             "birthday": "1988-03-05",
-            "created_at": "2006-01-01T21:00:00+01:00",
-            "last_login": "2016-01-01T22:00:00+02:00",
+            "created_at": "2008-11-01T20:00:00+00:00",
+            "last_login": "2017-02-01T20:00:00+00:00",
             "zip": "12345",
             "city": "Jamestown",
             "description_jesus": "Lorem ipsum dolor sit amet",
@@ -78,8 +78,8 @@ Content-Type: application/vnd.api+json
 | `attributes.last_name`           | Der Nachname des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                        | `string` oder `null`  |
 | `attributes.email`               | Die E-Mail-Adresse des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:email` oder `user:read` erfragt werden.               | `string` oder `null`  |
 | `attributes.birthday`            | Der Geburtstag des Users im Format YYYY-MM-DD oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden. | `string` oder `null`  |
-| `attributes.created_at`          | Der Registrierzeitpunkt des Users im Format nach ISO-8601 (`2006-01-01T21:00:00+01:00`)                                                 | `string`              |
-| `attributes.last_login`          | Der Zeitpunkt des letzten Logins im Format nach ISO-8601 (`2016-11-14T11:28:47+01:00`)                                                  | `string`              |
+| `attributes.created_at`          | Der Registrierzeitpunkt des Users im Format nach ISO-8601 (`2008-11-01T20:00:00+00:00`)                                                 | `string`              |
+| `attributes.last_login`          | Der Zeitpunkt des letzten Logins im Format nach ISO-8601 (`2017-02-01T20:00:00+00:00`)                                                  | `string`              |
 | `attributes.zip`                 | Die Postleitzahl des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                    | `string` oder `null`  |
 | `attributes.city`                | Der Wohnort des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                         | `string` oder `null`  |
 | `attributes.description_jesus`   | "Was ich von Jesus halte" oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                     | `string` oder `null`  |
