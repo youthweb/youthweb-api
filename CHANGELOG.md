@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.10] - 2017-06-18
 ### Added
 
 - new resource `Event` with new endpoint `/events/<event_id>`
@@ -127,7 +127,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.9...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.10...develop
+[0.10]: https://github.com/youthweb/youthweb-api/compare/0.9...0.10
 [0.9]: https://github.com/youthweb/youthweb-api/compare/0.8...0.9
 [0.8]: https://github.com/youthweb/youthweb-api/compare/0.7...0.8
 [0.7]: https://github.com/youthweb/youthweb-api/compare/0.6...0.7

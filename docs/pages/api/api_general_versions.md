@@ -22,7 +22,7 @@ Nach dem Release einer neuen Version garantieren wir den Support der Version ohn
 
 | Version      | Status             | Veröffentlicht | Unterstützt bis          |
 |--------------|--------------------|----------------|--------------------------|
-| **0.10**     | :white_check_mark: | XXXX-XX-XX     | mindestens XXXX-XX-XX    |
+| **0.10**     | :white_check_mark: | 2017-06-18     | mindestens 2018-06-18    |
 | **0.9**      | :white_check_mark: | 2017-06-04     | mindestens 2018-06-04    |
 | **0.8**      | :white_check_mark: | 2017-05-21     | mindestens 2018-05-21    |
 | **0.7**      | :warning:          | 2016-11-20     | mindestens 2017-11-20    |

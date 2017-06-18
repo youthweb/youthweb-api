@@ -2,7 +2,7 @@
 title:  "Youthweb-API 0.10"
 categories: API
 tags: [api, release]
-summary: "Die neue Version der Youthweb-API erlaubt jetzt das Abfragen von Events."
+summary: "Die neue Version der Youthweb-API erlaubt jetzt das Abfragen und Auflisten von Events."
 ---
 ## Changelog
 
@@ -11,6 +11,10 @@ summary: "Die neue Version der Youthweb-API erlaubt jetzt das Abfragen von Event
 - Neuer Endpoint `/events` für die Auflistung von Events in einem bestimmten Zeitraum.
 - Neue geschützte Resource `events/{event_id}` für Details zu einem Event.
 - Bei Events gibt es neue Endpoints zum Autor wie `/events/<event_id>/author` und `/events/<event_id>/relationships/author`.
+
+### Änderungen
+
+- Zeitangaben bei `Posts` und `Users` Resourcen werden immer in der UTC Zeitzone (Offset +00:00) ausgegeben.
 
 ## Beispiele
 
