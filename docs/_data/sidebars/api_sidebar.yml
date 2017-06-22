@@ -27,10 +27,6 @@ entries:
       url: /api_general_versions.html
       output: web
 
-    - title: Contribute
-      url: /api_general_contribute.html
-      output: web
-
   - title: Resourcen
     output: web
     folderitems:
@@ -61,4 +57,12 @@ entries:
 
     - title: Users
       url: /api_endpoint_users.html
+      output: web
+
+  - title: Leitfäden
+    output: web
+    folderitems:
+
+    - title: Mithelfen
+      url: /api_guideline_contribute.html
       output: web

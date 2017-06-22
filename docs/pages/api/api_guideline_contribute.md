@@ -1,10 +1,10 @@
 ---
-title: Contribute
+title: Mithelfen
 keywords: Youthweb-API, Contributing, Contribute
 tags: [getting_started]
-summary: "Hilf mit"
+summary: "Hilf mit, die Youthweb-API zu verbessern"
 sidebar: api_sidebar
-permalink: api_general_contribute.html
+permalink: api_guideline_contribute.html
 folder: api
 ---
 

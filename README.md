@@ -31,7 +31,7 @@ Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalt
 
 ## Contribute
 
-Du kannst mithelfen, die Youthweb-API zu gestalten. Hier findest du mehr Informationen dazu: [Contribute](http://developer.youthweb.net/api_general_contribute.html)
+Du kannst mithelfen, die Youthweb-API zu gestalten. Hier findest du mehr Informationen dazu: [Contribute][api_guideline_contribute]
 
 ## Clients
 

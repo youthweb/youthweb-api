@@ -29,7 +29,7 @@ Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalt
 
 ## Contribute
 
-Du kannst mithelfen, die Youthweb-API zu gestalten. Hier findest du mehr Informationen dazu: [Contribute][api_general_contribute]
+Du kannst mithelfen, die Youthweb-API zu gestalten. Hier findest du mehr Informationen dazu: [Contribute][api_guideline_contribute]
 
 ## Clients
 
@@ -41,6 +41,6 @@ Es gibt einen [objektorientierten Client in PHP](https://github.com/youthweb/php
 
 ## Changelog
 
-Der Changelog ist [hier](CHANGELOG.md) zu finden und folgt den Empfehlungen von [keepachangelog.com](http://keepachangelog.com/).
+Der Changelog ist [hier](https://github.com/youthweb/youthweb-api/blob/develop/CHANGELOG.md) zu finden und folgt den Empfehlungen von [keepachangelog.com](http://keepachangelog.com/).
 
 {% include links.html %}
