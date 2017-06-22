@@ -63,6 +63,10 @@ entries:
     output: web
     folderitems:
 
+    - title: Nutzungsrichtlinien
+      url: /api_guideline_policy.html
+      output: web
+
     - title: Mithelfen
       url: /api_guideline_contribute.html
       output: web
