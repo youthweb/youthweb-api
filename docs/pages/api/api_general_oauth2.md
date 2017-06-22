@@ -132,7 +132,7 @@ Wenn bei der Anfrage nach dem Access-Token ein Fehler auftritt (z.B. weil das Re
 POST https://youthweb.net/auth/token
 
 Content-Header: application/vnd.api+json
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
 
 {
     "meta": {
@@ -148,7 +148,7 @@ Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.ver
 200 OK
 
 Content-Header: application/vnd.api+json
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
 
 {
     "meta": {
@@ -167,7 +167,7 @@ Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.ver
 GET https://api.youthweb.net/users/123456
 
 Content-Header: application/vnd.api+json
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.10
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
 
 ```
