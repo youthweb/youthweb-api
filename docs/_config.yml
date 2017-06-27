@@ -107,3 +107,31 @@ sidebars:
 
 description: "Abonniere diesen RSS-Feed, um immer auf dem neusten Stand zu sein."
 # the description is used in the feed.xml file
+
+de:
+    months_short:
+      - Jan
+      - Feb
+      - Mär
+      - Apr
+      - Mai
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Okt
+      - Nov
+      - Dez
+    months:
+      - Januar
+      - Februar
+      - März
+      - April
+      - Mai
+      - Juni
+      - Juli
+      - August
+      - Septemper
+      - Oktober
+      - November
+      - Dezember

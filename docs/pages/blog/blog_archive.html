@@ -8,12 +8,15 @@ folder: blog
 ---
 
 <div class="home">
-
     <div class="post-list">
 
     <section id="archive">
         <h3>Dieses Jahr</h3>
 {% for post in site.posts %}
+{% capture i18n_date %}
+{% assign m = post.date | date: "%-m" | minus: 1 %}
+{{ post.date | date: "%-d" }}. {{ site.de.months_short[m] }}
+{% endcapture %}
 {% unless post.next %}
         <ul class="this">
 {% else %}
@@ -25,7 +28,7 @@ folder: blog
         <ul class="past">
 {% endif %}
 {% endunless %}
-            <li><time>{{ post.date | date:"%d %b" }}</time><a href="{{ post.url | remove: "/" }}">{{ post.title }}</a></li>
+            <li><time>{{ i18n_date }}</time><a href="{{ post.url | remove: "/" }}">{{ post.title }}</a></li>
 {% endfor %}
         </ul>
     </section>
