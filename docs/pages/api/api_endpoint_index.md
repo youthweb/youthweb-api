@@ -15,13 +15,15 @@ folder: api
 
 ## Übersicht
 
-| Endpoint                                          | Beschreibung                                                         |
-|---------------------------------------------------|----------------------------------------------------------------------|
-| [/events][api_endpoint_events]                    | Liefert Event-Resourcen                                              |
-| [/me][api_endpoint_me]                            | Liefert die User-Resource des autorisierten User                     |
-| [/{object}/{id}/posts][api_endpoint_object_posts] | Liefert Post-Resourcen zu einem Objekt                               |
-| [/posts][api_endpoint_posts]                      | Liefert Post-Resourcen                                               |
-| [/stats][api_endpoint_stats]                      | Liefert Statisik-Resourcen                                           |
-| [/users][api_endpoint_users]                      | Liefert User-Resourcen                                               |
+| Endpoint                                              | Beschreibung                                                     |
+|-------------------------------------------------------|------------------------------------------------------------------|
+| [/events][api_endpoint_events]                        | Liefert Event-Resourcen                                          |
+| [/friends][api_endpoint_friends]                      | Liefert Friends-Resourcen                                        |
+| [/me][api_endpoint_me]                                | Liefert die User-Resource des autorisierten User                 |
+| [/{object}/{id}/friends][api_endpoint_object_friends] | Liefert Friends-Resourcen zu einem Objekt                        |
+| [/{object}/{id}/posts][api_endpoint_object_posts]     | Liefert Post-Resourcen zu einem Objekt                           |
+| [/posts][api_endpoint_posts]                          | Liefert Post-Resourcen                                           |
+| [/stats][api_endpoint_stats]                          | Liefert Statisik-Resourcen                                       |
+| [/users][api_endpoint_users]                          | Liefert User-Resourcen                                           |
 
 {% include links.html %}

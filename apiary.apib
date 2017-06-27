@@ -132,6 +132,131 @@ Ein Event Objekt hat die folgenden Attribute
             + self: `/event/4567/relationships/author` (string)
             + related: `/events/4567/author` (string)
 
+# Group Friends
+
+## Friend [/friends/{friend_id}]
+
++ Parameters
+    + friend_id: 45678 (required, string) - ID of the friend
+
+### Daten zu einem Friend abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+
+    + Attributes
+
+        + data (Friend Base)
+        + included (array)
+            + (User Base)
+
+## Friend From [/friends/{friend_id}/from]
+
++ Parameters
+    + friend_id: 45678 (required, string) - ID of the friend
+
+### From-User zu einem Friend abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+
+    + Attributes
+
+        + data (User Base)
+
+## From-User Relationship [/friends/{friend_id}/relationships/from]
+
++ Parameters
+    + friend_id: 45678 (required, string) - ID of the friend
+
+### From-User Relationship zu einem Friend abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+
+    + Attributes
+
+        + data (User Linkage)
+        + links (object)
+            + self: `/friends/45678/relationships/from` (string)
+            + related: `/friends/45678/from` (string)
+
+## To-User zu einem Friend abrufen [/friends/{friend_id}/to]
+
++ Parameters
+    + friend_id: 45678 (required, string) - ID of the friend
+
+### To-User zu einem Friend abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+
+    + Attributes
+
+        + data (User Base)
+
+## To-User Relationship [/friends/{friend_id}/relationships/to]
+
++ Parameters
+    + friend_id: 45678 (required, string) - ID of the friend
+
+### To-User Relationship zu einem Friend abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+
+    + Attributes
+
+        + data (User Linkage)
+        + links (object)
+            + self: `/friends/45678/relationships/to` (string)
+            + related: `/friends/45678/from` (string)
+
 # Group Posts
 
 ## Post [/posts/{post_id}]
@@ -442,6 +567,33 @@ Liefert die Posts von der Pinnwand eines Users
         + included (array)
             + (User Base)
 
+## Friends of an User [/users/{user_id}/friends]
+
+Liefert die Freunde eines Users
+
++ Parameters
+    + user_id: 123456 (required, number) - ID of the user
+
+### Fruende zu einem User abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+
+    + Attributes
+
+        + data (array[Friend Base])
+        + included (array)
+            + (User Base)
+
 ## Me [/me]
 
 Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /users/{user_id}, wenn die User-ID des autorisierten Users nicht bekannt ist.
@@ -520,6 +672,26 @@ Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe http://de
             + related: `/events/4567/author` (string)
 + links (object)
     + self: `/events/4567` (string) - Der Link zu dieser Resource
+
+## Friend Base (object)
+
++ type: `friends` (string)
++ id: `45678` (string) - Die Friend-ID
++ attributes (object)
+    + `description`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Die Freundes-Beschreibung
++ `relationships` (object)
+    + `from` (object, nullable) - Der User, von dem die Freundschaft ausgeht
+        + data (User Linkage)
+        + links (object)
+            + self: `/friends/45678/relationships/from` (string)
+            + related: `/friends/45678/from` (string)
+    + `to` (object, nullable) - Der User, dem die Freundschaft gilt
+        + data (User Linkage)
+        + links (object)
+            + self: `/friends/45678/relationships/to` (string)
+            + related: `/friends/45678/to` (string)
++ links (object)
+    + self: `/friends/45678` (string) - Der Link zu dieser Resource
 
 ## Post Base (object)
 
