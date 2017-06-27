@@ -1,5 +1,5 @@
 ---
-title:  "Youthweb-API 0.4"
+title:  "Youthweb-API 0.4 liefert Daten zu einem User"
 categories: API
 tags: [api, release]
 summary: "Die neue Version der Youthweb-API bringt eine neue Resource mit: Users. Diese Resource ist nur mit einem Access-Token aufrufbar, den man sich jetzt generieren lassen kann. Dafür wird ein Youthweb-Account und ein User-Token benötigt. Die API-Version 0.2 wird jetzt nicht mehr unterstützt."

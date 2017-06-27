@@ -1,5 +1,5 @@
 ---
-title:  "Youthweb-API 0.6"
+title:  "Youthweb-API 0.6 führt OAuth2 ein und bringt eine neue API-URL"
 categories: API
 tags: [api, release]
 summary: "Die neue Version der Youthweb-API bringt eine Autorisierung über OAuth2 mit, die das alte Verfahren über das User-Token ablösen wird. Außerdem haben wir eine eigene URL für die API eingerichtet, die ab jetzt verwendet werden sollte: `https://api.youthweb.net`. Die API-Version 0.3 wird jetzt nicht mehr unterstützt."

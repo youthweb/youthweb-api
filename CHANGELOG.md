@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- new resource `Friend` with new endpoint `/friends/<friend_id>`
+- new friend from-user endpoints `/friends/<friend_id>/from` and `/friends/<friend_id>/relationships/from`
+- new friend to-user endpoints `/friends/<friend_id>/to` and `/friends/<friend_id>/relationships/to`
+- new endpoint `users/<user_id>/friends` to list the friends of a user
+
 ## [0.10] - 2017-06-18
 ### Added
 

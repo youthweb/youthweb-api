@@ -1,5 +1,5 @@
 ---
-title:  "Youthweb-API 0.8"
+title:  "Youthweb-API 0.8 liefert Daten zu Pinnwand-Posts"
 categories: API
 tags: [api, release]
 summary: "Die neue Version der Youthweb-API hat jetzt eine neue Posts-Resource."

@@ -1,5 +1,5 @@
 ---
-title:  "Youthweb-API 0.10"
+title:  "Youthweb-API 0.10 liefert Event-Daten und ändert die Zeitzone aller Datum- und Zeitangaben"
 categories: API
 tags: [api, release]
 summary: "Die neue Version der Youthweb-API erlaubt jetzt das Abfragen und Auflisten von Events."

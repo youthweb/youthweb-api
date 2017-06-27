@@ -1,5 +1,5 @@
 ---
-title:  "Youthweb-API 0.9"
+title:  "Youthweb-API 0.9 erlaubt das Erstellen von Pinnwand-Posts"
 categories: API
 tags: [api, release]
 summary: "Die neue Version der Youthweb-API erlaubt jetzt das Erstellen von Posts-Resource."

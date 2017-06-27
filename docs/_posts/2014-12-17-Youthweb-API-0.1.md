@@ -1,5 +1,5 @@
 ---
-title:  "Youthweb-API 0.1"
+title:  "Youthweb-API 0.1 mit neuen Tests"
 categories: API
 tags: [api, release]
 summary: "Die neue Version der Youthweb-API ändert inhaltlich nichts an der API, sondern bringt automatisierte Tests mit, um die weitere Entwicklung mit Tests absichern zu können."

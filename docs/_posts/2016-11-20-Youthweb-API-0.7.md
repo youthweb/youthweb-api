@@ -1,5 +1,5 @@
 ---
-title:  "Youthweb-API 0.7"
+title:  "Youthweb-API 0.7 mit neuen Links zu jeder Resource"
 categories: API
 tags: [api, release]
 summary: "Die neue Version der Youthweb-API zeigt nun - wie in der JSON API Spezifikation empfohlen - bei allen Resourcen einen Bereich mit Links an. Wegen dieses relativ kleinen Features haben wir den Support für die API-Versionen 0.4 und 0.5 bis zum Erscheinen von 0.8 verlängert."

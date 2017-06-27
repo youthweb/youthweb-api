@@ -1,5 +1,5 @@
 ---
-title:  "Youthweb-API 0.0.1"
+title:  "Startschuss: Youthweb-API 0.0.1"
 categories: API
 tags: [api, release]
 summary: "Die erste Alpha-Version der Youthweb-API ist da."
