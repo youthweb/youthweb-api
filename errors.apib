@@ -363,6 +363,46 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
             {"errors":[{"status":"404","title":"Resource not found"}]}
 
+# Group Friends
+
+## Request a friend [/friends/45678]
+
+### Request a friend without authorization [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+
++ Response 401 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+
+    + Body
+
+            {"errors":[{"status":"401","title":"Unauthorized"}]}
+
+## Not existing friend [/friends/404]
+
+### Request a not existing friend [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.11
+
+    + Body
+
+            {"errors":[{"status":"404","title":"Resource not found"}]}
+
 # Data Structures
 
 ## Post Created (object)
