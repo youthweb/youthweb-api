@@ -1,5 +1,5 @@
 ---
-title:  "Youthweb-API 0.11 liefert Daten und Freunden führt neue Nutzungsbedingungen ein"
+title:  "Youthweb-API 0.11 liefert Daten von Freunden und führt neue Nutzungsbedingungen ein"
 categories: API
 tags: [api, release]
 summary: "Die neue Version der Youthweb-API erlaubt jetzt das Abfragen und Auflisten von Freunden zu einem User. Außerdem führen wir Nutzungsbedingungen für unsere API ein."
