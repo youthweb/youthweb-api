@@ -1,7 +1,10 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+
+## [0.11] - 2017-07-02
 
 ### Added
 
@@ -11,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - new endpoint `users/<user_id>/friends` to list the friends of a user
 
 ## [0.10] - 2017-06-18
+
 ### Added
 
 - new resource `Event` with new endpoint `/events/<event_id>`
@@ -21,12 +25,14 @@ All notable changes to this project will be documented in this file.
 - datetime data in Post and User resources are now deliverd always in UTC timezone with offset `+00:00`
 
 ## [0.9] - 2017-06-04
+
 ### Added
 
 - create a `Post` on an users pinnwall with the endpoint `/users/<user_id>/posts`
 - new scope `post:write` to create posts in name of a user
 
 ## [0.8] - 2017-05-21
+
 ### Added
 
 - new resource `Post` with new endpoint `/posts/<post_id>`
@@ -48,11 +54,13 @@ All notable changes to this project will be documented in this file.
 - **Breaking:** The support for version 0.4 was dropped. Requests with this version and below will get a 406 error response.
 
 ## [0.7] - 2016-11-20
+
 ### Added
 
 - every resource has now a links section
 
 ## [0.6] - 2016-10-23
+
 ### Added
 
 - Authorization over OAuth2 Authorization Code Grant, see http://developer.youthweb.net/api_general_oauth2.html
@@ -74,11 +82,13 @@ All notable changes to this project will be documented in this file.
 - **Breaking:** The support for version 0.3 was dropped. Requests with this version and below will get a 406 error response.
 
 ## [0.5] - 2016-07-03
+
 ### Added
 
 - Resource `users/` provides new attributes like `first_name`, `last_name`, `email`, `birthday`, `created_at` and more.
 
 ## [0.4] - 2016-03-27
+
 ### Added
 
 - Authentication with User-Token and Authorization with Bearer token
@@ -93,6 +103,7 @@ All notable changes to this project will be documented in this file.
 - Show 406 error if request header Accept: application/vnd.api+json; net.youthweb.api.version=x.y is set with unsupported version
 
 ## [0.3] - 2015-10-11
+
 ### Added
 
 - Response header Content-Type: application/vnd.api+json added
@@ -104,39 +115,52 @@ All notable changes to this project will be documented in this file.
 - Show warning if request header Accept: application/vnd.api+json; net.youthweb.api.version=x.y isn't set
 
 ### Removed
-- The `account/stats` resource was removed.
+
+- **Breaking:** The `account/stats` resource was removed.
 
 ## [0.2.1] - 2015-06-22
+
 ### Changed
+
 - Mockserver apiary.io changed to local Drakov installation, so an apiary.io account isn't necessary.
 - All resources are accessable through short urls.
 
 ### Deprecated
+
 - Long urls to resources are deprecated, but won't be broken in near future. The use of short urls is recommended.
 
 ## [0.2] - 2015-06-21
+
 ### Added
+
 - New resources `stats/account`, `stats/forum` and `stats/groups`.
 - Better response description and new clients section in README.md.
 
 ### Changed
+
 - response bodies are now following the [JSON API](http://jsonapi.org/) spec.
 
 ### Deprecated
+
 - The `account/stats` resource will be deleted in the next release.
 
 ## [0.1] - 2014-12-17
+
 ### Added
+
 - Behat-Tests for resource `account/stats`
 - LICENCE file (GPLv2)
 - this CHANGELOG.md
 - Travis CI integration
 
 ## 0.0.1 - 2014-10-12
+
 ### Added
+
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.10...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.11...develop
+[0.11]: https://github.com/youthweb/youthweb-api/compare/0.10...0.11
 [0.10]: https://github.com/youthweb/youthweb-api/compare/0.9...0.10
 [0.9]: https://github.com/youthweb/youthweb-api/compare/0.8...0.9
 [0.8]: https://github.com/youthweb/youthweb-api/compare/0.7...0.8
@@ -148,3 +172,4 @@ All notable changes to this project will be documented in this file.
 [0.2.1]: https://github.com/youthweb/youthweb-api/compare/0.2...0.2.1
 [0.2]: https://github.com/youthweb/youthweb-api/compare/0.1...0.2
 [0.1]: https://github.com/youthweb/youthweb-api/compare/0.0.1...0.1
+[0.0.1]: https://github.com/youthweb/youthweb-api/compare/c5dc7b8813463826511225b5ad452d8dba7e01a4...0.0.1

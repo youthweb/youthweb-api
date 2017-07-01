@@ -12,7 +12,7 @@ Mit dem Verwenden der Youthweb-API stimmst du diesen Nutzungsrichtlinien zu. Wir
 
 Wir bieten die Youthweb-API an, damit Dienste und Apps um Youthweb entstehen können. Diese sollen vor allem den Nutzern unserer Community einen Mehrwert bieten oder die Nutzung von Youthweb vereinfachen, bzw. verbessern.
 
-Stand: XXXX-XX-XX
+Stand: 2017-07-02
 
 ## 1. Datenkontrolle
 
