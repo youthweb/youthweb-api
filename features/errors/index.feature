@@ -5,7 +5,7 @@ Feature: Index
 Scenario: Calling the BaseUrl
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.11"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
 	When I request "GET /"
 	Then I get a "404" response
 	And the Content-Type Header "application/vnd.api+json" exists
@@ -18,7 +18,7 @@ Scenario: Calling the BaseUrl
 Scenario: Sending a request with invalid JSON API
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.11"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	And I have the payload
 		"""
@@ -27,7 +27,7 @@ Scenario: Sending a request with invalid JSON API
 	When I request "POST /users/187654/posts"
 	Then I get a "400" response
 	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.11" exists
+	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.12" exists
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property

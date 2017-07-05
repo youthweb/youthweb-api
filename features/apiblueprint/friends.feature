@@ -5,7 +5,7 @@ Feature: Interact with a friend
 Scenario: Requesting a friend
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.11"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /friends/45678"
 	Then I get a "200" response
@@ -43,7 +43,7 @@ Scenario: Requesting a friend
 Scenario: Requesting the from-user of a friend
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.11"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /friends/45678/from"
 	Then I get a "200" response
@@ -69,7 +69,7 @@ Scenario: Requesting the from-user of a friend
 Scenario: Requesting the from-user relationship of a friend
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.11"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /friends/45678/relationships/from"
 	Then I get a "200" response
@@ -94,7 +94,7 @@ Scenario: Requesting the from-user relationship of a friend
 Scenario: Requesting the to-user of a friend
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.11"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /friends/45678/to"
 	Then I get a "200" response
@@ -120,7 +120,7 @@ Scenario: Requesting the to-user of a friend
 Scenario: Requesting the to-user relationship of a friend
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.11"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /friends/45678/relationships/to"
 	Then I get a "200" response
