@@ -737,18 +737,27 @@ Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe http://de
     + username: `JohnSmith` (string) - Der Username
     + `first_name`: `John` (string, nullable) - Der Vorname
     + `last_name`: `Smith` (string, nullable) - Der Nachname
+    + gender: `male` (string) - Das Geschlecht, entweder `male` (männlich) oder `female` (weiblic)
     + email: `john_smith@example.org` (string, nullable) - Die E-Mail Adresse
     + birthday: `1988-03-05` (string, nullable) - Geburtstag im Format YYYY-MM-DD
+    + timezone: `Europe/Berlin` (string) - Die eingestellte Zeitzone des Users
     + `created_at`: `2006-01-01T20:00:00+00:00` (string) - Zeitpunkt der Registrierung als ISO-8601
     + `last_login`: `2016-01-01T20:00:00+00:00` (string) - Zeitpunkt des letzten Logins als ISO-8601
     + zip: `12345` (string, nullable) - Die Postleitzahl
     + city: `Jamestown` (string, nullable) - Die Stadt
+    + `contact_homepage`: `http://example.org` (string) - Die Webseite des Users
+    + `contact_twitter`: `TwitterDE` (string) - Der Twitter-Username des Users
+    + `description_text`: `Lorem ipsum dolor sit amet` (string) - Eine sonstige Beschreibung des Users
+    + `description_character`: `Lorem ipsum dolor sit amet` (string) - Eine eigene Charakter-Beschreibung des Users
     + `description_jesus`: `Lorem ipsum dolor sit amet` (string, nullable) - "Was ich von Jesus halte"
     + `description_job`: `Lorem ipsum dolor sit amet` (string, nullable) - Der Beruf
     + `description_hobbies`: `Lorem ipsum dolor sit amet` (string, nullable) - Die Hobbies
     + `description_motto`: `Lorem ipsum dolor sit amet` (string, nullable) - Das Lebensmotto
+    + `description_food`: `Lorem ipsum dolor sit amet` (string) - Das Lieblingsessen des Users
+    + `description_links`: `Lorem ipsum dolor sit amet` (string) - Eine Empfehlung von Links des Users
     + `picture_thumb_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Thumbnail)
     + `picture_url`: `https://youthweb.net/img/steckbriefe/default_pic_m.jpg` (string) - Url zum Profilbild (Vollbild)
+    + `picture_description`: `Lorem ipsum dolor sit amet` (string) - Eine Beschreibung des Profilbildes
 + links (object)
     + self: `/users/123456` (string) - Der Link zu dieser Resource
 
