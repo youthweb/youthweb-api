@@ -52,6 +52,7 @@ Content-Type: application/vnd.api+json
                 "start_datetime": "2017-06-26T07:30:00+00:00",
                 "end_datetime": "2017-07-07T16:00:00+00:00",
                 "timezone": "Europe/Berlin",
+                "address": "Musterstraße 42\n12345 Berlin",
                 "comments_allowed": true,
                 "comments_count": 15,
                 "participants_count": 10
@@ -118,6 +119,7 @@ Content-Type: application/vnd.api+json
             "start_datetime": "2017-06-26T07:30:00+00:00",
             "end_datetime": "2017-07-07T16:00:00+00:00",
             "timezone": "Europe/Berlin",
+            "address": "Musterstraße 42\n12345 Berlin",
             "comments_allowed": true,
             "comments_count": 15,
             "participants_count": 10
@@ -150,6 +152,7 @@ Content-Type: application/vnd.api+json
 | `attributes.start_datetime`      | Der Start-Zeitpunkt des Events im Format nach ISO-8601 in der UTC Timezone (`2017-06-26T07:30:00+00:00`) | `string`              |
 | `attributes.end_datetime`        | Der optionale End-Zeitpunkt des Events im Format nach ISO-8601 in der UTC Timezone (`2017-06-26T07:30:00+00:00`) | `string` oder `null`    |
 | `attributes.timezone`            | Der [Name der Zeitzone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), in der das Event stattfinden wird, z.B. `Europe/Berlin` | `string`    |
+| `attributes.address`             | Die Adresse, an der das Event stattfinden wird, z.B `Musterstraße 42\n12345 Berlin`. Kann auch leer sein. | `string`    |
 | `attributes.comments_allowed`    | Sind neue Kommentare zu diesem Event erlaubt?              | `boolean`            |
 | `attributes.comments_count`      | Wie viele Kommentare wurden schon verfasst?                | `integer`             |
 | `attributes.participants_count`  | Die Gesamtanzahl der User, die Angaben zur Teilnahme an diesem Event gemacht haben | `string`              |

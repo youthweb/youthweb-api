@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
+### Added
+
+- new attribute `address` in `Event` resources with the event location
+
 ## [0.11] - 2017-07-02
 
 ### Added
