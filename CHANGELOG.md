@@ -9,6 +9,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - new attribute `address` in `Event` resources with the event location
+- new attribute `gender` in `User` resources with the gender of the user
+- new attribute `timezone` in `User` resources with the timezone name of the user
+- new attribute `contact_homepage` in `User` resources with the website of the user
+- new attribute `contact_twitter` in `User` resources with the Twitter username of the user
+- new attribute `description_text` in `User` resources with a custom description of the user
+- new attribute `description_character` in `User` resources with a charakter description of the user
+- new attribute `description_food` in `User` resources with the favorite food of the user
+- new attribute `description_links` in `User` resources with the favorite links of the user
+- new attribute `picture_description` in `User` resources with description of the profile picture
 
 ## [0.11] - 2017-07-02
 
