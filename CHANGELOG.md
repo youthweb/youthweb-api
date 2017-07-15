@@ -19,6 +19,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - new attribute `description_links` in `User` resources with the favorite links of the user
 - new attribute `picture_description` in `User` resources with description of the profile picture
 
+### Deprecated
+
+- the attribute `created_at` in `User` resources can be `null` in future
+- the attribute `last_login` in `User` resources can be `null` in future
+
 ## [0.11] - 2017-07-02
 
 ### Added
