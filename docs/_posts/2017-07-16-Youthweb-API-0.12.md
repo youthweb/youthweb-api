@@ -39,6 +39,6 @@ Die Youthweb-API 0.12 ist ab sofort aktiv und die neuen Attribute können jetzt 
 Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
 ```
 
-Bei Fragen oder Verbesserungsvorschläge eröffne einfach ein Issue oder melde dich im Forum oder auf Twitter bei @youthweb_dev.
+Bei Fragen oder Verbesserungsvorschläge [eröffne einfach ein Issue auf Github](https://github.com/youthweb/youthweb-api/issues/new) oder melde dich [im Forum](https://youthweb.net/forum/categories/7) oder [auf Twitter bei @youthweb_dev](ttps://twitter.com/youthweb_dev).
 
 {% include links.html %}
