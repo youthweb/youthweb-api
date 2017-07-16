@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
-## [Unreleased]
+## [0.12] - 2017-07-16
 
 ### Added
 
@@ -179,7 +179,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.11...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.12...develop
+[0.12]: https://github.com/youthweb/youthweb-api/compare/0.11...0.12
 [0.11]: https://github.com/youthweb/youthweb-api/compare/0.10...0.11
 [0.10]: https://github.com/youthweb/youthweb-api/compare/0.9...0.10
 [0.9]: https://github.com/youthweb/youthweb-api/compare/0.8...0.9
