@@ -5,7 +5,7 @@ Feature: Interact with an event
 Scenario: Requesting the events without specific time range
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /events"
 	Then I get a "200" response
@@ -28,7 +28,7 @@ Scenario: Requesting the events without specific time range
 Scenario: Requesting a event
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /events/4567"
 	Then I get a "200" response
@@ -67,7 +67,7 @@ Scenario: Requesting a event
 Scenario: Requesting the author of an event
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /events/4567/author"
 	Then I get a "200" response
@@ -93,7 +93,7 @@ Scenario: Requesting the author of an event
 Scenario: Requesting the author relationship of an event
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
 	And I have set the "Authorization" header with "Bearer valid_JWT"
 	When I request "GET /events/4567/relationships/author"
 	Then I get a "200" response
