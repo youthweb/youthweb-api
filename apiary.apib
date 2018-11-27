@@ -24,6 +24,138 @@ Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.ver
 
 Alle Informationen zur Authentication findest du hier: http://developer.youthweb.net/api_general_oauth2.html
 
+# Group Comments
+
+## Comment [/comments/{comment_id}]
+
+Ein Comment Objekt hat die folgenden Attribute
+
++ type
++ id - The comment-ID
++ attributes - An object of attributes.
+
++ Parameters
+    + comment_id: 345678 (required, string) - ID of the comment
+
+### Daten zu einem Event abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+
+        + data (Comment Base)
+        + included (array)
+            + (User Base)
+            + (Post Base)
+
+## Comment Author [/comments/{comment_id}/author]
+
++ Parameters
+    + comment_id: 345678 (required, string) - ID of the comment
+
+### Author zu einem Comment abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+
+        + data (User Base)
+
+## Post Author Relationship [/comments/{comment_id}/relationships/author]
+
++ Parameters
+    + comment_id: 345678 (required, string) - ID of the event
+
+### Author Relationship zu einem Comment abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+
+        + data (User Linkage)
+        + links (object)
+            + self: `/comments/345678/relationships/author` (string)
+            + related: `/comments/345678/author` (string)
+
+## Comment Parent [/comments/{comment_id}/parent]
+
++ Parameters
+    + comment_id: 345678 (required, string) - ID of the comment
+
+### Parent zu einem Comment abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+
+        + data (Post Base)
+
+## Comment Parent Relationship [/comments/{comment_id}/relationships/parent]
+
++ Parameters
+    + comment_id: 345678 (required, string) - ID of the event
+
+### Parent Relationship zu einem Comment abrufen [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+
+        + data (Post Linkage)
+        + links (object)
+            + self: `/comments/345678/relationships/parent` (string)
+            + related: `/comments/345678/parent` (string)
+
 # Group Events
 
 ## Events abrufen [/events?page[start]={start_datetime}&page[end]={end_datetime}]
@@ -106,7 +238,7 @@ Ein Event Objekt hat die folgenden Attribute
 
         + data (User Base)
 
-## Post Author Relationship [/events/{event_id}/relationships/author]
+## Event Author Relationship [/events/{event_id}/relationships/author]
 
 + Parameters
     + event_id: 4567 (required, string) - ID of the event
@@ -651,6 +783,27 @@ Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe http://de
 
 # Data Structures
 
+## Comment Base (object)
+
++ type: `comments` (string)
++ id: `345678` (string) - Die Comment-ID
++ attributes (object)
+    + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Inhalt der Comments
+    + `created_at`: `2017-01-01T17:51:02+00:00` (string) - Zeitpunkt der Erstellung als ISO-8601
++ `relationships` (object)
+    + `author` (object) - Der Autor des Comments
+        + data (User Linkage)
+        + links (object)
+            + self: `/comments/345678/relationships/author` (string)
+            + related: `/comments/345678/author` (string)
+    + `parent` (object) - Das Objekt, das kommentiert wurde
+        + data (Post Linkage)
+        + links (object)
+            + self: `/comments/345678/relationships/parent` (string)
+            + related: `/comments/345678/parent` (string)
++ links (object)
+    + self: `/comments/345678` (string) - Der Link zu dieser Resource
+
 ## Event Base (object)
 
 + type: `events` (string)
@@ -728,6 +881,11 @@ Dieser Endpoint ist veraltet und wird gegen OAuth2 ausgetauscht. Siehe http://de
     + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Post-Inhalt
     + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
     + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
+
+## Post Linkage (object)
+
++ type: `posts` (string)
++ id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Die Post-ID
 
 ## User Base (object)
 
