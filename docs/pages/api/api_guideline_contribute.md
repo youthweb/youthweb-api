@@ -36,7 +36,7 @@ Um Bugs oder Features zu testen, solltest du die Änderungen lokal testet. Dazu 
 
 Der Mock-Server muss während der Tests im Hintergrund laufen. Starte ihn daher am besten in einem eigenen Terminal.
 
-5.) Teste deine API mit ```npm run test```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
+5.) Teste deine API mit ```npm test```. Wenn die Tests erfolgreich durchlaufen, dann ist alles richtig installiert.
 
 ### Änderungen
 
