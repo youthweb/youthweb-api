@@ -53,6 +53,7 @@ Content-Type: application/vnd.api+json
         },
         "relationships": {
             "author": {},
+            "comments": [],
             "parent": {}
         },
         "links": {
@@ -64,18 +65,19 @@ Content-Type: application/vnd.api+json
 
 ### Felder
 
-| Name                             | Beschreibung                                               | Typ                   |
-|----------------------------------|------------------------------------------------------------|-----------------------|
-| `type`                           | Der Typ der Resource: `posts`                              | `string`              |
-| `id`                             | Die ID der Resource                                        | `string`              |
-| `attributes.title`               | Der Titel des Posts                                        | `string`              |
-| `attributes.content`             | Der Content des Posts                                      | `string`              |
-| `attributes.view_allowed_for`    | Für wen darf dieser Post sichtbar sein?<br />`all`, `users`, `friends` oder `authors`     | `string`   |
-| `attributes.comments_allowed`    | Sind neue Kommentare zu diesem Post erlaubt?               | `boolean`            |
-| `attributes.comments_count`      | Wie viele Kommentare wurden schon verfasst?                | `integer`             |
-| `attributes.created_at`          | Der Erstellzeitpunkt des Posts im Format nach ISO-8601 (`2006-01-01T20:00:00+00:00`)                                                 | `string`              |
-| `attributes.updated_at`          | Der Zeitpunkt der letzten Änderung im Format nach ISO-8601 (`2016-11-14T10:28:47+00:00`)                                                  | `string`              |
-| `relationships.author`           | Ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), das auf den Autor verweist | `object`             |
+| Name                             | Beschreibung                                                                             | Typ                   |
+|----------------------------------|------------------------------------------------------------------------------------------|-----------------------|
+| `type`                           | Der Typ der Resource: `posts`                                                            | `string`              |
+| `id`                             | Die ID der Resource                                                                      | `string`              |
+| `attributes.title`               | Der Titel des Posts                                                                      | `string`              |
+| `attributes.content`             | Der Content des Posts                                                                    | `string`              |
+| `attributes.view_allowed_for`    | Für wen darf dieser Post sichtbar sein?<br />`all`, `users`, `friends` oder `authors`    | `string`              |
+| `attributes.comments_allowed`    | Sind neue Kommentare zu diesem Post erlaubt?                                             | `boolean`             |
+| `attributes.comments_count`      | Wie viele Kommentare wurden schon verfasst?                                              | `integer`             |
+| `attributes.created_at`          | Der Erstellzeitpunkt des Posts im Format nach ISO-8601 (`2006-01-01T20:00:00+00:00`)     | `string`              |
+| `attributes.updated_at`          | Der Zeitpunkt der letzten Änderung im Format nach ISO-8601 (`2016-11-14T10:28:47+00:00`) | `string`              |
+| `relationships.author`           | Ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), das auf den Autor verweist                   | `object`             |
+| `relationships.comments`         | Ein Array aus [Resource Identifier Objekts](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), die auf die Kommentare verweisen  | `object`             |
 | `relationships.parent`           | Ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), das auf das Elternobjekt des Posts verweist. | `object`             |
 
 ## Create
@@ -92,11 +94,13 @@ Du kannst mit diesem Endpoint nichts ändern.
 
 ## Beziehungen
 
-| Beziehung                               | Beschreibung                                                                       |
-|-----------------------------------------|------------------------------------------------------------------------------------|
-| `/posts/{post_id}/author`               | Liefert den Autor als [User][api_endpoint_users]-Resource                          |
-| `/posts/{post_id}/parent`               | Liefert das Elternobjekt, zu dem der Post gehört. Mögliche Resourcen können sein:<br />- [User][api_endpoint_users] |
-| `/posts/{post_id}/relationships/author` | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum Autor  |
-| `/posts/{post_id}/relationships/parent` | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum Elternobjekt  |
+| Beziehung                                 | Beschreibung                                                                                                                                |
+|-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| `/posts/{post_id}/author`                 | Liefert den Autor als [User][api_endpoint_users]-Resource                                                                                   |
+| `/posts/{post_id}/comments`               | Liefert die Kommentare als Array von [Comments][api_endpoint_comments]-Resourcen                                                            |
+| `/posts/{post_id}/parent`                 | Liefert das Elternobjekt, zu dem der Post gehört. Mögliche Resourcen können sein:<br />- [User][api_endpoint_users]                         |
+| `/posts/{post_id}/relationships/author`   | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum Autor                     |
+| `/posts/{post_id}/relationships/comments` | Liefert ein Array von [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zu den Kommentaren  |
+| `/posts/{post_id}/relationships/parent`   | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum Elternobjekt              |
 
 {% include links.html %}
