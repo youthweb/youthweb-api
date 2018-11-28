@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Removed
 
 - **Breaking:** The support for version 0.5, 0.6 and 0.7 was dropped. Requests with this versions and below will get a 406 error response.
+- **Breaking:** The endpoint `/auth/token` for access token war removed. Use the OAuth2 authorization instead.
 
 ## [0.12] - 2017-07-16
 
