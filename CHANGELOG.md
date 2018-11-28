@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
+### Added
+
+- new resource `Comment` with new endpoint `/comments/<comment_id>`
+- new comment author endpoints `/comments/<comment_id>/author` and `/comments/<comment_id>/relationships/author`
+- new comment parent endpoints `/comments/<comment_id>/parent` and `/comments/<comment_id>/relationships/parent`
+- new endpoint `posts/<post_id>/comments` to list the comments of a post
+
+### Deprecated
+
+- Version 0.8, 0.9, 0.10, 0.11 and 0.12 are now deprecated and support will be dropped in future. If your apps use this version upgrade them at least to version 0.13.
+
+### Removed
+
+- **Breaking:** The support for version 0.5, 0.6 and 0.7 was dropped. Requests with this versions and below will get a 406 error response.
+
 ## [0.12] - 2017-07-16
 
 ### Added
@@ -175,7 +190,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - this CHANGELOG.md
 - Travis CI integration
 
-## 0.0.1 - 2014-10-12
+## [0.0.1] - 2014-10-12
 
 ### Added
 
