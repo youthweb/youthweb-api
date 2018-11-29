@@ -38,6 +38,7 @@ Ein Comment Objekt hat die folgenden Attribute
     + comment_id: `345678` (required, string) - ID of the comment
 
 ### Daten zu einem Comment abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -64,6 +65,7 @@ Ein Comment Objekt hat die folgenden Attribute
     + comment_id: `345678` (required, string) - ID of the comment
 
 ### Author zu einem Comment abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -87,6 +89,7 @@ Ein Comment Objekt hat die folgenden Attribute
     + comment_id: `345678` (required, string) - ID of the event
 
 ### Author Relationship zu einem Comment abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -113,6 +116,7 @@ Ein Comment Objekt hat die folgenden Attribute
     + comment_id: `345678` (required, string) - ID of the comment
 
 ### Parent zu einem Comment abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -136,6 +140,7 @@ Ein Comment Objekt hat die folgenden Attribute
     + comment_id: `345678` (required, string) - ID of the event
 
 ### Parent Relationship zu einem Comment abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -165,6 +170,7 @@ Ein Comment Objekt hat die folgenden Attribute
     + `end_datetime`: `2017-08-01T00:00:00` (string, optional) - Ein ISO 6801 Datum ohne Timezone-Offset in UTC Timezone für die obere Startzeit der Events. Wenn nicht angegeben, wird ein Monat nach `start_datetime` angenommen. Ein angegebener Timezone-Offset wird ignoriert.
 
 ### Eine Liste von Events anfordern [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -196,6 +202,7 @@ Ein Event Objekt hat die folgenden Attribute
     + event_id: `4567` (required, string) - ID of the event
 
 ### Daten zu einem Event abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -228,9 +235,8 @@ Ein Event Objekt hat die folgenden Attribute
     + Headers
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
-    + Body
 
-            {"errors":[{"status":"401","title":"Unauthorized"}]}
+    + Attributes (Unauthorized Error)
 
 ## Event Author [/events/{event_id}/author]
 
@@ -238,6 +244,7 @@ Ein Event Objekt hat die folgenden Attribute
     + event_id: `4567` (required, string) - ID of the event
 
 ### Author zu einem Event abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -261,6 +268,7 @@ Ein Event Objekt hat die folgenden Attribute
     + event_id: `4567` (required, string) - ID of the event
 
 ### Author Relationship zu einem Event abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -289,6 +297,7 @@ Ein Event Objekt hat die folgenden Attribute
     + friend_id: `45678` (required, string) - ID of the friend
 
 ### Daten zu einem Friend abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -322,9 +331,7 @@ Ein Event Objekt hat die folgenden Attribute
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
-
-            {"errors":[{"status":"401","title":"Unauthorized"}]}
+    + Attributes (Unauthorized Error)
 
 ## Friend From [/friends/{friend_id}/from]
 
@@ -332,6 +339,7 @@ Ein Event Objekt hat die folgenden Attribute
     + friend_id: `45678` (required, string) - ID of the friend
 
 ### From-User zu einem Friend abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -355,6 +363,7 @@ Ein Event Objekt hat die folgenden Attribute
     + friend_id: `45678` (required, string) - ID of the friend
 
 ### From-User Relationship zu einem Friend abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -381,6 +390,7 @@ Ein Event Objekt hat die folgenden Attribute
     + friend_id: `45678` (required, string) - ID of the friend
 
 ### To-User zu einem Friend abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -404,6 +414,7 @@ Ein Event Objekt hat die folgenden Attribute
     + friend_id: `45678` (required, string) - ID of the friend
 
 ### To-User Relationship zu einem Friend abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -438,6 +449,7 @@ Ein Post Objekt hat die folgenden Attribute
     + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
 
 ### Daten zu einem Post abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -471,9 +483,7 @@ Ein Post Objekt hat die folgenden Attribute
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
-
-            {"errors":[{"status":"403","title":"Forbidden"}]}
+    + Attributes (Forbidden Error)
 
 + Request (application/vnd.api+json)
 
@@ -489,9 +499,7 @@ Ein Post Objekt hat die folgenden Attribute
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
-
-            {"errors":[{"status":"404","title":"Resource not found"}]}
+    + Attributes (Not Found Error)
 
 ## Post Author [/posts/{post_id}/author]
 
@@ -499,6 +507,7 @@ Ein Post Objekt hat die folgenden Attribute
     + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
 
 ### Author zu einem Post abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -522,6 +531,7 @@ Ein Post Objekt hat die folgenden Attribute
     + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
 
 ### Author Relationship zu einem Post abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -548,6 +558,7 @@ Ein Post Objekt hat die folgenden Attribute
     + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
 
 ### Elternobjekt zu einem Post abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -571,6 +582,7 @@ Ein Post Objekt hat die folgenden Attribute
     + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
 
 ### Parent Relationship zu einem Post abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -600,6 +612,7 @@ Für die Statistiken ist keine Autorisierung nötig.
 Liefert Statistiken zu den Accounts.
 
 ### Retrieve the account stats [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -634,6 +647,7 @@ Liefert Statistiken zu den Accounts.
 Liefert Statistiken zum Forum
 
 ### Retrieve the forum stats [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -663,6 +677,7 @@ Liefert Statistiken zum Forum
 Liefert Statistiken zu den Gruppen.
 
 ### Retrieve the groups stats [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -701,6 +716,7 @@ Ein User Objekt hat die folgenden Attribute
     + user_id: 123456 (required, number) - ID of the user in form of an integer
 
 ### Daten zu einem User abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -726,6 +742,7 @@ Liefert die Posts von der Pinnwand eines Users
     + user_id: 123456 (required, number) - ID of the user
 
 ### Posts zu einem User abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -746,6 +763,7 @@ Liefert die Posts von der Pinnwand eines Users
             + (User Base)
 
 ### Post zu einem User erstellen [POST]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -788,9 +806,7 @@ Liefert die Posts von der Pinnwand eines Users
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
-
-            {"errors":[{"status":"404","title":"Resource not found"}]}
+    + Attributes (Not Found Error)
 
 + Request (application/vnd.api+json)
 
@@ -810,9 +826,7 @@ Liefert die Posts von der Pinnwand eines Users
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
-
-            {"errors":[{"status":"403","title":"Forbidden"}]}
+    + Attributes (Forbidden Error)
 
 + Request (application/vnd.api+json)
 
@@ -877,6 +891,7 @@ Liefert die Freunde eines Users
     + user_id: 123456 (required, number) - ID of the user
 
 ### Fruende zu einem User abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -901,6 +916,7 @@ Liefert die Freunde eines Users
 Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /users/{user_id}, wenn die User-ID des autorisierten Users nicht bekannt ist.
 
 ### Daten zum autorisierten User abrufen [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -919,6 +935,27 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
         + data (User Base)
 
 # Data Structures
+
+## Unauthorized Error (object)
+
++ errors (array)
+    - (object)
+        + status: `401`
+        + title: `Unauthorized`
+
+## Forbidden Error (object)
+
++ errors (array)
+    - (object)
+        + status: `403`
+        + title: `Forbidden`
+
+## Not Found Error (object)
+
++ errors (array)
+    - (object)
+        + status: `404`
+        + title: `Resource not found`
 
 ## Comment Base (object)
 
