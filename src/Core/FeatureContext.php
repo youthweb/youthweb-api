@@ -1,5 +1,7 @@
 <?php
 
+namespace Youthweb\Api\Core;
+
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Tester\Exception\PendingException;
