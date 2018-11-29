@@ -6,7 +6,7 @@
     "drakov": "^1.0.1"
   },
   "scripts": {
-    "server": "drakov -f ./apiary.apib -p 3000",
+    "server": "drakov -f \"./*.apib\" -p 3000",
     "server:errors": "drakov -f ./errors.apib -p 3000",
     "test": "vendor/bin/behat --suite=develop",
     "test:errors": "vendor/bin/behat --suite=errors",

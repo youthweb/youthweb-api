@@ -55,9 +55,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
             {"errors":[{"status":"400","title":"Bad Request","detail":"Your request format must be valid JSON API. The properties `data` and `errors` MUST NOT coexist in Document."}]}
 
-# Group Stats
-
-## Account Stats [/stats/account]
+## Header Errors [/posts/header-errors]
 
 ### Retrieve the account stats without content-type header [GET]
 + Request
@@ -325,25 +323,6 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
 # Group Events
 
-## Request an event [/events/4567]
-
-### Request an event without authorization [GET]
-+ Request (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
-
-+ Response 401 (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
-
-    + Body
-
-            {"errors":[{"status":"401","title":"Unauthorized"}]}
-
 ## Not existing event [/events/404]
 
 ### Request a not existing event [GET]
@@ -364,25 +343,6 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
             {"errors":[{"status":"404","title":"Resource not found"}]}
 
 # Group Friends
-
-## Request a friend [/friends/45678]
-
-### Request a friend without authorization [GET]
-+ Request (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
-
-+ Response 401 (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
-
-    + Body
-
-            {"errors":[{"status":"401","title":"Unauthorized"}]}
 
 ## Not existing friend [/friends/404]
 

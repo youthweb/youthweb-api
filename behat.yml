@@ -6,9 +6,3 @@ default:
             contexts:
                 - FeatureContext:
                     baseUrl: http://localhost:3000/
-        errors:
-            paths:
-                - "%paths.base%/features/errors"
-            contexts:
-                - FeatureContext:
-                    baseUrl: http://localhost:3000/

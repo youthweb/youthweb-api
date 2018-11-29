@@ -35,9 +35,9 @@ Ein Comment Objekt hat die folgenden Attribute
 + attributes - An object of attributes.
 
 + Parameters
-    + comment_id: 345678 (required, string) - ID of the comment
+    + comment_id: `345678` (required, string) - ID of the comment
 
-### Daten zu einem Event abrufen [GET]
+### Daten zu einem Comment abrufen [GET]
 + Request (application/vnd.api+json)
 
     + Headers
@@ -61,7 +61,7 @@ Ein Comment Objekt hat die folgenden Attribute
 ## Comment Author [/comments/{comment_id}/author]
 
 + Parameters
-    + comment_id: 345678 (required, string) - ID of the comment
+    + comment_id: `345678` (required, string) - ID of the comment
 
 ### Author zu einem Comment abrufen [GET]
 + Request (application/vnd.api+json)
@@ -84,7 +84,7 @@ Ein Comment Objekt hat die folgenden Attribute
 ## Post Author Relationship [/comments/{comment_id}/relationships/author]
 
 + Parameters
-    + comment_id: 345678 (required, string) - ID of the event
+    + comment_id: `345678` (required, string) - ID of the event
 
 ### Author Relationship zu einem Comment abrufen [GET]
 + Request (application/vnd.api+json)
@@ -110,7 +110,7 @@ Ein Comment Objekt hat die folgenden Attribute
 ## Comment Parent [/comments/{comment_id}/parent]
 
 + Parameters
-    + comment_id: 345678 (required, string) - ID of the comment
+    + comment_id: `345678` (required, string) - ID of the comment
 
 ### Parent zu einem Comment abrufen [GET]
 + Request (application/vnd.api+json)
@@ -133,7 +133,7 @@ Ein Comment Objekt hat die folgenden Attribute
 ## Comment Parent Relationship [/comments/{comment_id}/relationships/parent]
 
 + Parameters
-    + comment_id: 345678 (required, string) - ID of the event
+    + comment_id: `345678` (required, string) - ID of the event
 
 ### Parent Relationship zu einem Comment abrufen [GET]
 + Request (application/vnd.api+json)
@@ -158,7 +158,7 @@ Ein Comment Objekt hat die folgenden Attribute
 
 # Group Events
 
-## Events abrufen [/events?page[start]={start_datetime}&page[end]={end_datetime}]
+## Events abrufen [/events?page%5Bstart%5D={start_datetime}&page%5Bend%5D={end_datetime}]
 
 + Parameters
     + `start_datetime`: `2017-06-01T00:00:00` (string, optional) - Ein ISO 6801 Datum ohne Timezone-Offset in UTC Timezone für die untere Startzeit der Events. Wenn nicht angegeben, wird aktuelle Zeitpunkt angenommen. Ein angegebener Timezone-Offset wird ignoriert.
@@ -193,7 +193,7 @@ Ein Event Objekt hat die folgenden Attribute
 + attributes - An object of attributes.
 
 + Parameters
-    + event_id: 4567 (required, string) - ID of the event
+    + event_id: `4567` (required, string) - ID of the event
 
 ### Daten zu einem Event abrufen [GET]
 + Request (application/vnd.api+json)
@@ -215,10 +215,27 @@ Ein Event Objekt hat die folgenden Attribute
         + included (array)
             + (User Base)
 
++ Request (application/vnd.api+json)
+
+    Fehler: Event anfragen ohne Authorization
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
++ Response 401 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+    + Body
+
+            {"errors":[{"status":"401","title":"Unauthorized"}]}
+
 ## Event Author [/events/{event_id}/author]
 
 + Parameters
-    + event_id: 4567 (required, string) - ID of the event
+    + event_id: `4567` (required, string) - ID of the event
 
 ### Author zu einem Event abrufen [GET]
 + Request (application/vnd.api+json)
@@ -241,7 +258,7 @@ Ein Event Objekt hat die folgenden Attribute
 ## Event Author Relationship [/events/{event_id}/relationships/author]
 
 + Parameters
-    + event_id: 4567 (required, string) - ID of the event
+    + event_id: `4567` (required, string) - ID of the event
 
 ### Author Relationship zu einem Event abrufen [GET]
 + Request (application/vnd.api+json)
@@ -269,7 +286,7 @@ Ein Event Objekt hat die folgenden Attribute
 ## Friend [/friends/{friend_id}]
 
 + Parameters
-    + friend_id: 45678 (required, string) - ID of the friend
+    + friend_id: `45678` (required, string) - ID of the friend
 
 ### Daten zu einem Friend abrufen [GET]
 + Request (application/vnd.api+json)
@@ -291,10 +308,28 @@ Ein Event Objekt hat die folgenden Attribute
         + included (array)
             + (User Base)
 
++ Request (application/vnd.api+json)
+
+    Fehler: Friend anfragen ohne Authorization
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
++ Response 401 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Body
+
+            {"errors":[{"status":"401","title":"Unauthorized"}]}
+
 ## Friend From [/friends/{friend_id}/from]
 
 + Parameters
-    + friend_id: 45678 (required, string) - ID of the friend
+    + friend_id: `45678` (required, string) - ID of the friend
 
 ### From-User zu einem Friend abrufen [GET]
 + Request (application/vnd.api+json)
@@ -317,7 +352,7 @@ Ein Event Objekt hat die folgenden Attribute
 ## From-User Relationship [/friends/{friend_id}/relationships/from]
 
 + Parameters
-    + friend_id: 45678 (required, string) - ID of the friend
+    + friend_id: `45678` (required, string) - ID of the friend
 
 ### From-User Relationship zu einem Friend abrufen [GET]
 + Request (application/vnd.api+json)
@@ -343,7 +378,7 @@ Ein Event Objekt hat die folgenden Attribute
 ## To-User zu einem Friend abrufen [/friends/{friend_id}/to]
 
 + Parameters
-    + friend_id: 45678 (required, string) - ID of the friend
+    + friend_id: `45678` (required, string) - ID of the friend
 
 ### To-User zu einem Friend abrufen [GET]
 + Request (application/vnd.api+json)
@@ -366,7 +401,7 @@ Ein Event Objekt hat die folgenden Attribute
 ## To-User Relationship [/friends/{friend_id}/relationships/to]
 
 + Parameters
-    + friend_id: 45678 (required, string) - ID of the friend
+    + friend_id: `45678` (required, string) - ID of the friend
 
 ### To-User Relationship zu einem Friend abrufen [GET]
 + Request (application/vnd.api+json)
@@ -400,7 +435,7 @@ Ein Post Objekt hat die folgenden Attribute
 + attributes - An object of attributes.
 
 + Parameters
-    + post_id: d5a5a2c3-041b-4985-907c-74a2131efc98 (required, string) - ID of the post as a uuid string
+    + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
 
 ### Daten zu einem Post abrufen [GET]
 + Request (application/vnd.api+json)
@@ -422,10 +457,46 @@ Ein Post Objekt hat die folgenden Attribute
         + included (array)
             + (User Base)
 
++ Request (application/vnd.api+json)
+
+    Fehler: Request a forbidden post
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
++ Response 403 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Body
+
+            {"errors":[{"status":"403","title":"Forbidden"}]}
+
++ Request (application/vnd.api+json)
+
+    Fehler: Request a not existing post
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Body
+
+            {"errors":[{"status":"404","title":"Resource not found"}]}
+
 ## Post Author [/posts/{post_id}/author]
 
 + Parameters
-    + post_id: d5a5a2c3-041b-4985-907c-74a2131efc98 (required, string) - ID of the post as a uuid string
+    + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
 
 ### Author zu einem Post abrufen [GET]
 + Request (application/vnd.api+json)
@@ -448,7 +519,7 @@ Ein Post Objekt hat die folgenden Attribute
 ## Post Author Relationship [/posts/{post_id}/relationships/author]
 
 + Parameters
-    + post_id: d5a5a2c3-041b-4985-907c-74a2131efc98 (required, string) - ID of the post as a uuid string
+    + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
 
 ### Author Relationship zu einem Post abrufen [GET]
 + Request (application/vnd.api+json)
@@ -474,7 +545,7 @@ Ein Post Objekt hat die folgenden Attribute
 ## Post Parent [/posts/{post_id}/parent]
 
 + Parameters
-    + post_id: d5a5a2c3-041b-4985-907c-74a2131efc98 (required, string) - ID of the post as a uuid string
+    + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
 
 ### Elternobjekt zu einem Post abrufen [GET]
 + Request (application/vnd.api+json)
@@ -497,7 +568,7 @@ Ein Post Objekt hat die folgenden Attribute
 ## Post Parent Relationship [/posts/{post_id}/relationships/parent]
 
 + Parameters
-    + post_id: d5a5a2c3-041b-4985-907c-74a2131efc98 (required, string) - ID of the post as a uuid string
+    + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
 
 ### Parent Relationship zu einem Post abrufen [GET]
 + Request (application/vnd.api+json)
@@ -684,7 +755,7 @@ Liefert die Posts von der Pinnwand eines Users
 
     + Attributes
 
-        + data (Post Created)
+        + data (Post Creation)
 
 + Response 201 (application/vnd.api+json)
 
@@ -698,6 +769,105 @@ Liefert die Posts von der Pinnwand eines Users
         + data (Post Base)
         + included (array)
             + (User Base)
+
++ Request (application/vnd.api+json)
+
+    Fehler: Create a post on an not existing user
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+
+        + data (Post Creation)
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Body
+
+            {"errors":[{"status":"404","title":"Resource not found"}]}
+
++ Request (application/vnd.api+json)
+
+    Fehler: Create a post without permission
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+
+        + data (Post Creation)
+
++ Response 403 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Body
+
+            {"errors":[{"status":"403","title":"Forbidden"}]}
+
++ Request (application/vnd.api+json)
+
+    Fehler: Create a post with empty content
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+
+        + data (object)
+            + type: `posts` (string)
+            + attributes (object)
+                + `title`: `The post title` (string) - Der Title, kann auch leer sein
+                + `content`: ` ` (string) - Der Post-Inhalt
+                + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
+                + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
+
++ Response 400 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Body
+
+            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` can't be empty."}]}
+
++ Request (application/vnd.api+json)
+
+    Fehler: Create a post with missing content
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+
+        + data (object)
+            + type: `posts` (string)
+            + attributes (object)
+                + `title`: `The post title` (string) - Der Title, kann auch leer sein
+                + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
+                + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
+
++ Response 400 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Body
+
+            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
 
 ## Friends of an User [/users/{user_id}/friends]
 
@@ -840,7 +1010,7 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
 + links (object)
     + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Der Link zu dieser Resource
 
-## Post Created (object)
+## Post Creation (object)
 
 + type: `posts` (string)
 + attributes (object)
