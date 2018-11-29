@@ -13,6 +13,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - new comment parent endpoints `/comments/<comment_id>/parent` and `/comments/<comment_id>/relationships/parent`
 - new endpoint `posts/<post_id>/comments` to list the comments of a post
 
+### Changed
+
+- errors-Testsuite und develop-Testsuite wurde in core-Suite zusammengelegt, um Tests zu vereinfachen und weitere API-Suiten zu ermöglichen
+
 ### Deprecated
 
 - Version 0.8, 0.9, 0.10, 0.11 and 0.12 are now deprecated and support will be dropped in future. If your apps use this version upgrade them at least to version 0.13.

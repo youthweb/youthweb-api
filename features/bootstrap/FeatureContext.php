@@ -10,7 +10,6 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\BadResponseException;
 use PHPUnit\Framework\TestCase;
 
-
 /**
  * Defines application features from the specific context.
  */

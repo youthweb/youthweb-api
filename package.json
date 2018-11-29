@@ -7,9 +7,7 @@
   },
   "scripts": {
     "server": "drakov -f \"./*.apib\" -p 3000",
-    "server:errors": "drakov -f ./errors.apib -p 3000",
-    "test": "vendor/bin/behat --suite=develop",
-    "test:errors": "vendor/bin/behat --suite=errors",
+    "test": "vendor/bin/behat --suite=core",
     "docs:build": "jekyll build --source docs/ --destination docs/_site",
     "docs:watch": "npm run docs:build -- --watch"
   }

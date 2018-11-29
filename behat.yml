@@ -1,8 +1,8 @@
 default:
     suites:
-        develop:
+        core:
             paths:
-                - "%paths.base%/features/apiblueprint"
+                - "%paths.base%/features/core"
             contexts:
                 - FeatureContext:
                     baseUrl: http://localhost:3000/

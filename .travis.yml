@@ -20,7 +20,7 @@ before_script:
 - travis_retry composer install --no-interaction --prefer-dist
 
 script:
-- echo "Testing develop suite"; vendor/bin/behat --suite=develop;
+- echo "Testing core suite"; vendor/bin/behat --suite=core;
 
 notifications:
   webhooks:
