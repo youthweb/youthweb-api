@@ -552,6 +552,62 @@ Ein Post Objekt hat die folgenden Attribute
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author` (string)
 
+## Post Comments [/posts/{post_id}/comments]
+
++ Parameters
+    + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
+
+### Kommentare zu einem Post abrufen [GET]
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+
+        + data (array)
+            - (Comment Base)
+        + included (array)
+            + (User Base)
+            + (Post Base)
+
+## Post Comments Relationship [/posts/{post_id}/relationships/comments]
+
++ Parameters
+    + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
+
+### Comments Relationship zu einem Post abrufen [GET]
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+
+        + data (array)
+            - (Comment Linkage)
+        + links (object)
+            + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/comments` (string)
+            + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments` (string)
+
 ## Post Parent [/posts/{post_id}/parent]
 
 + Parameters
@@ -978,6 +1034,11 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
 + links (object)
     + self: `/comments/345678` (string) - Der Link zu dieser Resource
 
+## Comment Linkage (object)
+
++ type: `comments` (string)
++ id: `345678` (string) - Die Comment-ID
+
 ## Event Base (object)
 
 + type: `events` (string)
@@ -1039,6 +1100,12 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
         + links (object)
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author` (string)
+    + `comments` (object) - Die Kommentare zu diesem Post
+        + data (array)
+            - (Comment Linkage)
+        + links (object)
+            + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/comments` (string)
+            + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments` (string)
     + parent (object, nullable) - Das Elternobjekt, dem dieser Post zugeordnet ist
         + data (User Linkage)
         + links (object)
