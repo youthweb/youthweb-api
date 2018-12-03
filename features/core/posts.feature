@@ -38,6 +38,14 @@ Scenario: Requesting a post
 		"""
 		self
 		"""
+	And scope into the "data.relationships" property
+	And the response contains 3 items
+	And the properties exist:
+		"""
+		author
+		comments
+		parent
+		"""
 
 Scenario: Requesting a post without permission
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
@@ -83,7 +91,7 @@ Scenario: Requesting the author of a post
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
-	And the response contains 4 items
+	And the response contains 5 items
 	And the "type" property exists
 	And the "type" property is a string equalling "users"
 	And the "id" property exists
@@ -92,11 +100,19 @@ Scenario: Requesting the author of a post
 	And the "attributes" property is an object
 	And the "links" property exists
 	And the "links" property is an object
+	And the "relationships" property exists
+	And the "relationships" property is an object
 	And scope into the "data.links" property
 	And the response contains 1 items
 	And the properties exist:
 		"""
 		self
+		"""
+	And scope into the "data.relationships" property
+	And the response contains 1 items
+	And the properties exist:
+		"""
+		posts
 		"""
 
 Scenario: Requesting the author relationship of a post
@@ -134,7 +150,7 @@ Scenario: Requesting the parent of a post
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
-	And the response contains 4 items
+	And the response contains 5 items
 	And the "type" property exists
 	And the "type" property is a string equalling "users"
 	And the "id" property exists
@@ -143,11 +159,19 @@ Scenario: Requesting the parent of a post
 	And the "attributes" property is an object
 	And the "links" property exists
 	And the "links" property is an object
+	And the "relationships" property exists
+	And the "relationships" property is an object
 	And scope into the "data.links" property
 	And the response contains 1 items
 	And the properties exist:
 		"""
 		self
+		"""
+	And scope into the "data.relationships" property
+	And the response contains 1 items
+	And the properties exist:
+		"""
+		posts
 		"""
 
 Scenario: Requesting the parent relationship of a post

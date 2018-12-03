@@ -83,7 +83,7 @@ Scenario: Requesting the from-user of a friend
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
-	And the response contains 4 items
+	And the response contains 5 items
 	And the "type" property exists
 	And the "type" property is a string equalling "users"
 	And the "id" property exists
@@ -92,11 +92,19 @@ Scenario: Requesting the from-user of a friend
 	And the "attributes" property is an object
 	And the "links" property exists
 	And the "links" property is an object
+	And the "relationships" property exists
+	And the "relationships" property is an object
 	And scope into the "data.links" property
 	And the response contains 1 items
 	And the properties exist:
 		"""
 		self
+		"""
+	And scope into the "data.relationships" property
+	And the response contains 1 items
+	And the properties exist:
+		"""
+		posts
 		"""
 
 Scenario: Requesting the from-user relationship of a friend
@@ -134,7 +142,7 @@ Scenario: Requesting the to-user of a friend
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
-	And the response contains 4 items
+	And the response contains 5 items
 	And the "type" property exists
 	And the "type" property is a string equalling "users"
 	And the "id" property exists
@@ -143,11 +151,19 @@ Scenario: Requesting the to-user of a friend
 	And the "attributes" property is an object
 	And the "links" property exists
 	And the "links" property is an object
+	And the "relationships" property exists
+	And the "relationships" property is an object
 	And scope into the "data.links" property
 	And the response contains 1 items
 	And the properties exist:
 		"""
 		self
+		"""
+	And scope into the "data.relationships" property
+	And the response contains 1 items
+	And the properties exist:
+		"""
+		posts
 		"""
 
 Scenario: Requesting the to-user relationship of a friend

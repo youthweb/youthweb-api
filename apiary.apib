@@ -1159,6 +1159,13 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
     + `picture_description`: `Lorem ipsum dolor sit amet` (string, nullable) - Eine Beschreibung des Profilbildes
 + links (object)
     + self: `/users/123456` (string) - Der Link zu dieser Resource
++ `relationships` (object)
+    + `posts` (object) - Die Posts auf der Pinnwand des Users
+        + data (array)
+            - (Post Linkage)
+        + links (object)
+            + self: `/users/123456/relationships/posts` (string)
+            + related: `/users/123456/posts` (string)
 
 ## User Linkage (object)
 

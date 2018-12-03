@@ -309,6 +309,23 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
             {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
 
+## Get comment of a not existing post [/posts/45a5a2c3-041b-4985-907c-74a2131efc98/comments]
+
+### Request comments of a not existing post [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes (Not Found Error)
+
 # Group Events
 
 ## Not existing event [/events/404]
