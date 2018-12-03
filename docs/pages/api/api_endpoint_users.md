@@ -74,6 +74,9 @@ Content-Type: application/vnd.api+json
         "links": {
             "self": "/users/123456"
         }
+        "relationships": {
+            "posts": "/users/123456/posts"
+        }
     }
 }
 ```
