@@ -3,10 +3,7 @@ Feature: Interact with the comments of an object
 	As a user
 
 Scenario: Requesting the posts from a users pinnwall
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /users/123456/posts"
 	Then I get a "200" response
 	And the "included" property exists
@@ -26,10 +23,7 @@ Scenario: Requesting the posts from a users pinnwall
 	And the "links" property is an object
 
 Scenario: Requesting the posts relationships from a users pinnwall
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /users/123456/relationships/posts"
 	Then I get a "200" response
 	And the "data" property exists
@@ -43,10 +37,7 @@ Scenario: Requesting the posts relationships from a users pinnwall
 	And the "id" property exists
 
 Scenario: Creating a post on an users pinnwall
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	And I have the payload
 		"""
 		{"data":{"type":"posts","attributes":{"title":"The post title","content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu.","view_allowed_for":"users","comments_allowed":true}}}
@@ -85,10 +76,7 @@ Scenario: Creating a post on an users pinnwall
 		"""
 
 Scenario: Create a post on an not existing user
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	And I have the payload
 		"""
 		{"data":{"type":"posts","attributes":{"title":"The post title","content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu.","view_allowed_for":"users","comments_allowed":true}}}
@@ -106,10 +94,7 @@ Scenario: Create a post on an not existing user
 	And the "title" property is a string equalling "Resource not found"
 
 Scenario: Create a post without permission
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	And I have the payload
 		"""
 		{"data":{"type":"posts","attributes":{"title":"The post title","content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu.","view_allowed_for":"users","comments_allowed":true}}}
@@ -127,10 +112,7 @@ Scenario: Create a post without permission
 	And the "title" property is a string equalling "Forbidden"
 
 Scenario: Create a post with empty content
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	And I have the payload
 		"""
 		{"data":{"type":"posts","attributes":{"title":"The post title","content":"","view_allowed_for":"users","comments_allowed":true}}}
@@ -150,10 +132,7 @@ Scenario: Create a post with empty content
 	And the "detail" property is a string equalling "The field `attributes.content` can't be empty."
 
 Scenario: Create a post with missing content
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	And I have the payload
 		"""
 		{"data":{"type":"posts","attributes":{"title":"The post title","view_allowed_for":"users","comments_allowed":true}}}

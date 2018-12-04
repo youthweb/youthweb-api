@@ -16,10 +16,7 @@ Scenario: Calling the BaseUrl
 	And the "title" property equals "Resource not found"
 
 Scenario: Sending a request with invalid JSON API
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	And I have the payload
 		"""
 		{"data":{"type":"posts","attributes":{"content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu."}},"errors":[{"detail":"The members data and errors MUST NOT coexist in the same document."}]}

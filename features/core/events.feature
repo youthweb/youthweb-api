@@ -3,10 +3,7 @@ Feature: Interact with an event
 	As a user
 
 Scenario: Requesting the events without specific time range
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /events"
 	Then I get a "200" response
 	And the "included" property exists
@@ -26,10 +23,7 @@ Scenario: Requesting the events without specific time range
 	And the "links" property is an object
 
 Scenario: Requesting a event
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /events/4567"
 	Then I get a "200" response
 	And the "included" property exists
@@ -71,9 +65,7 @@ Scenario: Requesting a event
 		"""
 
 Scenario: Requesting an event without authorization
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
+	Given I have set the correct headers without authorization
 	When I request "GET /events/4567"
 	Then I get a "401" response
 	And the Content-Type Header "application/vnd.api+json" exists
@@ -87,10 +79,7 @@ Scenario: Requesting an event without authorization
 	And the "title" property is a string equalling "Unauthorized"
 
 Scenario: Requesting a not existing event
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /events/404"
 	Then I get a "404" response
 	And the Content-Type Header "application/vnd.api+json" exists
@@ -104,10 +93,7 @@ Scenario: Requesting a not existing event
 	And the "title" property is a string equalling "Resource not found"
 
 Scenario: Requesting the author of an event
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /events/4567/author"
 	Then I get a "200" response
 	And the "data" property exists
@@ -138,10 +124,7 @@ Scenario: Requesting the author of an event
 		"""
 
 Scenario: Requesting the author relationship of an event
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /events/4567/relationships/author"
 	Then I get a "200" response
 	And the "data" property exists

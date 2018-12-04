@@ -3,10 +3,7 @@ Feature: Interact with the comments of an object
 	As a user
 
 Scenario: Requesting the comments from a post
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments"
 	Then I get a "200" response
 	And the "included" property exists
@@ -26,10 +23,7 @@ Scenario: Requesting the comments from a post
 	And the "links" property is an object
 
 Scenario: Requesting the comments relationships from a post
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/comments"
 	Then I get a "200" response
 	And the "data" property exists
@@ -41,10 +35,7 @@ Scenario: Requesting the comments relationships from a post
 	And the "id" property exists
 
 Scenario: Requesting comments from a not existing post
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /posts/45a5a2c3-041b-4985-907c-74a2131efc98/comments"
 	Then I get a "404" response
 	And the Content-Type Header "application/vnd.api+json" exists

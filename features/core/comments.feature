@@ -3,10 +3,7 @@ Feature: Interact with comments
 	As a user
 
 Scenario: Requesting a comment
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /comments/345678"
 	Then I get a "200" response
 	And the "included" property exists
@@ -35,10 +32,7 @@ Scenario: Requesting a comment
 		"""
 
 Scenario: Requesting the author of a comment
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /comments/345678/author"
 	Then I get a "200" response
 	And the "data" property exists
@@ -69,10 +63,7 @@ Scenario: Requesting the author of a comment
 		"""
 
 Scenario: Requesting the author relationship of a comment
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /comments/345678/relationships/author"
 	Then I get a "200" response
 	And the "data" property exists
@@ -94,10 +85,7 @@ Scenario: Requesting the author relationship of a comment
 		"""
 
 Scenario: Requesting the parent of a comment
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /comments/345678/parent"
 	Then I get a "200" response
 	And the "data" property exists
@@ -122,10 +110,7 @@ Scenario: Requesting the parent of a comment
 		"""
 
 Scenario: Requesting the parent relationship of a comment
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /comments/345678/relationships/parent"
 	Then I get a "200" response
 	And the "data" property exists

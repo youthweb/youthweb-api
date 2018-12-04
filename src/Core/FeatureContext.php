@@ -81,6 +81,25 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	}
 
 	/**
+     * @Given I have set the correct headers without authorization
+     */
+    public function iHaveSetTheCorrectHeadersWithoutAuthorization()
+    {
+        $this->iHaveSetTheHeaderWith('Content-Type', 'application/vnd.api+json');
+        $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json');
+        $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json; net.youthweb.api.version=0.13');
+    }
+
+	/**
+     * @Given I have set the correct headers with valid authorization
+     */
+    public function iHaveSetTheCorrectHeadersWithValidAuthorization()
+    {
+        $this->iHaveSetTheCorrectHeadersWithoutAuthorization();
+        $this->iHaveSetTheHeaderWith('Authorization', 'Bearer valid_JWT');
+    }
+
+	/**
 	 * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)"$/
 	 */
 	public function iRequest($httpMethod, $resource)
