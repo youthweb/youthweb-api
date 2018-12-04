@@ -25,6 +25,23 @@ Scenario: Requesting the posts from a users pinnwall
 	And the "links" property exists
 	And the "links" property is an object
 
+Scenario: Requesting the posts relationships from a users pinnwall
+	Given I have set the "Content-Type" header with "application/vnd.api+json"
+	And I have set the "Accept" header with "application/vnd.api+json"
+	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.13"
+	And I have set the "Authorization" header with "Bearer valid_JWT"
+	When I request "GET /users/123456/relationships/posts"
+	Then I get a "200" response
+	And the "data" property exists
+	And the "data" property is an array
+	And the "links" property exists
+	And the "links" property is an object
+	And scope into the first "data" property
+	And the response contains 2 items
+	And the "type" property exists
+	And the "type" property is a string equalling "posts"
+	And the "id" property exists
+
 Scenario: Creating a post on an users pinnwall
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	And I have set the "Accept" header with "application/vnd.api+json"

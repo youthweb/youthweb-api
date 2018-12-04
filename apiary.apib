@@ -939,6 +939,35 @@ Liefert die Posts von der Pinnwand eines Users
 
             {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
 
+## Posts Relationships of an User [/users/{user_id}/relationships/posts]
+
+Liefert die Posts Relationships von der Pinnwand eines Users
+
++ Parameters
+    + user_id: 123456 (required, number) - ID of the user
+
+### Posts Relationships zu einem User abrufen [GET]
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+
+        + data (array[Post Linkage])
+        + links (object)
+            + self: `/users/123456/relationships/posts` (string)
+            + related: `/users/123456/posts` (string)
+
 ## Friends of an User [/users/{user_id}/friends]
 
 Liefert die Freunde eines Users
@@ -946,7 +975,7 @@ Liefert die Freunde eines Users
 + Parameters
     + user_id: 123456 (required, number) - ID of the user
 
-### Fruende zu einem User abrufen [GET]
+### Freunde zu einem User abrufen [GET]
 
 + Request (application/vnd.api+json)
 
