@@ -1,8 +1,8 @@
 ---
 title: "{object}/{object_id}/comments"
-keywords: Youthweb-API, Resource, Posts
+keywords: Youthweb-API, Resource, Comments, Posts
 tags: [endpoint]
-summary: "Dieser Endpoint liefert die Posts zu einer Resource."
+summary: "Dieser Endpoint liefert die Comments zu einer Resource."
 sidebar: api_sidebar
 permalink: api_endpoint_object_comments.html
 folder: api
@@ -30,11 +30,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2M
 ### Permissions
 
 - **Allgemein**: Du benötigst in den meisten Fällen ein [Access-Token][api_general_oauth2], um auf diesen Endpoint zugreifen zu können.
-- **Private Posts**: Du benötigst ein [Access-Token][api_general_oauth2] mit `post:read` Scope, um auf Posts zuzugreifen, die nur für den User oder seine Freunde sichtbar sind.
+- **Private Posts**: Du benötigst ein [Access-Token][api_general_oauth2] mit `post:read` Scope, um auf die Kommentare von Posts zuzugreifen, die nur für den User oder seine Freunde sichtbar sind.
 
 ### Parameter
 
-- `page` (`integer`): Die aktuelle Seitenzahl, wenn eine Resource viele Posts hat
+Für den Request können keine Parameter angegeben werden.
 
 ### Response
 
