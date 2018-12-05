@@ -51,6 +51,10 @@ entries:
       url: /api_endpoint_me.html
       output: web
 
+    - title: Objekt Comments
+      url: /api_endpoint_object_comments.html
+      output: web
+
     - title: Objekt Friends
       url: /api_endpoint_object_friends.html
       output: web
