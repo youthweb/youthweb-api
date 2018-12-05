@@ -18,7 +18,7 @@ Dieser Endpoint bietet die `/comments` Beziehungen zu einer Resource an. Die fol
 
 Beim Request nach allen Comments einer Resource wird ein Array der Comments zurückgeliefert. Die Objekte `parent` und `author` sind automatisch im `included`-Attribute enthalten.
 
-**Beispiel**: Alle Comments eines Users anfragen
+**Beispiel**: Alle Comments eines Posts anfragen
 
 ```
 GET https://api.youthweb.net/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments
