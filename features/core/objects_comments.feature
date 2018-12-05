@@ -39,7 +39,7 @@ Scenario: Requesting comments from a not existing post
 	When I request "GET /posts/45a5a2c3-041b-4985-907c-74a2131efc98/comments"
 	Then I get a "404" response
 	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.13" exists
+	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property

@@ -84,7 +84,7 @@ Scenario: Create a post on an not existing user
 	When I request "POST /users/987654/posts"
 	Then I get a "404" response
 	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.13" exists
+	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -102,7 +102,7 @@ Scenario: Create a post without permission
 	When I request "POST /users/487654/posts"
 	Then I get a "403" response
 	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.13" exists
+	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -120,7 +120,7 @@ Scenario: Create a post with empty content
 	When I request "POST /users/287654/posts"
 	Then I get a "400" response
 	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.13" exists
+	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -140,7 +140,7 @@ Scenario: Create a post with missing content
 	When I request "POST /users/287654/posts"
 	Then I get a "400" response
 	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.13" exists
+	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property

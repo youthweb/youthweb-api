@@ -87,7 +87,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
     {
         $this->iHaveSetTheHeaderWith('Content-Type', 'application/vnd.api+json');
         $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json');
-        $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json; net.youthweb.api.version=0.13');
+        $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json; net.youthweb.api.version=0.14');
     }
 
 	/**

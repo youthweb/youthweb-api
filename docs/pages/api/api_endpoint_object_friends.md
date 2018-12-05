@@ -32,7 +32,7 @@ Beim Request nach allen Freunden einer Resource wird ein Array der `Friends` zur
 
 ```
 GET https://api.youthweb.net/users/1/friends
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
 ```
@@ -49,7 +49,7 @@ Für den Request können keine Parameter angegeben werden.
 
 ```
 Status: 200 OK
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
 Content-Type: application/vnd.api+json
 
 {

@@ -42,7 +42,7 @@ Scenario: Requesting a friend without authorization
 	When I request "GET /friends/45678"
 	Then I get a "401" response
 	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.13" exists
+	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -56,7 +56,7 @@ Scenario: Requesting a not existing friend
 	When I request "GET /friends/404"
 	Then I get a "404" response
 	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.13" exists
+	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
