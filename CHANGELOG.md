@@ -12,10 +12,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - new comment author endpoints `/comments/<comment_id>/author` and `/comments/<comment_id>/relationships/author`
 - new comment parent endpoints `/comments/<comment_id>/parent` and `/comments/<comment_id>/relationships/parent`
 - new endpoint `posts/<post_id>/comments` to list the comments of a post
+- new endpoint `posts/<post_id>/relationships/comments` to list the comments relationships of a post
 
 ### Changed
 
-- errors-Testsuite und develop-Testsuite wurde in core-Suite zusammengelegt, um Tests zu vereinfachen und weitere API-Suiten zu ermöglichen
+- combined errors- and develop-suite to a new core-suite to simplify tests and allow more API suites
+- simplify features and centralize the current API version by adding a `iHaveSetTheCorrectHeadersWithValidAuthorization` method
 
 ### Deprecated
 

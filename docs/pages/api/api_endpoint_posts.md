@@ -94,13 +94,13 @@ Du kannst mit diesem Endpoint nichts ändern.
 
 ## Beziehungen
 
-| Beziehung                                 | Beschreibung                                                                                                                                |
-|-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| `/posts/{post_id}/author`                 | Liefert den Autor als [User][api_endpoint_users]-Resource                                                                                   |
-| `/posts/{post_id}/comments`               | Liefert die Kommentare als Array von [Comments][api_endpoint_comments]-Resourcen                                                            |
-| `/posts/{post_id}/parent`                 | Liefert das Elternobjekt, zu dem der Post gehört. Mögliche Resourcen können sein:<br />- [User][api_endpoint_users]                         |
-| `/posts/{post_id}/relationships/author`   | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum Autor                     |
-| `/posts/{post_id}/relationships/comments` | Liefert ein Array von [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zu den Kommentaren  |
-| `/posts/{post_id}/relationships/parent`   | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum Elternobjekt              |
+| Beziehung                                                   | Beschreibung                                                                                                                                |
+|-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| `/posts/{post_id}/author`                                   | Liefert den Autor als [User][api_endpoint_users]-Resource                                                                                   |
+| [`/posts/{post_id}/comments`][api_endpoint_object_comments] | Liefert die Kommentare als Array von [Comments][api_endpoint_comments]-Resourcen                                                            |
+| `/posts/{post_id}/parent`                                   | Liefert das Elternobjekt, zu dem der Post gehört. Mögliche Resourcen können sein:<br />- [User][api_endpoint_users]                         |
+| `/posts/{post_id}/relationships/author`                     | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum Autor                     |
+| `/posts/{post_id}/relationships/comments`                   | Liefert ein Array von [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zu den Kommentaren  |
+| `/posts/{post_id}/relationships/parent`                     | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum Elternobjekt              |
 
 {% include links.html %}

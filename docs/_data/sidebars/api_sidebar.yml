@@ -35,6 +35,10 @@ entries:
       url: /api_endpoint_index.html
       output: web
 
+    - title: Comments
+      url: /api_endpoint_comments.html
+      output: web
+
     - title: Events
       url: /api_endpoint_events.html
       output: web

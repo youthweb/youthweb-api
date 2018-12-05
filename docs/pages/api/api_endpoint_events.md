@@ -143,20 +143,20 @@ Content-Type: application/vnd.api+json
 
 ### Felder
 
-| Name                             | Beschreibung                                               | Typ                   |
-|----------------------------------|------------------------------------------------------------|-----------------------|
-| `type`                           | Der Typ der Resource: `events`                             | `string`              |
-| `id`                             | Die ID der Resource                                        | `string`              |
-| `attributes.name`                | Der Name des Events                                        | `string`              |
-| `attributes.content`             | Der Content des Events                                     | `string`              |
-| `attributes.start_datetime`      | Der Start-Zeitpunkt des Events im Format nach ISO-8601 in der UTC Timezone (`2017-06-26T07:30:00+00:00`) | `string`              |
-| `attributes.end_datetime`        | Der optionale End-Zeitpunkt des Events im Format nach ISO-8601 in der UTC Timezone (`2017-06-26T07:30:00+00:00`) | `string` oder `null`    |
-| `attributes.timezone`            | Der [Name der Zeitzone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), in der das Event stattfinden wird, z.B. `Europe/Berlin` | `string`    |
-| `attributes.address`             | Die Adresse, an der das Event stattfinden wird, z.B `Musterstraße 42\n12345 Berlin`. Kann auch leer sein. | `string`    |
-| `attributes.comments_allowed`    | Sind neue Kommentare zu diesem Event erlaubt?              | `boolean`            |
-| `attributes.comments_count`      | Wie viele Kommentare wurden schon verfasst?                | `integer`             |
-| `attributes.participants_count`  | Die Gesamtanzahl der User, die Angaben zur Teilnahme an diesem Event gemacht haben | `string`              |
-| `relationships.author`           | Ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), das auf den Autor verweist | `object`             |
+| Name                             | Beschreibung                                                                                                                                   | Typ                   |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| `type`                           | Der Typ der Resource: `events`                                                                                                                 | `string`              |
+| `id`                             | Die ID der Resource                                                                                                                            | `string`              |
+| `attributes.name`                | Der Name des Events                                                                                                                            | `string`              |
+| `attributes.content`             | Der Content des Events                                                                                                                         | `string`              |
+| `attributes.start_datetime`      | Der Start-Zeitpunkt des Events im Format nach ISO-8601 in der UTC Timezone (`2017-06-26T07:30:00+00:00`)                                       | `string`              |
+| `attributes.end_datetime`        | Der optionale End-Zeitpunkt des Events im Format nach ISO-8601 in der UTC Timezone (`2017-06-26T07:30:00+00:00`)                               | `string` oder `null`  |
+| `attributes.timezone`            | Der [Name der Zeitzone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), in der das Event stattfinden wird, z.B. `Europe/Berlin` | `string`              |
+| `attributes.address`             | Die Adresse, an der das Event stattfinden wird, z.B `Musterstraße 42\n12345 Berlin`. Kann auch leer sein.                                      | `string`              |
+| `attributes.comments_allowed`    | Sind neue Kommentare zu diesem Event erlaubt?                                                                                                  | `boolean`             |
+| `attributes.comments_count`      | Wie viele Kommentare wurden schon verfasst?                                                                                                    | `integer`             |
+| `attributes.participants_count`  | Die Gesamtanzahl der User, die Angaben zur Teilnahme an diesem Event gemacht haben                                                             | `string`              |
+| `relationships.author`           | Ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), das auf den Autor verweist              | `object`              |
 
 ## Create
 
@@ -172,9 +172,9 @@ Du kannst mit diesem Endpoint nichts ändern.
 
 ## Beziehungen
 
-| Beziehung                                 | Beschreibung                                                                       |
-|-------------------------------------------|------------------------------------------------------------------------------------|
-| `/events/{event_id}/author`               | Liefert den Autor als [User][api_endpoint_users]-Resource                          |
+| Beziehung                                 | Beschreibung                                                                                                             |
+|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| `/events/{event_id}/author`               | Liefert den Autor als [User][api_endpoint_users]-Resource                                                                |
 | `/events/{event_id}/relationships/author` | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum Autor  |
 
 {% include links.html %}

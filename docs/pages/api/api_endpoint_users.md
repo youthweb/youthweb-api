@@ -83,34 +83,34 @@ Content-Type: application/vnd.api+json
 
 ### Felder
 
-| Name                             | Beschreibung                                               | Typ                   |
-|----------------------------------|------------------------------------------------------------|-----------------------|
-| `type`                           | Der Typ der Resource: `users`                              | `string`              |
-| `id`                             | Die ID der Resource                                        | `string`              |
-| `attributes.username`            | Der Username des Users                                     | `string`              |
-| `attributes.first_name`          | Der Vorname des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                         | `string` oder `null`  |
-| `attributes.last_name`           | Der Nachname des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                        | `string` oder `null`  |
-| `attributes.gender`              | Das Geschlecht des Users, `male` oder `female` oder null bei fehlender Berechtigung. | `string` oder `null` |
-| `attributes.email`               | Die E-Mail-Adresse des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:email` oder `user:read` erfragt werden.               | `string` oder `null`  |
-| `attributes.birthday`            | Der Geburtstag des Users im Format YYYY-MM-DD oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden. | `string` oder `null`  |
-| `attributes.timezone`            | Der eingestellte [Name der Zeitzone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) des Users oder null bei fehlender Berechtigung. | `string` oder `null` |
-| `attributes.created_at`          | Der Registrierzeitpunkt des Users im Format nach ISO-8601 (`2008-11-01T20:00:00+00:00`)                                                 | `string`              |
-| `attributes.last_login`          | Der Zeitpunkt des letzten Logins im Format nach ISO-8601 (`2017-02-01T20:00:00+00:00`)                                                  | `string`              |
-| `attributes.zip`                 | Die Postleitzahl des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                    | `string` oder `null`  |
-| `attributes.city`                | Der Wohnort des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                         | `string` oder `null`  |
-| `attributes.contact_homepage`    | Die Webseite des Users oder null bei fehlender Berechtigung. | `string` oder `null` |
-| `attributes.contact_twitter`     | Der Twitter-Username des Users oder null bei fehlender Berechtigung. | `string` oder `null` |
-| `attributes.description_text`    | Eine sonstige Beschreibung des Users oder null bei fehlender Berechtigung. | `string` oder `null` |
-| `attributes.description_character` | Eine eigene Charakter-Beschreibung des Users oder null bei fehlender Berechtigung. | `string` oder `null` |
-| `attributes.description_jesus`   | "Was ich von Jesus halte" oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                     | `string` oder `null`  |
-| `attributes.description_job`     | Der Beruf des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                           | `string` oder `null`  |
-| `attributes.description_hobbies` | Die Hobbies des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                         | `string` oder `null`  |
-| `attributes.description_motto`   | Das Lebensmotto des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                     | `string` oder `null`  |
-| `attributes.description_food`    | Das Lieblingsessen des Users oder null bei fehlender Berechtigung. | `string` oder `null` |
-| `attributes.description_links`   | Eine Empfehlung von Links des Users oder null bei fehlender Berechtigung. | `string` oder `null` |
-| `attributes.picture_thumb_url`   | Das Vorschaubild des Profilbildes                          | `string` |
-| `attributes.picture_url`         | Das Profilbild                                             | `string` |
-| `attributes.picture_description` | Eine Beschreibung des Profilbildes oder null bei fehlender Berechtigung. | `string` oder `null` |
+| Name                               | Beschreibung                                                                                                                                       | Typ                  |
+|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
+| `type`                             | Der Typ der Resource: `users`                                                                                                                      | `string`             |
+| `id`                               | Die ID der Resource                                                                                                                                | `string`             |
+| `attributes.username`              | Der Username des Users                                                                                                                             | `string`             |
+| `attributes.first_name`            | Der Vorname des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                                    | `string` oder `null` |
+| `attributes.last_name`             | Der Nachname des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                                   | `string` oder `null` |
+| `attributes.gender`                | Das Geschlecht des Users, `male` oder `female` oder null bei fehlender Berechtigung.                                                               | `string` oder `null` |
+| `attributes.email`                 | Die E-Mail-Adresse des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:email` oder `user:read` erfragt werden.           | `string` oder `null` |
+| `attributes.birthday`              | Der Geburtstag des Users im Format YYYY-MM-DD oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.            | `string` oder `null` |
+| `attributes.timezone`              | Der eingestellte [Name der Zeitzone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) des Users oder null bei fehlender Berechtigung. | `string` oder `null` |
+| `attributes.created_at`            | Der Registrierzeitpunkt des Users im Format nach ISO-8601 (`2008-11-01T20:00:00+00:00`)                                                            | `string`             |
+| `attributes.last_login`            | Der Zeitpunkt des letzten Logins im Format nach ISO-8601 (`2017-02-01T20:00:00+00:00`)                                                             | `string`             |
+| `attributes.zip`                   | Die Postleitzahl des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                               | `string` oder `null` |
+| `attributes.city`                  | Der Wohnort des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                                    | `string` oder `null` |
+| `attributes.contact_homepage`      | Die Webseite des Users oder null bei fehlender Berechtigung.                                                                                       | `string` oder `null` |
+| `attributes.contact_twitter`       | Der Twitter-Username des Users oder null bei fehlender Berechtigung.                                                                               | `string` oder `null` |
+| `attributes.description_text`      | Eine sonstige Beschreibung des Users oder null bei fehlender Berechtigung.                                                                         | `string` oder `null` |
+| `attributes.description_character` | Eine eigene Charakter-Beschreibung des Users oder null bei fehlender Berechtigung.                                                                 | `string` oder `null` |
+| `attributes.description_jesus`     | "Was ich von Jesus halte" oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                                | `string` oder `null` |
+| `attributes.description_job`       | Der Beruf des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                                      | `string` oder `null` |
+| `attributes.description_hobbies`   | Die Hobbies des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                                    | `string` oder `null` |
+| `attributes.description_motto`     | Das Lebensmotto des Users oder null bei fehlender Berechtigung.<br />Kann mit dem Scope `user:read` erfragt werden.                                | `string` oder `null` |
+| `attributes.description_food`      | Das Lieblingsessen des Users oder null bei fehlender Berechtigung.                                                                                 | `string` oder `null` |
+| `attributes.description_links`     | Eine Empfehlung von Links des Users oder null bei fehlender Berechtigung.                                                                          | `string` oder `null` |
+| `attributes.picture_thumb_url`     | Das Vorschaubild des Profilbildes                                                                                                                  | `string`             |
+| `attributes.picture_url`           | Das Profilbild                                                                                                                                     | `string`             |
+| `attributes.picture_description`   | Eine Beschreibung des Profilbildes oder null bei fehlender Berechtigung.                                                                           | `string` oder `null` |
 
 ## Create
 
@@ -126,8 +126,9 @@ Du kannst mit diesem Endpoint nichts ändern.
 
 ## Beziehungen
 
-| Beziehung                                             | Beschreibung                                                                       |
-|-------------------------------------------------------|------------------------------------------------------------------------------------|
-| [`/users/{user_id}/posts`][api_endpoint_object_posts] | Liefert die [Post][api_endpoint_posts]-Resourcen von der Pinnwand eines Users      |
+| Beziehung                                             | Beschreibung                                                                                                                          |
+|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| [`/users/{user_id}/posts`][api_endpoint_object_posts] | Liefert die [Post][api_endpoint_posts]-Resourcen von der Pinnwand eines Users                                                         |
+| `/users/{user_id}/relationships/posts`                | Liefert ein Array von [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zu den Posts  |
 
 {% include links.html %}

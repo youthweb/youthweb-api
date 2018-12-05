@@ -127,18 +127,18 @@ Content-Type: application/vnd.api+json
 
 Es wird ein Array an [`Posts`][api_endpoint_posts] Resourcen mit all ihren Feldern zurückgegeben. Zusätzlich finden sich im meta-Bereich und links-Bereich noch folgende Felder:
 
-| Name                             | Beschreibung                                               | Typ                   |
-|----------------------------------|------------------------------------------------------------|-----------------------|
-| `links.self`                     | Der Link zur aktuellen Seite mit den Posts                 | `string`              |
-| `links.first`                    | Der Link zur ersten Seite mit den Posts                    | `string`              |
-| `links.last`                     | Der Link zur letzten Seite mit den Posts                   | `string`              |
+| Name                             | Beschreibung                                               | Typ                           |
+|----------------------------------|------------------------------------------------------------|-------------------------------|
+| `links.self`                     | Der Link zur aktuellen Seite mit den Posts                 | `string`                      |
+| `links.first`                    | Der Link zur ersten Seite mit den Posts                    | `string`                      |
+| `links.last`                     | Der Link zur letzten Seite mit den Posts                   | `string`                      |
 | `links.next`                     | Der Link zur nächsten Seite mit den Posts                  | `string` oder nicht vorhanden |
 | `links.prev`                     | Der Link zur vorherigen Seite mit den Posts                | `string` oder nicht vorhanden |
-| `meta.pagination.total`          | Die Anzahl aller lesbaren Posts an dieser Resource         | `integer`             |
-| `meta.pagination.count`          | Die Anzahl der gelieferten Posts zu dieser Resource        | `integer`             |
-| `meta.pagination.per_page`       | Die Anzahl der maximal auf einmal gelieferten Posts        | `integer`             |
-| `meta.pagination.current_page`   | Die aktuelle Seitenzahl der gelieferten Posts              | `integer`             |
-| `meta.pagination.total_pages`    | Die Anzahl der Seiten für die gelieferten Posts            | `integer`             |
+| `meta.pagination.total`          | Die Anzahl aller lesbaren Posts an dieser Resource         | `integer`                     |
+| `meta.pagination.count`          | Die Anzahl der gelieferten Posts zu dieser Resource        | `integer`                     |
+| `meta.pagination.per_page`       | Die Anzahl der maximal auf einmal gelieferten Posts        | `integer`                     |
+| `meta.pagination.current_page`   | Die aktuelle Seitenzahl der gelieferten Posts              | `integer`                     |
+| `meta.pagination.total_pages`    | Die Anzahl der Seiten für die gelieferten Posts            | `integer`                     |
 
 ## Create
 
@@ -174,13 +174,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2M
 
 Das `data`-Object muss folgende Felder enthalten
 
-| Name                             | Beschreibung                                               | Typ                   |
-|----------------------------------|------------------------------------------------------------|-----------------------|
-| `type`                           | Der Resource Typ `posts`                                   | `string`              |
-| `attributes.title`               | Der Titel des Posts; kann auch leer sein                   | `string`              |
-| `attributes.content`             | Der Inhalt des Posts; darf nicht leer sein                 | `string`              |
+| Name                             | Beschreibung                                                                       | Typ                   |
+|----------------------------------|------------------------------------------------------------------------------------|-----------------------|
+| `type`                           | Der Resource Typ `posts`                                                           | `string`              |
+| `attributes.title`               | Der Titel des Posts; kann auch leer sein                                           | `string`              |
+| `attributes.content`             | Der Inhalt des Posts; darf nicht leer sein                                         | `string`              |
 | `attributes.view_allowed_for`    | Wer darf den Post sehen? `all`, `users`, `friends` oder `authors` Default: `users` | `string`              |
-| `attributes.comments_allowed`    | Darf der Post kommentiert werden? Default `true`           | `boolean`             |
+| `attributes.comments_allowed`    | Darf der Post kommentiert werden? Default `true`                                   | `boolean`             |
 
 ### Parameter
 

@@ -21,7 +21,7 @@ folder: api
 | [/events][api_endpoint_events]                          | Liefert Event-Resourcen                                          |
 | [/friends][api_endpoint_friends]                        | Liefert Friends-Resourcen                                        |
 | [/me][api_endpoint_me]                                  | Liefert die User-Resource des autorisierten User                 |
-| [/{object}/{id}/comments][api_endpoint_object_comments] | Liefert Friends-Resourcen zu einem Objekt                        |
+| [/{object}/{id}/comments][api_endpoint_object_comments] | Liefert Comments-Resourcen zu einem Objekt                       |
 | [/{object}/{id}/friends][api_endpoint_object_friends]   | Liefert Friends-Resourcen zu einem Objekt                        |
 | [/{object}/{id}/posts][api_endpoint_object_posts]       | Liefert Post-Resourcen zu einem Objekt                           |
 | [/posts][api_endpoint_posts]                            | Liefert Post-Resourcen                                           |

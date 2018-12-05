@@ -82,11 +82,11 @@ Du kannst mit diesem Endpoint nichts ändern.
 
 ## Beziehungen
 
-| Beziehung                                     | Beschreibung                                                                       |
-|-----------------------------------------------|------------------------------------------------------------------------------------|
-| `/comments/{comment_id}/author`               | Liefert den Autor als [User][api_endpoint_users]-Resource                          |
-| `/comments/{comment_id}/parent`               | Liefert das Elternobjekt, zu dem der Comment gehört. Mögliche Resourcen können sein:<br />- [Post][api_endpoint_posts] |
-| `/comments/{comment_id}/relationships/author` | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum Autor  |
+| Beziehung                                     | Beschreibung                                                                                                                    |
+|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `/comments/{comment_id}/author`               | Liefert den Autor als [User][api_endpoint_users]-Resource                                                                       |
+| `/comments/{comment_id}/parent`               | Liefert das Elternobjekt, zu dem der Comment gehört. Mögliche Resourcen können sein:<br />- [Post][api_endpoint_posts]          |
+| `/comments/{comment_id}/relationships/author` | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum Autor         |
 | `/comments/{comment_id}/relationships/parent` | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum Elternobjekt  |
 
 {% include links.html %}
