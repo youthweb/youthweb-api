@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
+## [0.13] - 2018-12-16
+
 ### Added
 
 - new resource `Comment` with new endpoint `/comments/<comment_id>`
@@ -203,7 +205,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.12...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.13...develop
+[0.13]: https://github.com/youthweb/youthweb-api/compare/0.12...0.13
 [0.12]: https://github.com/youthweb/youthweb-api/compare/0.11...0.12
 [0.11]: https://github.com/youthweb/youthweb-api/compare/0.10...0.11
 [0.10]: https://github.com/youthweb/youthweb-api/compare/0.9...0.10
