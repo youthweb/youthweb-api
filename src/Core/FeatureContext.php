@@ -483,7 +483,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	{
 		if ( ! $this->response )
 		{
-			throw new Exception("You must first make a request to check a response.");
+			throw new \Exception("You must first make a request to check a response.");
 		}
 
 		return $this->response;
@@ -498,7 +498,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	{
 		if ( ! $this->responsePayload )
 		{
-			$json = json_decode($this->getResponse()->getBody(true));
+			$json = json_decode((string) $this->getResponse()->getBody());
 
 			if (json_last_error() !== JSON_ERROR_NONE) {
 				$message = 'Failed to decode JSON body ';
@@ -524,7 +524,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 						break;
 				}
 
-				throw new Exception($message);
+				throw new \Exception($message);
 			}
 
 			$this->responsePayload = $json;
