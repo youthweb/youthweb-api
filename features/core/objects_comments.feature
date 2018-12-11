@@ -22,6 +22,13 @@ Scenario: Requesting the comments from a post
 	And the "links" property exists
 	And the "links" property is an object
 
+Scenario: Requesting the comments from a post without comments
+	Given I have set the correct headers with valid authorization
+	When I request "GET /posts/0ca5a2c3-041b-4985-907c-74a2131efc98/comments"
+	Then I get a "200" response
+	And the "data" property exists
+	And the "data" property is an empty array
+
 Scenario: Requesting the comments relationships from a post
 	Given I have set the correct headers with valid authorization
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/comments"
