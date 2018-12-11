@@ -28,11 +28,6 @@ Scenario: Requesting the comments from a post without comments
 	Then I get a "200" response
 	And the "data" property exists
 	And the "data" property is an empty array
-	And the "links" property exists
-	And the "links" property is an object
-	And scope into the "links" property
-	And the "self" property exists
-	And the "related" property exists
 
 Scenario: Requesting the comments relationships from a post
 	Given I have set the correct headers with valid authorization

@@ -36,6 +36,13 @@ Scenario: Requesting the posts relationships from a users pinnwall
 	And the "type" property is a string equalling "posts"
 	And the "id" property exists
 
+Scenario: Requesting the posts from a users pinnwall without posts
+	Given I have set the correct headers with valid authorization
+	When I request "GET /users/123450/posts"
+	Then I get a "200" response
+	And the "data" property exists
+	And the "data" property is an empty array
+
 Scenario: Creating a post on an users pinnwall
 	Given I have set the correct headers with valid authorization
 	And I have the payload
