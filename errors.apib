@@ -14,17 +14,15 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
-
-            {"errors":[{"status":"404","title":"Resource not found"}]}
+    + Attributes (Not Found Error)
 
 ## Invalid JSON API [/users/187654/posts]
 
@@ -33,7 +31,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Attributes
 
@@ -49,28 +47,26 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Body
 
             {"errors":[{"status":"400","title":"Bad Request","detail":"Your request format must be valid JSON API. The properties `data` and `errors` MUST NOT coexist in Document."}]}
 
-# Group Stats
-
-## Account Stats [/stats/account]
+## Header Errors [/posts/header-errors]
 
 ### Retrieve the account stats without content-type header [GET]
 + Request
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
 + Response 415 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Body
 
@@ -81,13 +77,13 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
 + Response 415 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Body
 
@@ -104,11 +100,11 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Body
 
-            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12"}]}
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13"}]}
 
 ### Retrieve the account stats without accept header [GET]
 + Request (application/vnd.api+json)
@@ -117,11 +113,11 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Body
 
-            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12"}]}
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13"}]}
 
 ## Forum Stats [/stats/forum]
 
@@ -130,17 +126,17 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Body
 
-            {"data":null,"meta":{"warnings":["You have specified a deprecated API version. Please use the current API version 0.12"]}}
+            {"data":null,"meta":{"warnings":["You have specified a deprecated API version. Please use the current API version 0.13"]}}
 
 ## Group Stats [/stats/group]
 
@@ -149,17 +145,17 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.4
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
 
 + Response 406 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Body
 
-            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You have specified an unsupported API version. Please use the current API version 0.12"}]}
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You have specified an unsupported API version. Please use the current API version 0.13"}]}
 
 # Group Users
 
@@ -170,17 +166,15 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
 + Response 401 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
-
-            {"errors":[{"status":"401","title":"Unauthorized"}]}
+    + Attributes (Unauthorized Error)
 
 # Group Posts
 
@@ -191,17 +185,33 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
 + Response 403 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
+    + Attributes (Forbidden Error)
 
-            {"errors":[{"status":"403","title":"Forbidden"}]}
+## No posts [/users/123450/posts]
+
+### Request posts of a user without posts [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes
+        + data (array)
 
 ## Not existing Posts [/posts/45a5a2c3-041b-4985-907c-74a2131efc98]
 
@@ -210,17 +220,15 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
-
-            {"errors":[{"status":"404","title":"Resource not found"}]}
+    + Attributes (Not Found Error)
 
 ## Create Post on not existing user [/users/987654/posts]
 
@@ -229,7 +237,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Attributes
 
@@ -239,11 +247,9 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
-
-            {"errors":[{"status":"404","title":"Resource not found"}]}
+    + Attributes (Not Found Error)
 
 ## Create Post without permission [/users/487654/posts]
 
@@ -252,7 +258,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Attributes
 
@@ -262,11 +268,9 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
-
-            {"errors":[{"status":"403","title":"Forbidden"}]}
+    + Attributes (Forbidden Error)
 
 ## Create Post with content errors [/users/287654/posts]
 
@@ -275,7 +279,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Attributes
 
@@ -291,7 +295,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Body
 
@@ -302,7 +306,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Attributes
 
@@ -317,32 +321,48 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
     + Body
 
             {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
 
-# Group Events
+## Get comments of a post without comments [/posts/0ca5a2c3-041b-4985-907c-74a2131efc98/comments]
 
-## Request an event [/events/4567]
-
-### Request an event without authorization [GET]
+### Request comments of a post without comments [GET]
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-+ Response 401 (application/vnd.api+json)
++ Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
+    + Attributes
+        + data (array)
 
-            {"errors":[{"status":"401","title":"Unauthorized"}]}
+## Get comments of a not existing post [/posts/45a5a2c3-041b-4985-907c-74a2131efc98/comments]
+
+### Request comments of a not existing post [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
+
+    + Attributes (Not Found Error)
+
+# Group Events
 
 ## Not existing event [/events/404]
 
@@ -351,38 +371,17 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
-
-            {"errors":[{"status":"404","title":"Resource not found"}]}
+    + Attributes (Not Found Error)
 
 # Group Friends
-
-## Request a friend [/friends/45678]
-
-### Request a friend without authorization [GET]
-+ Request (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
-
-+ Response 401 (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
-
-    + Body
-
-            {"errors":[{"status":"401","title":"Unauthorized"}]}
 
 ## Not existing friend [/friends/404]
 
@@ -391,19 +390,38 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 
-    + Body
-
-            {"errors":[{"status":"404","title":"Resource not found"}]}
+    + Attributes (Not Found Error)
 
 # Data Structures
+
+## Unauthorized Error (object)
+
++ errors (array)
+    - (object)
+        + status: `401`
+        + title: `Unauthorized`
+
+## Forbidden Error (object)
+
++ errors (array)
+    - (object)
+        + status: `403`
+        + title: `Forbidden`
+
+## Not Found Error (object)
+
++ errors (array)
+    - (object)
+        + status: `404`
+        + title: `Resource not found`
 
 ## Post Created (object)
 

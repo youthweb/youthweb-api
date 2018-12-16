@@ -117,61 +117,6 @@ Wenn das Access-Token abgelaufen ist, kann [Schritt 5](#5-access-token-anfragen)
 
 Wenn bei der Anfrage nach dem Access-Token ein Fehler auftritt (z.B. weil das Request-Token abgelaufen ist oder der User dem Client die Berechtigung entzogen hat), muss der Client wieder bei [Schritt 1](#1-client-autorisieren) beginnen.
 
-{% include note.html content="Das Refresh-Token kann noch nicht verwendet werden. Wir arbeiten aber an der Umsetzung des Refresh Token Grants." %}
-
-## User-Token (Deprecated)
-
-{% include warning.html content="Der Zugriff über User-Token ist seit Version 0.6 veraltet. Er wird in Zukunft entfernt und sollte daher nicht mehr verwendet werden. Wir planen als Ersatz die Umsetzung des OAuth2 Client Credentials Grant." %}
-
-1. Generiere dir [hier](https://youthweb.net/settings/token) ein User-Token. Dieses User-Token wird auch `token_secret` genannt und muss wie ein Passwort geheim gehalten werden.
-2. Sende deinen `username` und dein `token_secret` an `POST /auth/token`, um ein [JWT](http://jwt.io/) zu erhalten. Genauere Informationen sind [in der Dokumentation](http://docs.youthweb.apiary.io/#reference/auth) zu finden.
-
-**Request**
-
-```
-POST https://youthweb.net/auth/token
-
-Content-Header: application/vnd.api+json
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
-
-{
-    "meta": {
-        "username": "JohnSmith",
-        "token_secret": "valid_secret"
-    }
-}
-```
-
-**Response**
-
-```
-200 OK
-
-Content-Header: application/vnd.api+json
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
-
-{
-    "meta": {
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs",
-        "token_type": "Bearer"
-    }
-}
-```
-
-
-3. Das Token ist ein zeitlich begrenztes Token, dass bei allen weiteren Requests im Header mitgegeben wird.
-
-**Request**
-
-```
-GET https://api.youthweb.net/users/123456
-
-Content-Header: application/vnd.api+json
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
-
-```
-
-Wenn das Token fast abgelaufen ist, wird bei Requests automatisch ein neues Token zur Verfügung gestellt, dass weiter verwendet werden kann. Alternativ kann man sich wie oben beschrieben ein neues Token anfordern.
+{% include note.html content="Das mitgelieferte Refresh-Token kann noch nicht verwendet werden. Wir planen aber die Umsetzung des Refresh Token Grants." %}
 
 {% include links.html %}

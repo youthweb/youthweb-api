@@ -1,5 +1,7 @@
 <?php
 
+namespace Youthweb\Api\Core;
+
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Tester\Exception\PendingException;
@@ -9,7 +11,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\BadResponseException;
 use PHPUnit\Framework\TestCase;
-
 
 /**
  * Defines application features from the specific context.
@@ -78,6 +79,25 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	{
 		$this->request_headers[$name][] = $content;
 	}
+
+	/**
+     * @Given I have set the correct headers without authorization
+     */
+    public function iHaveSetTheCorrectHeadersWithoutAuthorization()
+    {
+        $this->iHaveSetTheHeaderWith('Content-Type', 'application/vnd.api+json');
+        $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json');
+        $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json; net.youthweb.api.version=0.13');
+    }
+
+	/**
+     * @Given I have set the correct headers with valid authorization
+     */
+    public function iHaveSetTheCorrectHeadersWithValidAuthorization()
+    {
+        $this->iHaveSetTheCorrectHeadersWithoutAuthorization();
+        $this->iHaveSetTheHeaderWith('Authorization', 'Bearer valid_JWT');
+    }
 
 	/**
 	 * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)"$/
@@ -463,7 +483,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	{
 		if ( ! $this->response )
 		{
-			throw new Exception("You must first make a request to check a response.");
+			throw new \Exception("You must first make a request to check a response.");
 		}
 
 		return $this->response;
@@ -478,7 +498,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	{
 		if ( ! $this->responsePayload )
 		{
-			$json = json_decode($this->getResponse()->getBody(true));
+			$json = json_decode((string) $this->getResponse()->getBody());
 
 			if (json_last_error() !== JSON_ERROR_NONE) {
 				$message = 'Failed to decode JSON body ';
@@ -504,7 +524,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 						break;
 				}
 
-				throw new Exception($message);
+				throw new \Exception($message);
 			}
 
 			$this->responsePayload = $json;

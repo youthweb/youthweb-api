@@ -15,15 +15,17 @@ folder: api
 
 ## Übersicht
 
-| Endpoint                                              | Beschreibung                                                     |
-|-------------------------------------------------------|------------------------------------------------------------------|
-| [/events][api_endpoint_events]                        | Liefert Event-Resourcen                                          |
-| [/friends][api_endpoint_friends]                      | Liefert Friends-Resourcen                                        |
-| [/me][api_endpoint_me]                                | Liefert die User-Resource des autorisierten User                 |
-| [/{object}/{id}/friends][api_endpoint_object_friends] | Liefert Friends-Resourcen zu einem Objekt                        |
-| [/{object}/{id}/posts][api_endpoint_object_posts]     | Liefert Post-Resourcen zu einem Objekt                           |
-| [/posts][api_endpoint_posts]                          | Liefert Post-Resourcen                                           |
-| [/stats][api_endpoint_stats]                          | Liefert Statisik-Resourcen                                       |
-| [/users][api_endpoint_users]                          | Liefert User-Resourcen                                           |
+| Endpoint                                                | Beschreibung                                                     |
+|---------------------------------------------------------|------------------------------------------------------------------|
+| [/comments][api_endpoint_comments]                      | Liefert Comments-Resourcen                                       |
+| [/events][api_endpoint_events]                          | Liefert Event-Resourcen                                          |
+| [/friends][api_endpoint_friends]                        | Liefert Friends-Resourcen                                        |
+| [/me][api_endpoint_me]                                  | Liefert die User-Resource des autorisierten User                 |
+| [/{object}/{id}/comments][api_endpoint_object_comments] | Liefert Comments-Resourcen zu einem Objekt                       |
+| [/{object}/{id}/friends][api_endpoint_object_friends]   | Liefert Friends-Resourcen zu einem Objekt                        |
+| [/{object}/{id}/posts][api_endpoint_object_posts]       | Liefert Post-Resourcen zu einem Objekt                           |
+| [/posts][api_endpoint_posts]                            | Liefert Post-Resourcen                                           |
+| [/stats][api_endpoint_stats]                            | Liefert Statisik-Resourcen                                       |
+| [/users][api_endpoint_users]                            | Liefert User-Resourcen                                           |
 
 {% include links.html %}

@@ -26,7 +26,7 @@ Die Kante `Friend 1` beinhaltet in der `from`-Relationship den `User A` und in d
 
 ```
 GET https://api.youthweb.net/friends/45678
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
 ```
@@ -43,7 +43,7 @@ Für den Request können keine Parameter angegeben werden.
 
 ```
 Status: 200 OK
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13
 Content-Type: application/vnd.api+json
 
 {
@@ -66,13 +66,13 @@ Content-Type: application/vnd.api+json
 
 ### Felder
 
-| Name                             | Beschreibung                                               | Typ                   |
-|----------------------------------|------------------------------------------------------------|-----------------------|
-| `type`                           | Der Typ der Resource: `friends`                            | `string`              |
-| `id`                             | Die ID der Resource                                        | `string`              |
-| `attributes.description`         | Die Beschreibung des `to`-Users durch den `from`-User      | `string`              |
+| Name                           | Beschreibung                                                                                                                            | Typ                  |
+|--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|----------------------|
+| `type`                         | Der Typ der Resource: `friends`                                                                                                         | `string`             |
+| `id`                           | Die ID der Resource                                                                                                                     | `string`             |
+| `attributes.description`       | Die Beschreibung des `to`-Users durch den `from`-User                                                                                   | `string`             |
 | `relationships.from`           | Ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), das auf den `from`-User verweist | `object`             |
-| `relationships.to`           | Ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), das auf den `to`-User verweist. | `object`             |
+| `relationships.to`             | Ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), das auf den `to`-User verweist.  | `object`             |
 
 ## Create
 
@@ -88,11 +88,11 @@ Du kannst mit diesem Endpoint nichts ändern.
 
 ## Beziehungen
 
-| Beziehung                               | Beschreibung                                                                       |
-|-----------------------------------------|------------------------------------------------------------------------------------|
-| `/friends/{friend_id}/from`             | Liefert den `from`-User als [User][api_endpoint_users]-Resource                          |
-| `/friends/{friend_id}/to`               | Liefert den `to`-User als [User][api_endpoint_users]-Resource |
+| Beziehung                                 | Beschreibung                                                                                                                   |
+|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| `/friends/{friend_id}/from`               | Liefert den `from`-User als [User][api_endpoint_users]-Resource                                                                |
+| `/friends/{friend_id}/to`                 | Liefert den `to`-User als [User][api_endpoint_users]-Resource                                                                  |
 | `/friends/{friend_id}/relationships/from` | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum `from`-User  |
-| `/friends/{friend_id}/relationships/to` | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum `to`-User  |
+| `/friends/{friend_id}/relationships/to`   | Liefert ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects) zum `to`-User    |
 
 {% include links.html %}

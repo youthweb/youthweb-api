@@ -9,7 +9,7 @@ summary: "Die neue Version der Youthweb-API erlaubt jetzt das Abfragen und Aufli
 ### Neu
 
 - Wir führen Nutzungsbedingungen für die Verwenung unserer API ein. [Hier][api_guideline_policy] kannst du sie dir ansehen.
-- Die neue geschützte Resource `friends/{friend_id}` liefert für Details zu einer Freundesbeziehung.
+- Die neue geschützte Resource `friends/{friend_id}` liefert Details zu einer Freundesbeziehung.
 - Bei Friends gibt es neue Endpoints zum from-User, von dem eine Freundschaft ausgeht, wie `/friends/<friend_id>/from` und `/friends/<friend_id>/relationships/from`.
 - Bei Friends gibt es neue Entpoints zum to-User, zu dem eine Freundschaft besteht, wie `/friends/<friend_id>/to` und `/friends/<friend_id>/relationships/to`.
 - Bei Usern gibt es einen neuen Endpoint `users/<user_id>/friends`, um die Freunde eines Users aufzulisten.

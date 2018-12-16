@@ -3,10 +3,7 @@ Feature: Interact with a friend
 	As a user
 
 Scenario: Requesting a friend
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /friends/45678"
 	Then I get a "200" response
 	And the "included" property exists
@@ -40,17 +37,42 @@ Scenario: Requesting a friend
 		self
 		"""
 
+Scenario: Requesting a friend without authorization
+	Given I have set the correct headers without authorization
+	When I request "GET /friends/45678"
+	Then I get a "401" response
+	And the Content-Type Header "application/vnd.api+json" exists
+	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.13" exists
+	And the "errors" property exists
+	And the "errors" property is an array
+	And scope into the first "errors" property
+	And the "status" property exists
+	And the "status" property is a string equalling "401"
+	And the "title" property exists
+	And the "title" property is a string equalling "Unauthorized"
+
+Scenario: Requesting a not existing friend
+	Given I have set the correct headers with valid authorization
+	When I request "GET /friends/404"
+	Then I get a "404" response
+	And the Content-Type Header "application/vnd.api+json" exists
+	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.13" exists
+	And the "errors" property exists
+	And the "errors" property is an array
+	And scope into the first "errors" property
+	And the "status" property exists
+	And the "status" property is a string equalling "404"
+	And the "title" property exists
+	And the "title" property is a string equalling "Resource not found"
+
 Scenario: Requesting the from-user of a friend
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /friends/45678/from"
 	Then I get a "200" response
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
-	And the response contains 4 items
+	And the response contains 5 items
 	And the "type" property exists
 	And the "type" property is a string equalling "users"
 	And the "id" property exists
@@ -59,18 +81,23 @@ Scenario: Requesting the from-user of a friend
 	And the "attributes" property is an object
 	And the "links" property exists
 	And the "links" property is an object
+	And the "relationships" property exists
+	And the "relationships" property is an object
 	And scope into the "data.links" property
 	And the response contains 1 items
 	And the properties exist:
 		"""
 		self
 		"""
+	And scope into the "data.relationships" property
+	And the response contains 1 items
+	And the properties exist:
+		"""
+		posts
+		"""
 
 Scenario: Requesting the from-user relationship of a friend
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /friends/45678/relationships/from"
 	Then I get a "200" response
 	And the "data" property exists
@@ -92,16 +119,13 @@ Scenario: Requesting the from-user relationship of a friend
 		"""
 
 Scenario: Requesting the to-user of a friend
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /friends/45678/to"
 	Then I get a "200" response
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
-	And the response contains 4 items
+	And the response contains 5 items
 	And the "type" property exists
 	And the "type" property is a string equalling "users"
 	And the "id" property exists
@@ -110,18 +134,23 @@ Scenario: Requesting the to-user of a friend
 	And the "attributes" property is an object
 	And the "links" property exists
 	And the "links" property is an object
+	And the "relationships" property exists
+	And the "relationships" property is an object
 	And scope into the "data.links" property
 	And the response contains 1 items
 	And the properties exist:
 		"""
 		self
 		"""
+	And scope into the "data.relationships" property
+	And the response contains 1 items
+	And the properties exist:
+		"""
+		posts
+		"""
 
 Scenario: Requesting the to-user relationship of a friend
-	Given I have set the "Content-Type" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json"
-	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
-	And I have set the "Authorization" header with "Bearer valid_JWT"
+	Given I have set the correct headers with valid authorization
 	When I request "GET /friends/45678/relationships/to"
 	Then I get a "200" response
 	And the "data" property exists

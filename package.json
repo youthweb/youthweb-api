@@ -1,15 +1,13 @@
 {
   "name": "youthweb-api",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "private": true,
   "devDependencies": {
     "drakov": "^1.0.1"
   },
   "scripts": {
-    "server": "drakov -f ./apiary.apib -p 3000",
-    "server:errors": "drakov -f ./errors.apib -p 3000",
-    "test": "vendor/bin/behat --suite=develop",
-    "test:errors": "vendor/bin/behat --suite=errors",
+    "server": "drakov -f \"./*.apib\" -p 3000",
+    "test": "vendor/bin/behat --suite=core",
     "docs:build": "jekyll build --source docs/ --destination docs/_site",
     "docs:watch": "npm run docs:build -- --watch"
   }

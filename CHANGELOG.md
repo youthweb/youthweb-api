@@ -4,6 +4,32 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
+## [Unreleased]
+
+## [0.13] - 2018-12-16
+
+### Added
+
+- new resource `Comment` with new endpoint `/comments/<comment_id>`
+- new comment author endpoints `/comments/<comment_id>/author` and `/comments/<comment_id>/relationships/author`
+- new comment parent endpoints `/comments/<comment_id>/parent` and `/comments/<comment_id>/relationships/parent`
+- new endpoint `posts/<post_id>/comments` to list the comments of a post
+- new endpoint `posts/<post_id>/relationships/comments` to list the comments relationships of a post
+
+### Changed
+
+- combined errors- and develop-suite to a new core-suite to simplify tests and allow more API suites
+- simplify features and centralize the current API version by adding a `iHaveSetTheCorrectHeadersWithValidAuthorization` method
+
+### Deprecated
+
+- Version 0.8, 0.9, 0.10, 0.11 and 0.12 are now deprecated and support will be dropped in future. If your apps use this version upgrade them at least to version 0.13.
+
+### Removed
+
+- **Breaking:** The support for version 0.5, 0.6 and 0.7 was dropped. Requests with this versions and below will get a 406 error response.
+- **Breaking:** The endpoint `/auth/token` for access token war removed. Use the OAuth2 authorization instead.
+
 ## [0.12] - 2017-07-16
 
 ### Added
@@ -173,13 +199,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - this CHANGELOG.md
 - Travis CI integration
 
-## 0.0.1 - 2014-10-12
+## [0.0.1] - 2014-10-12
 
 ### Added
 
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.12...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.13...develop
+[0.13]: https://github.com/youthweb/youthweb-api/compare/0.12...0.13
 [0.12]: https://github.com/youthweb/youthweb-api/compare/0.11...0.12
 [0.11]: https://github.com/youthweb/youthweb-api/compare/0.10...0.11
 [0.10]: https://github.com/youthweb/youthweb-api/compare/0.9...0.10

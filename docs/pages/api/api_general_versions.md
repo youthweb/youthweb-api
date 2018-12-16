@@ -10,7 +10,7 @@ folder: api
 
 Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben. Die angefragte Version MUSS im Request-Header angegeben werden:
 
-`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12`
+`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13`
 
 ### Support
 
@@ -20,22 +20,21 @@ Nach dem Release einer neuen Version garantieren wir den Support der Version ohn
 
 ### Versions-Übersicht
 
-| Version      | Status             | Veröffentlicht | Unterstützt bis          |
-|--------------|--------------------|----------------|--------------------------|
-| **0.12**     | :white_check_mark: | 2017-07-16     | mindestens 2018-07-16    |
-| **0.11**     | :white_check_mark: | 2017-07-02     | mindestens 2018-07-02    |
-| **0.10**     | :white_check_mark: | 2017-06-18     | mindestens 2018-06-18    |
-| **0.9**      | :white_check_mark: | 2017-06-04     | mindestens 2018-06-04    |
-| **0.8**      | :white_check_mark: | 2017-05-21     | mindestens 2018-05-21    |
-| **0.7**      | :warning:          | 2016-11-20     | mindestens 2017-11-20    |
-| **0.6**      | :warning:          | 2016-10-23     | mindestens 2017-10-23    |
-| **0.5**      | :warning:          | 2016-07-03     | mindestens 2017-07-03    |
-| 0.4          | :x:                | 2016-03-27     | Release 0.8 - 2017-05-21 |
-| 0.3          | :x:                | 2015-10-11     | Release 0.6 - 2016-10-23 |
+| Version      | Status             | Veröffentlicht | Unterstützt bis           |
+|--------------|--------------------|----------------|---------------------------|
+| **0.13**     | :heavy_check_mark: | 2018-12-16     | mindestens 2019-12-16     |
+| **0.12**     | :warning:          | 2017-07-16     | mindestens 2018-07-16     |
+| **0.11**     | :warning:          | 2017-07-02     | mindestens 2018-07-02     |
+| **0.10**     | :warning:          | 2017-06-18     | mindestens 2018-06-18     |
+| **0.9**      | :warning:          | 2017-06-04     | mindestens 2018-06-04     |
+| **0.8**      | :warning:          | 2017-05-21     | mindestens 2018-05-21     |
+| 0.7          | :x:                | 2016-11-20     | Version 0.13 - 2019-12-16 |
+| 0.6          | :x:                | 2016-10-23     | Version 0.13 - 2019-12-16 |
+| 0.5          | :x:                | 2016-07-03     | Version 0.13 - 2019-12-16 |
 
 #### Status-Legende
 
-- :white_check_mark: **supported**: unterstützte Version
+- :heavy_check_mark: **supported**: unterstützte Version
 - :warning: **deprecated**: veraltete, aber unterstütze Version, die eine Warnung in jedem Response anzeigt
 - :x: **unsupported**: nicht mehr unterstützte Version, die einen 406-Error zurückgibt
 
