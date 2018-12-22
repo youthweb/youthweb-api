@@ -154,6 +154,16 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	}
 
 	/**
+	* @Then the correct headers are set
+	*/
+   public function theCorrectHeadersAreSet()
+   {
+	   $this->theContentTypeHeaderExists('application/vnd.api+json');
+	   $this->theAcceptHeaderExists('application/vnd.api+json');
+	   $this->theAcceptHeaderExists('application/vnd.api+json; net.youthweb.api.version=0.14');
+   }
+
+	/**
 	 * @Then the Content-Type Header :arg1 exists
 	 */
 	public function theContentTypeHeaderExists($content_type)

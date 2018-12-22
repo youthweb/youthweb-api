@@ -6,6 +6,7 @@ Scenario: Requesting the events without specific time range
 	Given I have set the correct headers with valid authorization
 	When I request "GET /events"
 	Then I get a "200" response
+	And the correct headers are set
 	And the "included" property exists
 	And the "included" property is an array
 	And the "data" property exists
@@ -26,6 +27,7 @@ Scenario: Requesting a event
 	Given I have set the correct headers with valid authorization
 	When I request "GET /events/4567"
 	Then I get a "200" response
+	And the correct headers are set
 	And the "included" property exists
 	And the "included" property is an array
 	And the "data" property exists
@@ -68,8 +70,7 @@ Scenario: Requesting an event without authorization
 	Given I have set the correct headers without authorization
 	When I request "GET /events/4567"
 	Then I get a "401" response
-	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
+	And the correct headers are set
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -82,8 +83,7 @@ Scenario: Requesting a not existing event
 	Given I have set the correct headers with valid authorization
 	When I request "GET /events/404"
 	Then I get a "404" response
-	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
+	And the correct headers are set
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -96,6 +96,7 @@ Scenario: Requesting the author of an event
 	Given I have set the correct headers with valid authorization
 	When I request "GET /events/4567/author"
 	Then I get a "200" response
+	And the correct headers are set
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
@@ -127,6 +128,7 @@ Scenario: Requesting the author relationship of an event
 	Given I have set the correct headers with valid authorization
 	When I request "GET /events/4567/relationships/author"
 	Then I get a "200" response
+	And the correct headers are set
 	And the "data" property exists
 	And the "data" property is an object
 	And the "links" property exists

@@ -8,7 +8,7 @@ Scenario: Calling the BaseUrl
 	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.14"
 	When I request "GET /"
 	Then I get a "404" response
-	And the Content-Type Header "application/vnd.api+json" exists
+	And the correct headers are set
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -23,8 +23,7 @@ Scenario: Sending a request with invalid JSON API
 		"""
 	When I request "POST /users/187654/posts"
 	Then I get a "400" response
-	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
+	And the correct headers are set
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -40,8 +39,7 @@ Scenario: Using the API without Content-Type Json API Header
 	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.14"
 	When I request "GET /posts/header-errors"
 	Then I get a "415" response
-	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
+	And the correct headers are set
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -58,8 +56,7 @@ Scenario: Using the API with Content-Type Json API Header and parameter
 	And I have set the "Content-Type" header with "application/vnd.api+json; parameter=value"
 	When I request "GET /posts/header-errors"
 	Then I get a "415" response
-	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
+	And the correct headers are set
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -74,8 +71,7 @@ Scenario: Using the API without Accept Header
 	Given I have set the "Content-Type" header with "application/vnd.api+json"
 	When I request "GET /posts/header-errors"
 	Then I get a "406" response
-	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
+	And the correct headers are set
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -91,8 +87,7 @@ Scenario: Using the API with Accept Header without version parameter
 	And I have set the "Accept" header with "application/vnd.api+json"
 	When I request "GET /posts/header-errors"
 	Then I get a "406" response
-	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
+	And the correct headers are set
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -109,8 +104,7 @@ Scenario: Using the API with deprecated version parameter
 	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.12"
 	When I request "GET /stats/forum"
 	Then I get a "200" response
-	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
+	And the correct headers are set
 	And the "meta" property exists
 	And the "meta" property is an object
 	And scope into the "meta" property
@@ -128,9 +122,7 @@ Scenario: Using the API with unsupported version parameter
 	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.7"
 	When I request "GET /stats/group"
 	Then I get a "406" response
-	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
+	And the correct headers are set
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property
@@ -147,9 +139,7 @@ Scenario: Request the /me resource without a Bearer token
 	And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.14"
 	When I request "GET /me"
 	Then I get a "401" response
-	And the Content-Type Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json" exists
-	And the Accept Header "application/vnd.api+json; net.youthweb.api.version=0.14" exists
+	And the correct headers are set
 	And the "errors" property exists
 	And the "errors" property is an array
 	And scope into the first "errors" property

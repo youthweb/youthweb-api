@@ -6,6 +6,7 @@ Scenario: Requesting a user
 	Given I have set the correct headers with valid authorization
 	When I request "GET /users/123456"
 	Then I get a "200" response
+	And the correct headers are set
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
@@ -62,6 +63,7 @@ Scenario: Requesting the friends of a user
 	Given I have set the correct headers with valid authorization
 	When I request "GET /users/123456/friends"
 	Then I get a "200" response
+	And the correct headers are set
 	And the "included" property exists
 	And the "included" property is an array
 	And the "data" property exists

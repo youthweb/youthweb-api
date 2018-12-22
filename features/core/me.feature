@@ -6,6 +6,7 @@ Scenario: Requesting the authorized user
 	Given I have set the correct headers with valid authorization
 	When I request "GET /me"
 	Then I get a "200" response
+	And the correct headers are set
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property

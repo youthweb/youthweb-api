@@ -6,6 +6,7 @@ Scenario: Requesting a comment
 	Given I have set the correct headers with valid authorization
 	When I request "GET /comments/345678"
 	Then I get a "200" response
+	And the correct headers are set
 	And the "included" property exists
 	And the "included" property is an array
 	And the "data" property exists
@@ -35,6 +36,7 @@ Scenario: Requesting the author of a comment
 	Given I have set the correct headers with valid authorization
 	When I request "GET /comments/345678/author"
 	Then I get a "200" response
+	And the correct headers are set
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
@@ -66,6 +68,7 @@ Scenario: Requesting the author relationship of a comment
 	Given I have set the correct headers with valid authorization
 	When I request "GET /comments/345678/relationships/author"
 	Then I get a "200" response
+	And the correct headers are set
 	And the "data" property exists
 	And the "data" property is an object
 	And the "links" property exists
@@ -88,6 +91,7 @@ Scenario: Requesting the parent of a comment
 	Given I have set the correct headers with valid authorization
 	When I request "GET /comments/345678/parent"
 	Then I get a "200" response
+	And the correct headers are set
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
@@ -113,6 +117,7 @@ Scenario: Requesting the parent relationship of a comment
 	Given I have set the correct headers with valid authorization
 	When I request "GET /comments/345678/relationships/parent"
 	Then I get a "200" response
+	And the correct headers are set
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
