@@ -580,6 +580,122 @@ Ein Post Objekt hat die folgenden Attribute
             + (User Base)
             + (Post Base)
 
+### Comment zu einem Post erstellen [POST]
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Authorization: Bearer valid_JWT
+
+    + Attributes
+
+        + data (Comment Creation)
+
++ Response 201 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Location: /comments/98765
+
+    + Attributes
+
+        + data (Comment Base)
+        + included (array)
+            + (User Base)
+            + (Post Base)
+
++ Request (application/vnd.api+json)
+
+    Fehler: Create a comment on an not existing post
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+
+    + Attributes
+
+        + data (Comment Creation)
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+
+    + Attributes (Not Found Error)
+
++ Request (application/vnd.api+json)
+
+    Fehler: Create a comment without permission
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+
+    + Attributes
+
+        + data (Comment Creation)
+
++ Response 403 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+
+    + Attributes (Forbidden Error)
+
++ Request (application/vnd.api+json)
+
+    Fehler: Create a comment with empty content
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+
+    + Attributes
+
+        + data (object)
+            + type: `comments` (string)
+            + attributes (object)
+                + `content`: ` ` (string) - Der Comment-Inhalt
+
++ Response 400 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+
+    + Body
+
+            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` can't be empty."}]}
+
++ Request (application/vnd.api+json)
+
+    Fehler: Create a comment with missing content
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+
+    + Attributes
+
+        + data (object)
+            + type: `comments` (string)
+            + attributes (object)
+
++ Response 400 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+
+    + Body
+
+            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
+
 ## Post Comments Relationship [/posts/{post_id}/relationships/comments]
 
 + Parameters
@@ -1062,6 +1178,12 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
             + related: `/comments/345678/parent` (string)
 + links (object)
     + self: `/comments/345678` (string) - Der Link zu dieser Resource
+
+## Comment Creation (object)
+
++ type: `comments` (string)
++ attributes (object)
+    + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Post-Inhalt
 
 ## Comment Linkage (object)
 

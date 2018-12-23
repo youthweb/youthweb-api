@@ -17,7 +17,10 @@ use PHPUnit\Framework\TestCase;
  */
 class FeatureContext extends TestCase implements Context, SnippetAcceptingContext
 {
-	private $apiVersion;
+	/**
+	 * string the current api version that requests and responses should have
+	 */
+	protected $apiVersion;
 
 	/**
 	 * The Guzzle HTTP Client.
