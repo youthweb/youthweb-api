@@ -29,9 +29,9 @@ Nach dem Release einer neuen Version garantieren wir den Support der Version ohn
 | **0.10**     | :warning:          | 2017-06-18     | mindestens 2018-06-18     |
 | **0.9**      | :warning:          | 2017-06-04     | mindestens 2018-06-04     |
 | **0.8**      | :warning:          | 2017-05-21     | mindestens 2018-05-21     |
-| 0.7          | :x:                | 2016-11-20     | Version 0.13 - 2019-12-16 |
-| 0.6          | :x:                | 2016-10-23     | Version 0.13 - 2019-12-16 |
-| 0.5          | :x:                | 2016-07-03     | Version 0.13 - 2019-12-16 |
+| 0.7          | :x:                | 2016-11-20     | Version 0.13 - 2018-12-16 |
+| 0.6          | :x:                | 2016-10-23     | Version 0.13 - 2018-12-16 |
+| 0.5          | :x:                | 2016-07-03     | Version 0.13 - 2018-12-16 |
 
 #### Status-Legende
 
