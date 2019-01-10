@@ -76,8 +76,8 @@ Content-Type: application/vnd.api+json
                     },
                     "data":
                     {
-                        "type": "users",
-                        "id": "1"
+                        "type": "comments",
+                        "id": "d5a5a2c3-041b-4985-907c-74a2131efc98"
                     }
                 }
             },
@@ -120,7 +120,120 @@ Es wird ein Array an [`Comments`][api_endpoint_comments] Resourcen mit all ihren
 
 ## Create
 
-Du kannst mit diesem Endpoint nichts erstellen.
+Du kannst mit diesem Endpoint einen neuen Comment zu einer Resource erstellen. Als Autor der Comments wird automatisch der User angenommen, der den Client über den Scope autorisiert hat.
+
+**Beispiel**: Einen Kommentar zu einem Post erstellen
+
+```
+POST https://api.youthweb.net/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+Content-Type: application/vnd.api+json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
+
+{
+    "data": {
+        "type": "comments",
+        "attributes": {
+            "content": "Lorem ipsum dolor sit amet, sed libris elaboraret eu.",
+        }
+    }
+}
+```
+
+### Permissions
+
+- **Schreibrechte**: Du benötigst ein [Access-Token][api_general_oauth2] mit [`post:write`][api_general_scopes] Scope, um im Namen eines Users einen Kommentar erstellen zu können.
+- **Sonstiges**: Es kann sein, dass ein User das Erstellen von Kommentaren an seine Posts verbietet. In diesem Fall wird ein `403 Forbidden` Error zurückgegeben.
+
+### Felder
+
+Das `data`-Object muss folgende Felder enthalten
+
+| Name                             | Beschreibung                                                                       | Typ                   |
+|----------------------------------|------------------------------------------------------------------------------------|-----------------------|
+| `type`                           | Der Resource Typ `comments`                                                        | `string`              |
+| `attributes.content`             | Der Inhalt des Comments; darf nicht leer sein                                      | `string`              |
+
+### Parameter
+
+Für den Request können keine Parameter angegeben werden.
+
+### Response
+
+```
+Status: 201 Created
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+Content-Type: application/vnd.api+json
+Location: /comments/d5a5a2c3-041b-4985-907c-74a2131efc98
+
+{
+    "data":
+    {
+        "type": "comments",
+        "id": "345678",
+        "attributes": {
+            "content": "Lorem ipsum dolor sit amet, sed libris elaboraret eu.",
+            "created_at": "2019-01-01T20:00:00+00:00",
+        },
+        "relationships": {
+            "author":
+            {
+                "links":
+                {
+                    "self": "/comments/345678/relationships/author",
+                    "related": "/comments/345678/author"
+                },
+                "data":
+                {
+                    "type": "users",
+                    "id": "1"
+                }
+            },
+            "parent":
+            {
+                "links":
+                {
+                    "self": "/comments/345678/relationships/parent",
+                    "related": "/comments/345678/parent"
+                },
+                "data":
+                {
+                    "type": "posts",
+                    "id": "d5a5a2c3-041b-4985-907c-74a2131efc98"
+                }
+            }
+        },
+        "links": {
+            "self": "/comments/345678"
+        }
+    },
+    "included":
+    [
+        {
+            "type": "users",
+            "id": "1",
+            "attributes": {},
+            "links":
+            {
+                "self": "/users/123456"
+            }
+        },
+        {
+            "type": "posts",
+            "id": "d5a5a2c3-041b-4985-907c-74a2131efc98",
+            "attributes": {},
+            "links":
+            {
+                "self": "/posts/d5a5a2c3-041b-4985-907c-74a2131efc98"
+            }
+        }
+    ],
+    "links":
+    {
+        "self": "/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments"
+    }
+}
+```
 
 ## Delete
 

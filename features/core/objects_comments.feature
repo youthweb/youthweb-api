@@ -132,7 +132,7 @@ Scenario: Create a comment with empty content
 		"""
 		{"data":{"type":"comments","attributes":{"content":""}}}
 		"""
-	When I request "POST /posts/25a5a2c3-041b-4985-907c-74a2131efc98/comments"
+	When I request "POST /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments"
 	Then I get a "400" response
 	And the correct headers are set
 	And the "errors" property exists
@@ -151,7 +151,7 @@ Scenario: Create a comment with missing content
 		"""
 		{"data":{"type":"comments","attributes":{}}}
 		"""
-	When I request "POST /posts/25a5a2c3-041b-4985-907c-74a2131efc98/comments"
+	When I request "POST /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments"
 	Then I get a "400" response
 	And the correct headers are set
 	And the "errors" property exists
