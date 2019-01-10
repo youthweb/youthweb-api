@@ -115,7 +115,7 @@ Scenario: Create a comment without permission
 		"""
 		{"data":{"type":"comments","attributes":{"content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu."}}}
 		"""
-	When I request "POST /posts/4035a2c3-041b-4985-907c-74a2131efc98/comments"
+	When I request "POST /posts/f5a5a2c3-041b-4985-907c-74a2131efc98/comments"
 	Then I get a "403" response
 	And the correct headers are set
 	And the "errors" property exists
