@@ -6,7 +6,7 @@ Scenario: Viewing the account stats
 	Given I have set the correct headers without authorization
 	When I request "GET /stats/account"
 	Then I get a "200" response
-	And the Content-Type Header "application/vnd.api+json" exists
+	And the correct headers are set
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
@@ -41,7 +41,7 @@ Scenario: Viewing the forum stats
 	Given I have set the correct headers without authorization
 	When I request "GET /stats/forum"
 	Then I get a "200" response
-	And the Content-Type Header "application/vnd.api+json" exists
+	And the correct headers are set
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property
@@ -71,7 +71,7 @@ Scenario: Viewing the groups stats
 	Given I have set the correct headers without authorization
 	When I request "GET /stats/groups"
 	Then I get a "200" response
-	And the Content-Type Header "application/vnd.api+json" exists
+	And the correct headers are set
 	And the "data" property exists
 	And the "data" property is an object
 	And scope into the "data" property

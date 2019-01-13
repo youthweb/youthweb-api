@@ -18,6 +18,11 @@ use PHPUnit\Framework\TestCase;
 class FeatureContext extends TestCase implements Context, SnippetAcceptingContext
 {
 	/**
+	 * string the current api version that requests and responses should have
+	 */
+	protected $apiVersion;
+
+	/**
 	 * The Guzzle HTTP Client.
 	 */
 	protected $client;
@@ -59,9 +64,11 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	 *
 	 * @param array $parameters context parameters (set them up through behat.yml)
 	 */
-	public function __construct($baseUrl)
+	public function __construct($baseUrl, $apiVersion = '0.14')
 	{
 		$this->client = new Client(array('base_uri' => $baseUrl));
+
+		$this->apiVersion = strval($apiVersion);
 	}
 
 	/**
@@ -87,7 +94,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
     {
         $this->iHaveSetTheHeaderWith('Content-Type', 'application/vnd.api+json');
         $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json');
-        $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json; net.youthweb.api.version=0.13');
+        $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json; net.youthweb.api.version=' . $this->apiVersion);
     }
 
 	/**
@@ -152,6 +159,16 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 
 		$this->assertSame((int) $statusCode, (int) $this->getResponse()->getStatusCode(), $bodyOutput);
 	}
+
+	/**
+	* @Then the correct headers are set
+	*/
+   public function theCorrectHeadersAreSet()
+   {
+	   $this->theContentTypeHeaderExists('application/vnd.api+json');
+	   $this->theAcceptHeaderExists('application/vnd.api+json');
+	   $this->theAcceptHeaderExists('application/vnd.api+json; net.youthweb.api.version=' . $this->apiVersion);
+   }
 
 	/**
 	 * @Then the Content-Type Header :arg1 exists

@@ -8,7 +8,7 @@ summary: "Die neue Version der Youthweb-API erlaubt jetzt das Erstellen von Post
 
 ### Neu
 
-- Es ist jetzt möglich, Posts an den Pinnwände von User zu erstellen
+- Es ist jetzt möglich, [Posts an den Pinnwände von User zu erstellen](https://developer.youthweb.net/api_endpoint_object_posts.html#create)
 - Es gibt einen neuen Scope `post:write`, um im Namen eines Users Posts an Pinnwänden erstellen zu dürfen. Dieser Scope beinhaltet auch `post:read`.
 
 ## Beispiele

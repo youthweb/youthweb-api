@@ -5,4 +5,5 @@ default:
                 - "%paths.base%/features/core"
             contexts:
                 - Youthweb\Api\Core\FeatureContext:
-                    baseUrl: http://localhost:3000/
+                    baseUrl: "http://localhost:3000/"
+                    apiVersion: "0.14"
