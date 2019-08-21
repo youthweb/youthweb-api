@@ -55,6 +55,9 @@ Content-Type: application/vnd.api+json
                 "address": "Musterstraße 42\n12345 Berlin",
                 "comments_allowed": true,
                 "comments_count": 15,
+                "promised_participants_count": 10,
+                "declined_participants_count": 2,
+                "invited_participants_count": 5,
                 "participants_count": 10
             },
             "relationships": {
@@ -122,6 +125,9 @@ Content-Type: application/vnd.api+json
             "address": "Musterstraße 42\n12345 Berlin",
             "comments_allowed": true,
             "comments_count": 15,
+            "promised_participants_count": 10,
+            "declined_participants_count": 2,
+            "invited_participants_count": 5,
             "participants_count": 10
         },
         "relationships": {
@@ -155,7 +161,10 @@ Content-Type: application/vnd.api+json
 | `attributes.address`             | Die Adresse, an der das Event stattfinden wird, z.B `Musterstraße 42\n12345 Berlin`. Kann auch leer sein.                                      | `string`              |
 | `attributes.comments_allowed`    | Sind neue Kommentare zu diesem Event erlaubt?                                                                                                  | `boolean`             |
 | `attributes.comments_count`      | Wie viele Kommentare wurden schon verfasst?                                                                                                    | `integer`             |
-| `attributes.participants_count`  | Die Gesamtanzahl der User, die Angaben zur Teilnahme an diesem Event gemacht haben                                                             | `string`              |
+| `attributes.promised_participants_count`  |  Die Anzahl der User, die eine Zustimmung zur Teilnahme an diesem Event gegeben haben                                                             | `string`              |
+| `attributes.declined_participants_count`  | Die Anzahl der User, die eine Absage zur Teilnahme an diesem Event gegeben haben                                                             | `string`              |
+| `attributes.invited_participants_count`  | Die Anzahl der User, die eingeladen wurden, an diesem Event teilzunehmen                                                             | `string`              |
+| `attributes.participants_count`  | (**Veraltet** Verwende stattdessen `promised_participants_count`) Die Anzahl der User, die eine Zustimmung zur Teilnahme an diesem Event gegeben haben                                                             | `string`              |
 | `relationships.author`           | Ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), das auf den Autor verweist              | `object`              |
 
 ## Create
