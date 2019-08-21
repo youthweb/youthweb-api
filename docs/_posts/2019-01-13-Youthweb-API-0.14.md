@@ -1,5 +1,5 @@
 ---
-title:  "Youthweb-API 0.14 erlaubt das Erstellen von Kommentarn zu Posts"
+title:  "Youthweb-API 0.14 erlaubt das Erstellen von Kommentaren zu Posts"
 categories: API
 tags: [api, release]
 summary: "Die neue Version der Youthweb-API erlaubt jetzt das Erstellen von Comments-Resourcen zu Posts-Resource."

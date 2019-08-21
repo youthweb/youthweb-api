@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
+### Added
+
+- new attribute `promised_participants_count` in `Event` resources with the number of users promised to come to the event
+- new attribute `declined_participants_count` in `Event` resources with the number of users declined to come to the event
+- new attribute `invited_participants_count` in `Event` resources with the number of users invited to come to the event
+
+### Deprecated
+
+- attribute `promised_participants_count` in `Event` resources will be removed in a future release, use `promised_participants_count` instead
+
 ## [0.13] - 2018-12-16
 
 ### Added

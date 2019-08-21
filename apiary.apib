@@ -1211,7 +1211,10 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
     + `address`: `Musterstraße 42\n12345 Berlin` (string) - Die Adresse, an der das Event stattfindet
     + `comments_allowed`: true (boolean) - Kann dieses Event kommentiert werden?
     + `comments_count`: 7 (number) - Die Gesamtanzahl der Kommentare zu diesem Event
-    + `participants_count`: 15 (number) - Die Gesamtanzahl der User, die Angaben zur Teilnahme an diesem Event gemacht haben
+    + `promised_participants_count`: 15 (number) - Die Anzahl der User, die eine Zustimmung zur Teilnahme an diesem Event gegeben haben
+    + `declined_participants_count`: 2 (number) - Die Anzahl der User, die eine Absage zur Teilnahme an diesem Event gegeben haben
+    + `invited_participants_count`: 3 (number) - Die Anzahl der User, die eingeladen wurden, an diesem Event teilzunehmen
+    + `participants_count`: 15 (number) - (**Veraltet** Verwende stattdessen `promised_participants_count`) Die Anzahl der User, die eine Zustimmung zur Teilnahme an diesem Event gegeben haben
 + `relationships` (object)
     + `author` (object, nullable) - Der Autor des Posts
         + data (User Linkage)
