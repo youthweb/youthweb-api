@@ -64,7 +64,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	 *
 	 * @param array $parameters context parameters (set them up through behat.yml)
 	 */
-	public function __construct($baseUrl, $apiVersion = '0.14')
+	public function __construct($baseUrl, $apiVersion = '0.15')
 	{
 		$this->client = new Client(array('base_uri' => $baseUrl));
 
