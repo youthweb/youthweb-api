@@ -15,6 +15,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Deprecated
 
 - attribute `promised_participants_count` in `Event` resources will be removed in a future release, use `promised_participants_count` instead
+- Version 0.13 and 0.14 are now deprecated and support will be dropped in future. If your apps use this version upgrade them at least to version 0.15.
+
+### Removed
+
+- **Breaking:** The support for version 0.8, 0.9, 0.10, 0.11 and 0.12 was dropped. Requests with this versions and below will get a 406 error response.
+
+## [0.14] - 2019-01-13
+
+### Added
+
+- new endpoint `posts/<post_id>/comments` to post a new comment to a post
 
 ## [0.13] - 2018-12-16
 

@@ -14,13 +14,13 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes (Not Found Error)
 
@@ -31,7 +31,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes
 
@@ -47,7 +47,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Body
 
@@ -60,13 +60,13 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
 + Response 415 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Body
 
@@ -77,13 +77,13 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
 + Response 415 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Body
 
@@ -100,11 +100,11 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Body
 
-            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14"}]}
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15"}]}
 
 ### Retrieve the account stats without accept header [GET]
 + Request (application/vnd.api+json)
@@ -113,11 +113,11 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Body
 
-            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14"}]}
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15"}]}
 
 ## Forum Stats [/stats/forum]
 
@@ -126,17 +126,17 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Body
 
-            {"data":null,"meta":{"warnings":["You have specified a deprecated API version. Please use the current API version 0.14"]}}
+            {"data":null,"meta":{"warnings":["You have specified a deprecated API version. Please use the current API version 0.15"]}}
 
 ## Group Stats [/stats/group]
 
@@ -145,17 +145,17 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.7
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.12
 
 + Response 406 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Body
 
-            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You have specified an unsupported API version. Please use the current API version 0.14"}]}
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You have specified an unsupported API version. Please use the current API version 0.15"}]}
 
 # Group Users
 
@@ -166,13 +166,13 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
 + Response 401 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes (Unauthorized Error)
 
@@ -185,13 +185,13 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
 + Response 403 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes (Forbidden Error)
 
@@ -202,13 +202,13 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes
         + data (array)
@@ -220,13 +220,13 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes (Not Found Error)
 
@@ -237,7 +237,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes
 
@@ -247,7 +247,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes (Not Found Error)
 
@@ -258,7 +258,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes
 
@@ -268,7 +268,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes (Forbidden Error)
 
@@ -279,7 +279,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes
 
@@ -295,7 +295,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Body
 
@@ -306,7 +306,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes
 
@@ -321,7 +321,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Body
 
@@ -334,7 +334,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes
 
@@ -344,7 +344,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes (Not Found Error)
 
@@ -355,7 +355,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes
 
@@ -365,7 +365,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes (Forbidden Error)
 
@@ -376,7 +376,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes
 
@@ -389,7 +389,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Body
 
@@ -400,7 +400,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes
 
@@ -412,7 +412,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Body
 
@@ -425,13 +425,13 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes
         + data (array)
@@ -443,13 +443,13 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes (Not Found Error)
 
@@ -462,13 +462,13 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes (Not Found Error)
 
@@ -481,13 +481,13 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes (Not Found Error)
 
