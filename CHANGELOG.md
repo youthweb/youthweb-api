@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Deprecated
 
-- attribute `promised_participants_count` in `Event` resources will be removed in a future release, use `promised_participants_count` instead
+- attribute `participants_count` in `Event` resources will be removed in a future release, use `promised_participants_count` instead
 - Version 0.13 and 0.14 are now deprecated and support will be dropped in future. If your apps use this version upgrade them at least to version 0.15.
 
 ### Removed
