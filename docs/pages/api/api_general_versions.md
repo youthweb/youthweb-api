@@ -22,14 +22,14 @@ Nach dem Release einer neuen Version garantieren wir den Support der Version ohn
 
 | Version      | Status             | Veröffentlicht | Unterstützt bis           |
 |--------------|--------------------|----------------|---------------------------|
-| **0.15**     | :heavy_check_mark: | 2019-XX-XX     | mindestens 2020-XX-XX     |
+| **0.15**     | :heavy_check_mark: | 2019-09-08     | mindestens 2020-09-08     |
 | **0.14**     | :warning:          | 2019-01-13     | mindestens 2020-01-13     |
 | **0.13**     | :warning:          | 2018-12-16     | mindestens 2019-12-16     |
-| 0.12         | :x:                | 2017-07-16     | Version 0.15 - 2019-XX-XX |
-| 0.11         | :x:                | 2017-07-02     | Version 0.15 - 2019-XX-XX |
-| 0.10         | :x:                | 2017-06-18     | Version 0.15 - 2019-XX-XX |
-| 0.9          | :x:                | 2017-06-04     | Version 0.15 - 2019-XX-XX |
-| 0.8          | :x:                | 2017-05-21     | Version 0.15 - 2019-XX-XX |
+| 0.12         | :x:                | 2017-07-16     | Version 0.15 - 2019-09-08 |
+| 0.11         | :x:                | 2017-07-02     | Version 0.15 - 2019-09-08 |
+| 0.10         | :x:                | 2017-06-18     | Version 0.15 - 2019-09-08 |
+| 0.9          | :x:                | 2017-06-04     | Version 0.15 - 2019-09-08 |
+| 0.8          | :x:                | 2017-05-21     | Version 0.15 - 2019-09-08 |
 
 #### Status-Legende
 
