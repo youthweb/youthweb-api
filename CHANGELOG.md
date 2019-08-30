@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
+## [0.15] - 2019-09-08
+
 ### Added
 
 - new attribute `promised_participants_count` in `Event` resources with the number of users promised to come to the event
