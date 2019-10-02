@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
+### Added
+
+- Add support for PHP 7.3
+
+### Changed
+
+- Drop support for PHP 5.6, 7.0 and 7.1
+
 ## [0.15] - 2019-09-08
 
 ### Added
