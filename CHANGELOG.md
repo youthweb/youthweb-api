@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
+## [0.15.1] - 2019-10-02
+
 ### Added
 
 - Add support for PHP 7.3
@@ -236,7 +238,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.15...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.15.1...develop
+[0.15.1]: https://github.com/youthweb/youthweb-api/compare/0.15...0.15.1
 [0.15]: https://github.com/youthweb/youthweb-api/compare/0.14...0.15
 [0.14]: https://github.com/youthweb/youthweb-api/compare/0.13...0.14
 [0.13]: https://github.com/youthweb/youthweb-api/compare/0.12...0.13
