@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
+### Changed
+
+- Move from Github Pages to Gitlab Pages
+- Drop support for PHP 7.2
+
 ## [0.15.1] - 2019-10-02
 
 ### Added
