@@ -58,7 +58,18 @@ Content-Type: application/vnd.api+json
 
 ### Felder
 
-Siehe [hier](http://docs.youthweb.apiary.io/#reference/stats) für mehr Infos zur Bedeutung der einzelnen Felder.
+| Name                              | Beschreibung                                                    | Typ                  |
+|-----------------------------------|-----------------------------------------------------------------|----------------------|
+| `type`                            | Der Typ der Resource: `stats`                                   | `string`             |
+| `id`                              | Die ID der Resource `account`                                   | `string`             |
+| `attributes.user_total`           | Die Anzahl aller User                                           | `integer`            |
+| `attributes.user_total_female`    | Die Anzahl der weiblichen User                                  | `integer`            |
+| `attributes.user_total_male`      | Die Anzahl der männlichen User                                  | `integer`            |
+| `attributes.user_online`          | Die Anzahl der User, die im Moment online sind                  | `integer`            |
+| `attributes.user_online_24h`      | Die Anzahl der User, die in den letzten 24 Stunden online waren | `integer`            |
+| `attributes.user_online_7d`       | Die Anzahl der User, die in den letzten 7 Tagen online waren    | `integer`            |
+| `attributes.user_online_30d`      | Die Anzahl der User, die in den letzten 30 Tagen online waren   | `integer`            |
+| `attributes.userpics`             | Die Anzahl der User, die ein Profilbild hochgeladen haben       | `integer`            |
 
 ## Create
 

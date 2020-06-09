@@ -16,9 +16,7 @@ topnav_dropdowns:
       folderitems:
         - title: Youthweb
           external_url: https://youthweb.net
+        - title: Gitlab Repo
+          external_url: https://gitlab.com/youthweb/youthweb-api
         - title: Github Repo
           external_url: https://github.com/youthweb/youthweb-api
-        - title: Gitter Chat
-          external_url: https://gitter.im/youthweb/youthweb-api
-        - title: Apiary Dokumentation
-          external_url: http://docs.youthweb.apiary.io/
