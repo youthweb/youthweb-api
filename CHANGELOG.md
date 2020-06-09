@@ -6,6 +6,39 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
+## [0.15.1] - 2019-10-02
+
+### Added
+
+- Add support for PHP 7.3
+
+### Changed
+
+- Drop support for PHP 5.6, 7.0 and 7.1
+
+## [0.15] - 2019-09-08
+
+### Added
+
+- new attribute `promised_participants_count` in `Event` resources with the number of users promised to come to the event
+- new attribute `declined_participants_count` in `Event` resources with the number of users declined to come to the event
+- new attribute `invited_participants_count` in `Event` resources with the number of users invited to come to the event
+
+### Deprecated
+
+- attribute `participants_count` in `Event` resources will be removed in a future release, use `promised_participants_count` instead
+- Version 0.13 and 0.14 are now deprecated and support will be dropped in future. If your apps use this version upgrade them at least to version 0.15.
+
+### Removed
+
+- **Breaking:** The support for version 0.8, 0.9, 0.10, 0.11 and 0.12 was dropped. Requests with this versions and below will get a 406 error response.
+
+## [0.14] - 2019-01-13
+
+### Added
+
+- new endpoint `posts/<post_id>/comments` to post a new comment to a post
+
 ## [0.13] - 2018-12-16
 
 ### Added
@@ -205,7 +238,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.13...develop
+[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.15.1...develop
+[0.15.1]: https://github.com/youthweb/youthweb-api/compare/0.15...0.15.1
+[0.15]: https://github.com/youthweb/youthweb-api/compare/0.14...0.15
+[0.14]: https://github.com/youthweb/youthweb-api/compare/0.13...0.14
 [0.13]: https://github.com/youthweb/youthweb-api/compare/0.12...0.13
 [0.12]: https://github.com/youthweb/youthweb-api/compare/0.11...0.12
 [0.11]: https://github.com/youthweb/youthweb-api/compare/0.10...0.11

@@ -20,7 +20,7 @@ Beim Request nach den Events eines Zeitraums wird ein Array der Events zurückge
 
 ```
 GET https://api.youthweb.net/events?page[start]=2017-01-01&page[end]=2017-12-31
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
 ```
@@ -38,7 +38,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2M
 
 ```
 Status: 200 OK
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 Content-Type: application/vnd.api+json
 
 {
@@ -55,6 +55,9 @@ Content-Type: application/vnd.api+json
                 "address": "Musterstraße 42\n12345 Berlin",
                 "comments_allowed": true,
                 "comments_count": 15,
+                "promised_participants_count": 10,
+                "declined_participants_count": 2,
+                "invited_participants_count": 5,
                 "participants_count": 10
             },
             "relationships": {
@@ -89,7 +92,7 @@ Beim Request nach einem bestimmten Event wird eine Event Resource zurückgeliefe
 
 ```
 GET https://api.youthweb.net/events/4567
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
 ```
@@ -106,7 +109,7 @@ Für den Request können keine Parameter angegeben werden.
 
 ```
 Status: 200 OK
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 Content-Type: application/vnd.api+json
 
 {
@@ -122,6 +125,9 @@ Content-Type: application/vnd.api+json
             "address": "Musterstraße 42\n12345 Berlin",
             "comments_allowed": true,
             "comments_count": 15,
+            "promised_participants_count": 10,
+            "declined_participants_count": 2,
+            "invited_participants_count": 5,
             "participants_count": 10
         },
         "relationships": {
@@ -155,7 +161,10 @@ Content-Type: application/vnd.api+json
 | `attributes.address`             | Die Adresse, an der das Event stattfinden wird, z.B `Musterstraße 42\n12345 Berlin`. Kann auch leer sein.                                      | `string`              |
 | `attributes.comments_allowed`    | Sind neue Kommentare zu diesem Event erlaubt?                                                                                                  | `boolean`             |
 | `attributes.comments_count`      | Wie viele Kommentare wurden schon verfasst?                                                                                                    | `integer`             |
-| `attributes.participants_count`  | Die Gesamtanzahl der User, die Angaben zur Teilnahme an diesem Event gemacht haben                                                             | `string`              |
+| `attributes.promised_participants_count`  |  Die Anzahl der User, die eine Zustimmung zur Teilnahme an diesem Event gegeben haben                                                             | `string`              |
+| `attributes.declined_participants_count`  | Die Anzahl der User, die eine Absage zur Teilnahme an diesem Event gegeben haben                                                             | `string`              |
+| `attributes.invited_participants_count`  | Die Anzahl der User, die eingeladen wurden, an diesem Event teilzunehmen                                                             | `string`              |
+| `attributes.participants_count`  | (**Veraltet** Verwende stattdessen `promised_participants_count`) Die Anzahl der User, die eine Zustimmung zur Teilnahme an diesem Event gegeben haben                                                             | `string`              |
 | `relationships.author`           | Ein [Resource Identifier Objekt](http://jsonapi.org/format/1.0/#document-resource-identifier-objects), das auf den Autor verweist              | `object`              |
 
 ## Create

@@ -10,7 +10,7 @@ folder: api
 
 Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben. Die angefragte Version MUSS im Request-Header angegeben werden:
 
-`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.13`
+`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15`
 
 ### Support
 
@@ -22,16 +22,14 @@ Nach dem Release einer neuen Version garantieren wir den Support der Version ohn
 
 | Version      | Status             | Veröffentlicht | Unterstützt bis           |
 |--------------|--------------------|----------------|---------------------------|
-| **0.14**     | :heavy_check_mark: | 2019-01-13     | mindestens 2020-01-13     |
-| **0.13**     | :heavy_check_mark: | 2018-12-16     | mindestens 2019-12-16     |
-| **0.12**     | :warning:          | 2017-07-16     | mindestens 2018-07-16     |
-| **0.11**     | :warning:          | 2017-07-02     | mindestens 2018-07-02     |
-| **0.10**     | :warning:          | 2017-06-18     | mindestens 2018-06-18     |
-| **0.9**      | :warning:          | 2017-06-04     | mindestens 2018-06-04     |
-| **0.8**      | :warning:          | 2017-05-21     | mindestens 2018-05-21     |
-| 0.7          | :x:                | 2016-11-20     | Version 0.13 - 2018-12-16 |
-| 0.6          | :x:                | 2016-10-23     | Version 0.13 - 2018-12-16 |
-| 0.5          | :x:                | 2016-07-03     | Version 0.13 - 2018-12-16 |
+| **0.15**     | :heavy_check_mark: | 2019-09-08     | mindestens 2020-09-08     |
+| **0.14**     | :warning:          | 2019-01-13     | mindestens 2020-01-13     |
+| **0.13**     | :warning:          | 2018-12-16     | mindestens 2019-12-16     |
+| 0.12         | :x:                | 2017-07-16     | Version 0.15 - 2019-09-08 |
+| 0.11         | :x:                | 2017-07-02     | Version 0.15 - 2019-09-08 |
+| 0.10         | :x:                | 2017-06-18     | Version 0.15 - 2019-09-08 |
+| 0.9          | :x:                | 2017-06-04     | Version 0.15 - 2019-09-08 |
+| 0.8          | :x:                | 2017-05-21     | Version 0.15 - 2019-09-08 |
 
 #### Status-Legende
 
