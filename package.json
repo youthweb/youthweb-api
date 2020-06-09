@@ -1,6 +1,6 @@
 {
   "name": "youthweb-api",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "private": true,
   "devDependencies": {
     "drakov": "^1.0.1"
@@ -8,7 +8,8 @@
   "scripts": {
     "server": "drakov -f \"./*.apib\" -p 3000",
     "test": "vendor/bin/behat --suite=core",
-    "docs:build": "jekyll build --source docs/ --destination docs/_site",
+    "build": "cd docs && bundle exec jekyll build --source ./ --destination ../public/",
+    "docs:build": "cd docs && bundle exec jekyll build --source ./ --destination ./_site",
     "docs:watch": "npm run docs:build -- --watch"
   }
 }

@@ -9,7 +9,8 @@ desktop.ini
 *.tmproj
 .idea
 
-node_modules/*
-vendor/*
-composer.lock
-composer.phar
+/docs/.jekyll-cache
+/node_modules
+/vendor
+/composer.lock
+/composer.phar

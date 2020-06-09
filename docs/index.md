@@ -26,11 +26,7 @@ Weitere Posts findest du [in unserem Blog][blog]. Du kannst auch unseren <span c
 
 ## :book: Dokumentation
 
-[http://developer.youthweb.net](http://developer.youthweb.net/)
-
-Aktuelle Dokumentation auf Apiary.io: [http://docs.youthweb0m6.apiary.io](http://docs.youthweb0m6.apiary.io/)
-
-Dev-Dokumentation auf Apiary.io: [http://docs.youthweb.apiary.io](http://docs.youthweb.apiary.io/)
+[https://developer.youthweb.net](http://developer.youthweb.net/)
 
 ## :link: URI
 

@@ -4,9 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
-## [Unreleased]
+## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...develop)
 
-## [0.15.1] - 2019-10-02
+## [0.15.2 - 2020-06-09](https://gitlab.com/youthweb/youthweb-api/compare/0.15.1...0.15.2)
+
+### Changed
+
+- Move from Github Pages to Gitlab Pages
+- Drop support for PHP 7.2
+
+## [0.15.1 - 2019-10-02](https://gitlab.com/youthweb/youthweb-api/compare/0.15...0.15.1)
 
 ### Added
 
@@ -16,7 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 - Drop support for PHP 5.6, 7.0 and 7.1
 
-## [0.15] - 2019-09-08
+## [0.15 - 2019-09-08](https://gitlab.com/youthweb/youthweb-api/compare/0.14...0.15)
 
 ### Added
 
@@ -238,9 +245,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 - Resource `account/stats`
 
-[Unreleased]: https://github.com/youthweb/youthweb-api/compare/0.15.1...develop
-[0.15.1]: https://github.com/youthweb/youthweb-api/compare/0.15...0.15.1
-[0.15]: https://github.com/youthweb/youthweb-api/compare/0.14...0.15
 [0.14]: https://github.com/youthweb/youthweb-api/compare/0.13...0.14
 [0.13]: https://github.com/youthweb/youthweb-api/compare/0.12...0.13
 [0.12]: https://github.com/youthweb/youthweb-api/compare/0.11...0.12

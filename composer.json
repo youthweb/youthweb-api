@@ -1,14 +1,14 @@
 {
     "name": "youthweb/youthweb-api",
     "description": "Youthweb API",
-    "homepage": "http://developer.youthweb.net/",
+    "homepage": "https://developer.youthweb.net/",
     "keywords": ["youthweb", "api"],
     "license": "GPL-3.0-or-later",
     "require": {
-        "php": "^7.2",
+        "php": "^7.3",
         "behat/behat": "^3.5",
         "guzzlehttp/guzzle": "^6.0",
-        "phpunit/phpunit": "^6 || ^7 || ^8"
+        "phpunit/phpunit": "^8"
     },
     "config": {
         "sort-packages": true,
