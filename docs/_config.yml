@@ -21,7 +21,10 @@ permalink: /:year:month:day-:title.html
 company_name: Youthweb e.V.
 # this appears in the footer
 
-github_editme_path: https://gitlab.com/youthweb/youthweb-api/-/blob/master/docs/
+gitlab_editme_path: https://gitlab.com/youthweb/youthweb-api/-/blob/master/docs/
+# if you're using Gitlab, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
+
+github_editme_path:
 # if you're using Github, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
 
 disqus_shortname:
