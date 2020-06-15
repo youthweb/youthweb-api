@@ -68,14 +68,17 @@ Scenario: Creating a post on an users pinnwall
 	And the "links" property exists
 	And the "attributes" property exists
 	And scope into the "data.attributes" property
-	And the response contains 7 items
+	And the response contains at least 10 items
 	And the properties exist:
 		"""
 		title
 		content
+		content_html
 		view_allowed_for
 		comments_allowed
 		comments_count
+		reactions_given
+		reactions_count
 		created_at
 		updated_at
 		"""

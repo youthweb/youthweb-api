@@ -212,7 +212,23 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	{
 		$payload = $this->getScopePayload();
 
-		$this->assertCount($count, get_object_vars($payload),
+		$this->assertCount(
+			$count,
+			get_object_vars($payload),
+			"Asserting the request contains [$count] items: ".json_encode($payload)
+		);
+	}
+
+	/**
+	 * @Given /^the response contains at least (\d+) items$/
+	 */
+	public function theResponseContainsAtLeastItems($count)
+	{
+		$payload = $this->getScopePayload();
+
+		$this->assertGreaterThanOrEqual(
+			$count,
+			count(get_object_vars($payload)),
 			"Asserting the request contains [$count] items: ".json_encode($payload)
 		);
 	}
