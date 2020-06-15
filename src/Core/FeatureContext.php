@@ -107,7 +107,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
     }
 
 	/**
-	 * @When /^I request "(GET|PUT|POST|DELETE) ([^"]*)"$/
+	 * @When /^I request "(GET|PATCH|POST|DELETE) ([^"]*)"$/
 	 */
 	public function iRequest($httpMethod, $resource)
 	{
@@ -512,7 +512,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	 *
 	 * @return  Guzzle\Http\Message\Response
 	 */
-	protected function getResponse()
+	private function getResponse()
 	{
 		if ( ! $this->response )
 		{
@@ -527,7 +527,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	 *
 	 * @return  mixed
 	 */
-	protected function getResponsePayload()
+	private function getResponsePayload()
 	{
 		if ( ! $this->responsePayload )
 		{
@@ -572,7 +572,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	 *
 	 * @return mixed
 	 */
-	protected function getScopePayload()
+	private function getScopePayload()
 	{
 		$payload = $this->getResponsePayload();
 
@@ -594,7 +594,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	 * @param	   mixed   $default
 	 * @return	  mixed
 	 */
-	protected function arrayGet($array, $key)
+	private function arrayGet($array, $key)
 	{
 		if (is_null($key)) {
 			return $array;

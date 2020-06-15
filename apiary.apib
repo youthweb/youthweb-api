@@ -443,11 +443,11 @@ Ein Event Objekt hat die folgenden Attribute
 Ein Post Objekt hat die folgenden Attribute
 
 + type
-+ id - The Post-ID
++ id - Die Post-ID
 + attributes - An object of attributes.
 
 + Parameters
-    + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
+    + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID des Posts
 
 ### Daten zu einem Post abrufen [GET]
 
@@ -501,6 +501,33 @@ Ein Post Objekt hat die folgenden Attribute
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
     + Attributes (Not Found Error)
+
+### Einen Post updaten [PATCH]
+
++ Request (application/vnd.api+json)
+
+    Titel und Content bearbeiten und eine +1 Reaktion vergeben
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+            Authorization: Bearer valid_JWT
+
+    + Attributes
+
+        + data (Post Patch)
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+
+    + Attributes
+
+        + data (Post Patched)
+        + included (array)
+            + (User Base)
 
 ## Post Author [/posts/{post_id}/author]
 
@@ -1245,6 +1272,15 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
 + links (object)
     + self: `/friends/45678` (string) - Der Link zu dieser Resource
 
+## Post Creation (object)
+
++ type: `posts` (string)
++ attributes (object)
+    + `title`: `The post title` (string) - Der Title, kann auch leer sein
+    + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Post-Inhalt
+    + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
+    + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
+
 ## Post Base (object)
 
 + type: `posts` (string)
@@ -1259,7 +1295,7 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
     + `reactions_given`: (array) - Die vom authorisierten User vergebenen Reaktionen zu diesem Post
         - `:+1:`
     + `reactions_count`: (object) - Vergebene Reaktionen und deren Anzahl zu diesem Post
-        `:+1:`: 1
+        + `:+1:`: 1
     + `created_at`: `2017-01-01T17:51:02+00:00` (string) - Zeitpunkt der Erstellung als ISO-8601
     + `updated_at`: `2017-01-03T13:17:11+00:00` (string, nullable) - Zeitpunkt der letzten Änderung als ISO-8601
 + `relationships` (object)
@@ -1282,14 +1318,52 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
 + links (object)
     + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Der Link zu dieser Resource
 
-## Post Creation (object)
+## Post Patch (object)
 
 + type: `posts` (string)
++ id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Die Post-ID
 + attributes (object)
-    + `title`: `The post title` (string) - Der Title, kann auch leer sein
-    + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Post-Inhalt
+    + `title`: `The new post title` (string) - Der Title, kann auch leer sein
+    + `content`: `New post content` (string) - Der Post-Inhalt
+    + `reactions_given`: (array) - Die vom authorisierten User vergebenen Reaktionen zu diesem Post
+        - `:+1:`
+
+## Post Patched (object)
+
++ type: `posts` (string)
++ id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Die Post-ID
++ attributes (object)
+    + `title`: `The new post title` (string) - Der Title, kann auch leer sein
+    + `content`: `New post content` (string) - Der Post-Inhalt
+    + `content_html`: `<p>New post content</p>` (string) - Der Post-Inhalt als HTML
     + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
     + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
+    + `comments_count`: 15 (number) - Die Gesamtanzahl der Kommentare zu diesem Post
+    + `reactions_given`: (array) - Die vom authorisierten User vergebenen Reaktionen zu diesem Post
+        - `:+1:`
+    + `reactions_count`: (object) - Vergebene Reaktionen und deren Anzahl zu diesem Post
+        + `:+1:`: 1
+    + `created_at`: `2017-01-01T17:51:02+00:00` (string) - Zeitpunkt der Erstellung als ISO-8601
+    + `updated_at`: `2017-01-03T13:17:11+00:00` (string, nullable) - Zeitpunkt der letzten Änderung als ISO-8601
++ `relationships` (object)
+    + `author` (object, nullable) - Der Autor des Posts
+        + data (User Linkage)
+        + links (object)
+            + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author` (string)
+            + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author` (string)
+    + `comments` (object) - Die Kommentare zu diesem Post
+        + data (array)
+            - (Comment Linkage)
+        + links (object)
+            + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/comments` (string)
+            + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments` (string)
+    + parent (object, nullable) - Das Elternobjekt, dem dieser Post zugeordnet ist
+        + data (User Linkage)
+        + links (object)
+            + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/parent` (string)
+            + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent` (string)
++ links (object)
+    + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Der Link zu dieser Resource
 
 ## Post Linkage (object)
 
