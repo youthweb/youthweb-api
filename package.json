@@ -3,7 +3,7 @@
   "version": "0.16-dev",
   "private": true,
   "devDependencies": {
-    "drakov": "^1.0.1"
+    "drakov": "^1.0.4"
   },
   "scripts": {
     "server": "drakov -f \"./*.apib\" -p 3000",
