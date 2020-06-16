@@ -108,6 +108,23 @@ Scenario: Updating an own post
 		parent
 		"""
 
+Scenario: Updating a post without authorization
+	Given I have set the correct headers without authorization
+	And I have the payload
+		"""
+		{"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}
+		"""
+	When I request "PATCH /posts/d5a5a2c3-041b-4985-907c-74a2131efc98"
+	Then I get a "401" response
+	And the correct headers are set
+	And the "errors" property exists
+	And the "errors" property is an array
+	And scope into the first "errors" property
+	And the "status" property exists
+	And the "status" property is a string equalling "401"
+	And the "title" property exists
+	And the "title" property is a string equalling "Unauthorized"
+
 Scenario: Requesting a post without permission
 	Given I have set the correct headers with valid authorization
 	When I request "GET /posts/f5a5a2c3-041b-4985-907c-74a2131efc98"

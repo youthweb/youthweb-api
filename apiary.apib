@@ -529,6 +529,26 @@ Ein Post Objekt hat die folgenden Attribute
         + included (array)
             + (User Base)
 
++ Request (application/vnd.api+json)
+
+    Post zu bearbeiten, wenn man nicht eingeloggt ist, gibt einen Fehler zurück.
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+
+    + Attributes
+
+        + data (Post Patch)
+
++ Response 401 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+
+    + Attributes (Unauthorized Error)
+
 ## Post Author [/posts/{post_id}/author]
 
 + Parameters
