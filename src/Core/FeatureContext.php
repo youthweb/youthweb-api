@@ -125,7 +125,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 		try
 		{
 			switch ($httpMethod) {
-				case 'PUT':
+				case 'PATCH':
 				case 'POST':
 					$this->response = $this->client->$method($resource, ['headers' => $headers, 'body' => $this->requestPayload]);
 					break;
