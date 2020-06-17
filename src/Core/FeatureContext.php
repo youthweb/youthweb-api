@@ -10,7 +10,9 @@ use Behat\Gherkin\Node\TableNode;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Psr7\Request;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Defines application features from the specific context.
@@ -43,7 +45,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	protected $request_headers = array();
 
 	/**
-	 * The Guzzle HTTP Response.
+	 * @var ResponseInterface
 	 */
 	protected $response;
 
@@ -64,7 +66,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 	 *
 	 * @param array $parameters context parameters (set them up through behat.yml)
 	 */
-	public function __construct($baseUrl, $apiVersion = '0.15')
+	public function __construct($baseUrl, $apiVersion = '0.16')
 	{
 		$this->client = new Client(array('base_uri' => $baseUrl));
 
@@ -122,17 +124,16 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 
 		$method = strtolower($httpMethod);
 
+		$request = new Request(
+			$httpMethod,
+			$resource,
+			$headers,
+			$this->requestPayload
+		);
+
 		try
 		{
-			switch ($httpMethod) {
-				case 'PATCH':
-				case 'POST':
-					$this->response = $this->client->$method($resource, ['headers' => $headers, 'body' => $this->requestPayload]);
-					break;
-
-				default:
-					$this->response = $this->client->$method($resource, ['headers' => $headers]);
-			}
+			$this->response = $this->client->send($request);
 		}
 		catch (BadResponseException $e)
 		{
