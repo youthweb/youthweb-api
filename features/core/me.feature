@@ -3,7 +3,7 @@ Feature: Request the authorized user
 	As a user
 
 Scenario: Requesting the authorized user
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /me"
 	Then I get a "200" response
 	And the correct headers are set

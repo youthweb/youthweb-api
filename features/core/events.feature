@@ -3,7 +3,7 @@ Feature: Interact with an event
 	As a user
 
 Scenario: Requesting the events without specific time range
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /events"
 	Then I get a "200" response
 	And the correct headers are set
@@ -24,7 +24,7 @@ Scenario: Requesting the events without specific time range
 	And the "links" property is an object
 
 Scenario: Requesting a event
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /events/4567"
 	Then I get a "200" response
 	And the correct headers are set
@@ -70,7 +70,7 @@ Scenario: Requesting a event
 		"""
 
 Scenario: Requesting an event without authorization
-	Given I have set the correct headers without authorization
+	Given an unauthorized user has set the correct headers
 	When I request "GET /events/4567"
 	Then I get a "401" response
 	And the correct headers are set
@@ -83,7 +83,7 @@ Scenario: Requesting an event without authorization
 	And the "title" property is a string equalling "Unauthorized"
 
 Scenario: Requesting a not existing event
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /events/404"
 	Then I get a "404" response
 	And the correct headers are set
@@ -96,7 +96,7 @@ Scenario: Requesting a not existing event
 	And the "title" property is a string equalling "Resource not found"
 
 Scenario: Requesting the author of an event
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /events/4567/author"
 	Then I get a "200" response
 	And the correct headers are set
@@ -128,7 +128,7 @@ Scenario: Requesting the author of an event
 		"""
 
 Scenario: Requesting the author relationship of an event
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /events/4567/relationships/author"
 	Then I get a "200" response
 	And the correct headers are set

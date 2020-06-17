@@ -3,7 +3,7 @@ Feature: Interact with a post
 	As a user
 
 Scenario: Requesting a post
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98"
 	Then I get a "200" response
 	And the correct headers are set
@@ -54,7 +54,7 @@ Scenario: Requesting a post
 		"""
 
 Scenario: Requesting a post without permission
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/f5a5a2c3-041b-4985-907c-74a2131efc98"
 	Then I get a "403" response
 	And the correct headers are set
@@ -67,7 +67,7 @@ Scenario: Requesting a post without permission
 	And the "title" property is a string equalling "Forbidden"
 
 Scenario: Requesting a not existing post
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/45a5a2c3-041b-4985-907c-74a2131efc98"
 	Then I get a "404" response
 	And the correct headers are set
@@ -80,7 +80,7 @@ Scenario: Requesting a not existing post
 	And the "title" property is a string equalling "Resource not found"
 
 Scenario: Requesting the author of a post
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author"
 	Then I get a "200" response
 	And the correct headers are set
@@ -112,7 +112,7 @@ Scenario: Requesting the author of a post
 		"""
 
 Scenario: Requesting the author relationship of a post
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author"
 	Then I get a "200" response
 	And the correct headers are set
@@ -135,7 +135,7 @@ Scenario: Requesting the author relationship of a post
 		"""
 
 Scenario: Requesting the parent of a post
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent"
 	Then I get a "200" response
 	And the correct headers are set
@@ -167,7 +167,7 @@ Scenario: Requesting the parent of a post
 		"""
 
 Scenario: Requesting the parent relationship of a post
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/parent"
 	Then I get a "200" response
 	And the correct headers are set
@@ -188,7 +188,7 @@ Scenario: Requesting the parent relationship of a post
 		"""
 
 Scenario: Requesting a post without permission
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/f5a5a2c3-041b-4985-907c-74a2131efc98"
 	Then I get a "403" response
 	And the correct headers are set
@@ -201,7 +201,7 @@ Scenario: Requesting a post without permission
 	And the "title" property is a string equalling "Forbidden"
 
 Scenario: Requesting a not existing post
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/45a5a2c3-041b-4985-907c-74a2131efc98"
 	Then I get a "404" response
 	And the correct headers are set
@@ -214,7 +214,7 @@ Scenario: Requesting a not existing post
 	And the "title" property is a string equalling "Resource not found"
 
 Scenario: Create a post on an not existing user
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	And I have the payload
 		"""
 		{"data":{"type":"posts","attributes":{"title":"The post title","content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu.","view_allowed_for":"users","comments_allowed":true}}}
@@ -231,7 +231,7 @@ Scenario: Create a post on an not existing user
 	And the "title" property is a string equalling "Resource not found"
 
 Scenario: Create a post without permission
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	And I have the payload
 		"""
 		{"data":{"type":"posts","attributes":{"title":"The post title","content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu.","view_allowed_for":"users","comments_allowed":true}}}
@@ -248,7 +248,7 @@ Scenario: Create a post without permission
 	And the "title" property is a string equalling "Forbidden"
 
 Scenario: Create a post with empty content
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	And I have the payload
 		"""
 		{"data":{"type":"posts","attributes":{"title":"The post title","content":"","view_allowed_for":"users","comments_allowed":true}}}
@@ -267,7 +267,7 @@ Scenario: Create a post with empty content
 	And the "detail" property is a string equalling "The field `attributes.content` can't be empty."
 
 Scenario: Create a post with missing content
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	And I have the payload
 		"""
 		{"data":{"type":"posts","attributes":{"title":"The post title","view_allowed_for":"users","comments_allowed":true}}}

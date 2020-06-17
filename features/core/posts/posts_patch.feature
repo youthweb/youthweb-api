@@ -2,9 +2,9 @@ Feature: Interact with a post
 	In order to update a post or his relationships
 	As a user
 
-Scenario: Updating an own post
-	Given I have set the correct headers with valid authorization
-	And I have the payload
+Scenario: Updating an own post is possible
+	Given Alice has set the correct headers
+	And she has the payload
 		"""
 		{"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}
 		"""
@@ -57,8 +57,8 @@ Scenario: Updating an own post
 		parent
 		"""
 
-Scenario: Updating a post without authorization
-	Given I have set the correct headers without authorization
+Scenario: Updating a post without authorization is not possible
+	Given an unauthorized user has set the correct headers
 	And I have the payload
 		"""
 		{"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}

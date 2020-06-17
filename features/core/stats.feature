@@ -3,7 +3,7 @@ Feature: stats
 	As a visitor
 
 Scenario: Viewing the account stats
-	Given I have set the correct headers without authorization
+	Given an unauthorized user has set the correct headers
 	When I request "GET /stats/account"
 	Then I get a "200" response
 	And the correct headers are set
@@ -38,7 +38,7 @@ Scenario: Viewing the account stats
 		"""
 
 Scenario: Viewing the forum stats
-	Given I have set the correct headers without authorization
+	Given an unauthorized user has set the correct headers
 	When I request "GET /stats/forum"
 	Then I get a "200" response
 	And the correct headers are set
@@ -68,7 +68,7 @@ Scenario: Viewing the forum stats
 		"""
 
 Scenario: Viewing the groups stats
-	Given I have set the correct headers without authorization
+	Given an unauthorized user has set the correct headers
 	When I request "GET /stats/groups"
 	Then I get a "200" response
 	And the correct headers are set

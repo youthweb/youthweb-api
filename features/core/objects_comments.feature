@@ -3,7 +3,7 @@ Feature: Interact with the comments of an object
 	As a user
 
 Scenario: Requesting the comments from a post
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments"
 	Then I get a "200" response
 	And the correct headers are set
@@ -24,7 +24,7 @@ Scenario: Requesting the comments from a post
 	And the "links" property is an object
 
 Scenario: Requesting the comments from a post without comments
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/0ca5a2c3-041b-4985-907c-74a2131efc98/comments"
 	Then I get a "200" response
 	And the correct headers are set
@@ -32,7 +32,7 @@ Scenario: Requesting the comments from a post without comments
 	And the "data" property is an empty array
 
 Scenario: Requesting the comments relationships from a post
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/comments"
 	Then I get a "200" response
 	And the correct headers are set
@@ -45,7 +45,7 @@ Scenario: Requesting the comments relationships from a post
 	And the "id" property exists
 
 Scenario: Requesting comments from a not existing post
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	When I request "GET /posts/45a5a2c3-041b-4985-907c-74a2131efc98/comments"
 	Then I get a "404" response
 	And the correct headers are set
@@ -58,7 +58,7 @@ Scenario: Requesting comments from a not existing post
 	And the "title" property is a string equalling "Resource not found"
 
 Scenario: Creating a comment on a post
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	And I have the payload
 		"""
 		{"data":{"type":"comments","attributes":{"content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu."}}}
@@ -93,7 +93,7 @@ Scenario: Creating a comment on a post
 		"""
 
 Scenario: Create a comment on a not existing post
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	And I have the payload
 		"""
 		{"data":{"type":"comments","attributes":{"content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu."}}}
@@ -110,7 +110,7 @@ Scenario: Create a comment on a not existing post
 	And the "title" property is a string equalling "Resource not found"
 
 Scenario: Create a comment without permission
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	And I have the payload
 		"""
 		{"data":{"type":"comments","attributes":{"content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu."}}}
@@ -127,7 +127,7 @@ Scenario: Create a comment without permission
 	And the "title" property is a string equalling "Forbidden"
 
 Scenario: Create a comment with empty content
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	And I have the payload
 		"""
 		{"data":{"type":"comments","attributes":{"content":""}}}
@@ -146,7 +146,7 @@ Scenario: Create a comment with empty content
 	And the "detail" property is a string equalling "The field `attributes.content` can't be empty."
 
 Scenario: Create a comment with missing content
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	And I have the payload
 		"""
 		{"data":{"type":"comments","attributes":{}}}

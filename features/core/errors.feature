@@ -16,7 +16,7 @@ Scenario: Calling the BaseUrl
 	And the "title" property equals "Resource not found"
 
 Scenario: Sending a request with invalid JSON API
-	Given I have set the correct headers with valid authorization
+	Given Alice has set the correct headers
 	And I have the payload
 		"""
 		{"data":{"type":"posts","attributes":{"content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu."}},"errors":[{"detail":"The members data and errors MUST NOT coexist in the same document."}]}
