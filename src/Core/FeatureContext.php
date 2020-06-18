@@ -127,6 +127,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
     {
         $bearerHeaders = [
             'Alice' => 'valid_JWT',
+            'Bob' => 'valid_token_of_bob',
         ];
 
         if (! array_key_exists($name, $bearerHeaders)) {

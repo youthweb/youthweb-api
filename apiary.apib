@@ -531,6 +531,27 @@ Ein Post Objekt hat die folgenden Attribute
 
 + Request (application/vnd.api+json)
 
+    Einen fremden Post zu bearbeiten gibt einen Fehler zurück.
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+            Authorization: Bearer valid_token_of_bob
+
+    + Attributes
+
+        + data (Post Patch)
+
++ Response 403 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+
+    + Attributes (Forbidden Error)
+
++ Request (application/vnd.api+json)
+
     Post zu bearbeiten, wenn man nicht eingeloggt ist, gibt einen Fehler zurück.
 
     + Headers
