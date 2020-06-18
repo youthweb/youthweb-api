@@ -3,7 +3,7 @@ Feature: Interact with a friend
     As a user
 
 Scenario: Requesting a friend
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /friends/45678"
     Then I get a "200" response
     And the correct headers are set
@@ -39,7 +39,7 @@ Scenario: Requesting a friend
         """
 
 Scenario: Requesting a friend without authorization
-    Given an unauthorized user has set the correct headers
+    Given I am an unauthorized user
     When I request "GET /friends/45678"
     Then I get a "401" response
     And the correct headers are set
@@ -52,7 +52,7 @@ Scenario: Requesting a friend without authorization
     And the "title" property is a string equalling "Unauthorized"
 
 Scenario: Requesting a not existing friend
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /friends/404"
     Then I get a "404" response
     And the correct headers are set
@@ -65,7 +65,7 @@ Scenario: Requesting a not existing friend
     And the "title" property is a string equalling "Resource not found"
 
 Scenario: Requesting the from-user of a friend
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /friends/45678/from"
     Then I get a "200" response
     And the correct headers are set
@@ -97,7 +97,7 @@ Scenario: Requesting the from-user of a friend
         """
 
 Scenario: Requesting the from-user relationship of a friend
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /friends/45678/relationships/from"
     Then I get a "200" response
     And the correct headers are set
@@ -120,7 +120,7 @@ Scenario: Requesting the from-user relationship of a friend
         """
 
 Scenario: Requesting the to-user of a friend
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /friends/45678/to"
     Then I get a "200" response
     And the correct headers are set
@@ -152,7 +152,7 @@ Scenario: Requesting the to-user of a friend
         """
 
 Scenario: Requesting the to-user relationship of a friend
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /friends/45678/relationships/to"
     Then I get a "200" response
     And the correct headers are set

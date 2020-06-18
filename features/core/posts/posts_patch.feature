@@ -3,8 +3,8 @@ Feature: Interact with a post
     As a user
 
 Scenario: Updating an own post is possible
-    Given Alice has set the correct headers
-    And she has the payload
+    Given I am authorized as Alice
+    And I have the payload
         """
         {"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}
         """
@@ -58,7 +58,7 @@ Scenario: Updating an own post is possible
         """
 
 Scenario: Updating a post without authorization is not possible
-    Given an unauthorized user has set the correct headers
+    Given I am an unauthorized user
     And I have the payload
         """
         {"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}

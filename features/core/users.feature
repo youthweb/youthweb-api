@@ -3,7 +3,7 @@ Feature: Interact with a user
     As a user
 
 Scenario: Requesting a user
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /users/123456"
     Then I get a "200" response
     And the correct headers are set
@@ -60,7 +60,7 @@ Scenario: Requesting a user
         """
 
 Scenario: Requesting the friends of a user
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /users/123456/friends"
     Then I get a "200" response
     And the correct headers are set

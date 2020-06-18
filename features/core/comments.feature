@@ -3,7 +3,7 @@ Feature: Interact with comments
     As a user
 
 Scenario: Requesting a comment
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /comments/345678"
     Then I get a "200" response
     And the correct headers are set
@@ -33,7 +33,7 @@ Scenario: Requesting a comment
         """
 
 Scenario: Requesting the author of a comment
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /comments/345678/author"
     Then I get a "200" response
     And the correct headers are set
@@ -65,7 +65,7 @@ Scenario: Requesting the author of a comment
         """
 
 Scenario: Requesting the author relationship of a comment
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /comments/345678/relationships/author"
     Then I get a "200" response
     And the correct headers are set
@@ -88,7 +88,7 @@ Scenario: Requesting the author relationship of a comment
         """
 
 Scenario: Requesting the parent of a comment
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /comments/345678/parent"
     Then I get a "200" response
     And the correct headers are set
@@ -114,7 +114,7 @@ Scenario: Requesting the parent of a comment
         """
 
 Scenario: Requesting the parent relationship of a comment
-    Given Alice has set the correct headers
+    Given I am authorized as Alice
     When I request "GET /comments/345678/relationships/parent"
     Then I get a "200" response
     And the correct headers are set

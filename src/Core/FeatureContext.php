@@ -20,6 +20,11 @@ use Psr\Http\Message\ResponseInterface;
 class FeatureContext extends TestCase implements Context, SnippetAcceptingContext
 {
     /**
+     * @var string
+     */
+    private $baseUrl;
+
+    /**
      * string the current api version that requests and responses should have
      */
     protected $apiVersion;
@@ -68,13 +73,39 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
      */
     public function __construct($baseUrl, $apiVersion = '0.16')
     {
-        $this->client = new Client(array('base_uri' => $baseUrl));
-
+        $this->baseUrl = rtrim($baseUrl, '/');
         $this->apiVersion = strval($apiVersion);
+
+        $this->client = new Client(array('base_uri' => $this->baseUrl));
     }
 
     /**
-     * @Given /^(I have|she has) the payload$/
+     * @Given an user named :arg1
+     */
+    public function anUserNamed($arg1)
+    {
+        // do nothing
+    }
+
+    /**
+     * @Given :arg1 owns a post with id :arg2
+     */
+    public function ownsAPostWithId($arg1, $arg2)
+    {
+        // do nothing
+    }
+
+    /**
+     * @Given the post can be viewed by :arg1
+     */
+    public function thePostCanBeViewedBy($arg1)
+    {
+        // do nothing
+    }
+
+
+    /**
+     * @Given /^I have the payload$/
      */
     public function iHaveThePayload(PyStringNode $requestPayload)
     {
@@ -90,9 +121,9 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
     }
 
     /**
-     * @Given :arg1 has set the correct headers
+     * @Given I am authorized as :arg1
      */
-    public function hasSetTheCorrectHeaders($name)
+    public function iAmAuthorizedAsAlice($name)
     {
         $bearerHeaders = [
             'Alice' => 'valid_JWT',
@@ -111,9 +142,9 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
     }
 
     /**
-     * @Given an unauthorized user has set the correct headers
+     * @Given I am an unauthorized user
      */
-    public function anUnauthorizedUserHasSetTheCorrectHeaders()
+    public function iAmAnUnauthorizedUser()
     {
         $this->setRequiredHeaders();
     }
@@ -139,11 +170,9 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
             $content = implode(', ', $content);
         });
 
-        $method = strtolower($httpMethod);
-
         $request = new Request(
             $httpMethod,
-            $resource,
+            $this->baseUrl . $resource,
             $headers,
             $this->requestPayload
         );
@@ -221,7 +250,6 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 
         $this->assertFalse(empty($location), $location);
     }
-
 
     /**
      * @Given /^the response contains (\d+) items$/
