@@ -23,13 +23,21 @@ Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.ver
 
 ## Authentication
 
-Alle Informationen zur Authentication findest du hier: https://developer.youthweb.net/api_general_oauth2.html
+Um die API im Namen eines Users anzufragen, wird ein Access-Token benötigt, dass bei jedem Request im Header mitgeschickt werden muss:
+
+```
+Authorization: Bearer valid_JWT
+```
+
+Mehr Informationen zur Authentication findest du hier: https://developer.youthweb.net/api_general_oauth2.html
 
 # Group General
 
 ## Index [/]
 
-### Request no resource [GET]
+### Keine Resource anfragen [GET]
+
+Das Anfragen der API-Url ohne eine Resource ist nicht möglich und gibt einen Fehler zurück.
 
 + Request (application/vnd.api+json)
 
@@ -51,14 +59,10 @@ Alle Informationen zur Authentication findest du hier: https://developer.youthwe
 
 ## Comment [/comments/{comment_id}]
 
-Ein Comment Objekt hat die folgenden Attribute
-
-+ Attributes (Comment Base)
-
 + Parameters
     + comment_id: `345678` (required, string) - ID of the comment
 
-### Daten zu einem Comment abrufen [GET]
+### Einen Comment abrufen [GET]
 
 + Request (application/vnd.api+json)
 
@@ -190,7 +194,7 @@ Ein Comment Objekt hat die folgenden Attribute
     + `start_datetime`: `2017-06-01T00:00:00` (string, optional) - Ein ISO 6801 Datum ohne Timezone-Offset in UTC Timezone für die untere Startzeit der Events. Wenn nicht angegeben, wird aktuelle Zeitpunkt angenommen. Ein angegebener Timezone-Offset wird ignoriert.
     + `end_datetime`: `2017-08-01T00:00:00` (string, optional) - Ein ISO 6801 Datum ohne Timezone-Offset in UTC Timezone für die obere Startzeit der Events. Wenn nicht angegeben, wird ein Monat nach `start_datetime` angenommen. Ein angegebener Timezone-Offset wird ignoriert.
 
-### Eine Liste von Events anfordern [GET]
+### Eine Liste von Events abrufen [GET]
 
 + Request (application/vnd.api+json)
 
@@ -213,16 +217,10 @@ Ein Comment Objekt hat die folgenden Attribute
 
 ## Event [/events/{event_id}]
 
-Ein Event Objekt hat die folgenden Attribute
-
-+ type
-+ id - The Event-ID
-+ attributes - An object of attributes.
-
 + Parameters
     + event_id: `4567` (required, string) - ID of the event
 
-### Daten zu einem Event abrufen [GET]
+### Ein Event abrufen [GET]
 
 + Request (application/vnd.api+json)
 
@@ -314,10 +312,22 @@ Ein Event Objekt hat die folgenden Attribute
 
 ## Friend [/friends/{friend_id}]
 
+Dieser Endpoint kann zum Lesen eines `Friends` verwendet werden.
+
+`Friends` sind die Verbindungspunkte zwischen zwei User. User lassen sich mithilfe der `Friends` als [gerichteter Graph](https://de.wikipedia.org/wiki/Graph_(Graphentheorie)) abbilden, wobei jeder User einen Knoten und jeder `Friend` eine Kante darstellt.
+
+![Grafik 1](images/Friend_Graph1.png)
+
+Die Richtung der Kante wird durch die Relationships `from` und `to` bestimmt. Damit bestehen zwischen zwei befreundeten Usern immer zwei `Friend`-Kanten, die in die jeweils andere Richtung zeigen.
+
+Die Kante `Friend 1` beinhaltet in der `from`-Relationship den `User A` und in der `to`-Relationship den `User B`.
+
+Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B` und in der `to`-Relationship den `User A`.
+
 + Parameters
     + friend_id: `45678` (required, string) - ID of the friend
 
-### Daten zu einem Friend abrufen [GET]
+### Einen Friend abrufen [GET]
 
 + Request (application/vnd.api+json)
 
@@ -459,12 +469,6 @@ Ein Event Objekt hat die folgenden Attribute
 # Group Posts
 
 ## Post [/posts/{post_id}]
-
-Ein Post Objekt hat die folgenden Attribute
-
-+ type
-+ id - Die Post-ID
-+ attributes - An object of attributes.
 
 + Parameters
     + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID des Posts
@@ -899,9 +903,9 @@ Für die Statistiken ist keine Autorisierung nötig.
 
 ## Account Stats [/stats/account]
 
-Liefert Statistiken zu den Accounts.
-
 ### Retrieve the account stats [GET]
+
+Liefert Statistiken zu den Accounts.
 
 + Request (application/vnd.api+json)
 
@@ -934,9 +938,9 @@ Liefert Statistiken zu den Accounts.
 
 ## Forum Stats [/stats/forum]
 
-Liefert Statistiken zum Forum
-
 ### Retrieve the forum stats [GET]
+
+Liefert Statistiken zum Forum
 
 + Request (application/vnd.api+json)
 
@@ -964,9 +968,9 @@ Liefert Statistiken zum Forum
 
 ## Groups Stats [/stats/groups]
 
-Liefert Statistiken zu den Gruppen.
-
 ### Retrieve the groups stats [GET]
+
+Liefert Statistiken zu den Gruppen.
 
 + Request (application/vnd.api+json)
 
@@ -994,13 +998,48 @@ Liefert Statistiken zu den Gruppen.
 
 # Group Users
 
+## Me [/me]
+
+### Daten zum autorisierten User abrufen [GET]
+
+Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /users/{user_id}, wenn die User-ID des autorisierten Users nicht bekannt ist.
+
++ Request (application/vnd.api+json)
+
+    Daten als authorisierten User können abgefragt werden
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (User Base)
+
++ Request (application/vnd.api+json)
+
+    Als unauthorisierter User kann man keine Daten abfragen
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 401 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes (Unauthorized Error)
+
 ## User [/users/{user_id}]
-
-Ein User Objekt hat die folgenden Attribute
-
-+ type
-+ id - The User-ID
-+ attributes - An object of attributes.
 
 + Parameters
     + user_id: 123456 (required, number) - ID of the user in form of an integer
@@ -1024,14 +1063,14 @@ Ein User Objekt hat die folgenden Attribute
 
         + data (User Base)
 
-## Posts of an User [/users/{user_id}/posts]
-
-Liefert die Posts von der Pinnwand eines Users
+## Posts eines Users [/users/{user_id}/posts]
 
 + Parameters
     + user_id: 123456 (required, number) - ID of the user
 
 ### Posts zu einem User abrufen [GET]
+
+Liefert die Posts von der Pinnwand eines Users
 
 + Request (application/vnd.api+json)
 
@@ -1053,6 +1092,8 @@ Liefert die Posts von der Pinnwand eines Users
             + (User Base)
 
 ### Post zu einem User erstellen [POST]
+
+Erstellt einen Posts an der Pinnwand eines Users
 
 + Request (application/vnd.api+json)
 
@@ -1179,12 +1220,12 @@ Liefert die Posts von der Pinnwand eines Users
 
 ## Posts Relationships of an User [/users/{user_id}/relationships/posts]
 
-Liefert die Posts Relationships von der Pinnwand eines Users
-
 + Parameters
     + user_id: 123456 (required, number) - ID of the user
 
 ### Posts Relationships zu einem User abrufen [GET]
+
+Liefert die Posts Relationships von der Pinnwand eines Users
 
 + Request (application/vnd.api+json)
 
@@ -1206,9 +1247,17 @@ Liefert die Posts Relationships von der Pinnwand eines Users
             + self: `/users/123456/relationships/posts` (string)
             + related: `/users/123456/posts` (string)
 
-## Friends of an User [/users/{user_id}/friends]
+## Die Freunde eines Users [/users/{user_id}/friends]
 
-Liefert die Freunde eines Users
+Dieser Endpoint bietet die `/friends` Beziehungen zu einem User an.
+
+`Friends` sind die Verbindungspunkte zwischen zwei User. User lassen sich mithilfe der `Friends` als [gerichteter Graph](https://de.wikipedia.org/wiki/Graph_(Graphentheorie)) abbilden, wobei jeder User einen Knoten und jeder `Friend` eine Kante darstellt.
+
+![Grafik 2](images/Friend_Graph2.png)
+
+- Die Anfrage der Freunde von `User A` wird `Friend 1` ausliefern.
+- Die Anfrage der Freunde von `User B` wird `Friend 2` und `Friend 3` ausliefern.
+- Die Anfrage der Freunde von `User C` wird `Friend 4` ausliefern.
 
 + Parameters
     + user_id: 123456 (required, number) - ID of the user
@@ -1234,47 +1283,6 @@ Liefert die Freunde eines Users
         + included (array)
             + (User Base)
 
-## Me [/me]
-
-Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /users/{user_id}, wenn die User-ID des autorisierten Users nicht bekannt ist.
-
-### Daten zum autorisierten User abrufen [GET]
-
-+ Request (application/vnd.api+json)
-
-    Daten als authorisierten User können abgefragt werden
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
-            Authorization: Bearer valid_JWT
-
-+ Response 200 (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
-
-    + Attributes
-
-        + data (User Base)
-
-+ Request (application/vnd.api+json)
-
-    Als unauthorisierter User kann man keine Daten abfragen
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
-
-+ Response 401 (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
-
-    + Attributes (Unauthorized Error)
-
 # Data Structures
 
 ## Unauthorized Error (object)
@@ -1295,8 +1303,8 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
 
 + errors (array)
     - (object)
-        + status: `404`
-        + title: `Resource not found`
+        + status: `404` (string)
+        + title: `Resource not found` (string)
 
 ## Comment Base (object)
 
@@ -1396,10 +1404,10 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
     + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
     + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
     + `comments_count`: 15 (number) - Die Gesamtanzahl der Kommentare zu diesem Post
-    + `reactions_given`: (array) - Die vom authorisierten User vergebenen Reaktionen zu diesem Post
-        - `:+1:`
-    + `reactions_count`: (object) - Vergebene Reaktionen und deren Anzahl zu diesem Post
-        + `:+1:`: 1
+    + `reactions_given` (array) - Die vom authorisierten User vergebenen Reaktionen zu diesem Post
+        + `:+1:` (string)
+    + `reactions_count` (object) - Vergebene Reaktionen und deren Anzahl zu diesem Post
+        + `:+1:`: 1 (number)
     + `created_at`: `2017-01-01T17:51:02+00:00` (string) - Zeitpunkt der Erstellung als ISO-8601
     + `updated_at`: `2017-01-03T13:17:11+00:00` (string, nullable) - Zeitpunkt der letzten Änderung als ISO-8601
 + `relationships` (object)
@@ -1433,10 +1441,10 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
     + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
     + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
     + `comments_count`: 15 (number) - Die Gesamtanzahl der Kommentare zu diesem Post
-    + `reactions_given`: (array) - Die vom authorisierten User vergebenen Reaktionen zu diesem Post
-        - `:+1:`
-    + `reactions_count`: (object) - Vergebene Reaktionen und deren Anzahl zu diesem Post
-        + `:+1:`: 1
+    + `reactions_given` (array) - Die vom authorisierten User vergebenen Reaktionen zu diesem Post
+        + `:+1:` (string)
+    + `reactions_count` (object) - Vergebene Reaktionen und deren Anzahl zu diesem Post
+        + `:+1:`: 1 (number)
     + `created_at`: `2017-01-01T17:51:02+00:00` (string) - Zeitpunkt der Erstellung als ISO-8601
     + `updated_at`: `2017-01-03T13:17:11+00:00` (string, nullable) - Zeitpunkt der letzten Änderung als ISO-8601
 + `relationships` (object)
