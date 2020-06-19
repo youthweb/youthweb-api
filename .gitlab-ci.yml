@@ -29,7 +29,7 @@ behat:
     - nodejs --version
     - npm --version
     - npm install
-    - ./node_modules/.bin/drakov --stealthmode -f "./*.apib" -p 3000&
+    - ./node_modules/.bin/drakov --stealthmode -f "./spec/*.apib" -p 3000&
     - php -v
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
