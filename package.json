@@ -6,7 +6,7 @@
     "drakov": "^1.0.4"
   },
   "scripts": {
-    "server": "drakov -f \"./*.apib\" -p 3000",
+    "server": "drakov -f \"./spec/*.apib\" -p 3000",
     "test": "vendor/bin/behat --suite=core",
     "build": "cd docs && bundle exec jekyll build --source ./ --destination ../public/",
     "docs:build": "cd docs && bundle exec jekyll build --source ./ --destination ./_site",
