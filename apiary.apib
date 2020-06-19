@@ -506,16 +506,16 @@ Ein Post Objekt hat die folgenden Attribute
 
 + Request (application/vnd.api+json)
 
-    Titel und Content bearbeiten und eine +1 Reaktion vergeben
+    Der eigene Post kann bearbeitet werden
 
     + Headers
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
             Authorization: Bearer valid_JWT
 
-    + Attributes
+    + Body
 
-        + data (Post Patch)
+            {"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}
 
 + Response 200 (application/vnd.api+json)
 
@@ -531,16 +531,41 @@ Ein Post Objekt hat die folgenden Attribute
 
 + Request (application/vnd.api+json)
 
-    Einen fremden Post zu bearbeiten gibt einen Fehler zurück.
+    Bei einen fremden Post kann nur die gegebenen Reactions bearbeitet werden
 
     + Headers
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
             Authorization: Bearer valid_token_of_bob
 
+    + Body
+
+            {"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"reactions_given":[":+1:"]}}}
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+
     + Attributes
 
-        + data (Post Patch)
+        + data (Post Patched)
+        + included (array)
+            + (User Base)
+
++ Request (application/vnd.api+json)
+
+    Titel und Content in einem fremden Post zu bearbeiten gibt einen Fehler zurück.
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+            Authorization: Bearer valid_token_of_bob
+
+    + Body
+
+            {"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}
 
 + Response 403 (application/vnd.api+json)
 
@@ -552,15 +577,15 @@ Ein Post Objekt hat die folgenden Attribute
 
 + Request (application/vnd.api+json)
 
-    Post zu bearbeiten, wenn man nicht eingeloggt ist, gibt einen Fehler zurück.
+    Einen Post zu bearbeiten, wenn man nicht eingeloggt ist, gibt einen Fehler zurück.
 
     + Headers
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
-    + Attributes
+    + Body
 
-        + data (Post Patch)
+            {"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}
 
 + Response 401 (application/vnd.api+json)
 
@@ -1358,16 +1383,6 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent` (string)
 + links (object)
     + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Der Link zu dieser Resource
-
-## Post Patch (object)
-
-+ type: `posts` (string)
-+ id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Die Post-ID
-+ attributes (object)
-    + `title`: `The new post title` (string) - Der Title, kann auch leer sein
-    + `content`: `New post content` (string) - Der Post-Inhalt
-    + `reactions_given`: (array) - Die vom authorisierten User vergebenen Reaktionen zu diesem Post
-        - `:+1:`
 
 ## Post Patched (object)
 
