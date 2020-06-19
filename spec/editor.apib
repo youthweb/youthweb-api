@@ -1,0 +1,20 @@
+FORMAT: 1A
+HOST: https://youthweb.net
+
+# Youthweb Editor API
+
+# Parser [/editor/parser?target=html]
+
+## BBCode zu HTML parser lassen [POST]
+
++ Request (json)
+
+    + Body
+
+            {"data":{"content-type":"text/plain","content":"[b]Bold text[/b]"}}
+
++ Response 200 (json)
+
+    + Body
+
+        {"data":{"content-type":"text/html","content":"<p><b>Bold text</b></p>"}}
