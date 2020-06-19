@@ -2,19 +2,6 @@ Feature: Error Tests
     In order to use the API
     As a visitor
 
-Scenario: Calling the BaseUrl
-    Given I have set the "Content-Type" header with "application/vnd.api+json"
-    And I have set the "Accept" header with "application/vnd.api+json"
-    And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.15"
-    When I request "GET /"
-    Then I get a "404" response
-    And the correct headers are set
-    And the "errors" property exists
-    And the "errors" property is an array
-    And scope into the first "errors" property
-    And the "status" property equals "404"
-    And the "title" property equals "Resource not found"
-
 Scenario: Sending a request with invalid JSON API
     Given I am authorized as Alice
     And I have the payload
@@ -132,18 +119,3 @@ Scenario: Using the API with unsupported version parameter
     And the "title" property is a string equalling "Not Acceptable"
     And the "detail" property exists
     And the "detail" property is a string equalling "You have specified an unsupported API version. Please use the current API version 0.15"
-
-Scenario: Request the /me resource without a Bearer token
-    Given I have set the "Content-Type" header with "application/vnd.api+json"
-    And I have set the "Accept" header with "application/vnd.api+json"
-    And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.15"
-    When I request "GET /me"
-    Then I get a "401" response
-    And the correct headers are set
-    And the "errors" property exists
-    And the "errors" property is an array
-    And scope into the first "errors" property
-    And the "status" property exists
-    And the "status" property is a string equalling "401"
-    And the "title" property exists
-    And the "title" property is a string equalling "Unauthorized"

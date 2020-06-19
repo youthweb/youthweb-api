@@ -7,23 +7,6 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
 # Group General
 
-## Index [/]
-
-### Request no resource [GET]
-+ Request (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
-
-+ Response 404 (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
-
-    + Attributes (Not Found Error)
-
 ## Invalid JSON API [/users/187654/posts]
 
 ### Create a post with invalid JSON API [POST]
@@ -156,25 +139,6 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
     + Body
 
             {"errors":[{"status":"406","title":"Not Acceptable","detail":"You have specified an unsupported API version. Please use the current API version 0.15"}]}
-
-# Group Users
-
-## Me [/me]
-
-### Request the /me resource without Bearer token [GET]
-+ Request (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
-
-+ Response 401 (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
-
-    + Attributes (Unauthorized Error)
 
 # Group Posts
 
@@ -492,13 +456,6 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
     + Attributes (Not Found Error)
 
 # Data Structures
-
-## Unauthorized Error (object)
-
-+ errors (array)
-    - (object)
-        + status: `401`
-        + title: `Unauthorized`
 
 ## Forbidden Error (object)
 

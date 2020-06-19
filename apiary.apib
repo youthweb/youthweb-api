@@ -23,7 +23,29 @@ Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.ver
 
 ## Authentication
 
-Alle Informationen zur Authentication findest du hier: http://developer.youthweb.net/api_general_oauth2.html
+Alle Informationen zur Authentication findest du hier: https://developer.youthweb.net/api_general_oauth2.html
+
+# Group General
+
+## Index [/]
+
+### Request no resource [GET]
+
++ Request (application/vnd.api+json)
+
+    Anfragen ohne Resource gibt einen 404 Fehler zurück
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+
+    + Attributes (Not Found Error)
 
 # Group Comments
 
@@ -31,9 +53,7 @@ Alle Informationen zur Authentication findest du hier: http://developer.youthweb
 
 Ein Comment Objekt hat die folgenden Attribute
 
-+ type
-+ id - The comment-ID
-+ attributes - An object of attributes.
++ Attributes (Comment Base)
 
 + Parameters
     + comment_id: `345678` (required, string) - ID of the comment
@@ -1222,6 +1242,8 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
 
 + Request (application/vnd.api+json)
 
+    Daten als authorisierten User können abgefragt werden
+
     + Headers
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
@@ -1236,6 +1258,22 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
     + Attributes
 
         + data (User Base)
+
++ Request (application/vnd.api+json)
+
+    Als unauthorisierter User kann man keine Daten abfragen
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+
++ Response 401 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+
+    + Attributes (Unauthorized Error)
 
 # Data Structures
 

@@ -58,3 +58,16 @@ Scenario: Requesting the authorized user
         """
         posts
         """
+
+Scenario: Request the /me resource without a Bearer token
+    Given I am an unauthorized user
+    When I request "GET /me"
+    Then I get a "401" response
+    And the correct headers are set
+    And the "errors" property exists
+    And the "errors" property is an array
+    And scope into the first "errors" property
+    And the "status" property exists
+    And the "status" property is a string equalling "401"
+    And the "title" property exists
+    And the "title" property is a string equalling "Unauthorized"
