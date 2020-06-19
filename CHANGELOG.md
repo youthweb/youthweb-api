@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...develop)
 
+### Added
+
+- update own `Post` or add reactions to other `Post` by using the endpoint `PATCH /posts/<post_id>`
+- new attribute `content_html` in `Post` resources with the parsed HTML content
+- new attribute `reactions_given` in `Post` resources with an array of reactions given by the authorized user
+- new attribute `reactions_count` in `Post` resources with an object of reactions and counts given by all users
+
+### Changed
+
+- introduce characters `Alice` and `Bob` in features allowing a more natural language
+
 ### Deprecated
 
 - Version 0.15 is now deprecated and support will be dropped in future. If your apps use this version upgrade them at least to version 0.16.
