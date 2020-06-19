@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...develop)
 
+### Deprecated
+
+- Version 0.15 is now deprecated and support will be dropped in future. If your apps use this version upgrade them at least to version 0.16.
+
+### Removed
+
+- **Breaking:** The support for version 0.13 and 0.14 was dropped. Requests with this versions and below will get a 406 error response.
+
 ## [0.15.2 - 2020-06-09](https://gitlab.com/youthweb/youthweb-api/compare/0.15.1...0.15.2)
 
 ### Changed

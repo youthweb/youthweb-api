@@ -6,4 +6,4 @@ default:
             contexts:
                 - Youthweb\Api\Core\FeatureContext:
                     baseUrl: "http://localhost:3000/"
-                    apiVersion: "0.15"
+                    apiVersion: "0.16"

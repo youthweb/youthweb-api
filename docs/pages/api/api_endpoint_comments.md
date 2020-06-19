@@ -18,7 +18,7 @@ Dieser Endpoint kann zum Lesen eines Comments verwendet werden.
 
 ```
 GET https://api.youthweb.net/comments/345678
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
 ```
@@ -35,7 +35,7 @@ Für den Request können keine Parameter angegeben werden.
 
 ```
 Status: 200 OK
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 Content-Type: application/vnd.api+json
 
 {
