@@ -52,9 +52,16 @@ Content-Type: application/vnd.api+json
             "attributes": {
                 "title": "The post title",
                 "content": "Lorem ipsum dolor sit amet, sed libris elaboraret eu.",
+                "content_html": "<p>Lorem ipsum dolor sit amet, sed libris elaboraret eu.</p>",
                 "view_allowed_for": "users",
                 "comments_allowed": true,
                 "comments_count": 15,
+                "reactions_given": [
+                    ":+1:"
+                ],
+                "reactions_count": {
+                    ":+1:": 2
+                },
                 "created_at": "2016-01-01T20:00:00+00:00",
                 "updated_at": "2016-02-11T16:13:05+00:00",
             },
@@ -201,9 +208,12 @@ Location: /posts/d5a5a2c3-041b-4985-907c-74a2131efc98
         "attributes": {
             "title": "The post title",
             "content": "Lorem ipsum dolor sit amet, sed libris elaboraret eu.",
+            "content_html": "<p>Lorem ipsum dolor sit amet, sed libris elaboraret eu.</p>",
             "view_allowed_for": "users",
             "comments_allowed": true,
             "comments_count": 15,
+            "reactions_given": [],
+            "reactions_count": {},
             "created_at": "2016-01-01T20:00:00+00:00",
             "updated_at": "2016-02-11T16:13:05+00:00",
         },
