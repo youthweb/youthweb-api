@@ -18,3 +18,13 @@ Scenario: I can send BBCode and receive HTML
     And the "content-type" property is a string equalling "text/html"
     And the "content" property exists
     And the "content" property is a string equalling "<p><b>Bold text</b></p>"
+
+Scenario: I send the wrong content type header
+    Given I have set the "content-type" header with "text/html"
+    Given I have the payload
+        """
+        {"data":{"content-type":"text/plain","content":"[b]Bold text[/b]"}}
+        """
+    When I request "POST /editor/parser?target=html"
+    Then I get a "404" response
+    And the Content-Type Header "text/html; charset=utf-8" exists
