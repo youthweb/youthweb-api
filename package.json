@@ -8,7 +8,7 @@
   },
   "scripts": {
     "server": "drakov -f \"./spec/*.apib\" -p 3000 --watch",
-    "aglio": "aglio -i spec/apiary.apib --no-theme-condense -s",
+    "aglio": "aglio -i spec/apiary.apib --no-theme-condense --theme-full-width -s",
     "test": "vendor/bin/behat --suite=core",
     "build": "cd docs && bundle exec jekyll build --source ./ --destination ../public/",
     "docs:build": "cd docs && bundle exec jekyll build --source ./ --destination ./_site",
