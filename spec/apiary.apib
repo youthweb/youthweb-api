@@ -995,7 +995,147 @@ Liefert Statistiken zu den Gruppen.
             + links (object)
                 + self: `/stats/groups` (string) - Der Link zu dieser Resource
 
+# Group Timeline-Entries
 
+## Timeline-Entries [/timeline-entries{?page%5Blimit%5D}{?page%5Boffset%5D}]
+
++ Parameters
+    + `page%5Blimit%5D` (optional, number) - Limit the entries
+        + Default: `5`
+    + `page%5Boffset%5D` (optional, number) - Offset the entries
+        + Default: `0`
+
+### Globale Timeline-Entries abrufen [GET]
+
+Liefert die Einträge für die globale Timeline
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (array)
+            + (Timeline Entry)
+            + (Timeline Entry)
+
+## Timeline-Entrie [/timeline-entries/{entry_id}]
+
++ Parameters
+    + `entry_id` (required, string) - Uuid des Timeline-Entry
+
+### Einen Timeline-Entry abrufen [GET]
+
+Liefert einen Eintrag
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (Timeline Entry)
+
+## Die Timeline-Entries eines Users [/users/{user_id}/timeline-entries{?page%5Blimit%5D}{?page%5Boffset%5D}]
+
++ Parameters
+    + user_id (required, number) - ID of the user
+    + `page%5Blimit%5D` (optional, number) - Limit the entries
+        + Default: `5`
+    + `page%5Boffset%5D` (optional, number) - Offset the entries
+        + Default: `0`
+
+### Die Timeline-Entries eines Users abrufen [GET]
+
+Liefert die Einträge für die Timeline eines Users
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (array)
+            + (Timeline Entry)
+            + (Timeline Entry)
+
+## Timeline-Entry Origin [/timeline-entries/{entry_id}/origin]
+
++ Parameters
+    + entry_id (required, string) - Uuid
+
+### Origin zu einem Timeline-Entry abrufen [GET]
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (Post Base)
+
+## Timeline-Entry Origin Relationship [/timeline-entries/{entry_id}/relationships/origin]
+
++ Parameters
+    + entry_id (required, string) - Uuid
+
+### Origin Relationship zu einem Timeline-Entry abrufen [GET]
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (Post Linkage)
+        + links (object)
+            + self: `/timeline-entries/{entry_id}/relationships/origin` (string)
+            + related: `/timeline-entries/{entry_id}/origin` (string)
 # Group Users
 
 ## Me [/me]
@@ -1471,6 +1611,17 @@ Dieser Endpoint bietet die `/friends` Beziehungen zu einem User an.
 
 + type: `posts` (string)
 + id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Die Post-ID
+
+## Timeline Entry (object)
+
++ type: `timeline-entries` (string)
++ id (string)
++ relationships (object)
+    + origin (object)
+        + data (object)
+            + type: `posts` (string)
+            + id (string)
++ links (object)
 
 ## User Base (object)
 
