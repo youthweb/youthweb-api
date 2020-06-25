@@ -1021,13 +1021,15 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
 # Group Timeline-Entries
 
-## Timeline-Entries [/timeline-entries{?page%5Blimit%5D}{?page%5Boffset%5D}]
+## Timeline-Entries [/timeline-entries{?page%5Blimit%5D}{?page%5Boffset%5D}{?include}]
 
 + Parameters
     + `page%5Blimit%5D` (optional, number) - Limit the entries
         + Default: `5`
     + `page%5Boffset%5D` (optional, number) - Offset the entries
         + Default: `0`
+    + `include`: `include=origin.author,origin.comments.author` (optional, string) - Kommagetrente Liste an includes
+        + Default: ``
 
 ### Globale Timeline-Entries abrufen [GET]
 
@@ -1052,10 +1054,12 @@ Liefert die Einträge für die globale Timeline
             + (Timeline Entry)
             + (Timeline Entry)
 
-## Timeline-Entrie [/timeline-entries/{entry_id}]
+## Timeline-Entry [/timeline-entries/{entry_id}{?include}]
 
 + Parameters
     + `entry_id` (required, string) - Uuid des Timeline-Entry
+    + `include`: `include=origin.author,origin.comments.author` (optional, string) - Kommagetrente Liste an includes
+        + Default: ``
 
 ### Einen Timeline-Entry abrufen [GET]
 
