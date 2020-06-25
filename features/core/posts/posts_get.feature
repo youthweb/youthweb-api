@@ -291,3 +291,22 @@ Scenario: Create a post with missing content
     And the "title" property is a string equalling "Unprocessable Entity"
     And the "detail" property exists
     And the "detail" property is a string equalling "The field `attributes.content` must be set."
+
+Scenario: Sending a request with invalid JSON API
+    Given I am authorized as Alice
+    And I have the payload
+        """
+        {"data":{"type":"posts","attributes":{"content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu."}},"errors":[{"detail":"The members data and errors MUST NOT coexist in the same document."}]}
+        """
+    When I request "POST /users/287655/posts"
+    Then I get a "400" response
+    And the correct headers are set
+    And the "errors" property exists
+    And the "errors" property is an array
+    And scope into the first "errors" property
+    And the "status" property exists
+    And the "status" property is a string equalling "400"
+    And the "title" property exists
+    And the "title" property is a string equalling "Bad Request"
+    And the "detail" property exists
+    And the "detail" property is a string equalling "Your request format must be valid JSON API. The properties `data` and `errors` MUST NOT coexist in Document."

@@ -9,8 +9,10 @@ Aktuelle Version: 0.16 (2020-??-??)
 
 Status: Beta
 
-Gitlab Repository: https://gitlab.com/youthweb/youthweb-api
-Github Mirror: https://github.com/youthweb/youthweb-api
+- Gitlab Repository: https://gitlab.com/youthweb/youthweb-api
+- Github Mirror: https://github.com/youthweb/youthweb-api
+
+# Group Übersicht
 
 ## Request Header
 
@@ -31,9 +33,103 @@ Authorization: Bearer valid_JWT
 
 Mehr Informationen zur Authentication findest du hier: https://developer.youthweb.net/api_general_oauth2.html
 
-# Group General
+## Fehler [/errors/header-errors]
 
-## Index [/]
+Hier werden übliche Fehler gezeigt, die bei falscher Verwendung zurückgegeben werden.
+
+### Header Errors [GET]
+
++ Request ()
+
+    Anfragen ohne gesetzen Content-Type Header geben einen Fehler zurück.
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 415 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Body
+
+            {"errors":[{"status":"415","title":"Unsupported Media Type","detail":"You're using an unsupported Content-Type. You have to use the Content-Type application/vnd.api+json"}]}
+
++ Request (application/vnd.api+json; parameter=value)
+
+    Der Content-Type Header darf keine Parameter enthalten.
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 415 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Body
+
+            {"errors":[{"status":"415","title":"Unsupported Media Type","detail":"You're using an unsupported Content-Type. You have to use the Content-Type application/vnd.api+json"}]}
+
++ Request (application/vnd.api+json)
+
+    Anfragen ohne gesetzen Versionparameter geben einen Fehler zurück.
+
+    + Headers
+
+            Accept: application/vnd.api+json
+
++ Response 406 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Body
+
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16"}]}
+
++ Request (application/vnd.api+json)
+
+    Anfragen ohne gesetzen Accept Header geben einen Fehler zurück.
+
+    + Headers
+
+            DNT: 1
+
++ Response 406 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Body
+
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16"}]}
+
++ Request (application/vnd.api+json)
+
+    Der Versionsparameter muss eine gültige und aktuelle Version beinhalten
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+
++ Response 406 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Body
+
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You have specified an unsupported API version. Please use the current API version 0.16"}]}
+
+## Fehler [/]
 
 ### Keine Resource anfragen [GET]
 
@@ -54,6 +150,32 @@ Das Anfragen der API-Url ohne eine Resource ist nicht möglich und gibt einen Fe
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 
     + Attributes (Not Found Error)
+
+## Warnungen [/errors/header-warnings]
+
+Warnungen werden gezeigt, wenn am Request etwas verbessert werden kann, aber trotzdem erfolgreich beantwortet werden konnte.
+
+### Veralteter Versionsparameter [GET]
+
+Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen eine Warnung im meta-Attribut an
+
++ Request (application/vnd.api+json)
+
+    Die angegebene Version im Accept Header ist veraltet.
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Body
+
+            {"data":null,"meta":{"warnings":["You have specified a deprecated API version. Please use the current API version 0.16"]}}
 
 # Group Comments
 
@@ -897,21 +1019,28 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/parent` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent` (string)
 
-# Group Stats
+# Group Timeline-Entries
 
-Für die Statistiken ist keine Autorisierung nötig.
+## Timeline-Entries [/timeline-entries{?page%5Blimit%5D}{?page%5Boffset%5D}{?include}]
 
-## Account Stats [/stats/account]
++ Parameters
+    + `page%5Blimit%5D` (optional, number) - Limit the entries
+        + Default: `5`
+    + `page%5Boffset%5D` (optional, number) - Offset the entries
+        + Default: `0`
+    + `include`: `include=origin.author,origin.comments.author` (optional, string) - Kommagetrente Liste an includes
+        + Default: ``
 
-### Retrieve the account stats [GET]
+### Globale Timeline-Entries abrufen [GET]
 
-Liefert Statistiken zu den Accounts.
+Liefert die Einträge für die globale Timeline
 
 + Request (application/vnd.api+json)
 
     + Headers
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
@@ -921,32 +1050,27 @@ Liefert Statistiken zu den Accounts.
 
     + Attributes
 
-        + data (object)
-            + type: `stats` (string)
-            + id: `account` (string)
-            + attributes (object)
-                + user_total: 5503 (number) - Die Anzahl aller User
-                + user_total_female: 2831 (number) - Die Anzahl der weiblichen User
-                + user_total_male: 2672 (number) - Die Anzahl der männlichen User
-                + user_online: 74 (number) - Die Anzahl der User, die im Moment online sind
-                + user_online_24h: 629 (number) - Die Anzahl der User, die in den letzten 24 Stunden online waren
-                + user_online_7d: 1035 (number) - Die Anzahl der User, die in den letzten 7 Tagen online waren
-                + user_online_30d: 1600 (number) - Die Anzahl der User, die in den letzten 30 Tagen online waren
-                + userpics: 3441 (number) - Die Anzahl der User, die ein Profilbild hochgeladen haben
-            + links (object)
-                + self: `/stats/account` (string) - Der Link zu dieser Resource
+        + data (array)
+            + (Timeline Entry)
+            + (Timeline Entry)
 
-## Forum Stats [/stats/forum]
+## Timeline-Entry [/timeline-entries/{entry_id}{?include}]
 
-### Retrieve the forum stats [GET]
++ Parameters
+    + `entry_id` (required, string) - Uuid des Timeline-Entry
+    + `include`: `include=origin.author,origin.comments.author` (optional, string) - Kommagetrente Liste an includes
+        + Default: ``
 
-Liefert Statistiken zum Forum
+### Einen Timeline-Entry abrufen [GET]
+
+Liefert einen Eintrag
 
 + Request (application/vnd.api+json)
 
     + Headers
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
@@ -956,27 +1080,27 @@ Liefert Statistiken zum Forum
 
     + Attributes
 
-        + data (object)
-            + type: `stats` (string)
-            + id: `forum` (string)
-            + attributes (object)
-                + authors_total: 1480 (number) - Die Anzahl aller User, die mindestens einen Forenpost verfasst haben
-                + threads_total: 2094 (number) - Die Anzahl aller Threads
-                + posts_total: 121387 (number) - Die Anzahl aller verfasster Posts
-            + links (object)
-                + self: `/stats/forum` (string) - Der Link zu dieser Resource
+        + data (Timeline Entry)
 
-## Groups Stats [/stats/groups]
+## Die Timeline-Entries eines Users [/users/{user_id}/timeline-entries{?page%5Blimit%5D}{?page%5Boffset%5D}]
 
-### Retrieve the groups stats [GET]
++ Parameters
+    + user_id (required, number) - ID of the user
+    + `page%5Blimit%5D` (optional, number) - Limit the entries
+        + Default: `5`
+    + `page%5Boffset%5D` (optional, number) - Offset the entries
+        + Default: `0`
 
-Liefert Statistiken zu den Gruppen.
+### Die Timeline-Entries eines Users abrufen [GET]
+
+Liefert die Einträge für die Timeline eines Users
 
 + Request (application/vnd.api+json)
 
     + Headers
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
@@ -986,16 +1110,60 @@ Liefert Statistiken zu den Gruppen.
 
     + Attributes
 
-        + data (object)
-            + type: `stats` (string)
-            + id: `groups` (string)
-            + attributes (object)
-                + groups_total: 614 (number) - Die Anzahl der Gruppen auf Youthweb
-                + users_total: 2073 (number) - Die Anzahl der User, die einer Gruppe angehören
-            + links (object)
-                + self: `/stats/groups` (string) - Der Link zu dieser Resource
+        + data (array)
+            + (Timeline Entry)
+            + (Timeline Entry)
 
+## Timeline-Entry Origin [/timeline-entries/{entry_id}/origin]
 
++ Parameters
+    + entry_id (required, string) - Uuid
+
+### Origin zu einem Timeline-Entry abrufen [GET]
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (Post Base)
+
+## Timeline-Entry Origin Relationship [/timeline-entries/{entry_id}/relationships/origin]
+
++ Parameters
+    + entry_id (required, string) - Uuid
+
+### Origin Relationship zu einem Timeline-Entry abrufen [GET]
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Authorization: Bearer valid_JWT
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (Post Linkage)
+        + links (object)
+            + self: `/timeline-entries/{entry_id}/relationships/origin` (string)
+            + related: `/timeline-entries/{entry_id}/origin` (string)
 # Group Users
 
 ## Me [/me]
@@ -1218,6 +1386,34 @@ Erstellt einen Posts an der Pinnwand eines Users
 
             {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
 
++ Request (application/vnd.api+json)
+
+    Fehler, wenn invalides JSON API gesendet wird
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (object)
+            + type: `posts` (string)
+            + attributes (object)
+                + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Post-Inhalt
+        + errors (array) - Errors und data dürfen nicht gleichzeitig existieren
+            + (object)
+                + `detail`: `The members data and errors MUST NOT coexist in the same document.` (string)
+
++ Response 400 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Body
+
+            {"errors":[{"status":"400","title":"Bad Request","detail":"Your request format must be valid JSON API. The properties `data` and `errors` MUST NOT coexist in Document."}]}
+
 ## Posts Relationships of an User [/users/{user_id}/relationships/posts]
 
 + Parameters
@@ -1283,6 +1479,103 @@ Dieser Endpoint bietet die `/friends` Beziehungen zu einem User an.
         + included (array)
             + (User Base)
 
+# Group Stats
+
+Für die Statistiken ist keine Autorisierung nötig.
+
+## Account Stats [/stats/account]
+
+### Retrieve the account stats [GET]
+
+Liefert Statistiken zu den Accounts.
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (object)
+            + type: `stats` (string)
+            + id: `account` (string)
+            + attributes (object)
+                + user_total: 5503 (number) - Die Anzahl aller User
+                + user_total_female: 2831 (number) - Die Anzahl der weiblichen User
+                + user_total_male: 2672 (number) - Die Anzahl der männlichen User
+                + user_online: 74 (number) - Die Anzahl der User, die im Moment online sind
+                + user_online_24h: 629 (number) - Die Anzahl der User, die in den letzten 24 Stunden online waren
+                + user_online_7d: 1035 (number) - Die Anzahl der User, die in den letzten 7 Tagen online waren
+                + user_online_30d: 1600 (number) - Die Anzahl der User, die in den letzten 30 Tagen online waren
+                + userpics: 3441 (number) - Die Anzahl der User, die ein Profilbild hochgeladen haben
+            + links (object)
+                + self: `/stats/account` (string) - Der Link zu dieser Resource
+
+## Forum Stats [/stats/forum]
+
+### Retrieve the forum stats [GET]
+
+Liefert Statistiken zum Forum
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (object)
+            + type: `stats` (string)
+            + id: `forum` (string)
+            + attributes (object)
+                + authors_total: 1480 (number) - Die Anzahl aller User, die mindestens einen Forenpost verfasst haben
+                + threads_total: 2094 (number) - Die Anzahl aller Threads
+                + posts_total: 121387 (number) - Die Anzahl aller verfasster Posts
+            + links (object)
+                + self: `/stats/forum` (string) - Der Link zu dieser Resource
+
+## Groups Stats [/stats/groups]
+
+### Retrieve the groups stats [GET]
+
+Liefert Statistiken zu den Gruppen.
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (object)
+            + type: `stats` (string)
+            + id: `groups` (string)
+            + attributes (object)
+                + groups_total: 614 (number) - Die Anzahl der Gruppen auf Youthweb
+                + users_total: 2073 (number) - Die Anzahl der User, die einer Gruppe angehören
+            + links (object)
+                + self: `/stats/groups` (string) - Der Link zu dieser Resource
 # Data Structures
 
 ## Unauthorized Error (object)
@@ -1471,6 +1764,17 @@ Dieser Endpoint bietet die `/friends` Beziehungen zu einem User an.
 
 + type: `posts` (string)
 + id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Die Post-ID
+
+## Timeline Entry (object)
+
++ type: `timeline-entries` (string)
++ id (string)
++ relationships (object)
+    + origin (object)
+        + data (object)
+            + type: `posts` (string)
+            + id (string)
++ links (object)
 
 ## User Base (object)
 

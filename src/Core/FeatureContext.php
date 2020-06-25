@@ -88,6 +88,23 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
     }
 
     /**
+     * @Given an user named :arg1 with id :arg2
+     */
+    public function anUserNamedWithId($arg1, $arg2)
+    {
+        // do nothing
+    }
+
+    /**
+     * @Given :arg1 has posted a post with message :arg2
+     */
+    public function hasPostedAPostWithMessage($arg1, $arg2)
+    {
+        // do nothing
+    }
+
+
+    /**
      * @Given :arg1 owns a post with id :arg2
      */
     public function ownsAPostWithId($arg1, $arg2)
