@@ -10,8 +10,9 @@ use Behat\Gherkin\Node\TableNode;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\ServerRequest;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -188,7 +189,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
             $content = implode(', ', $content);
         });
 
-        $request = new Request(
+        $request = new ServerRequest(
             $httpMethod,
             $this->baseUrl . $resource,
             $headers,
@@ -197,7 +198,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 
         try
         {
-            $this->response = $this->client->send($request);
+            $this->response = $this->sendRequest($request);
         }
         catch (BadResponseException $e)
         {
@@ -685,5 +686,13 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
         }
 
         return $array;
+    }
+
+    /**
+     * Versenden des Server Requsts; kann überschrieben werden
+     */
+    protected function sendRequest(ServerRequestInterface $request): ResponseInterface
+    {
+        return $this->client->send($request);
     }
 }
