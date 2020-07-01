@@ -35,9 +35,9 @@ Mehr Informationen zur Authentication findest du hier: https://developer.youthwe
 
 ## Fehler [/errors/header-errors]
 
-Hier werden übliche Fehler gezeigt, die bei falscher Verwendung zurückgegeben werden.
-
 ### Header Errors [GET]
+
+Hier werden übliche Fehler gezeigt, die bei falscher Verwendung zurückgegeben werden.
 
 + Request ()
 
@@ -167,15 +167,21 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
-+ Response 200 (application/vnd.api+json)
++ Response 404 (application/vnd.api+json)
 
     + Headers
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 
-    + Body
+    + Attributes (object)
 
-            {"data":null,"meta":{"warnings":["You have specified a deprecated API version. Please use the current API version 0.16"]}}
+        + errors (array)
+            - (object)
+                + status: `404` (string)
+                + title: `Resource not found` (string)
+        + meta (object)
+            + warnings (array)
+                - `You have specified a deprecated API version. Please use the current API version 0.16` (string)
 
 # Group Comments
 

@@ -89,7 +89,7 @@ Scenario: Using the API with deprecated version parameter
     And I have set the "Accept" header with "application/vnd.api+json"
     And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.15"
     When I request "GET /errors/header-warnings"
-    Then I get a "200" response
+    Then I get a "404" response
     And the correct headers are set
     And the "meta" property exists
     And the "meta" property is an object
