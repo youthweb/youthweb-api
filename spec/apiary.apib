@@ -708,7 +708,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
 + Request (application/vnd.api+json)
 
-    Titel und Content in einem fremden Post zu bearbeiten gibt einen Fehler zurück.
+    Titel und Content in einem fremden Post zu bearbeiten gibt Fehler zurück.
 
     + Headers
 
@@ -719,13 +719,28 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
             {"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}
 
-+ Response 403 (application/vnd.api+json)
++ Response 400 (application/vnd.api+json)
 
     + Headers
 
             Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 
-    + Attributes (Forbidden Error)
+    + Attributes
+
+        + errors (array)
+            - (object)
+                + status: `409` (string)
+                + title: `Request body has invalid attributes` (string)
+                + detail: `Matched a schema which it should not` (string)
+                + source (object)
+                    + pointer: `attributes.title` (string)
+            - (object)
+                + status: `409` (string)
+                + title: `Request body has invalid attributes` (string)
+                + detail: `Matched a schema which it should not` (string)
+                + source (object)
+                    + pointer: `attributes.content` (string)
+
 
 + Request (application/vnd.api+json)
 

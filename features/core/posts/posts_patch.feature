@@ -141,12 +141,15 @@ Scenario: A user can not update posts of other users
         {"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}
         """
     When I request "PATCH /posts/d5a5a2c3-041b-4985-907c-74a2131efc98"
-    Then I get a "403" response
+    Then I get a "400" response
     And the correct headers are set
     And the "errors" property exists
     And the "errors" property is an array
+    And the "errors" property contains 2 items
     And scope into the first "errors" property
     And the "status" property exists
-    And the "status" property is a string equalling "403"
+    And the "status" property is a string equalling "409"
     And the "title" property exists
-    And the "title" property is a string equalling "Forbidden"
+    And the "title" property is a string equalling "Request body has invalid attributes"
+    And the "detail" property exists
+    And the "detail" property is a string equalling "Matched a schema which it should not"
