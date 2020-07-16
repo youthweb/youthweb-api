@@ -46,16 +46,18 @@ Scenario: Requesting the posts from a users pinnwall without posts
     And the "data" property exists
     And the "data" property is an empty array
 
-Scenario: Creating a post on an users pinnwall
-    Given I am authorized as Alice
+Scenario: Creating a post on Bobs pinnwall
+    Given an user named "Alice" with id "140001"
+    And an user named "Bob" with id "140002"
+    And I am authorized as Alice
     And I have the payload
         """
         {"data":{"type":"posts","attributes":{"title":"The post title","content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu.","view_allowed_for":"users","comments_allowed":true}}}
         """
-    When I request "POST /users/123456/posts"
+    When I request "POST /users/140002/posts"
     Then I get a "201" response
     And the correct headers are set
-    And the Location Header exists
+    # And the Location Header exists
     And the "included" property exists
     And the "included" property is an array
     And the "data" property exists
@@ -124,39 +126,51 @@ Scenario: Create a post without permission
     And the "title" property is a string equalling "Forbidden"
 
 Scenario: Create a post with empty content
-    Given I am authorized as Alice
+    Given an user named "Alice" with id "140001"
+    And I am authorized as Alice
     And I have the payload
         """
         {"data":{"type":"posts","attributes":{"title":"The post title","content":"","view_allowed_for":"users","comments_allowed":true}}}
         """
-    When I request "POST /users/287654/posts"
-    Then I get a "400" response
+    When I request "POST /users/140001/posts"
+    Then I get a "409" response
     And the correct headers are set
     And the "errors" property exists
     And the "errors" property is an array
     And scope into the first "errors" property
     And the "status" property exists
-    And the "status" property is a string equalling "422"
+    And the "status" property is a string equalling "409"
     And the "title" property exists
-    And the "title" property is a string equalling "Unprocessable Entity"
+    And the "title" property is a string equalling "Request body has invalid attributes"
     And the "detail" property exists
-    And the "detail" property is a string equalling "The field `attributes.content` can't be empty."
+    And the "detail" property is a string equalling "Must be at least 1 characters long"
+    And the "source" property exists
+    And the "source" property is an object
+    And scope into the "errors.0.source" property
+    And the "pointer" property exists
+    And the "pointer" property is a string equalling "attributes.content"
 
 Scenario: Create a post with missing content
-    Given I am authorized as Alice
+    Given an user named "Alice" with id "140001"
+    And I am authorized as Alice
     And I have the payload
         """
         {"data":{"type":"posts","attributes":{"title":"The post title","view_allowed_for":"users","comments_allowed":true}}}
         """
-    When I request "POST /users/287654/posts"
-    Then I get a "400" response
+    When I request "POST /users/140001/posts"
+    Then I get a "409" response
     And the correct headers are set
     And the "errors" property exists
     And the "errors" property is an array
     And scope into the first "errors" property
     And the "status" property exists
-    And the "status" property is a string equalling "422"
+    And the "status" property is a string equalling "409"
     And the "title" property exists
-    And the "title" property is a string equalling "Unprocessable Entity"
+    And the "title" property is a string equalling "Request body has invalid attributes"
     And the "detail" property exists
-    And the "detail" property is a string equalling "The field `attributes.content` must be set."
+    And the "detail" property is a string equalling "The property content is required"
+    And the "source" property exists
+    And the "source" property is an object
+    And scope into the "errors.0.source" property
+    And the "pointer" property exists
+    And the "pointer" property is a string equalling "attributes.content"

@@ -1369,7 +1369,7 @@ Erstellt einen Posts an der Pinnwand eines Users
                 + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
                 + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
 
-+ Response 400 (application/vnd.api+json)
++ Response 409 (application/vnd.api+json)
 
     + Headers
 
@@ -1377,7 +1377,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Body
 
-            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` can't be empty."}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"Must be at least 1 characters long","source":{"pointer":"attributes.content"}}]}
 
 + Request (application/vnd.api+json)
 
@@ -1397,7 +1397,7 @@ Erstellt einen Posts an der Pinnwand eines Users
                 + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
                 + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
 
-+ Response 400 (application/vnd.api+json)
++ Response 409 (application/vnd.api+json)
 
     + Headers
 
@@ -1405,7 +1405,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Body
 
-            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"The property content is required","source":{"pointer":"attributes.content"}}]}
 
 + Request (application/vnd.api+json)
 
