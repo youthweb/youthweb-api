@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...develop)
 
+## [0.16.0 - 2020-07-26](https://gitlab.com/youthweb/youthweb-api/compare/0.15.2...0.16.0)
+
 ### Added
 
 - update own `Post` or add reactions to other `Post` by using the endpoint `PATCH /posts/<post_id>`
