@@ -1,5 +1,5 @@
-Feature: Interact with the comments of an object
-    In order to request the comments of an object
+Feature: Interact with the posts of an object
+    In order to request the posts of an object
     As a user
 
 Scenario: Requesting the posts from a users pinnwall
@@ -12,7 +12,7 @@ Scenario: Requesting the posts from a users pinnwall
     And the "data" property exists
     And the "data" property is an array
     And scope into the first "data" property
-    And the response contains 5 items
+    And the response contains at least 5 items
     And the "type" property exists
     And the "type" property is a string equalling "posts"
     And the "id" property exists
@@ -63,7 +63,7 @@ Scenario: Creating a post on Bobs pinnwall
     And the "data" property exists
     And the "data" property is an object
     And scope into the "data" property
-    And the response contains 5 items
+    And the response contains at least 5 items
     And the "type" property exists
     And the "type" property is a string equalling "posts"
     And the "id" property exists

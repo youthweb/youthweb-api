@@ -12,13 +12,14 @@ Scenario: Alice requests her own post
     And the "data" property exists
     And the "data" property is an object
     And scope into the "data" property
-    And the response contains at least 5 items
+    And the response contains at least 6 items
     And the "type" property exists
     And the "type" property is a string equalling "posts"
     And the "id" property exists
     And the "id" property is a string
     And the "links" property exists
     And the "attributes" property exists
+    And the "meta" property exists
     And scope into the "data.attributes" property
     And the response contains at least 10 items
     And the properties exist:
@@ -51,6 +52,14 @@ Scenario: Alice requests her own post
         author
         comments
         parent
+        """
+    And scope into the "data.meta" property
+    And the "warnings" property exists
+    And the "warnings" property is an array
+    And the "warnings" property contains 1 items
+    And the "warnings" property contains at least:
+        """
+        The default inclusion of "parent" and "author" relationsships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.
         """
 
 Scenario: Requesting a post without permission

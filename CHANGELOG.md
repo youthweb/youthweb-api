@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Deprecated
 
+- The default inclusion of "parent" and "author" relationsships in post resources is deprecated and will be removed in future, use "?include=author,parent" in query instead.
 - Version 0.15 is now deprecated and support will be dropped in future. If your apps use this version upgrade them at least to version 0.16.
 
 ### Removed
