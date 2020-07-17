@@ -2,13 +2,6 @@ Feature: Interact with a post
     In order to request a post or his relationships
     As a user
 
-Background:
-    Given an user named "Alice"
-    And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
-    And an user named "Bob"
-    And "Bob" owns a post with id "f5a5a2c3-041b-4985-907c-74a2131efc98"
-    And the post can be viewed by "authors"
-
 Scenario: Alice requests her own post
     Given I am authorized as Alice
     When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98"
@@ -255,50 +248,63 @@ Scenario: Create a post without permission
     And the "title" property is a string equalling "Forbidden"
 
 Scenario: Create a post with empty content
-    Given I am authorized as Alice
+    Given an user named "Alice" with id "140001"
+    And I am authorized as Alice
     And I have the payload
         """
         {"data":{"type":"posts","attributes":{"title":"The post title","content":"","view_allowed_for":"users","comments_allowed":true}}}
         """
-    When I request "POST /users/287654/posts"
-    Then I get a "400" response
+    When I request "POST /users/140001/posts"
+    Then I get a "409" response
     And the correct headers are set
     And the "errors" property exists
     And the "errors" property is an array
     And scope into the first "errors" property
     And the "status" property exists
-    And the "status" property is a string equalling "422"
+    And the "status" property is a string equalling "409"
     And the "title" property exists
-    And the "title" property is a string equalling "Unprocessable Entity"
+    And the "title" property is a string equalling "Request body has invalid attributes"
     And the "detail" property exists
-    And the "detail" property is a string equalling "The field `attributes.content` can't be empty."
+    And the "detail" property is a string equalling "Must be at least 1 characters long"
+    And the "source" property exists
+    And the "source" property is an object
+    And scope into the "errors.0.source" property
+    And the "pointer" property exists
+    And the "pointer" property is a string equalling "attributes.content"
 
 Scenario: Create a post with missing content
-    Given I am authorized as Alice
+    Given an user named "Alice" with id "140001"
+    And I am authorized as Alice
     And I have the payload
         """
         {"data":{"type":"posts","attributes":{"title":"The post title","view_allowed_for":"users","comments_allowed":true}}}
         """
-    When I request "POST /users/287654/posts"
-    Then I get a "400" response
+    When I request "POST /users/140001/posts"
+    Then I get a "409" response
     And the correct headers are set
     And the "errors" property exists
     And the "errors" property is an array
     And scope into the first "errors" property
     And the "status" property exists
-    And the "status" property is a string equalling "422"
+    And the "status" property is a string equalling "409"
     And the "title" property exists
-    And the "title" property is a string equalling "Unprocessable Entity"
+    And the "title" property is a string equalling "Request body has invalid attributes"
     And the "detail" property exists
-    And the "detail" property is a string equalling "The field `attributes.content` must be set."
+    And the "detail" property is a string equalling "The property content is required"
+    And the "source" property exists
+    And the "source" property is an object
+    And scope into the "errors.0.source" property
+    And the "pointer" property exists
+    And the "pointer" property is a string equalling "attributes.content"
 
 Scenario: Sending a request with invalid JSON API
-    Given I am authorized as Alice
+    Given an user named "Alice" with id "140001"
+    And I am authorized as Alice
     And I have the payload
         """
-        {"data":{"type":"posts","attributes":{"content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu."}},"errors":[{"detail":"The members data and errors MUST NOT coexist in the same document."}]}
+        {"foobar":{"type":"posts","attributes":{"content":"Lorem ipsum dolor sit amet, sed libris elaboraret eu."}}}
         """
-    When I request "POST /users/287655/posts"
+    When I request "POST /users/140001/posts"
     Then I get a "400" response
     And the correct headers are set
     And the "errors" property exists
@@ -306,7 +312,9 @@ Scenario: Sending a request with invalid JSON API
     And scope into the first "errors" property
     And the "status" property exists
     And the "status" property is a string equalling "400"
+    And the "code" property exists
+    And the "code" property is a string equalling "DATA_MEMBER_MISSING"
     And the "title" property exists
-    And the "title" property is a string equalling "Bad Request"
+    And the "title" property is a string equalling "Missing `data` member at the document's top level"
     And the "detail" property exists
-    And the "detail" property is a string equalling "Your request format must be valid JSON API. The properties `data` and `errors` MUST NOT coexist in Document."
+    And the "detail" property is a string equalling "Missing `data` member at the document's top level!"

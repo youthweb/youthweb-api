@@ -1417,13 +1417,10 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Attributes
 
-        + data (object)
+        + foobar (object)
             + type: `posts` (string)
             + attributes (object)
                 + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Post-Inhalt
-        + errors (array) - Errors und data dürfen nicht gleichzeitig existieren
-            + (object)
-                + `detail`: `The members data and errors MUST NOT coexist in the same document.` (string)
 
 + Response 400 (application/vnd.api+json)
 
@@ -1433,7 +1430,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Body
 
-            {"errors":[{"status":"400","title":"Bad Request","detail":"Your request format must be valid JSON API. The properties `data` and `errors` MUST NOT coexist in Document."}]}
+            {"errors":[{"status":"400","code":"DATA_MEMBER_MISSING","title":"Missing `data` member at the document's top level","detail":"Missing `data` member at the document's top level!"}]}
 
 ## Posts Relationships of an User [/users/{user_id}/relationships/posts]
 
