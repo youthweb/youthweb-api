@@ -72,7 +72,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
      *
      * @param array $parameters context parameters (set them up through behat.yml)
      */
-    public function __construct($baseUrl, $apiVersion = '0.16')
+    public function __construct($baseUrl, $apiVersion = '0.17')
     {
         $this->baseUrl = rtrim($baseUrl, '/');
         $this->apiVersion = strval($apiVersion);
