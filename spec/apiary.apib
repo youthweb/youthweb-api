@@ -702,7 +702,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Attributes
 
-        + data (Post Patched)
+        + data (Post Reacted)
         + included (array)
             + (User Base)
 
@@ -1711,6 +1711,43 @@ Liefert Statistiken zu den Gruppen.
 + attributes (object)
     + `title`: `The post title` (string) - Der Title, kann auch leer sein
     + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Post-Inhalt
+    + `content_html`: `<p>Lorem ipsum dolor sit amet, sed libris elaboraret eu.</p>` (string) - Der Post-Inhalt als HTML
+    + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
+    + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
+    + `comments_count`: 15 (number) - Die Gesamtanzahl der Kommentare zu diesem Post
+    + `reactions_given` (array) - Die vom authorisierten User vergebenen Reaktionen zu diesem Post
+        + `:+1:` (string)
+    + `reactions_count` (object) - Vergebene Reaktionen und deren Anzahl zu diesem Post
+        + `:+1:`: 1 (number)
+    + `created_at`: `2017-01-01T17:51:02+00:00` (string) - Zeitpunkt der Erstellung als ISO-8601
+    + `updated_at`: `2017-01-03T13:17:11+00:00` (string, nullable) - Zeitpunkt der letzten Änderung als ISO-8601
++ `relationships` (object)
+    + `author` (object, nullable) - Der Autor des Posts
+        + data (User Linkage)
+        + links (object)
+            + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author` (string)
+            + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author` (string)
+    + `comments` (object) - Die Kommentare zu diesem Post
+        + data (array)
+            - (Comment Linkage)
+        + links (object)
+            + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/comments` (string)
+            + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments` (string)
+    + parent (object, nullable) - Das Elternobjekt, dem dieser Post zugeordnet ist
+        + data (User Linkage)
+        + links (object)
+            + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/parent` (string)
+            + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent` (string)
++ links (object)
+    + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Der Link zu dieser Resource
+
+## Post Reacted (object)
+
++ type: `posts` (string)
++ id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Die Post-ID
++ attributes (object)
+    + `title`: `title` (string) - Der Title, kann auch leer sein
+    + `content`: `post content` (string) - Der Post-Inhalt
     + `content_html`: `<p>Lorem ipsum dolor sit amet, sed libris elaboraret eu.</p>` (string) - Der Post-Inhalt als HTML
     + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
     + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?

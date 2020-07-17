@@ -2,13 +2,10 @@ Feature: Interact with a post
     In order to update a post or his relationships
     As a user
 
-Background:
+Scenario: A user can update own posts
     Given an user named "Alice"
     And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
-    And an user named "Bob"
-
-Scenario: A user can update own posts
-    Given I am authorized as Alice
+    And I am authorized as Alice
     And I have the payload
         """
         {"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}
@@ -63,7 +60,10 @@ Scenario: A user can update own posts
         """
 
 Scenario: A user can update the given reactions to posts of other users
-    Given I am authorized as Bob
+    Given an user named "Alice"
+    And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
+    And an user named "Bob"
+    And I am authorized as Bob
     And I have the payload
         """
         {"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"reactions_given":[":+1:"]}}}
@@ -98,8 +98,8 @@ Scenario: A user can update the given reactions to posts of other users
         created_at
         updated_at
         """
-    And the "title" property is a string equalling "The new post title"
-    And the "content" property is a string equalling "New post content"
+    And the "title" property is a string equalling "title"
+    And the "content" property is a string equalling "post content"
     And the "reactions_given" property is an array
     And the "reactions_count" property is an object
     And scope into the "data.links" property
@@ -118,7 +118,9 @@ Scenario: A user can update the given reactions to posts of other users
         """
 
 Scenario: Updating a post without authorization is not possible
-    Given I am an unauthorized user
+    Given an user named "Alice"
+    And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
+    And I am an unauthorized user
     And I have the payload
         """
         {"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}
@@ -135,7 +137,10 @@ Scenario: Updating a post without authorization is not possible
     And the "title" property is a string equalling "Unauthorized"
 
 Scenario: A user can not update posts of other users
-    Given I am authorized as Bob
+    Given an user named "Alice"
+    And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
+    And an user named "Bob"
+    And I am authorized as Bob
     And I have the payload
         """
         {"data":{"type":"posts","id":"d5a5a2c3-041b-4985-907c-74a2131efc98","attributes":{"title":"The new post title","content":"New post content","reactions_given":[":+1:"]}}}
