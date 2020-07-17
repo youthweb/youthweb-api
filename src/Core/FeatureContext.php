@@ -141,7 +141,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
     /**
      * @Given I am authorized as :arg1
      */
-    public function iAmAuthorizedAsAlice($name)
+    public function iAmAuthorizedAs($name)
     {
         $bearerHeaders = [
             'Alice' => 'valid_JWT',
@@ -168,7 +168,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
         $this->setRequiredHeaders();
     }
 
-    private function setRequiredHeaders()
+    protected function setRequiredHeaders()
     {
         $this->iHaveSetTheHeaderWith('Content-Type', 'application/vnd.api+json');
         $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json');
