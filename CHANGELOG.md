@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...develop)
 
+## [0.16.0 - 2020-07-26](https://gitlab.com/youthweb/youthweb-api/compare/0.15.2...0.16.0)
+
 ### Added
 
 - update own `Post` or add reactions to other `Post` by using the endpoint `PATCH /posts/<post_id>`
@@ -19,6 +21,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Deprecated
 
+- The default inclusion of "parent" and "author" relationsships in post resources is deprecated and will be removed in future, use "?include=author,parent" in query instead.
 - Version 0.15 is now deprecated and support will be dropped in future. If your apps use this version upgrade them at least to version 0.16.
 
 ### Removed
