@@ -68,8 +68,25 @@ build-docs:
     - bundle exec jekyll build --destination ../public/
     - cd ..
     - mkdir -p ./public/spec/core
-    - cp -r ./spec ./public/spec/core/current
-    - node_modules/.bin/aglio -i ./public/spec/core/current/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/current/index.html
+    - echo "Render HTML for 0.16"
+    - cp -r ./spec ./public/spec/core/0.16
+    - node_modules/.bin/aglio -i ./public/spec/core/0.16/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/0.16/index.html
+    - echo "Render HTML for 0.15"
+    - git checkout 0.15.2 -- apiary.apib
+    - mkdir -p ./public/spec/core/0.15
+    - mv ./apiary.apib ./public/spec/core/0.15/apiary.apib
+    - node_modules/.bin/aglio -i ./public/spec/core/0.15/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/0.15/index.html
+    - echo "Render HTML for 0.14"
+    - git checkout 0.14 -- apiary.apib
+    - mkdir -p ./public/spec/core/0.14
+    - mv ./apiary.apib ./public/spec/core/0.14/apiary.apib
+    - node_modules/.bin/aglio -i ./public/spec/core/0.14/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/0.14/index.html
+    - echo "Render HTML for 0.13"
+    - git checkout 0.13 -- apiary.apib
+    - mkdir -p ./public/spec/core/0.13
+    - mv ./apiary.apib ./public/spec/core/0.13/apiary.apib
+    - node_modules/.bin/aglio -i ./public/spec/core/0.13/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/0.13/index.html
+
   cache:
     key: build
     paths:

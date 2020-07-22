@@ -17,9 +17,13 @@ folder: api
 
 Da API in API Blueprint definiert ist, kann sich die Spezifikation hier angesehen werden:
 
-| API       | Version                                |
-|-----------|----------------------------------------|
-| **core**  | [0.16](./spec/core/current/index.html) |
+| API          | Version                                   |
+|--------------|-------------------------------------------|
+| **current**  | [0.16](./spec/core/0.16/index.html)       |
+| next         | [develop](./spec/core/0.17/index.html)    |
+| deprecated   | [0.15](./spec/core/0.15/index.html)       |
+| outdated     | [0.14](./spec/core/0.14/index.html)       |
+| outdated     | [0.13](./spec/core/0.13/index.html)       |
 
 ## Übersicht
 
