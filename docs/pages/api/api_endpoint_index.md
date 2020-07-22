@@ -19,7 +19,7 @@ Da API in API Blueprint definiert ist, kann sich die Spezifikation hier angesehe
 
 | API       | Version                                |
 |-----------|----------------------------------------|
-| **core**  | [0.16](./spec/core/current.html) |
+| **core**  | [0.16](./spec/core/current/index.html) |
 
 ## Übersicht
 
