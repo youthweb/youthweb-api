@@ -13,6 +13,14 @@ folder: api
 - **Resource**: Eine Resource ist die Representation eines Objekts, zum Beispiel eines Users. Eine Resource, die vom Youthweb-Server geliefert wird, hat immer mindestens die Attribute `type` und `id`. Der Aufbau einer Resource ist [in JSON API spezifiziert](http://jsonapi.org/format/#document-resource-objects).
 - **Endpoint**: Ein Endpoint ist eine Stelle in der Youthweb-API, mit der Daten ausgetauscht werden. Zum Beispiel liefert der Endpoint `/users/123` eine Resource, die den User mit der ID 123 representiert. Die übertragenen Daten an einem Entpoint enthalten also in fast allen Fällen eine oder mehrere Resourcen.
 
+## API Blueprint
+
+Da API in API Blueprint definiert ist, kann sich die Spezifikation hier angesehen werden:
+
+| API       | Version                                |
+|-----------|----------------------------------------|
+| **core**  | [0.16](./spec/core/current.html) |
+
 ## Übersicht
 
 | Endpoint                                                | Beschreibung                                                     |
