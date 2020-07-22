@@ -52,6 +52,12 @@ build-docs:
       when: never
     - when: on_success
   before_script:
+    - apt-get update
+    - curl -sL https://deb.nodesource.com/setup_10.x | bash -
+    - apt-get --yes install git zip unzip nodejs
+    - nodejs --version
+    - npm --version
+    - npm install
     - cd docs
     - gem install bundler
     - bundle -v
