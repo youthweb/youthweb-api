@@ -62,8 +62,8 @@ build-docs:
     - bundle exec jekyll build --destination ../public/
     - cd ..
     - mkdir -p ./public/spec
-    - cp -r ./spec ./public/spec/core
-    - npx aglio -i ./public/spec/core/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/current.html
+    - cp -r ./spec ./public/spec/core/current
+    - node_modules/.bin/aglio -i ./public/spec/core/current/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/current/index.html
   cache:
     key: build
     paths:
