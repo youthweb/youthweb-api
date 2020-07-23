@@ -72,7 +72,7 @@ build-docs:
     - cp -r ./spec ./public/spec/core/0.16
     - node_modules/.bin/aglio -i ./public/spec/core/0.16/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/0.16/index.html
     - echo "Render HTML for next version"
-    - git fetch origin develop
+    - git fetch origin develop:develop
     - git checkout develop -- ./spec
     - cp -r ./spec ./public/spec/core/next
     - git reset HEAD ./spec
