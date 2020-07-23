@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - new attribute `content_html` in `Post` resources with the parsed HTML content
 - new attribute `reactions_given` in `Post` resources with an array of reactions given by the authorized user
 - new attribute `reactions_count` in `Post` resources with an object of reactions and counts given by all users
+- new docs generated from API Blueprint files
 
 ### Changed
 
