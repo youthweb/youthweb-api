@@ -15,17 +15,19 @@ folder: api
 
 ## API Blueprint
 
-Da API in API Blueprint definiert ist, kann sich die Spezifikation hier angesehen werden:
+Die API ist in API Blueprint definiert und wird mit Aglio zu HTML gerendert. Aktuelle und ältere Versionen können hier angesehen werden:
 
 | API          | Version                                   |
 |--------------|-------------------------------------------|
 | **current**  | [0.16](./spec/core/0.16/index.html)       |
-| next         | [develop](./spec/core/0.17/index.html)    |
+| next         | [develop](./spec/core/next/index.html)    |
 | deprecated   | [0.15](./spec/core/0.15/index.html)       |
 | outdated     | [0.14](./spec/core/0.14/index.html)       |
 | outdated     | [0.13](./spec/core/0.13/index.html)       |
 
 ## Übersicht
+
+{% include important.html content="Die Dokumentation der Endpoints ist veraltet und wird in Zukunft entfernt. Sieh dir stattdessen hier die neue Dokumentation an: [api_endpoint_index]#versions-übersicht" %}
 
 | Endpoint                                                | Beschreibung                                                     |
 |---------------------------------------------------------|------------------------------------------------------------------|
