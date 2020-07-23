@@ -8,6 +8,8 @@ permalink: api_endpoint_users.html
 folder: api
 ---
 
+{% include important.html content="Diese Dokumentation wird nicht mehr gepflegt und wird in Zukunft entfernt. [Sieh dir stattdessen die neue Dokumentation an][api_endpoint_index]." %}
+
 Dieser Endpoint liefert Daten zu einem User.
 
 ## Read

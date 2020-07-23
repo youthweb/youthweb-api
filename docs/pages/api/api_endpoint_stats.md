@@ -8,6 +8,8 @@ permalink: api_endpoint_stats.html
 folder: api
 ---
 
+{% include important.html content="Diese Dokumentation wird nicht mehr gepflegt und wird in Zukunft entfernt. [Sieh dir stattdessen die neue Dokumentation an][api_endpoint_index]." %}
+
 Dieser Endpoint liefert Statistiken zu Usern, Gruppen und Forum.
 
 ## Read
