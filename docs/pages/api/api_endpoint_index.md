@@ -27,7 +27,7 @@ Die API ist in API Blueprint definiert und wird mit Aglio zu HTML gerendert. Akt
 
 ## Übersicht
 
-{% include important.html content="Die Dokumentation der Endpoints ist veraltet und wird in Zukunft entfernt. Sieh dir stattdessen hier die neue Dokumentation an: [api_endpoint_index]#versions-übersicht" %}
+{% include important.html content="Die Dokumentation der Endpoints ist veraltet und wird in Zukunft entfernt. [Sieh dir stattdessen die neue Dokumentation an][api_endpoint_index#versions-übersicht]." %}
 
 | Endpoint                                                | Beschreibung                                                     |
 |---------------------------------------------------------|------------------------------------------------------------------|
