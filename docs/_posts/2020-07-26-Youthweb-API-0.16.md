@@ -6,7 +6,7 @@ summary: "Youthweb-API 0.16 liefert den geparsten Content zu Posts und erlaubt d
 ---
 ## Neues zu den Posts
 
-Bei den Posts gibt es jetzt [drei neue Attribute](/public/spec/core/0.16/index.html#posts-post-get):
+Bei den Posts gibt es jetzt [drei neue Attribute](spec/core/0.16/index.html#posts-post-get):
 
 - `content_html` gibt den Content als fertig geparstes HTML zurück
 - `reactions_given` ist ein Array, dass die Reactions enthält, die der angemeldete User einem Post gegeben hat und
@@ -40,6 +40,6 @@ Die Version 0.15 ist jetzt veraltet und zeigt eine Warnung im `meta`-Bereich an.
 
 ## Entfernt
 
-**Breaking:** Der Support für die Versionen 0.13 and 0.14 wurde eingestellt. Requests mit diesen Versionen erhalten jetzt einen 406 Error zurück.
+**Breaking:** Der Support für die Versionen 0.13 and 0.14 wurde eingestellt. Sie waren seit Version 0.15 (08.09.2019) als deprecated markiert. Requests mit diesen Versionen erhalten jetzt einen 406 Error zurück.
 
 {% include links.html %}
