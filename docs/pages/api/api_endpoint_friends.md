@@ -8,6 +8,8 @@ permalink: api_endpoint_friends.html
 folder: api
 ---
 
+{% include important.html content="Diese Dokumentation wird nicht mehr gepflegt und wird in Zukunft entfernt. [Sieh dir stattdessen die neue Dokumentation an][api_endpoint_index]." %}
+
 Dieser Endpoint kann zum Lesen eines `Friends` verwendet werden.
 
 `Friends` sind die Verbindungspunkte zwischen zwei User. User lassen sich mithilfe der `Friends` als [gerichteter Graph](https://de.wikipedia.org/wiki/Graph_(Graphentheorie)) abbilden, wobei jeder User einen Knoten und jeder `Friend` eine Kante darstellt.
