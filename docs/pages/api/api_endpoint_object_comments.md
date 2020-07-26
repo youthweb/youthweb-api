@@ -8,6 +8,8 @@ permalink: api_endpoint_object_comments.html
 folder: api
 ---
 
+{% include important.html content="Diese Dokumentation wird nicht mehr gepflegt und wird in Zukunft entfernt. [Sieh dir stattdessen die neue Dokumentation an][api_endpoint_index]." %}
+
 Dieser Endpoint bietet die `/comments` Beziehungen zu einer Resource an. Die folgenden Resourcen haben eine `/comments` Beziehung:
 
 - [Posts][api_endpoint_posts]
@@ -22,7 +24,7 @@ Beim Request nach allen Comments einer Resource wird ein Array der Comments zur�
 
 ```
 GET https://api.youthweb.net/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
 ```
@@ -40,7 +42,7 @@ Für den Request können keine Parameter angegeben werden.
 
 ```
 Status: 200 OK
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 Content-Type: application/vnd.api+json
 
 {
@@ -126,7 +128,7 @@ Du kannst mit diesem Endpoint einen neuen Comment zu einer Resource erstellen. A
 
 ```
 POST https://api.youthweb.net/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
 
@@ -162,7 +164,7 @@ Für den Request können keine Parameter angegeben werden.
 
 ```
 Status: 201 Created
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 Content-Type: application/vnd.api+json
 Location: /comments/d5a5a2c3-041b-4985-907c-74a2131efc98
 

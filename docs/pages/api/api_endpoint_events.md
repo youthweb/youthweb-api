@@ -8,6 +8,8 @@ permalink: api_endpoint_events.html
 folder: api
 ---
 
+{% include important.html content="Diese Dokumentation wird nicht mehr gepflegt und wird in Zukunft entfernt. [Sieh dir stattdessen die neue Dokumentation an][api_endpoint_index]." %}
+
 Dieser Endpoint liefert die Events, die in einem bestimmten Zeitraum stattfinden oder ein bestimmtes Event.
 
 ## List
@@ -20,7 +22,7 @@ Beim Request nach den Events eines Zeitraums wird ein Array der Events zurückge
 
 ```
 GET https://api.youthweb.net/events?page[start]=2017-01-01&page[end]=2017-12-31
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
 ```
@@ -38,7 +40,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2M
 
 ```
 Status: 200 OK
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 Content-Type: application/vnd.api+json
 
 {
@@ -92,7 +94,7 @@ Beim Request nach einem bestimmten Event wird eine Event Resource zurückgeliefe
 
 ```
 GET https://api.youthweb.net/events/4567
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
 ```
@@ -109,7 +111,7 @@ Für den Request können keine Parameter angegeben werden.
 
 ```
 Status: 200 OK
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 Content-Type: application/vnd.api+json
 
 {

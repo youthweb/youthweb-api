@@ -1,0 +1,353 @@
+FORMAT: 1A
+HOST: https://api.youthweb.net
+
+# Youthweb API - Errors
+
+Hier werden Fehler und Fehlermeldungen der API getestet.
+
+# Group Posts
+
+## Forbidden Posts [/posts/f5a5a2c3-041b-4985-907c-74a2131efc98]
+
+### Request a forbidden post [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 403 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes (Forbidden Error)
+
+## No posts [/users/123450/posts]
+
+### Request posts of a user without posts [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+        + data (array)
+
+## Not existing Posts [/posts/45a5a2c3-041b-4985-907c-74a2131efc98]
+
+### Request a not existing post [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes (Not Found Error)
+
+## Create Post on not existing user [/users/987654/posts]
+
+### Create a post on a not existing user [POST]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (Post Creation)
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes (Not Found Error)
+
+## Create Post without permission [/users/487654/posts]
+
+### Create a post without permission [POST]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (Post Creation)
+
++ Response 403 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes (Forbidden Error)
+
+## Create Post with content errors [/users/287654/posts]
+
+### Create a post with empty content [POST]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (object)
+            + type: `posts` (string)
+            + attributes (object)
+                + `title`: `The post title` (string) - Der Title, kann auch leer sein
+                + `content`: (string) - Der Post-Inhalt
+                + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
+                + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
+
++ Response 400 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Body
+
+            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` can't be empty."}]}
+
+### Create a post with missing content [POST]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (object)
+            + type: `posts` (string)
+            + attributes (object)
+                + `title`: `The post title` (string) - Der Title, kann auch leer sein
+                + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
+                + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
+
++ Response 400 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Body
+
+            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
+
+## Create Comment on not existing post [/posts/45a5a2c3-041b-4985-907c-74a2131efc98/comments]
+
+### Create a comment on a not existing post [POST]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (Comment Creation)
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes (Not Found Error)
+
+## Create Comment without permission [/posts/f5a5a2c3-041b-4985-907c-74a2131efc98/comments]
+
+### Create a comment without permission [POST]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (Post Creation)
+
++ Response 403 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes (Forbidden Error)
+
+## Create Comment with content errors [/posts/25a5a2c3-041b-4985-907c-74a2131efc98/comments]
+
+### Create a comment with empty content [POST]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (object)
+            + type: `comments` (string)
+            + attributes (object)
+                + `content`: (string) - Der Comment-Inhalt
+
++ Response 400 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Body
+
+            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` can't be empty."}]}
+
+### Create a comment with missing content [POST]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+
+        + data (object)
+            + type: `comments` (string)
+            + attributes (object)
+
++ Response 400 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Body
+
+            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
+
+## Get comments of a post without comments [/posts/0ca5a2c3-041b-4985-907c-74a2131efc98/comments]
+
+### Request comments of a post without comments [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 200 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes
+        + data (array)
+
+## Get comments of a not existing post [/posts/45a5a2c3-041b-4985-907c-74a2131efc98/comments]
+
+### Request comments of a not existing post [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes (Not Found Error)
+
+# Group Events
+
+## Not existing event [/events/404]
+
+### Request a not existing event [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes (Not Found Error)
+
+# Group Friends
+
+## Not existing friend [/friends/404]
+
+### Request a not existing friend [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+
+    + Attributes (Not Found Error)
+
+# Data Structures
+
+## Forbidden Error (object)
+
++ errors (array)
+    - (object)
+        + status: `403`
+        + title: `Forbidden`
+
+## Not Found Error (object)
+
++ errors (array)
+    - (object)
+        + status: `404`
+        + title: `Resource not found`
+
+
+## Comment Creation (object)
+
++ type: `comments` (string)
++ attributes (object)
+    + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Post-Inhalt
+
+## Post Creation (object)
+
++ type: `posts` (string)
++ attributes (object)
+    + `title`: `The post title` (string) - Der Title, kann auch leer sein
+    + `content`: `Lorem ipsum dolor sit amet, sed libris elaboraret eu.` (string) - Der Post-Inhalt
+    + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
+    + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?

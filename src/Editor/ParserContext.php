@@ -1,6 +1,6 @@
 <?php
 
-namespace Youthweb\Api\Core;
+namespace Youthweb\Api\Editor;
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
@@ -10,25 +10,19 @@ use Behat\Gherkin\Node\TableNode;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\Psr7\ServerRequest;
+use GuzzleHttp\Psr7\Request;
 use PHPUnit\Framework\TestCase;
-use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext extends TestCase implements Context, SnippetAcceptingContext
+class ParserContext extends TestCase implements Context, SnippetAcceptingContext
 {
     /**
      * @var string
      */
     private $baseUrl;
-
-    /**
-     * string the current api version that requests and responses should have
-     */
-    protected $apiVersion;
 
     /**
      * The Guzzle HTTP Client.
@@ -72,53 +66,11 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
      *
      * @param array $parameters context parameters (set them up through behat.yml)
      */
-    public function __construct($baseUrl, $apiVersion = '0.16')
+    public function __construct($baseUrl)
     {
         $this->baseUrl = rtrim($baseUrl, '/');
-        $this->apiVersion = strval($apiVersion);
 
         $this->client = new Client(array('base_uri' => $this->baseUrl));
-    }
-
-    /**
-     * @Given an user named :arg1
-     */
-    public function anUserNamed($arg1)
-    {
-        // do nothing
-    }
-
-    /**
-     * @Given an user named :arg1 with id :arg2
-     */
-    public function anUserNamedWithId($arg1, $arg2)
-    {
-        // do nothing
-    }
-
-    /**
-     * @Given :arg1 has posted a post with message :arg2
-     */
-    public function hasPostedAPostWithMessage($arg1, $arg2)
-    {
-        // do nothing
-    }
-
-
-    /**
-     * @Given :arg1 owns a post with id :arg2
-     */
-    public function ownsAPostWithId($arg1, $arg2)
-    {
-        // do nothing
-    }
-
-    /**
-     * @Given the post can be viewed by :arg1
-     */
-    public function thePostCanBeViewedBy($arg1)
-    {
-        // do nothing
     }
 
 
@@ -139,43 +91,6 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
     }
 
     /**
-     * @Given I am authorized as :arg1
-     */
-    public function iAmAuthorizedAs($name)
-    {
-        $bearerHeaders = [
-            'Alice' => 'valid_JWT',
-            'Bob' => 'valid_token_of_bob',
-        ];
-
-        if (! array_key_exists($name, $bearerHeaders)) {
-            throw new \InvalidArgumentException(sprintf(
-                '"%s" is not a valid user, possible users are: "%s"',
-                $name,
-                implode(array_keys($bearerHeaders), '", "')
-            ));
-        }
-
-        $this->setRequiredHeaders();
-        $this->iHaveSetTheHeaderWith('Authorization', 'Bearer ' . $bearerHeaders[$name]);
-    }
-
-    /**
-     * @Given I am an unauthorized user
-     */
-    public function iAmAnUnauthorizedUser()
-    {
-        $this->setRequiredHeaders();
-    }
-
-    protected function setRequiredHeaders()
-    {
-        $this->iHaveSetTheHeaderWith('Content-Type', 'application/vnd.api+json');
-        $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json');
-        $this->iHaveSetTheHeaderWith('Accept', 'application/vnd.api+json; net.youthweb.api.version=' . $this->apiVersion);
-    }
-
-    /**
      * @When /^I request "(GET|PATCH|POST|DELETE) ([^"]*)"$/
      */
     public function iRequest($httpMethod, $resource)
@@ -189,7 +104,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
             $content = implode(', ', $content);
         });
 
-        $request = new ServerRequest(
+        $request = new Request(
             $httpMethod,
             $this->baseUrl . $resource,
             $headers,
@@ -198,7 +113,7 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
 
         try
         {
-            $this->response = $this->sendRequest($request);
+            $this->response = $this->client->send($request);
         }
         catch (BadResponseException $e)
         {
@@ -227,16 +142,6 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
     }
 
     /**
-    * @Then the correct headers are set
-    */
-   public function theCorrectHeadersAreSet()
-   {
-       $this->theContentTypeHeaderExists('application/vnd.api+json');
-       $this->theAcceptHeaderExists('application/vnd.api+json');
-       $this->theAcceptHeaderExists('application/vnd.api+json; net.youthweb.api.version=' . $this->apiVersion);
-   }
-
-    /**
      * @Then the Content-Type Header :arg1 exists
      */
     public function theContentTypeHeaderExists($content_type)
@@ -244,44 +149,6 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
         $content_types = $this->getResponse()->getHeader('Content-Type');
 
         $this->assertTrue(in_array($content_type, $content_types), 'Content-Type: ' . implode(', ', $content_types));
-    }
-
-    /**
-     * @Then the Accept Header :arg1 exists
-     */
-    public function theAcceptHeaderExists($accept_type)
-    {
-        $accepts = explode(',', $this->getResponse()->getHeaderLine('Accept'));
-
-        array_walk($accepts, function(&$string, $key) {
-            $string = trim($string);
-        });
-
-        $this->assertTrue(in_array($accept_type, $accepts), 'Accept: ' . implode(', ', $accepts));
-    }
-
-    /**
-     * @Then the Location Header exists
-     */
-    public function theLocationHeaderExists()
-    {
-        $location = $this->getResponse()->getHeaderLine('Location');
-
-        $this->assertFalse(empty($location), $location);
-    }
-
-    /**
-     * @Given /^the response contains (\d+) items$/
-     */
-    public function theResponseContainsItems($count)
-    {
-        $payload = $this->getScopePayload();
-
-        $this->assertCount(
-            $count,
-            get_object_vars($payload),
-            "Asserting the request contains [$count] items: ".json_encode($payload)
-        );
     }
 
     /**
@@ -686,13 +553,5 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
         }
 
         return $array;
-    }
-
-    /**
-     * Versenden des Server Requsts; kann überschrieben werden
-     */
-    protected function sendRequest(ServerRequestInterface $request): ResponseInterface
-    {
-        return $this->client->send($request);
     }
 }

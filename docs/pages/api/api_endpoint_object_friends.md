@@ -8,6 +8,8 @@ permalink: api_endpoint_object_friends.html
 folder: api
 ---
 
+{% include important.html content="Diese Dokumentation wird nicht mehr gepflegt und wird in Zukunft entfernt. [Sieh dir stattdessen die neue Dokumentation an][api_endpoint_index]." %}
+
 Dieser Endpoint bietet die `/friends` Beziehungen zu einer Resource an. Die folgenden Resourcen haben eine `/friends` Beziehung:
 
 - [Users][api_endpoint_users]
@@ -32,7 +34,7 @@ Beim Request nach allen Freunden einer Resource wird ein Array der `Friends` zur
 
 ```
 GET https://api.youthweb.net/users/1/friends
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
 ```
@@ -49,7 +51,7 @@ Für den Request können keine Parameter angegeben werden.
 
 ```
 Status: 200 OK
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
 Content-Type: application/vnd.api+json
 
 {

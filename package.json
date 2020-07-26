@@ -1,12 +1,14 @@
 {
   "name": "youthweb-api",
-  "version": "0.15.2",
+  "version": "0.16.0",
   "private": true,
   "devDependencies": {
-    "drakov": "^1.0.1"
+    "aglio": "^2.3.0",
+    "drakov": "^1.0.4"
   },
   "scripts": {
-    "server": "drakov -f \"./*.apib\" -p 3000",
+    "server": "drakov -f \"./spec/*.apib\" -p 3000 --watch",
+    "aglio": "aglio -i spec/apiary.apib --no-theme-condense --theme-full-width -p 3001 -s",
     "test": "vendor/bin/behat --suite=core",
     "build": "cd docs && bundle exec jekyll build --source ./ --destination ../public/",
     "docs:build": "cd docs && bundle exec jekyll build --source ./ --destination ./_site",
