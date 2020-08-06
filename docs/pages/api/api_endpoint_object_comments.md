@@ -8,6 +8,8 @@ permalink: api_endpoint_object_comments.html
 folder: api
 ---
 
+{% include important.html content="Diese Dokumentation wird nicht mehr gepflegt und wird in Zukunft entfernt. [Sieh dir stattdessen die neue Dokumentation an][api_endpoint_index]." %}
+
 Dieser Endpoint bietet die `/comments` Beziehungen zu einer Resource an. Die folgenden Resourcen haben eine `/comments` Beziehung:
 
 - [Posts][api_endpoint_posts]

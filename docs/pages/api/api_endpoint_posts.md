@@ -8,6 +8,8 @@ permalink: api_endpoint_posts.html
 folder: api
 ---
 
+{% include important.html content="Diese Dokumentation wird nicht mehr gepflegt und wird in Zukunft entfernt. [Sieh dir stattdessen die neue Dokumentation an][api_endpoint_index]." %}
+
 Dieser Endpoint kann zum Lesen oder Erstellen eines Posts verwendet werden.
 
 ## Read
