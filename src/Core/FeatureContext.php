@@ -97,30 +97,44 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
     }
 
     /**
-     * @Given :arg1 has posted a post with message :arg2
+     * @Given user :username allows new posts only from :from
      */
-    public function hasPostedAPostWithMessage($arg1, $arg2)
-    {
-        // do nothing
-    }
-
-
-    /**
-     * @Given :arg1 owns a post with id :arg2
-     */
-    public function ownsAPostWithId($arg1, $arg2)
+    public function userAllowsNewPostsOnlyFrom($username, $from)
     {
         // do nothing
     }
 
     /**
-     * @Given the post can be viewed by :arg1
+     * @Given :username has posted a post with message :message
      */
-    public function thePostCanBeViewedBy($arg1)
+    public function hasPostedAPostWithMessage($username, $message)
     {
         // do nothing
     }
 
+    /**
+     * @Given :username owns a post with id :uuid
+     */
+    public function ownsAPostWithId($username, $uuid)
+    {
+        // do nothing
+    }
+
+    /**
+     * @Given the post can be viewed by :viewAllowedFor
+     */
+    public function thePostCanBeViewedBy($viewAllowedFor)
+    {
+        // do nothing
+    }
+
+    /**
+     * @Given the post is related to a timeline entry with id :arg1
+     */
+    public function thePostIsRelatedToATimelineEntryWithId($arg1)
+    {
+        // do nothing
+    }
 
     /**
      * @Given /^I have the payload$/

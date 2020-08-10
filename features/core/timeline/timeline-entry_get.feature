@@ -2,17 +2,11 @@ Feature: Interact with a timeline
     In order to request a timeline and the entries
     As a user
 
-Background:
-    Given an user named "Alice" with id "123456"
-    And an user named "Bob" with id "234567"
-    And "Alice" has posted a post with message "First post"
-    And "Bob" has posted a post with message "Second post"
-    And "Bob" has posted a post with message "Third post"
-    And "Alice" has posted a post with message "Fourth post"
-    And "Alice" has posted a post with message "Fifth post"
-
 Scenario: Alice requests a timeline entries
-    Given I am authorized as Alice
+    Given an user named "Alice"
+    And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
+    And the post is related to a timeline entry with id "d9a86276-6d12-462e-b63e-bf2d961e1678"
+    And I am authorized as Alice
     When I request "GET /timeline-entries/d9a86276-6d12-462e-b63e-bf2d961e1678"
     Then I get a "200" response
     And the correct headers are set
@@ -43,7 +37,9 @@ Scenario: Alice requests a timeline entries
     And the "id" property is a string
 
 Scenario: Requesting the orign of a timeline-entry
-    Given I am authorized as Alice
+    Given an user named "Alice" with id "123456"
+    And "Alice" has posted a post with message "First post"
+    And I am authorized as Alice
     When I request "GET /timeline-entries/d9a86276-6d12-462e-b63e-bf2d961e1678/origin"
     Then I get a "200" response
     And the correct headers are set
@@ -66,7 +62,9 @@ Scenario: Requesting the orign of a timeline-entry
     And the "self" property exists
 
 Scenario: Requesting the origin relationship of a timeline-entries
-    Given I am authorized as Alice
+    Given an user named "Alice" with id "123456"
+    And "Alice" has posted a post with message "First post"
+    And I am authorized as Alice
     When I request "GET /timeline-entries/d9a86276-6d12-462e-b63e-bf2d961e1678/relationships/origin"
     Then I get a "200" response
     And the correct headers are set
