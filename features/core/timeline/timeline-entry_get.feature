@@ -2,8 +2,8 @@ Feature: Interact with a timeline
     In order to request a timeline and the entries
     As a user
 
-Scenario: Alice requests a timeline entries
-    Given an user named "Alice"
+Scenario: Alice requests a timeline entry
+    Given an user named "Alice" with id "140001"
     And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
     And the post is related to a timeline entry with id "d9a86276-6d12-462e-b63e-bf2d961e1678"
     And I am authorized as Alice
@@ -37,8 +37,9 @@ Scenario: Alice requests a timeline entries
     And the "id" property is a string
 
 Scenario: Requesting the orign of a timeline-entry
-    Given an user named "Alice" with id "123456"
-    And "Alice" has posted a post with message "First post"
+    Given an user named "Alice" with id "140001"
+    And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
+    And the post is related to a timeline entry with id "d9a86276-6d12-462e-b63e-bf2d961e1678"
     And I am authorized as Alice
     When I request "GET /timeline-entries/d9a86276-6d12-462e-b63e-bf2d961e1678/origin"
     Then I get a "200" response
@@ -61,9 +62,10 @@ Scenario: Requesting the orign of a timeline-entry
     And the response contains 1 items
     And the "self" property exists
 
-Scenario: Requesting the origin relationship of a timeline-entries
-    Given an user named "Alice" with id "123456"
-    And "Alice" has posted a post with message "First post"
+Scenario: Requesting the origin relationship of a timeline-entry
+    Given an user named "Alice" with id "140001"
+    And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
+    And the post is related to a timeline entry with id "d9a86276-6d12-462e-b63e-bf2d961e1678"
     And I am authorized as Alice
     When I request "GET /timeline-entries/d9a86276-6d12-462e-b63e-bf2d961e1678/relationships/origin"
     Then I get a "200" response
@@ -73,7 +75,7 @@ Scenario: Requesting the origin relationship of a timeline-entries
     And the "links" property exists
     And the "links" property is an object
     And scope into the "data" property
-    And the response contains 2 items
+    And the response contains at least 2 items
     And the "type" property exists
     And the "type" property is a string equalling "posts"
     And the "id" property exists

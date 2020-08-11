@@ -129,9 +129,9 @@ class FeatureContext extends TestCase implements Context, SnippetAcceptingContex
     }
 
     /**
-     * @Given the post is related to a timeline entry with id :arg1
+     * @Given the post is related to a timeline entry with id :uuid
      */
-    public function thePostIsRelatedToATimelineEntryWithId($arg1)
+    public function thePostIsRelatedToATimelineEntryWithId($uuid)
     {
         // do nothing
     }
