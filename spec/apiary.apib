@@ -1041,7 +1041,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
 # Group Timeline-Entries
 
-## Timeline-Entries [/timeline-entries{?page%5Blimit%5D}{?page%5Boffset%5D}{?include}]
+## Timeline-Entries [/timeline-entries{?page%5Blimit%5D}{?page%5Bcursor%5D}{?include}]
 
 + Parameters
     + `page%5Blimit%5D` (optional, number) - Limit the entries
@@ -1073,6 +1073,9 @@ Liefert die Einträge für die globale Timeline
         + data (array)
             + (Timeline Entry)
             + (Timeline Entry)
+        + links (object)
+            + first: `/timeline-entries` (string)
+            + next: `/timeline-entries?page%5Bcursor%5D=1234567890` (string)
 
 ## Timeline-Entry [/timeline-entries/{entry_id}{?include}]
 
