@@ -595,10 +595,12 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
 # Group Posts
 
-## Post [/posts/{post_id}]
+## Post [/posts/{post_id}{?include}]
 
 + Parameters
     + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID des Posts
+    + `include`: `include=author,comments,parent` (optional, string) - Kommagetrente Liste an includes
+        + Default: ``
 
 ### Daten zu einem Post abrufen [GET]
 
@@ -620,6 +622,9 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
         + data (Post Base)
         + included (array)
             + (User Base)
+        + meta (object)
+            + warnings (array)
+                - `The default inclusion of "parent" and "author" relationsships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.` (string)
 
 + Request (application/vnd.api+json)
 
@@ -1742,9 +1747,6 @@ Liefert Statistiken zu den Gruppen.
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent` (string)
 + links (object)
     + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Der Link zu dieser Resource
-+ meta (object)
-    + warnings (array)
-        - `The default inclusion of "parent" and "author" relationsships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.` (string)
 
 ## Post Reacted (object)
 
