@@ -7,14 +7,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
 # Group Timeline-Entries
 
-## Die Timeline-Entries eines Users [/users/404404/timeline-entries{?page%5Blimit%5D}{?page%5Boffset%5D}]
-
-+ Parameters
-    + user_id (required, number) - ID of the user
-    + `page%5Blimit%5D` (optional, number) - Limit the entries
-        + Default: `5`
-    + `page%5Boffset%5D` (optional, number) - Offset the entries
-        + Default: `0`
+## Die Timeline-Entries eines Users [/users/404404/timeline-entries]
 
 ### Die Timeline-Entries eines Users abrufen [GET]
 
@@ -40,6 +33,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Forbidden Posts [/posts/f5a5a2c3-041b-4985-907c-74a2131efc98]
 
 ### Request a forbidden post [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -57,6 +51,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## No posts [/users/123450/posts]
 
 ### Request posts of a user without posts [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -75,6 +70,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Not existing Posts [/posts/45a5a2c3-041b-4985-907c-74a2131efc98]
 
 ### Request a not existing post [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -133,64 +129,10 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Attributes (Forbidden Error)
 
-## Create Post with content errors [/users/287654/posts]
-
-### Create a post with empty content [POST]
-+ Request (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
-
-    + Attributes
-
-        + data (object)
-            + type: `posts` (string)
-            + attributes (object)
-                + `title`: `The post title` (string) - Der Title, kann auch leer sein
-                + `content`: (string) - Der Post-Inhalt
-                + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
-                + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
-
-+ Response 400 (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
-
-    + Body
-
-            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` can't be empty."}]}
-
-### Create a post with missing content [POST]
-+ Request (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
-
-    + Attributes
-
-        + data (object)
-            + type: `posts` (string)
-            + attributes (object)
-                + `title`: `The post title` (string) - Der Title, kann auch leer sein
-                + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
-                + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
-
-+ Response 400 (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
-
-    + Body
-
-            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
-
 ## Create Comment on not existing post [/posts/45a5a2c3-041b-4985-907c-74a2131efc98/comments]
 
 ### Create a comment on a not existing post [POST]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -212,6 +154,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Create Comment without permission [/posts/f5a5a2c3-041b-4985-907c-74a2131efc98/comments]
 
 ### Create a comment without permission [POST]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -233,6 +176,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Create Comment with content errors [/posts/25a5a2c3-041b-4985-907c-74a2131efc98/comments]
 
 ### Create a comment with empty content [POST]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -282,6 +226,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Get comments of a post without comments [/posts/0ca5a2c3-041b-4985-907c-74a2131efc98/comments]
 
 ### Request comments of a post without comments [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -300,6 +245,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Get comments of a not existing post [/posts/45a5a2c3-041b-4985-907c-74a2131efc98/comments]
 
 ### Request comments of a not existing post [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -319,6 +265,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Not existing event [/events/404]
 
 ### Request a not existing event [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -338,6 +285,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Not existing friend [/friends/404]
 
 ### Request a not existing friend [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
