@@ -1082,6 +1082,22 @@ Liefert die Einträge für die globale Timeline
             + first: `/timeline-entries` (string)
             + next: `/timeline-entries?page%5Bcursor%5D=1234567890` (string)
 
++ Request (application/vnd.api+json)
+
+    Als unauthorisierter User kann man keine Timeline abfragen
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+
++ Response 401 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+
+    + Attributes (Unauthorized Error)
+
 ## Timeline-Entry [/timeline-entries/{entry_id}{?include}]
 
 + Parameters
@@ -1141,6 +1157,42 @@ Liefert die Einträge für die Timeline eines Users
         + data (array)
             + (Timeline Entry)
             + (Timeline Entry)
+        + links (object)
+            + first: `/users/{user_id}/timeline-entries` (string)
+            + next: `/users/{user_id}/timeline-entries?cursor=123456` (string)
+
++ Request (application/vnd.api+json)
+
+    Als unauthorisierter User kann man keine Usertimeline abfragen
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+
++ Response 401 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+
+    + Attributes (Unauthorized Error)
+
++ Request (application/vnd.api+json)
+
+    Bei einem nicht existenten User kann man keine Daten abfragen
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Authorization: Bearer valid_JWT
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+
+    + Attributes (Not Found Error)
 
 ## Timeline-Entry Origin [/timeline-entries/{entry_id}/origin]
 

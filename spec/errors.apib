@@ -5,6 +5,36 @@ HOST: https://api.youthweb.net
 
 Hier werden Fehler und Fehlermeldungen der API getestet.
 
+# Group Timeline-Entries
+
+## Die Timeline-Entries eines Users [/users/404404/timeline-entries{?page%5Blimit%5D}{?page%5Boffset%5D}]
+
++ Parameters
+    + user_id (required, number) - ID of the user
+    + `page%5Blimit%5D` (optional, number) - Limit the entries
+        + Default: `5`
+    + `page%5Boffset%5D` (optional, number) - Offset the entries
+        + Default: `0`
+
+### Die Timeline-Entries eines Users abrufen [GET]
+
++ Request (application/vnd.api+json)
+
+    Bei einem nicht existenten User kann man keine Daten abfragen
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Authorization: Bearer valid_JWT
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+
+    + Attributes (Not Found Error)
+
 # Group Posts
 
 ## Forbidden Posts [/posts/f5a5a2c3-041b-4985-907c-74a2131efc98]
@@ -62,6 +92,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Create Post on not existing user [/users/987654/posts]
 
 ### Create a post on a not existing user [POST]
+
 + Request (application/vnd.api+json)
 
     + Headers
@@ -83,6 +114,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Create Post without permission [/users/487654/posts]
 
 ### Create a post without permission [POST]
+
 + Request (application/vnd.api+json)
 
     + Headers
