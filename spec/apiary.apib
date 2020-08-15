@@ -599,8 +599,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
 + Parameters
     + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID des Posts
-    + `include`: `include=author,comments,parent` (optional, string) - Kommagetrente Liste an includes
-        + Default: ``
+    + `include`: `author,comments,parent` (optional, string) - Kommagetrente Liste an includes
 
 ### Daten zu einem Post abrufen [GET]
 
@@ -1052,8 +1051,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
     + `page%5Blimit%5D` (optional, number) - Limit the entries
         + Default: `5`
     + `page%5Bcursor%5D` (optional, number) - Timestamp der zuletzt geladenen Entry, damit als nächstes die Entries geladen, die älter sind
-    + `include`: `include=origin.author,origin.comments.author` (optional, string) - Kommagetrente Liste an includes
-        + Default: ``
+    + `include`: `origin.author,origin.comments.author` (optional, string) - Kommagetrente Liste an includes
 
 ### Globale Timeline-Entries abrufen [GET]
 
@@ -1101,8 +1099,7 @@ Liefert die Einträge für die globale Timeline
 
 + Parameters
     + `entry_id` (required, string) - Uuid des Timeline-Entry
-    + `include`: `include=origin.author,origin.comments.author` (optional, string) - Kommagetrente Liste an includes
-        + Default: ``
+    + `include`: `origin.author,origin.comments.author` (optional, string) - Kommagetrente Liste an includes
 
 ### Einen Timeline-Entry abrufen [GET]
 
