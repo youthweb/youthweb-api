@@ -1051,8 +1051,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 + Parameters
     + `page%5Blimit%5D` (optional, number) - Limit the entries
         + Default: `5`
-    + `page%5Boffset%5D` (optional, number) - Offset the entries
-        + Default: `0`
+    + `page%5Bcursor%5D` (optional, number) - Timestamp der zuletzt geladenen Entry, damit als nächstes die Entries geladen, die älter sind
     + `include`: `include=origin.author,origin.comments.author` (optional, string) - Kommagetrente Liste an includes
         + Default: ``
 
@@ -1126,14 +1125,13 @@ Liefert einen Eintrag
 
         + data (Timeline Entry)
 
-## Die Timeline-Entries eines Users [/users/{user_id}/timeline-entries{?page%5Blimit%5D}{?page%5Boffset%5D}]
+## Die Timeline-Entries eines Users [/users/{user_id}/timeline-entries{?page%5Blimit%5D}{?page%5Bcursor%5D}]
 
 + Parameters
     + user_id (required, number) - ID of the user
     + `page%5Blimit%5D` (optional, number) - Limit the entries
         + Default: `5`
-    + `page%5Boffset%5D` (optional, number) - Offset the entries
-        + Default: `0`
+    + `page%5Bcursor%5D` (optional, number) - Timestamp der zuletzt geladenen Entry, damit als nächstes die Entries geladen, die älter sind
 
 ### Die Timeline-Entries eines Users abrufen [GET]
 
