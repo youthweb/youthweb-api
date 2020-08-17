@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...develop)
 
+## [0.17.0 - 2020-08-17](https://gitlab.com/youthweb/youthweb-api/compare/0.16.0...0.17.0)
+
+### Added
+
+- new endpoint `/timeline-entries` to get the global timeline of all users
+- new endpoint `/users/<user_id>/timeline-entries` to get the timeline of an user
+
+### Fixed
+
+- The warning about the deprecated default inclusion of "parent" and "author" relationsships in post resources will now only be shown in document instead of every resource
+
 ## [0.16.0 - 2020-07-26](https://gitlab.com/youthweb/youthweb-api/compare/0.15.2...0.16.0)
 
 ### Added
