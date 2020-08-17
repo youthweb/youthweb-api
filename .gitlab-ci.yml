@@ -69,6 +69,7 @@ build-docs:
   script:
     - bundle exec jekyll build --destination ../public/
     - cd ..
+    - chmod +x ./bin/parse_apib.sh
     - ./bin/parse_apib.sh
   cache:
     key: build
