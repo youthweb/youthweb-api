@@ -86,9 +86,7 @@ pages:
       when: never
     - if: '$CI_COMMIT_TAG'
       when: on_success
-    - if: '$CI_COMMIT_BRANCH == "master"'
-      when: manual
-    - when: on_success
+    - when: manual
   script:
     - ls -al
   artifacts:
