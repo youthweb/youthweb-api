@@ -28,10 +28,13 @@ Scenario: Requesting a event
     When I request "GET /events/4567"
     Then I get a "200" response
     And the correct headers are set
+    And the response contains at least 3 items
     And the "included" property exists
     And the "included" property is an array
     And the "data" property exists
     And the "data" property is an object
+    And the "meta" property exists
+    And the "meta" property is an object
     And scope into the "data" property
     And the response contains 5 items
     And the "type" property exists
@@ -57,7 +60,7 @@ Scenario: Requesting a event
         participants_count
         """
     And scope into the "data.links" property
-    And the response contains 1 items
+    And the response contains at least 1 items
     And the properties exist:
         """
         self
@@ -67,6 +70,14 @@ Scenario: Requesting a event
     And the properties exist:
         """
         author
+        """
+    And scope into the "meta" property
+    And the "warnings" property exists
+    And the "warnings" property is an array
+    And the "warnings" property contains 1 items
+    And the "warnings" property contains at least:
+        """
+        The default inclusion of "author" relationsships is deprecated since 0.17 and will be removed in future, use "?include=author" in query instead.
         """
 
 Scenario: Requesting an event without authorization

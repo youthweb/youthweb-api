@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...develop)
 
-## [0.17.0 - 2020-08-17](https://gitlab.com/youthweb/youthweb-api/compare/0.16.0...0.17.0)
+## [0.17.0 - 2020-08-23](https://gitlab.com/youthweb/youthweb-api/compare/0.16.0...0.17.0)
 
 ### Added
 
@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - The warning about the deprecated default inclusion of "parent" and "author" relationsships in post resources will now only be shown in document instead of every resource
+
+### Deprecated
+
+- The default inclusion of "author" relationsships in event resources is deprecated and will be removed in future, use "?include=author" in query instead.
 
 ## [0.16.0 - 2020-07-26](https://gitlab.com/youthweb/youthweb-api/compare/0.15.2...0.16.0)
 

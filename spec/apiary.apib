@@ -315,11 +315,11 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
 # Group Events
 
-## Events abrufen [/events?page%5Bstart%5D={start_datetime}&page%5Bend%5D={end_datetime}]
+## Events abrufen [/events{?page%5Bstart%5D}{?page%5Bend%5D}]
 
 + Parameters
-    + `start_datetime`: `2017-06-01T00:00:00` (string, optional) - Ein ISO 6801 Datum ohne Timezone-Offset in UTC Timezone für die untere Startzeit der Events. Wenn nicht angegeben, wird aktuelle Zeitpunkt angenommen. Ein angegebener Timezone-Offset wird ignoriert.
-    + `end_datetime`: `2017-08-01T00:00:00` (string, optional) - Ein ISO 6801 Datum ohne Timezone-Offset in UTC Timezone für die obere Startzeit der Events. Wenn nicht angegeben, wird ein Monat nach `start_datetime` angenommen. Ein angegebener Timezone-Offset wird ignoriert.
+    + `page%5Bstart%5D`: `2017-06-01T00:00:00` (optional, string) - Ein ISO 6801 Datum ohne Timezone-Offset in UTC Timezone für die untere Startzeit der Events. Wenn nicht angegeben, wird der aktuelle Zeitpunkt angenommen. Ein angegebener Timezone-Offset wird ignoriert.
+    + `page%5Bend%5D`: `2017-08-01T00:00:00` (optional, string) - Ein ISO 6801 Datum ohne Timezone-Offset in UTC Timezone für die obere Startzeit der Events. Wenn nicht angegeben, wird ein Monat nach `page[start]` angenommen. Ein angegebener Timezone-Offset wird ignoriert.
 
 ### Eine Liste von Events abrufen [GET]
 
@@ -342,10 +342,11 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
         + included (array)
             + (User Base)
 
-## Event [/events/{event_id}]
+## Event [/events/{event_id}{?include}]
 
 + Parameters
     + event_id: `4567` (required, string) - ID of the event
+    + `include`: `author` (optional, string) - Kommagetrente Liste an includes
 
 ### Ein Event abrufen [GET]
 
@@ -367,6 +368,9 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
         + data (Event Base)
         + included (array)
             + (User Base)
+        + meta (object)
+            + warnings (array)
+                - `The default inclusion of "author" relationsships is deprecated since 0.17 and will be removed in future, use "?include=author" in query instead.` (string)
 
 + Request (application/vnd.api+json)
 
