@@ -12,16 +12,16 @@ node_modules/.bin/aglio -i ./public/spec/core/next/apiary.apib --no-theme-conden
 
 echo "Render HTML for 0.17"
 git fetch origin v0.17:v0.17 || { exit 1; }
-git checkout v0.17 -- apiary.apib || { exit 1; }
+git checkout v0.17 -- ./spec || { exit 1; }
 mkdir -p ./public/spec/core/0.17 || { exit 1; }
-mv ./apiary.apib ./public/spec/core/0.17/apiary.apib || { exit 1; }
+cp -r ./spec ./public/spec/core/0.17 || { exit 1; }
 node_modules/.bin/aglio -i ./public/spec/core/0.17/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/0.17/index.html || { exit 1; }
 
 echo "Render HTML for 0.16"
 git fetch origin v0.16:v0.16 || { exit 1; }
-git checkout v0.16 -- apiary.apib || { exit 1; }
+git checkout v0.16 -- ./spec || { exit 1; }
 mkdir -p ./public/spec/core/0.16 || { exit 1; }
-mv ./apiary.apib ./public/spec/core/0.16/apiary.apib || { exit 1; }
+cp -r ./spec ./public/spec/core/0.16 || { exit 1; }
 node_modules/.bin/aglio -i ./public/spec/core/0.16/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/0.16/index.html || { exit 1; }
 
 echo "Render HTML for 0.15"
