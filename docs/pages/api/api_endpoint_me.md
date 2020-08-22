@@ -20,7 +20,7 @@ Siehe den [Endpoint `/users`][api_endpoint_users] für Informationen zur User-Re
 
 ```
 GET https://api.youthweb.net/me
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 Content-Type: application/vnd.api+json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0NTgyMzE2MDAsImlzcyI6IkpOdlBnY3ROcEg1Y0s2UmMifQ.BOn0XFDDYa5iBHJb636A0C0m4sU5NO8SA_CPOVHoWNs
 ```

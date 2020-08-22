@@ -5,39 +5,64 @@ HOST: https://api.youthweb.net
 
 Hier werden Fehler und Fehlermeldungen der API getestet.
 
+# Group Timeline-Entries
+
+## Die Timeline-Entries eines Users [/users/404404/timeline-entries]
+
+### Die Timeline-Entries eines Users abrufen [GET]
+
++ Request (application/vnd.api+json)
+
+    Bei einem nicht existenten User kann man keine Daten abfragen
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Authorization: Bearer valid_JWT
+
++ Response 404 (application/vnd.api+json)
+
+    + Headers
+
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+
+    + Attributes (Not Found Error)
+
 # Group Posts
 
 ## Forbidden Posts [/posts/f5a5a2c3-041b-4985-907c-74a2131efc98]
 
 ### Request a forbidden post [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
 + Response 403 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes (Forbidden Error)
 
 ## No posts [/users/123450/posts]
 
 ### Request posts of a user without posts [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes
         + data (array)
@@ -45,28 +70,30 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Not existing Posts [/posts/45a5a2c3-041b-4985-907c-74a2131efc98]
 
 ### Request a not existing post [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes (Not Found Error)
 
 ## Create Post on not existing user [/users/987654/posts]
 
 ### Create a post on a not existing user [POST]
+
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes
 
@@ -76,18 +103,19 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes (Not Found Error)
 
 ## Create Post without permission [/users/487654/posts]
 
 ### Create a post without permission [POST]
+
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes
 
@@ -97,73 +125,19 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes (Forbidden Error)
-
-## Create Post with content errors [/users/287654/posts]
-
-### Create a post with empty content [POST]
-+ Request (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
-
-    + Attributes
-
-        + data (object)
-            + type: `posts` (string)
-            + attributes (object)
-                + `title`: `The post title` (string) - Der Title, kann auch leer sein
-                + `content`: (string) - Der Post-Inhalt
-                + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
-                + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
-
-+ Response 400 (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
-
-    + Body
-
-            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` can't be empty."}]}
-
-### Create a post with missing content [POST]
-+ Request (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
-
-    + Attributes
-
-        + data (object)
-            + type: `posts` (string)
-            + attributes (object)
-                + `title`: `The post title` (string) - Der Title, kann auch leer sein
-                + `view_allowed_for`: `users` (string) - Wer kann diesen Post sehen? (`all`, `users`, `friends` oder `authors`)
-                + `comments_allowed`: true (boolean) - Kann dieser Post kommentiert werden?
-
-+ Response 400 (application/vnd.api+json)
-
-    + Headers
-
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
-
-    + Body
-
-            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
 
 ## Create Comment on not existing post [/posts/45a5a2c3-041b-4985-907c-74a2131efc98/comments]
 
 ### Create a comment on a not existing post [POST]
+
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes
 
@@ -173,18 +147,19 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes (Not Found Error)
 
 ## Create Comment without permission [/posts/f5a5a2c3-041b-4985-907c-74a2131efc98/comments]
 
 ### Create a comment without permission [POST]
+
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes
 
@@ -194,18 +169,19 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes (Forbidden Error)
 
 ## Create Comment with content errors [/posts/25a5a2c3-041b-4985-907c-74a2131efc98/comments]
 
 ### Create a comment with empty content [POST]
+
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes
 
@@ -218,7 +194,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Body
 
@@ -229,7 +205,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes
 
@@ -241,7 +217,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Body
 
@@ -250,17 +226,18 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Get comments of a post without comments [/posts/0ca5a2c3-041b-4985-907c-74a2131efc98/comments]
 
 ### Request comments of a post without comments [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes
         + data (array)
@@ -268,17 +245,18 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Get comments of a not existing post [/posts/45a5a2c3-041b-4985-907c-74a2131efc98/comments]
 
 ### Request comments of a not existing post [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes (Not Found Error)
 
@@ -287,17 +265,18 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Not existing event [/events/404]
 
 ### Request a not existing event [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes (Not Found Error)
 
@@ -306,17 +285,18 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 ## Not existing friend [/friends/404]
 
 ### Request a not existing friend [GET]
+
 + Request (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.16
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
     + Attributes (Not Found Error)
 

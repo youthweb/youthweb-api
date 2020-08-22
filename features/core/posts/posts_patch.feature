@@ -3,7 +3,7 @@ Feature: Interact with a post
     As a user
 
 Scenario: A user can update own posts
-    Given an user named "Alice"
+    Given an user named "Alice" with id "140001"
     And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
     And I am authorized as Alice
     And I have the payload
@@ -60,9 +60,9 @@ Scenario: A user can update own posts
         """
 
 Scenario: A user can update the given reactions to posts of other users
-    Given an user named "Alice"
+    Given an user named "Alice" with id "140001"
     And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
-    And an user named "Bob"
+    And an user named "Bob" with id "140002"
     And I am authorized as Bob
     And I have the payload
         """
@@ -118,7 +118,7 @@ Scenario: A user can update the given reactions to posts of other users
         """
 
 Scenario: Updating a post without authorization is not possible
-    Given an user named "Alice"
+    Given an user named "Alice" with id "140001"
     And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
     And I am an unauthorized user
     And I have the payload
@@ -137,9 +137,9 @@ Scenario: Updating a post without authorization is not possible
     And the "title" property is a string equalling "Unauthorized"
 
 Scenario: A user can not update posts of other users
-    Given an user named "Alice"
+    Given an user named "Alice" with id "140001"
     And "Alice" owns a post with id "d5a5a2c3-041b-4985-907c-74a2131efc98"
-    And an user named "Bob"
+    And an user named "Bob" with id "140002"
     And I am authorized as Bob
     And I have the payload
         """
