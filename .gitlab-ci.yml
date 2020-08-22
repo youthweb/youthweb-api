@@ -67,7 +67,7 @@ build-docs:
     - bundle install
     - echo $(date -u)
   script:
-    - bundle exec jekyll build --destination ../public/
+    - bundle exec jekyll build --future --destination ../public/
     - cd ..
     - chmod +x ./bin/parse_apib.sh
     - ./bin/parse_apib.sh
