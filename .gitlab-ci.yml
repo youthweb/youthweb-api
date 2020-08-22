@@ -81,6 +81,7 @@ build-docs:
 
 pages:
   stage: deploy
+  allow_failure: true
   rules:
     - if: $CI_MERGE_REQUEST_ID
       when: never
