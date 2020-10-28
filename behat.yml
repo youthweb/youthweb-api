@@ -6,7 +6,7 @@ default:
             contexts:
                 - Youthweb\Api\Core\FeatureContext:
                     baseUrl: "http://localhost:3000/"
-                    apiVersion: "0.17"
+                    apiVersion: "0.18"
         editor:
             paths:
                 - "%paths.base%/features/editor"
