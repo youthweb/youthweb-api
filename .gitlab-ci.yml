@@ -30,6 +30,8 @@ behat:
     - npm --version
     - npm install
     - ./node_modules/.bin/drakov --stealthmode -f "./spec/*.apib" -p 3000&
+    - echo "Give drakov 5 seconds to start..."
+    - sleep 5
     - php -v
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
