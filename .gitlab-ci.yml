@@ -24,7 +24,7 @@ behat:
     - when: always
   before_script:
     - apt-get update
-    - curl -sL https://deb.nodesource.com/setup_10.x | bash -
+    - curl -sL https://deb.nodesource.com/setup_12.x | bash -
     - apt-get --yes install git zip unzip nodejs
     - nodejs --version
     - npm --version
