@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...develop)
 
+### Added
+
+- Support for PHPUnit 9
+
 ## [0.17.0 - 2020-08-23](https://gitlab.com/youthweb/youthweb-api/compare/0.16.0...0.17.0)
 
 ### Added
