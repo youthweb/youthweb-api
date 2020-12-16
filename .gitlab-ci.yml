@@ -14,8 +14,8 @@ stages:
 behat:
   stage: test
   # when: manual
-  # Select image from https://hub.docker.com/_/php/ or https://hub.docker.com/_/python/
-  image: python:2.7
+  # Select image from https://hub.docker.com/_/php/
+  image: php:7.4
   rules:
     - if: $CI_MERGE_REQUEST_ID
       when: never
@@ -25,10 +25,10 @@ behat:
   before_script:
     - apt-get update
     - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-    - apt-get --yes install git zip unzip nodejs php7.4
-    - php --version
+    - apt-get --yes install git zip unzip nodejs python2.7
     - nodejs --version
     - npm --version
+    - python --version
     - npm install
     - ./node_modules/.bin/drakov --stealthmode -f "./spec/*.apib" -p 3000&
     - echo "Give drakov 5 seconds to start..."
