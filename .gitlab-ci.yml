@@ -15,7 +15,7 @@ behat:
   stage: test
   # when: manual
   # Select image from https://hub.docker.com/_/php/
-  image: php:7.3.11
+  image: php:7.4
   rules:
     - if: $CI_MERGE_REQUEST_ID
       when: never
@@ -25,11 +25,14 @@ behat:
   before_script:
     - apt-get update
     - curl -sL https://deb.nodesource.com/setup_10.x | bash -
-    - apt-get --yes install git zip unzip nodejs
+    - apt-get --yes install git zip unzip nodejs python2.7
     - nodejs --version
     - npm --version
+    - python --version
     - npm install
     - ./node_modules/.bin/drakov --stealthmode -f "./spec/*.apib" -p 3000&
+    - echo "Give drakov 5 seconds to start..."
+    - sleep 5
     - php -v
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
