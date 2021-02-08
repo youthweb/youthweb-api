@@ -126,7 +126,7 @@ Hier werden übliche Fehler gezeigt, die bei falscher Verwendung zurückgegeben 
 
     + Body
 
-            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You have specified an unsupported API version. Please use the current API version 0.17"}]}
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You have specified an unsupported API version. Please use the current API version 0.18"}]}
 
 ## Fehler [/]
 
@@ -180,7 +180,7 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
                 + title: `Resource not found` (string)
         + meta (object)
             + warnings (array)
-                - `You have specified a deprecated API version. Please use the current API version 0.17` (string)
+                - `You have specified a deprecated API version. Please use the current API version 0.18` (string)
 
 # Group Comments
 
@@ -1825,26 +1825,19 @@ Liefert Statistiken zu den Gruppen.
     + `updated_at`: `2017-01-03T13:17:11+00:00` (string, nullable) - Zeitpunkt der letzten Änderung als ISO-8601
 + `relationships` (object)
     + `author` (object, nullable) - Der Autor des Posts
-        + data (User Linkage)
         + links (object)
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author` (string)
     + `comments` (object) - Die Kommentare zu diesem Post
-        + data (array)
-            - (Comment Linkage)
         + links (object)
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/comments` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments` (string)
     + parent (object, nullable) - Das Elternobjekt, dem dieser Post zugeordnet ist
-        + data (User Linkage)
         + links (object)
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/parent` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent` (string)
 + links (object)
     + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Der Link zu dieser Resource
-+ meta (object)
-    + warnings (array)
-        - `The default inclusion of "parent" and "author" relationships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.` (string)
 
 ## Post Patched (object)
 
