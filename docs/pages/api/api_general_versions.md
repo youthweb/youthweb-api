@@ -20,29 +20,27 @@ Nach dem Release einer neuen Version garantieren wir den Support der Version ohn
 
 ### Versions-Übersicht
 
-| Version      | Status             | Veröffentlicht | Unterstützt bis           |
-|--------------|--------------------|----------------|---------------------------|
-| [next]       | :construction:     | -              | -                         |
-| **[0.17]**   | :heavy_check_mark: | 2020-08-23     | mindestens 2021-08-23     |
-| **[0.16]**   | :heavy_check_mark: | 2020-07-26     | mindestens 2021-07-26     |
-| **[0.15]**   | :warning:          | 2019-09-08     | mindestens 2021-01-26     |
-| [0.14]       | :x:                | 2019-01-13     | Version 0.16 - 2020-07-26 |
-| [0.13]       | :x:                | 2018-12-16     | Version 0.16 - 2020-07-26 |
-| 0.12         | :x:                | 2017-07-16     | Version 0.15 - 2019-09-08 |
-| 0.11         | :x:                | 2017-07-02     | Version 0.15 - 2019-09-08 |
-| 0.10         | :x:                | 2017-06-18     | Version 0.15 - 2019-09-08 |
-| 0.9          | :x:                | 2017-06-04     | Version 0.15 - 2019-09-08 |
-| 0.8          | :x:                | 2017-05-21     | Version 0.15 - 2019-09-08 |
+| Version      | Status                  | Veröffentlicht | Unterstützt bis           |
+|--------------|-------------------------|----------------|---------------------------|
+| [next]       | :building_construction: | -              | -                         |
+| **[0.18]**   | :heavy_check_mark:      | 2021-02-21     | mindestens 2022-02-21     |
+| **[0.17]**   | :warning:               | 2020-08-23     | mindestens 2021-08-23     |
+| **[0.16]**   | :warning:               | 2020-07-26     | mindestens 2021-07-26     |
+| [0.15]       | :x:                     | 2019-09-08     | Version 0.18 - 2021-02-21 |
+| [0.14]       | :x:                     | 2019-01-13     | Version 0.16 - 2020-07-26 |
+| [0.13]       | :x:                     | 2018-12-16     | Version 0.16 - 2020-07-26 |
 
 [next]: ./spec/core/next/index.html
+[0.18]: ./spec/core/0.18/index.html
 [0.17]: ./spec/core/0.17/index.html
 [0.16]: ./spec/core/0.16/index.html
 [0.15]: ./spec/core/0.15/index.html
 [0.14]: ./spec/core/0.14/index.html
 [0.13]: ./spec/core/0.13/index.html
+
 #### Status-Legende
 
-- :construction: **uncompleted**: noch in Arbeit befindliche Version
+- :building_construction: **uncompleted**: noch in Arbeit befindliche Version
 - :heavy_check_mark: **supported**: unterstützte Version
 - :warning: **deprecated**: veraltete, aber unterstütze Version, die eine Warnung in jedem Response anzeigt
 - :x: **unsupported**: nicht mehr unterstützte Version, die einen 406-Error zurückgibt

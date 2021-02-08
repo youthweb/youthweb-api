@@ -9,6 +9,8 @@ Scenario: Requesting the comments from a post
     And the correct headers are set
     And the "included" property exists
     And the "included" property is an array
+    And the "meta" property exists
+    And the "meta" property is an object
     And the "data" property exists
     And the "data" property is an array
     And scope into the first "data" property
@@ -22,6 +24,14 @@ Scenario: Requesting the comments from a post
     And the "relationships" property is an object
     And the "links" property exists
     And the "links" property is an object
+    And scope into the "meta" property
+    And the "warnings" property exists
+    And the "warnings" property is an array
+    And the "warnings" property contains 1 items
+    And the "warnings" property contains at least:
+        """
+        The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.
+        """
 
 Scenario: Requesting the comments from a post without comments
     Given I am authorized as Alice
@@ -69,6 +79,8 @@ Scenario: Creating a comment on a post
     And the Location Header exists
     And the "included" property exists
     And the "included" property is an array
+    And the "meta" property exists
+    And the "meta" property is an object
     And the "data" property exists
     And the "data" property is an object
     And scope into the "data" property
@@ -90,6 +102,14 @@ Scenario: Creating a comment on a post
     And the properties exist:
         """
         self
+        """
+    And scope into the "meta" property
+    And the "warnings" property exists
+    And the "warnings" property is an array
+    And the "warnings" property contains 1 items
+    And the "warnings" property contains at least:
+        """
+        The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.
         """
 
 Scenario: Create a comment on a not existing post
@@ -133,17 +153,22 @@ Scenario: Create a comment with empty content
         {"data":{"type":"comments","attributes":{"content":""}}}
         """
     When I request "POST /posts/25a5a2c3-041b-4985-907c-74a2131efc98/comments"
-    Then I get a "400" response
+    Then I get a "409" response
     And the correct headers are set
     And the "errors" property exists
     And the "errors" property is an array
     And scope into the first "errors" property
     And the "status" property exists
-    And the "status" property is a string equalling "422"
+    And the "status" property is a string equalling "409"
     And the "title" property exists
-    And the "title" property is a string equalling "Unprocessable Entity"
+    And the "title" property is a string equalling "Request body has invalid attributes"
     And the "detail" property exists
-    And the "detail" property is a string equalling "The field `attributes.content` can't be empty."
+    And the "detail" property is a string equalling "Must be at least 1 characters long"
+    And the "source" property exists
+    And the "source" property is an object
+    And scope into the "errors.0.source" property
+    And the "pointer" property exists
+    And the "pointer" property is a string equalling "attributes.content"
 
 Scenario: Create a comment with missing content
     Given I am authorized as Alice
@@ -152,14 +177,19 @@ Scenario: Create a comment with missing content
         {"data":{"type":"comments","attributes":{}}}
         """
     When I request "POST /posts/25a5a2c3-041b-4985-907c-74a2131efc98/comments"
-    Then I get a "400" response
+    Then I get a "409" response
     And the correct headers are set
     And the "errors" property exists
     And the "errors" property is an array
     And scope into the first "errors" property
     And the "status" property exists
-    And the "status" property is a string equalling "422"
+    And the "status" property is a string equalling "409"
     And the "title" property exists
-    And the "title" property is a string equalling "Unprocessable Entity"
+    And the "title" property is a string equalling "Request body has invalid attributes"
     And the "detail" property exists
-    And the "detail" property is a string equalling "The field `attributes.content` must be set."
+    And the "detail" property is a string equalling "The property content is required"
+    And the "source" property exists
+    And the "source" property is an object
+    And scope into the "errors.0.source" property
+    And the "pointer" property exists
+    And the "pointer" property is a string equalling "attributes.content"

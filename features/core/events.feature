@@ -77,7 +77,7 @@ Scenario: Requesting a event
     And the "warnings" property contains 1 items
     And the "warnings" property contains at least:
         """
-        The default inclusion of "author" relationsships is deprecated since 0.17 and will be removed in future, use "?include=author" in query instead.
+        The default inclusion of "author" relationships is deprecated since 0.17 and will be removed in future, use "?include=author" in query instead.
         """
 
 Scenario: Requesting an event without authorization
