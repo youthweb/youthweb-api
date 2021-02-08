@@ -37,6 +37,7 @@ Nach dem Release einer neuen Version garantieren wir den Support der Version ohn
 [0.15]: ./spec/core/0.15/index.html
 [0.14]: ./spec/core/0.14/index.html
 [0.13]: ./spec/core/0.13/index.html
+
 #### Status-Legende
 
 - :building_construction: **uncompleted**: noch in Arbeit befindliche Version

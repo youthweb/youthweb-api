@@ -210,6 +210,9 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
         + included (array)
             + (User Base)
             + (Post Base)
+        + meta (object)
+            + warnings (array)
+                - `The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.` (string)
 
 ## Comment Author [/comments/{comment_id}/author]
 
@@ -623,11 +626,6 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
     + Attributes
 
         + data (Post Base)
-        + included (array)
-            + (User Base)
-        + meta (object)
-            + warnings (array)
-                - `The default inclusion of "parent" and "author" relationships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.` (string)
 
 + Request (application/vnd.api+json)
 
@@ -847,6 +845,10 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
         + included (array)
             + (User Base)
             + (Post Base)
+        + meta (object)
+            + warnings (array)
+                - `The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.` (string)
+
 
 ### Comment zu einem Post erstellen [POST]
 
@@ -871,9 +873,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
     + Attributes
 
         + data (Comment Base)
+        + links (array)
+            + self: `/comments/98765`
         + included (array)
             + (User Base)
             + (Post Base)
+        + meta (object)
+            + warnings (array)
+                - `The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.` (string)
 
 + Request (application/vnd.api+json)
 
@@ -933,7 +940,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
             + attributes (object)
                 + `content`: `` (string) - Der Comment-Inhalt
 
-+ Response 400 (application/vnd.api+json)
++ Response 409 (application/vnd.api+json)
 
     + Headers
 
@@ -941,7 +948,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Body
 
-            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` can't be empty."}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"Must be at least 1 characters long","source":{"pointer":"attributes.content"}}]}
 
 + Request (application/vnd.api+json)
 
@@ -958,7 +965,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
             + type: `comments` (string)
             + attributes (object)
 
-+ Response 400 (application/vnd.api+json)
++ Response 409 (application/vnd.api+json)
 
     + Headers
 
@@ -966,7 +973,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Body
 
-            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"The property content is required","source":{"pointer":"attributes.content"}}]}
 
 ## Post Comments Relationship [/posts/{post_id}/relationships/comments]
 
@@ -1858,26 +1865,19 @@ Liefert Statistiken zu den Gruppen.
     + `updated_at`: `2017-01-03T13:17:11+00:00` (string, nullable) - Zeitpunkt der letzten Änderung als ISO-8601
 + `relationships` (object)
     + `author` (object, nullable) - Der Autor des Posts
-        + data (User Linkage)
         + links (object)
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author` (string)
     + `comments` (object) - Die Kommentare zu diesem Post
-        + data (array)
-            - (Comment Linkage)
         + links (object)
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/comments` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments` (string)
     + parent (object, nullable) - Das Elternobjekt, dem dieser Post zugeordnet ist
-        + data (User Linkage)
         + links (object)
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/parent` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/parent` (string)
 + links (object)
     + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Der Link zu dieser Resource
-+ meta (object)
-    + warnings (array)
-        - `The default inclusion of "parent" and "author" relationships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.` (string)
 
 ## Post Linkage (object)
 
