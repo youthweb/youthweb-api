@@ -70,7 +70,7 @@ Scenario: Using the API with Accept Header without version parameter
 Scenario: Using the API with unsupported version parameter
     Given I have set the "Content-Type" header with "application/vnd.api+json"
     And I have set the "Accept" header with "application/vnd.api+json"
-    And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.14"
+    And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.15"
     When I request "GET /errors/header-errors"
     Then I get a "406" response
     And the correct headers are set
@@ -87,7 +87,7 @@ Scenario: Using the API with unsupported version parameter
 Scenario: Using the API with deprecated version parameter
     Given I have set the "Content-Type" header with "application/vnd.api+json"
     And I have set the "Accept" header with "application/vnd.api+json"
-    And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.15"
+    And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.17"
     When I request "GET /errors/header-warnings"
     Then I get a "404" response
     And the correct headers are set
