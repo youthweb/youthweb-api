@@ -82,7 +82,7 @@ Scenario: Using the API with unsupported version parameter
     And the "title" property exists
     And the "title" property is a string equalling "Not Acceptable"
     And the "detail" property exists
-    And the "detail" property is a string equalling "You have specified an unsupported API version. Please use the current API version 0.17"
+    And the "detail" property is a string equalling "You have specified an unsupported API version. Please use the current API version 0.18"
 
 Scenario: Using the API with deprecated version parameter
     Given I have set the "Content-Type" header with "application/vnd.api+json"
@@ -99,5 +99,5 @@ Scenario: Using the API with deprecated version parameter
     And the "warnings" property contains 1 items
     And the "warnings" property contains at least:
         """
-        You have specified a deprecated API version. Please use the current API version 0.17
+        You have specified a deprecated API version. Please use the current API version 0.18
         """
