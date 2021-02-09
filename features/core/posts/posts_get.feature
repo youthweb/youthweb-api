@@ -9,6 +9,10 @@ Scenario: Alice requests her own post
     When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98"
     Then I get a "200" response
     And the correct headers are set
+    And the "included" property exists
+    And the "included" property is an array
+    And the "meta" property exists
+    And the "meta" property is an object
     And the "data" property exists
     And the "data" property is an object
     And scope into the "data" property
@@ -52,6 +56,15 @@ Scenario: Alice requests her own post
         comments
         parent
         """
+    And scope into the "meta" property
+    And the "warnings" property exists
+    And the "warnings" property is an array
+    And the "warnings" property contains 1 items
+    And the "warnings" property contains at least:
+        """
+        The default inclusion of "parent" and "author" relationsships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.
+        """
+
 
 Scenario: Requesting a post without permission
     Given an user named "Alice" with id "123456"
