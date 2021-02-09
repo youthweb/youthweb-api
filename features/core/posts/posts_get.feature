@@ -62,7 +62,7 @@ Scenario: Alice requests her own post
     And the "warnings" property contains 1 items
     And the "warnings" property contains at least:
         """
-        The default inclusion of "parent" and "author" relationsships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.
+        The default inclusion of "parent" and "author" relationships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.
         """
 
 
