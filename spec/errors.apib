@@ -198,7 +198,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Body
 
-            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"Must be at least 1 characters long","source":{"pointer":"attributes.content"}}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"Must be at least 1 characters long","source":{"pointer":"data.attributes.content"}}]}
 
 ### Create a comment with missing content [POST]
 + Request (application/vnd.api+json)
@@ -221,7 +221,7 @@ Hier werden Fehler und Fehlermeldungen der API getestet.
 
     + Body
 
-            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"The property content is required","source":{"pointer":"attributes.content"}}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"The property content is required","source":{"pointer":"data.attributes.content"}}]}
 
 ## Get comments of a post without comments [/posts/0ca5a2c3-041b-4985-907c-74a2131efc98/comments]
 

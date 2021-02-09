@@ -148,7 +148,7 @@ Scenario: Create a post with empty content
     And the "source" property is an object
     And scope into the "errors.0.source" property
     And the "pointer" property exists
-    And the "pointer" property is a string equalling "attributes.content"
+    And the "pointer" property is a string equalling "data.attributes.content"
 
 Scenario: Create a post with missing content
     Given an user named "Alice" with id "140001"
@@ -173,4 +173,4 @@ Scenario: Create a post with missing content
     And the "source" property is an object
     And scope into the "errors.0.source" property
     And the "pointer" property exists
-    And the "pointer" property is a string equalling "attributes.content"
+    And the "pointer" property is a string equalling "data.attributes.content"

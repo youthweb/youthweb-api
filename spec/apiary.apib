@@ -744,13 +744,13 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
                 + title: `Request body has invalid attributes` (string)
                 + detail: `Matched a schema which it should not` (string)
                 + source (object)
-                    + pointer: `attributes.title` (string)
+                    + pointer: `data.attributes.title` (string)
             - (object)
                 + status: `409` (string)
                 + title: `Request body has invalid attributes` (string)
                 + detail: `Matched a schema which it should not` (string)
                 + source (object)
-                    + pointer: `attributes.content` (string)
+                    + pointer: `data.attributes.content` (string)
 
 
 + Request (application/vnd.api+json)
@@ -954,7 +954,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Body
 
-            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"Must be at least 1 characters long","source":{"pointer":"attributes.content"}}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"Must be at least 1 characters long","source":{"pointer":"data.attributes.content"}}]}
 
 + Request (application/vnd.api+json)
 
@@ -979,7 +979,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Body
 
-            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"The property content is required","source":{"pointer":"attributes.content"}}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"The property content is required","source":{"pointer":"data.attributes.content"}}]}
 
 ## Post Comments Relationship [/posts/{post_id}/relationships/comments]
 
@@ -1448,7 +1448,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Body
 
-            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"Must be at least 1 characters long","source":{"pointer":"attributes.content"}}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"Must be at least 1 characters long","source":{"pointer":"data.attributes.content"}}]}
 
 + Request (application/vnd.api+json)
 
@@ -1476,7 +1476,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Body
 
-            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"The property content is required","source":{"pointer":"attributes.content"}}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"The property content is required","source":{"pointer":"data.attributes.content"}}]}
 
 + Request (application/vnd.api+json)
 

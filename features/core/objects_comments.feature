@@ -168,7 +168,7 @@ Scenario: Create a comment with empty content
     And the "source" property is an object
     And scope into the "errors.0.source" property
     And the "pointer" property exists
-    And the "pointer" property is a string equalling "attributes.content"
+    And the "pointer" property is a string equalling "data.attributes.content"
 
 Scenario: Create a comment with missing content
     Given I am authorized as Alice
@@ -192,4 +192,4 @@ Scenario: Create a comment with missing content
     And the "source" property is an object
     And scope into the "errors.0.source" property
     And the "pointer" property exists
-    And the "pointer" property is a string equalling "attributes.content"
+    And the "pointer" property is a string equalling "data.attributes.content"
