@@ -22,7 +22,7 @@ Nach dem Release einer neuen Version garantieren wir den Support der Version ohn
 
 | Version      | Status             | Veröffentlicht | Unterstützt bis           |
 |--------------|--------------------|----------------|---------------------------|
-| [next]       | :construction:     | -              | -                         |
+| [next]       | :construction:     | 2021-02-21     | -                         |
 | **[0.17]**   | :heavy_check_mark: | 2020-08-23     | mindestens 2021-08-23     |
 | **[0.16]**   | :heavy_check_mark: | 2020-07-26     | mindestens 2021-07-26     |
 | **[0.15]**   | :warning:          | 2019-09-08     | mindestens 2021-01-26     |

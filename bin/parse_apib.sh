@@ -3,8 +3,8 @@
 mkdir -p ./public/spec/core || { exit 1; }
 
 echo "Render HTML for next version"
-git fetch origin develop:develop || { exit 1; }
-git checkout develop -- ./spec || { exit 1; }
+git fetch origin v0.18:v0.18 || { exit 1; }
+git checkout v0.18 -- ./spec || { exit 1; }
 cp -r ./spec ./public/spec/core/next || { exit 1; }
 git reset HEAD ./spec || { exit 1; }
 git checkout -- ./spec || { exit 1; }
