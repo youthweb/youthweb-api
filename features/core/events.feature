@@ -43,7 +43,7 @@ Scenario: Requesting a event
     And the "links" property exists
     And the "attributes" property exists
     And scope into the "data.attributes" property
-    And the response contains 12 items
+    And the response contains 11 items
     And the properties exist:
         """
         name
@@ -57,7 +57,6 @@ Scenario: Requesting a event
         promised_participants_count
         declined_participants_count
         invited_participants_count
-        participants_count
         """
     And scope into the "data.links" property
     And the response contains at least 1 items
