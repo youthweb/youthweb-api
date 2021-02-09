@@ -19,8 +19,9 @@ Die API ist in API Blueprint definiert und wird mit Aglio zu HTML gerendert. Akt
 
 | API          | Version                                   |
 |--------------|-------------------------------------------|
-| **current**  | **[0.16](./spec/core/0.16/index.html)**   |
 | next         | [develop](./spec/core/next/index.html)    |
+| **current**  | **[0.17](./spec/core/0.17/index.html)**   |
+| **current**  | **[0.16](./spec/core/0.16/index.html)**   |
 | deprecated   | [0.15](./spec/core/0.15/index.html)       |
 
 ## Übersicht

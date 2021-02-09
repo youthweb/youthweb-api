@@ -1,10 +1,10 @@
 {
   "name": "youthweb-api",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "private": true,
   "devDependencies": {
     "aglio": "^2.3.0",
-    "drakov": "^1.0.4"
+    "drakov": "^2.0.1"
   },
   "scripts": {
     "server": "drakov -f \"./spec/*.apib\" -p 3000 --watch",
