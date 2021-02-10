@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
-## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...develop)
+## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...v0.18)
+
+## [0.18.0 - 2021-02-21](https://gitlab.com/youthweb/youthweb-api/compare/0.17.1...0.18.0)
 
 ### Changed
 
