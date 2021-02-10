@@ -3,12 +3,20 @@
 mkdir -p ./public/spec/core || { exit 1; }
 
 echo "Render HTML for next version"
-git fetch origin v0.18:v0.18 || { exit 1; }
-git checkout v0.18 -- ./spec || { exit 1; }
+git fetch origin v0.19:v0.19 || { exit 1; }
+git checkout v0.19 -- ./spec || { exit 1; }
 cp -r ./spec ./public/spec/core/next || { exit 1; }
 git reset HEAD ./spec || { exit 1; }
 git checkout -- ./spec || { exit 1; }
 node_modules/.bin/aglio -i ./public/spec/core/next/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/next/index.html || { exit 1; }
+
+echo "Render HTML for 0.19"
+git fetch origin v0.19:v0.19 || { exit 1; }
+git checkout v0.19 -- ./spec || { exit 1; }
+cp -r ./spec ./public/spec/core/0.19 || { exit 1; }
+git reset HEAD ./spec || { exit 1; }
+git checkout -- ./spec || { exit 1; }
+node_modules/.bin/aglio -i ./public/spec/core/0.19/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/0.19/index.html || { exit 1; }
 
 echo "Render HTML for 0.18"
 git fetch origin v0.18:v0.18 || { exit 1; }

@@ -10,7 +10,7 @@ folder: api
 
 Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben. Die angefragte Version MUSS im Request-Header angegeben werden:
 
-`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17`
+`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.19`
 
 ### Support
 
@@ -23,7 +23,8 @@ Nach dem Release einer neuen Version garantieren wir den Support der Version ohn
 | Version      | Status                  | Veröffentlicht | Unterstützt bis           |
 |--------------|-------------------------|----------------|---------------------------|
 | [next]       | :building_construction: | -              | -                         |
-| **[0.18]**   | :heavy_check_mark:      | 2021-02-21     | mindestens 2022-02-21     |
+| **[0.19]**   | :heavy_check_mark:      | 2021-??-??     | mindestens 2022-??-??     |
+| **[0.18]**   | :warning:               | 2021-02-21     | mindestens 2022-02-21     |
 | **[0.17]**   | :warning:               | 2020-08-23     | mindestens 2021-08-23     |
 | **[0.16]**   | :warning:               | 2020-07-26     | mindestens 2021-07-26     |
 | [0.15]       | :x:                     | 2019-09-08     | Version 0.18 - 2021-02-21 |
@@ -31,6 +32,7 @@ Nach dem Release einer neuen Version garantieren wir den Support der Version ohn
 | [0.13]       | :x:                     | 2018-12-16     | Version 0.16 - 2020-07-26 |
 
 [next]: ./spec/core/next/index.html
+[0.19]: ./spec/core/0.19/index.html
 [0.18]: ./spec/core/0.18/index.html
 [0.17]: ./spec/core/0.17/index.html
 [0.16]: ./spec/core/0.16/index.html
