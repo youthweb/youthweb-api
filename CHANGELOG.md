@@ -4,7 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
-## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...develop)
+## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...v0.18)
+
+## [0.18.0 - 2021-02-21](https://gitlab.com/youthweb/youthweb-api/compare/0.17.1...0.18.0)
+
+### Changed
+
+- The `source.pointer` in error responses now points exactly to the specific property.
+
+### Deprecated
+
+- The default inclusion of "author" and "parent" relationships in comment resources is deprecated and will be removed in future, use "?include=author,parent" in query instead.
+- Version 0.16 and 0.17 are now deprecated and support will be dropped in future. If your apps use this version upgrade them at least to version 0.18.
+
+### Removed
+
+- **Breaking:**attribute `participants_count` in `Event` resources was removed, use `promised_participants_count` instead
+- **Breaking:** The support for version 0.15 was dropped. Requests with this versions and below will get a 406 error response.
+
+## [0.17.1 - 2020-08-23](https://gitlab.com/youthweb/youthweb-api/compare/0.17.0...0.17.1)
 
 ### Added
 
@@ -23,11 +41,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 
-- The warning about the deprecated default inclusion of "parent" and "author" relationsships in post resources will now only be shown in document instead of every resource
+- The warning about the deprecated default inclusion of "parent" and "author" relationships in post resources will now only be shown in document instead of every resource
 
 ### Deprecated
 
-- The default inclusion of "author" relationsships in event resources is deprecated and will be removed in future, use "?include=author" in query instead.
+- The default inclusion of "author" relationships in event resources is deprecated and will be removed in future, use "?include=author" in query instead.
 
 ## [0.16.0 - 2020-07-26](https://gitlab.com/youthweb/youthweb-api/compare/0.15.2...0.16.0)
 
@@ -45,7 +63,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Deprecated
 
-- The default inclusion of "parent" and "author" relationsships in post resources is deprecated and will be removed in future, use "?include=author,parent" in query instead.
+- The default inclusion of "parent" and "author" relationships in post resources is deprecated and will be removed in future, use "?include=author,parent" in query instead.
 - Version 0.15 is now deprecated and support will be dropped in future. If your apps use this version upgrade them at least to version 0.16.
 
 ### Removed

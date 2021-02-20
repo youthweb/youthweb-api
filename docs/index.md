@@ -54,6 +54,6 @@ Es gibt einen [objektorientierten Client in PHP](https://github.com/youthweb/php
 
 ## :pencil2: Changelog
 
-Der Changelog ist [hier](https://github.com/youthweb/youthweb-api/blob/develop/CHANGELOG.md) zu finden und folgt den Empfehlungen von [keepachangelog.com](http://keepachangelog.com/).
+Der Changelog ist [hier](https://gitlab.com/youthweb/youthweb-api/blob/master/CHANGELOG.md) zu finden und folgt den Empfehlungen von [keepachangelog.com](http://keepachangelog.com/).
 
 {% include links.html %}

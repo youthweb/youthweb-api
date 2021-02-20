@@ -11,10 +11,10 @@ Scenario: Alice requests her own post
     And the correct headers are set
     And the "included" property exists
     And the "included" property is an array
-    And the "data" property exists
-    And the "data" property is an object
     And the "meta" property exists
     And the "meta" property is an object
+    And the "data" property exists
+    And the "data" property is an object
     And scope into the "data" property
     And the response contains at least 5 items
     And the "type" property exists
@@ -62,8 +62,9 @@ Scenario: Alice requests her own post
     And the "warnings" property contains 1 items
     And the "warnings" property contains at least:
         """
-        The default inclusion of "parent" and "author" relationsships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.
+        The default inclusion of "parent" and "author" relationships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.
         """
+
 
 Scenario: Requesting a post without permission
     Given an user named "Alice" with id "123456"
@@ -273,7 +274,7 @@ Scenario: Create a post with empty content
     And the "source" property is an object
     And scope into the "errors.0.source" property
     And the "pointer" property exists
-    And the "pointer" property is a string equalling "attributes.content"
+    And the "pointer" property is a string equalling "data.attributes.content"
 
 Scenario: Create a post with missing content
     Given an user named "Alice" with id "140001"
@@ -298,7 +299,7 @@ Scenario: Create a post with missing content
     And the "source" property is an object
     And scope into the "errors.0.source" property
     And the "pointer" property exists
-    And the "pointer" property is a string equalling "attributes.content"
+    And the "pointer" property is a string equalling "data.attributes.content"
 
 Scenario: Sending a request with invalid JSON API
     Given an user named "Alice" with id "140001"

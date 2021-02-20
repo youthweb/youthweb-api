@@ -5,7 +5,7 @@ HOST: https://api.youthweb.net
 
 Dies ist die offizielle API von [youthweb.net](https://youthweb.net).
 
-Version: 0.17 (2020-08-23)
+Version: 0.18 (2021-02-21)
 
 - Developer Webseite: https://developer.youthweb.net
 - Gitlab Repository: https://gitlab.com/youthweb/youthweb-api
@@ -19,7 +19,7 @@ Diese Header müssen bei jedem Request angegeben werden:
 
 ```
 Content-Type: application/vnd.api+json
-Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 ```
 
 ## Authentication
@@ -44,13 +44,13 @@ Hier werden übliche Fehler gezeigt, die bei falscher Verwendung zurückgegeben 
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 415 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Body
 
@@ -62,13 +62,13 @@ Hier werden übliche Fehler gezeigt, die bei falscher Verwendung zurückgegeben 
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 415 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Body
 
@@ -86,11 +86,11 @@ Hier werden übliche Fehler gezeigt, die bei falscher Verwendung zurückgegeben 
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Body
 
-            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17"}]}
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18"}]}
 
 + Request (application/vnd.api+json)
 
@@ -104,11 +104,11 @@ Hier werden übliche Fehler gezeigt, die bei falscher Verwendung zurückgegeben 
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Body
 
-            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17"}]}
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18"}]}
 
 + Request (application/vnd.api+json)
 
@@ -116,17 +116,17 @@ Hier werden übliche Fehler gezeigt, die bei falscher Verwendung zurückgegeben 
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.14
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
 
 + Response 406 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Body
 
-            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You have specified an unsupported API version. Please use the current API version 0.17"}]}
+            {"errors":[{"status":"406","title":"Not Acceptable","detail":"You have specified an unsupported API version. Please use the current API version 0.18"}]}
 
 ## Fehler [/]
 
@@ -140,13 +140,13 @@ Das Anfragen der API-Url ohne eine Resource ist nicht möglich und gibt einen Fe
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Not Found Error)
 
@@ -164,13 +164,13 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.15
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (object)
 
@@ -180,7 +180,7 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
                 + title: `Resource not found` (string)
         + meta (object)
             + warnings (array)
-                - `You have specified a deprecated API version. Please use the current API version 0.17` (string)
+                - `You have specified a deprecated API version. Please use the current API version 0.18` (string)
 
 # Group Comments
 
@@ -195,14 +195,14 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -210,6 +210,9 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
         + included (array)
             + (User Base)
             + (Post Base)
+        + meta (object)
+            + warnings (array)
+                - `The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.` (string)
 
 ## Comment Author [/comments/{comment_id}/author]
 
@@ -222,14 +225,14 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -246,14 +249,14 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -273,14 +276,14 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -297,14 +300,14 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -327,14 +330,14 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -354,14 +357,14 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -370,7 +373,7 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
             + (User Base)
         + meta (object)
             + warnings (array)
-                - `The default inclusion of "author" relationsships is deprecated since 0.17 and will be removed in future, use "?include=author" in query instead.` (string)
+                - `The default inclusion of "author" relationships is deprecated since 0.17 and will be removed in future, use "?include=author" in query instead.` (string)
 
 + Request (application/vnd.api+json)
 
@@ -378,13 +381,13 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 401 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Unauthorized Error)
 
@@ -399,14 +402,14 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -423,14 +426,14 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -464,14 +467,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -485,13 +488,13 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 401 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Unauthorized Error)
 
@@ -506,14 +509,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -530,14 +533,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -557,14 +560,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -581,14 +584,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -611,14 +614,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -627,7 +630,8 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
             + (User Base)
         + meta (object)
             + warnings (array)
-                - `The default inclusion of "parent" and "author" relationsships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.` (string)
+                - `The default inclusion of "parent" and "author" relationships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.` (string)
+
 
 + Request (application/vnd.api+json)
 
@@ -635,13 +639,13 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 403 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Forbidden Error)
 
@@ -651,13 +655,13 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Not Found Error)
 
@@ -669,7 +673,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
     + Body
@@ -680,7 +684,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -694,7 +698,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_token_of_bob
 
     + Body
@@ -705,7 +709,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -719,7 +723,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_token_of_bob
 
     + Body
@@ -730,7 +734,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -740,13 +744,13 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
                 + title: `Request body has invalid attributes` (string)
                 + detail: `Matched a schema which it should not` (string)
                 + source (object)
-                    + pointer: `attributes.title` (string)
+                    + pointer: `data.attributes.title` (string)
             - (object)
                 + status: `409` (string)
                 + title: `Request body has invalid attributes` (string)
                 + detail: `Matched a schema which it should not` (string)
                 + source (object)
-                    + pointer: `attributes.content` (string)
+                    + pointer: `data.attributes.content` (string)
 
 
 + Request (application/vnd.api+json)
@@ -755,7 +759,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Body
 
@@ -765,7 +769,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Unauthorized Error)
 
@@ -780,14 +784,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -804,14 +808,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -831,14 +835,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -847,6 +851,10 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
         + included (array)
             + (User Base)
             + (Post Base)
+        + meta (object)
+            + warnings (array)
+                - `The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.` (string)
+
 
 ### Comment zu einem Post erstellen [POST]
 
@@ -854,7 +862,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
     + Attributes
@@ -865,15 +873,20 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Location: /comments/98765
 
     + Attributes
 
         + data (Comment Base)
+        + links (array)
+            + self: `/comments/98765`
         + included (array)
             + (User Base)
             + (Post Base)
+        + meta (object)
+            + warnings (array)
+                - `The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.` (string)
 
 + Request (application/vnd.api+json)
 
@@ -881,7 +894,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
     + Attributes
@@ -892,7 +905,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Not Found Error)
 
@@ -902,7 +915,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
     + Attributes
@@ -913,7 +926,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Forbidden Error)
 
@@ -923,7 +936,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
     + Attributes
@@ -933,15 +946,15 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
             + attributes (object)
                 + `content`: `` (string) - Der Comment-Inhalt
 
-+ Response 400 (application/vnd.api+json)
++ Response 409 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Body
 
-            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` can't be empty."}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"Must be at least 1 characters long","source":{"pointer":"data.attributes.content"}}]}
 
 + Request (application/vnd.api+json)
 
@@ -949,7 +962,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
     + Attributes
@@ -958,15 +971,15 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
             + type: `comments` (string)
             + attributes (object)
 
-+ Response 400 (application/vnd.api+json)
++ Response 409 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Body
 
-            {"errors":[{"status":"422","title":"Unprocessable Entity","detail":"The field `attributes.content` must be set."}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"The property content is required","source":{"pointer":"data.attributes.content"}}]}
 
 ## Post Comments Relationship [/posts/{post_id}/relationships/comments]
 
@@ -979,14 +992,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1007,14 +1020,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1031,14 +1044,14 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1065,14 +1078,14 @@ Liefert die Einträge für die globale Timeline
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1089,13 +1102,13 @@ Liefert die Einträge für die globale Timeline
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 401 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Unauthorized Error)
 
@@ -1113,14 +1126,14 @@ Liefert einen Eintrag
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1142,14 +1155,14 @@ Liefert die Einträge für die Timeline eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1166,13 +1179,13 @@ Liefert die Einträge für die Timeline eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 401 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Unauthorized Error)
 
@@ -1182,14 +1195,14 @@ Liefert die Einträge für die Timeline eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 404 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Not Found Error)
 
@@ -1204,14 +1217,14 @@ Liefert die Einträge für die Timeline eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1228,14 +1241,14 @@ Liefert die Einträge für die Timeline eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1257,14 +1270,14 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1276,13 +1289,13 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 401 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Unauthorized Error)
 
@@ -1297,14 +1310,14 @@ Fragt die Userdaten des autorisierten Users ab. Dies ist ein Shortcut für /user
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1323,14 +1336,14 @@ Liefert die Posts von der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1346,7 +1359,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
     + Attributes
@@ -1357,7 +1370,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Location: /posts/d5a5a2c3-041b-4985-907c-74a2131efc98
 
     + Attributes
@@ -1372,7 +1385,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
     + Attributes
@@ -1383,7 +1396,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Not Found Error)
 
@@ -1393,7 +1406,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
     + Attributes
@@ -1404,7 +1417,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes (Forbidden Error)
 
@@ -1414,7 +1427,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
     + Attributes
@@ -1431,11 +1444,11 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Body
 
-            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"Must be at least 1 characters long","source":{"pointer":"attributes.content"}}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"Must be at least 1 characters long","source":{"pointer":"data.attributes.content"}}]}
 
 + Request (application/vnd.api+json)
 
@@ -1443,7 +1456,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
     + Attributes
@@ -1459,11 +1472,11 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Body
 
-            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"The property content is required","source":{"pointer":"attributes.content"}}]}
+            {"errors":[{"status":"409","title":"Request body has invalid attributes","detail":"The property content is required","source":{"pointer":"data.attributes.content"}}]}
 
 + Request (application/vnd.api+json)
 
@@ -1471,7 +1484,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1484,7 +1497,7 @@ Erstellt einen Posts an der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Body
 
@@ -1503,14 +1516,14 @@ Liefert die Posts Relationships von der Pinnwand eines Users
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1540,14 +1553,14 @@ Dieser Endpoint bietet die `/friends` Beziehungen zu einem User an.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
             Authorization: Bearer valid_JWT
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1569,13 +1582,13 @@ Liefert Statistiken zu den Accounts.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1604,13 +1617,13 @@ Liefert Statistiken zum Forum
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1634,13 +1647,13 @@ Liefert Statistiken zu den Gruppen.
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
 + Response 200 (application/vnd.api+json)
 
     + Headers
 
-            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.17
+            Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.18
 
     + Attributes
 
@@ -1723,7 +1736,6 @@ Liefert Statistiken zu den Gruppen.
     + `promised_participants_count`: 10 (number) - Die Anzahl der User, die eine Zustimmung zur Teilnahme an diesem Event gegeben haben
     + `declined_participants_count`: 2 (number) - Die Anzahl der User, die eine Absage zur Teilnahme an diesem Event gegeben haben
     + `invited_participants_count`: 5 (number) - Die Anzahl der User, die eingeladen wurden, an diesem Event teilzunehmen
-    + `participants_count`: 10 (number) - (**Veraltet** Verwende stattdessen `promised_participants_count`) Die Anzahl der User, die eine Zustimmung zur Teilnahme an diesem Event gegeben haben
 + `relationships` (object)
     + `author` (object, nullable) - Der Autor des Posts
         + data (User Linkage)
@@ -1837,7 +1849,8 @@ Liefert Statistiken zu den Gruppen.
     + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Der Link zu dieser Resource
 + meta (object)
     + warnings (array)
-        - `The default inclusion of "parent" and "author" relationsships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.` (string)
+        - `The default inclusion of "parent" and "author" relationships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.` (string)
+
 
 ## Post Patched (object)
 
@@ -1877,7 +1890,8 @@ Liefert Statistiken zu den Gruppen.
     + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98` (string) - Der Link zu dieser Resource
 + meta (object)
     + warnings (array)
-        - `The default inclusion of "parent" and "author" relationsships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.` (string)
+        - `The default inclusion of "parent" and "author" relationships is deprecated since 0.16 and will be removed in future, use "?include=author,parent" in query instead.` (string)
+
 
 ## Post Linkage (object)
 

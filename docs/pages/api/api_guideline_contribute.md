@@ -8,17 +8,17 @@ permalink: api_guideline_contribute.html
 folder: api
 ---
 
-Du kannst mithelfen, die Youthweb-API zu gestalten, indem du an diesem Projekt mitarbeitest. Du kannst Fehler melden, Features vorschlagen oder bei der Dokumentation helfen. Wenn die geplante API auf dem Live-Server von Youthweb umgesetzt ist, bekommt die API einen neuen [Release](https://github.com/youthweb/youthweb-api/releases).
+Du kannst mithelfen, die Youthweb-API zu gestalten, indem du an diesem Projekt mitarbeitest. Du kannst Fehler melden, Features vorschlagen oder bei der Dokumentation helfen. Wenn die geplante API auf dem Live-Server von Youthweb umgesetzt ist, bekommt die API einen neuen [Tag](https://gitlab.com/youthweb/youthweb-api/-/tags).
 
 ## API
 
-Um Bugs oder Features zu testen, solltest du die Änderungen lokal testet. Dazu benötigst du [PHP >= 5.6](http://php.net/) und [Node.js mit npm](https://nodejs.org/de/download/).
+Um Bugs oder Features zu testen, solltest du die Änderungen lokal testet. Dazu benötigst du [PHP >= 7.4](http://php.net/) und [Node.js 10 mit npm](https://nodejs.org/de/download/).
 
 ### Installation
 
 1.) Forke dieses Projekt in deinen eigenen Account.
 
-2.) Clone das Projekt mit ```git clone git@github.com:<username>/youthweb-api.git``` und wechsle in das neue Verzeichnis.
+2.) Clone das Projekt mit ```git clone git@gitlab.com::<username>/youthweb-api.git``` und wechsle in das neue Verzeichnis.
 
 3.) Installiere Composer und alle Abhänigkeiten:
 
@@ -50,6 +50,6 @@ Anschließend kannst du deine Änderungen mit einem Pull-Request einreichen.
 
 ## Dokumentation
 
-Die Dokumentation befindet sich im Order [/docs](https://github.com/youthweb/youthweb-api/tree/master/docs) und wird dank der Github-Pages automatisch mit Jekyll deployed. Wenn du Fehler korrigieren oder Ergänzugen einreichen möchtest, dann freuen wir uns auf deinen Pull-Request.
+Die Dokumentation befindet sich im Order [/docs](https://gitlab.com/youthweb/youthweb-api/tree/master/docs) und wird dank der Gitlab-Pages automatisch deployed. Wenn du Fehler korrigieren oder Ergänzugen einreichen möchtest, dann freuen wir uns auf deinen Pull-Request.
 
 {% include links.html %}
