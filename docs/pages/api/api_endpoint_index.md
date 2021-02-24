@@ -15,7 +15,7 @@ folder: api
 
 ## API Blueprint
 
-Die API ist in API Blueprint definiert und wird mit Aglio zu HTML gerendert. Aktuelle und ältere Versionen können hier angesehen werden:
+Die API ist in API Blueprint definiert und wird mit [Aglio](https://github.com/danielgtaylor/aglio) zu HTML gerendert. Aktuelle und ältere Versionen können hier angesehen werden:
 
 | API          | Version                                   |
 |--------------|-------------------------------------------|
