@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...v0.18)
 
+### Changed
+
+- The `page[cursor]` attribute at `/timeline-entries` endpoints was changed to ISO 8601 DateTime instead of a timestamp
+
+### Deprecated
+
+- The `page[cursor]` attribute at `/timeline-entries` endpoints should be an ISO 8601 DateTime, the support for timestamp will be dropped in future
+
 ## [0.18.0 - 2021-02-21](https://gitlab.com/youthweb/youthweb-api/compare/0.17.1...0.18.0)
 
 ### Changed
@@ -19,7 +27,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Removed
 
-- **Breaking:**attribute `participants_count` in `Event` resources was removed, use `promised_participants_count` instead
+- **Breaking:** attribute `participants_count` in `Event` resources was removed, use `promised_participants_count` instead
 - **Breaking:** The support for version 0.15 was dropped. Requests with this versions and below will get a 406 error response.
 
 ## [0.17.1 - 2020-08-23](https://gitlab.com/youthweb/youthweb-api/compare/0.17.0...0.17.1)
