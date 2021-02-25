@@ -1065,14 +1065,17 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 ## Timeline-Entries [/timeline-entries{?page%5Blimit%5D}{?page%5Bcursor%5D}{?include}]
 
 + Parameters
-    + `page%5Blimit%5D` (optional, number) - Limit the entries
+    + `page%5Blimit%5D`: `10` (optional, number) - Limit the entries
         + Default: `5`
-    + `page%5Bcursor%5D` (optional, number) - Timestamp der zuletzt geladenen Entry, damit als nächstes die Entries geladen, die älter sind
+    + `page%5Bcursor%5D`: `2021-02-24T13:51:26Z` (optional, string) - DateTime des zuletzt geladenen Entry, damit die Entries geladen, die älter sind als die angegebene DateTime
+
+        __Deprecated seit 0.19__: _Timestamp (als number) der zuletzt geladenen Entry, damit als nächstes die Entries geladen, die älter sind_
+
     + `include`: `origin.author,origin.comments.author` (optional, string) - Kommagetrente Liste an includes
 
 ### Globale Timeline-Entries abrufen [GET]
 
-Liefert die Einträge für die globale Timeline
+Liefert die Einträge für die globale Timeline.
 
 + Request (application/vnd.api+json)
 
@@ -1094,7 +1097,7 @@ Liefert die Einträge für die globale Timeline
             + (Timeline Entry)
         + links (object)
             + first: `/timeline-entries` (string)
-            + next: `/timeline-entries?page%5Bcursor%5D=1234567890` (string)
+            + next: `/timeline-entries?page%5Bcursor%5D=2017-01-01T17%3A51%3A02%2B00%3A00` (string)
 
 + Request (application/vnd.api+json)
 
@@ -1143,9 +1146,12 @@ Liefert einen Eintrag
 
 + Parameters
     + user_id (required, number) - ID of the user
+    + `page%5Bcursor%5D`: `2021-02-24T13:51:26Z` (optional, string) - DateTime des zuletzt geladenen Entry, damit die Entries geladen, die älter sind als die angegebene DateTime
+
+        __Deprecated seit 0.19__: _Timestamp (als number) der zuletzt geladenen Entry, damit als nächstes die Entries geladen, die älter sind_
+
     + `page%5Blimit%5D` (optional, number) - Limit the entries
         + Default: `5`
-    + `page%5Bcursor%5D` (optional, number) - Timestamp der zuletzt geladenen Entry, damit als nächstes die Entries geladen, die älter sind
 
 ### Die Timeline-Entries eines Users abrufen [GET]
 
@@ -1171,7 +1177,7 @@ Liefert die Einträge für die Timeline eines Users
             + (Timeline Entry)
         + links (object)
             + first: `/users/{user_id}/timeline-entries` (string)
-            + next: `/users/{user_id}/timeline-entries?cursor=123456` (string)
+            + next: `/users/{user_id}/timeline-entries?page%5Bcursor%5D=2017-01-01T17%3A51%3A02%2B00%3A00` (string)
 
 + Request (application/vnd.api+json)
 
