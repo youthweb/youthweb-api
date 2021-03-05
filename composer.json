@@ -5,11 +5,11 @@
     "keywords": ["youthweb", "api"],
     "license": "GPL-3.0-or-later",
     "require": {
-        "php": "^7.3",
-        "behat/behat": "^3.5",
-        "guzzlehttp/guzzle": "^6.0",
-        "guzzlehttp/psr7": "^1.6",
-        "phpunit/phpunit": "^8.5 || ^9.4"
+        "php": "^7.4 || ^8.0",
+        "behat/behat": "^3.8",
+        "guzzlehttp/guzzle": "^7.2",
+        "guzzlehttp/psr7": "^1.7",
+        "phpunit/phpunit": "^9.4"
     },
     "config": {
         "sort-packages": true,
