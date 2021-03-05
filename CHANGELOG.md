@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
-## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...v0.18)
+## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...v0.19)
 
 ### Changed
 
@@ -13,6 +13,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Deprecated
 
 - The `page[cursor]` attribute at `/timeline-entries` endpoints should be an ISO 8601 DateTime, the support for timestamp will be dropped in future
+
+## [0.18.1 - 2021-03-05](https://gitlab.com/youthweb/youthweb-api/compare/0.18.0...0.18.1)
+
+### Added
+
+- Support for PHP 8.0
 
 ## [0.18.0 - 2021-02-21](https://gitlab.com/youthweb/youthweb-api/compare/0.17.1...0.18.0)
 
