@@ -11,6 +11,42 @@ stages:
   - build
   - deploy
 
+behat-php8:
+  stage: test
+  when: manual
+  # Select image from https://hub.docker.com/_/php/
+  image: php:8.0
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+      when: never
+    - if: '$CI_COMMIT_TAG'
+      when: never
+    - when: always
+  before_script:
+    - apt-get update
+    - curl -sL https://deb.nodesource.com/setup_10.x | bash -
+    - apt-get --yes install git zip unzip nodejs python2.7
+    - nodejs --version
+    - npm --version
+    - python --version
+    - npm install
+    - ./node_modules/.bin/drakov --stealthmode -f "./spec/*.apib" -p 3000&
+    - echo "Give drakov 5 seconds to start..."
+    - sleep 5
+    - php -v
+    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    - php composer-setup.php
+    - php -r "unlink('composer-setup.php');"
+    - php composer.phar install
+  script:
+    - vendor/bin/behat --suite=core
+  allow_failure: false
+  cache:
+    key: behat
+    paths:
+      - node_modules/
+      - vendor/
+
 behat:
   stage: test
   # when: manual
