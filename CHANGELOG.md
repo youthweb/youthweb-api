@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Deprecated
 
 - The `page[cursor]` attribute at `/timeline-entries` endpoints should be an ISO 8601 DateTime, the support for timestamp will be dropped in future
+- The default inclusion of "from" and "to" relationships in friends resources is deprecated and will be removed in future, use "?include=from,to" in query instead.
 
 ## [0.18.1 - 2021-03-05](https://gitlab.com/youthweb/youthweb-api/compare/0.18.0...0.18.1)
 

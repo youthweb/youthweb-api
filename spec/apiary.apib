@@ -444,7 +444,7 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
 # Group Friends
 
-## Friend [/friends/{friend_id}]
+## Friend [/friends/{friend_id}{?include}]
 
 Dieser Endpoint kann zum Lesen eines `Friends` verwendet werden.
 
@@ -460,6 +460,7 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
 + Parameters
     + friend_id: `45678` (required, string) - ID of the friend
+    + `include`: `from,to` (optional, string) - Kommagetrente Liste an includes
 
 ### Einen Friend abrufen [GET]
 
@@ -481,6 +482,9 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
         + data (Friend Base)
         + included (array)
             + (User Base)
+        + meta (object)
+            + warnings (array)
+                - `The default inclusion of "from" and "to" relationships is deprecated since 0.19 and will be removed in future, use "?include=from,to" in query instead.` (string)
 
 + Request (application/vnd.api+json)
 
