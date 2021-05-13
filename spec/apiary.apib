@@ -1950,6 +1950,10 @@ Liefert Statistiken zu den Gruppen.
 + links (object)
     + self: `/users/123456` (string) - Der Link zu dieser Resource
 + `relationships` (object)
+    + `friends` (object) - Die Friends des Users
+        + links (object)
+            + self: `/users/123456/relationships/friends` (string)
+            + related: `/users/123456/friends` (string)
     + `posts` (object) - Die Posts auf der Pinnwand des Users
         + data (array)
             - (Post Linkage)
