@@ -9,6 +9,8 @@ Scenario: Requesting a friend
     And the correct headers are set
     And the "included" property exists
     And the "included" property is an array
+    And the "meta" property exists
+    And the "meta" property is an object
     And the "data" property exists
     And the "data" property is an object
     And scope into the "data" property
@@ -36,6 +38,14 @@ Scenario: Requesting a friend
     And the properties exist:
         """
         self
+        """
+    And scope into the "meta" property
+    And the "warnings" property exists
+    And the "warnings" property is an array
+    And the "warnings" property contains 1 items
+    And the "warnings" property contains at least:
+        """
+        The default inclusion of "from" and "to" relationships is deprecated since 0.19 and will be removed in future, use "?include=from,to" in query instead.
         """
 
 Scenario: Requesting a friend without authorization
