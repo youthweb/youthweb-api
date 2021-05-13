@@ -53,9 +53,10 @@ Scenario: Requesting the authorized user
         self
         """
     And scope into the "data.relationships" property
-    And the response contains 1 items
+    And the response contains 2 items
     And the properties exist:
         """
+        friends
         posts
         """
 

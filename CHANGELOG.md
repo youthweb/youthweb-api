@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...v0.19)
 
+### Added
+
+- Show friends relationship in user resource
+
 ### Changed
 
 - The `page[cursor]` attribute at `/timeline-entries` endpoints was changed to ISO 8601 DateTime instead of a timestamp
