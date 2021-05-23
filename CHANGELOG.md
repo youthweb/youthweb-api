@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased](https://gitlab.com/youthweb/youthweb-api/compare/master...v0.19)
 
+## [0.19.0 - 2021-05-30](https://gitlab.com/youthweb/youthweb-api/compare/0.18.1...0.19.0)
+
 ### Added
 
 - Show friends relationship in user resource
