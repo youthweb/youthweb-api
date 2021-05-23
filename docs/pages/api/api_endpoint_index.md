@@ -21,7 +21,7 @@ Die API ist in API Blueprint definiert und wird mit [Aglio](https://github.com/d
 |--------------|-------------------------------------------|
 | next         | [develop](./spec/core/next/index.html)    |
 | **current**  | **[0.19](./spec/core/0.19/index.html)**   |
-| deprecated*  | [0.18](./spec/core/0.18/index.html)       |
+| supported    | [0.18](./spec/core/0.18/index.html)       |
 | deprecated   | [0.17](./spec/core/0.17/index.html)       |
 | deprecated   | [0.16](./spec/core/0.16/index.html)       |
 
