@@ -21,10 +21,11 @@ Scenario: Requesting a comment
     And the "links" property exists
     And the "attributes" property exists
     And scope into the "data.attributes" property
-    And the response contains 2 items
+    And the response contains 3 items
     And the properties exist:
         """
         content
+        content_html
         created_at
         """
     And scope into the "data.links" property
