@@ -10,6 +10,14 @@ git reset HEAD ./spec || { exit 1; }
 git checkout -- ./spec || { exit 1; }
 node_modules/.bin/aglio -i ./public/spec/core/next/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/next/index.html || { exit 1; }
 
+echo "Render HTML for latest"
+git fetch origin v0.19:v0.19 || { exit 1; }
+git checkout v0.19 -- ./spec || { exit 1; }
+cp -r ./spec ./public/spec/core/latest || { exit 1; }
+git reset HEAD ./spec || { exit 1; }
+git checkout -- ./spec || { exit 1; }
+node_modules/.bin/aglio -i ./public/spec/core/latest/apiary.apib --no-theme-condense --theme-full-width -o ./public/spec/core/latest/index.html || { exit 1; }
+
 echo "Render HTML for 0.19"
 git fetch origin v0.19:v0.19 || { exit 1; }
 git checkout v0.19 -- ./spec || { exit 1; }

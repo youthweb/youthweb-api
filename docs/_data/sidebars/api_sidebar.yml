@@ -27,54 +27,6 @@ entries:
       url: /api_general_versions.html
       output: web
 
-  - title: Resourcen
-    output: web
-    folderitems:
-
-    - title: Übersicht
-      url: /api_endpoint_index.html
-      output: web
-
-    - title: Comments
-      url: /api_endpoint_comments.html
-      output: web
-
-    - title: Events
-      url: /api_endpoint_events.html
-      output: web
-
-    - title: Friends
-      url: /api_endpoint_friends.html
-      output: web
-
-    - title: Me
-      url: /api_endpoint_me.html
-      output: web
-
-    - title: Objekt Comments
-      url: /api_endpoint_object_comments.html
-      output: web
-
-    - title: Objekt Friends
-      url: /api_endpoint_object_friends.html
-      output: web
-
-    - title: Objekt Posts
-      url: /api_endpoint_object_posts.html
-      output: web
-
-    - title: Posts
-      url: /api_endpoint_posts.html
-      output: web
-
-    - title: Stats
-      url: /api_endpoint_stats.html
-      output: web
-
-    - title: Users
-      url: /api_endpoint_users.html
-      output: web
-
   - title: Leitfäden
     output: web
     folderitems:
