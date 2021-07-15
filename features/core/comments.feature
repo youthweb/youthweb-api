@@ -20,6 +20,7 @@ Scenario: Requesting a comment
     And the "id" property exists
     And the "links" property exists
     And the "attributes" property exists
+    And the "relationships" property exists
     And scope into the "data.attributes" property
     And the response contains 3 items
     And the properties exist:
@@ -33,6 +34,25 @@ Scenario: Requesting a comment
     And the properties exist:
         """
         self
+        """
+    And scope into the "data.relationships" property
+    And the response contains 2 items
+    And the properties exist:
+        """
+        author
+        parent
+        """
+    And scope into the "data.relationships.author" property
+    And the response contains 1 items
+    And the properties exist:
+        """
+        links
+        """
+    And scope into the "data.relationships.parent" property
+    And the response contains 1 items
+    And the properties exist:
+        """
+        links
         """
     And scope into the "meta" property
     And the "warnings" property exists
