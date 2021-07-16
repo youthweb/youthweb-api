@@ -184,10 +184,11 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
 
 # Group Comments
 
-## Comment [/comments/{comment_id}]
+## Comment [/comments/{comment_id}{?include}]
 
 + Parameters
     + comment_id: `345678` (required, string) - ID of the comment
+    + `include`: `author,parent` (optional, string) - Kommagetrente Liste an includes, möglich sind `author` und `parent`
 
 ### Einen Comment abrufen [GET]
 
@@ -207,12 +208,6 @@ Anfragen mit einer veralteten (deprecated) Version funktionieren, aber zeigen ei
     + Attributes
 
         + data (Comment Base)
-        + included (array)
-            + (User Base)
-            + (Post Base)
-        + meta (object)
-            + warnings (array)
-                - `The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.` (string)
 
 ## Comment Author [/comments/{comment_id}/author]
 
@@ -828,10 +823,11 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
             + self: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/relationships/author` (string)
             + related: `/posts/d5a5a2c3-041b-4985-907c-74a2131efc98/author` (string)
 
-## Post Comments [/posts/{post_id}/comments]
+## Post Comments [/posts/{post_id}/comments{?include}]
 
 + Parameters
-    + post_id: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
+    + `post_id`: `d5a5a2c3-041b-4985-907c-74a2131efc98` (required, string) - ID of the post as a uuid string
+    + `include`: `author,parent` (optional, string) - Kommagetrente Liste an includes, möglich sind `author` und `parent`
 
 ### Kommentare zu einem Post abrufen [GET]
 
@@ -852,12 +848,6 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
 
         + data (array)
             - (Comment Base)
-        + included (array)
-            + (User Base)
-            + (Post Base)
-        + meta (object)
-            + warnings (array)
-                - `The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.` (string)
 
 
 ### Comment zu einem Post erstellen [POST]
@@ -883,14 +873,8 @@ Die Kante `Friend 2` hingegen beinhaltet in der `from`-Relationship den `User B`
     + Attributes
 
         + data (Comment Base)
-        + links (array)
+        + links (object)
             + self: `/comments/98765`
-        + included (array)
-            + (User Base)
-            + (Post Base)
-        + meta (object)
-            + warnings (array)
-                - `The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.` (string)
 
 + Request (application/vnd.api+json)
 

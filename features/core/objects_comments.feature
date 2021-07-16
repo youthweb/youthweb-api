@@ -7,10 +7,7 @@ Scenario: Requesting the comments from a post
     When I request "GET /posts/d5a5a2c3-041b-4985-907c-74a2131efc98/comments"
     Then I get a "200" response
     And the correct headers are set
-    And the "included" property exists
-    And the "included" property is an array
-    And the "meta" property exists
-    And the "meta" property is an object
+    And the response contains 1 items
     And the "data" property exists
     And the "data" property is an array
     And scope into the first "data" property
@@ -24,14 +21,6 @@ Scenario: Requesting the comments from a post
     And the "relationships" property is an object
     And the "links" property exists
     And the "links" property is an object
-    And scope into the "meta" property
-    And the "warnings" property exists
-    And the "warnings" property is an array
-    And the "warnings" property contains 1 items
-    And the "warnings" property contains at least:
-        """
-        The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.
-        """
 
 Scenario: Requesting the comments from a post without comments
     Given I am authorized as Alice
@@ -77,12 +66,14 @@ Scenario: Creating a comment on a post
     Then I get a "201" response
     And the correct headers are set
     And the Location Header exists
-    And the "included" property exists
-    And the "included" property is an array
-    And the "meta" property exists
-    And the "meta" property is an object
+    And the response contains 2 items
+    And the "links" property exists
+    And the "links" property is an object
     And the "data" property exists
     And the "data" property is an object
+    And scope into the "links" property
+    And the response contains 1 items
+    And the "self" property exists
     And scope into the "data" property
     And the response contains 5 items
     And the "type" property exists
@@ -103,14 +94,6 @@ Scenario: Creating a comment on a post
     And the properties exist:
         """
         self
-        """
-    And scope into the "meta" property
-    And the "warnings" property exists
-    And the "warnings" property is an array
-    And the "warnings" property contains 1 items
-    And the "warnings" property contains at least:
-        """
-        The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.
         """
 
 Scenario: Create a comment on a not existing post
