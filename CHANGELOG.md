@@ -13,7 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Removed
 
 - **Breaking:** The attributes `relationships.author.data` and `relationships.parent.data` in `Comment` resources were removed, if not requested for inclusion, use `?include=author,parent` in query instead.
-- **Breaking:** The default inclusion of "author" and "parent" relationships in `Comment` resources was removed, use "?include=author,parent" in query instead.
+- **Breaking:** The default inclusion of "author" and "parent" relationships in `Comment` resources was removed, use `?include=author,parent` in query instead.
 
 ## [0.19.0 - 2021-05-30](https://gitlab.com/youthweb/youthweb-api/compare/0.18.1...0.19.0)
 

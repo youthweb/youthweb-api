@@ -26,7 +26,7 @@ Weitere Posts findest du [in unserem Blog][blog]. Du kannst auch unseren <span c
 
 ## :book: Dokumentation
 
-Die API ist in API Blueprint definiert und wird mit [Aglio](https://github.com/danielgtaylor/aglio) zu HTML gerendert.
+Die API ist in [API Blueprint](https://apiblueprint.org/) definiert und wird mit [Aglio](https://github.com/danielgtaylor/aglio) zu HTML gerendert.
 
 <p class="text-center">
     <a href="./spec/core/latest/index.html" class="btn btn-primary btn-lg" role="button">API Spezifikation ansehen</a>
