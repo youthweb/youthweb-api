@@ -26,7 +26,18 @@ Weitere Posts findest du [in unserem Blog][blog]. Du kannst auch unseren <span c
 
 ## :book: Dokumentation
 
-[https://developer.youthweb.net](http://developer.youthweb.net/)
+Die API ist in [API Blueprint](https://apiblueprint.org/) definiert und wird mit [Aglio](https://github.com/danielgtaylor/aglio) zu HTML gerendert.
+
+<p class="text-center">
+    <a href="./spec/core/latest/index.html" class="btn btn-primary btn-lg" role="button">API Spezifikation ansehen</a>
+</p>
+
+Aktuelle und ältere Versionen können [hier angesehen werden][api_general_versions].
+
+## Begriffe
+
+- **Resource**: Eine Resource ist die Representation eines Objekts, zum Beispiel eines Users. Eine Resource, die vom Youthweb-Server geliefert wird, hat immer mindestens die Attribute `type` und `id`. Der Aufbau einer Resource ist [in JSON API spezifiziert](http://jsonapi.org/format/#document-resource-objects).
+- **Endpoint**: Ein Endpoint ist eine Stelle in der Youthweb-API, mit der Daten ausgetauscht werden. Zum Beispiel liefert der Endpoint `/users/123` eine Resource, die den User mit der ID 123 representiert. Die übertragenen Daten an einem Endpoint enthalten also in fast allen Fällen eine oder mehrere Resourcen.
 
 ## :link: URI
 

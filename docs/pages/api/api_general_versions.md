@@ -10,19 +10,20 @@ folder: api
 
 Die API wird immer weiter entwickelt und der aktuelle Stand wird hier festgehalten. Die Änderungen an der API werden während der Entwicklung nicht immer abwärtskompatibel sein, weswegen wir [eine Versionierung](http://semver.org/) eingeführt haben. Die angefragte Version MUSS im Request-Header angegeben werden:
 
-`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.19`
+`Accept: application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.20`
 
 ### Support
 
 {% include note.html content="Jede Version wird für mindestens 1 Jahr unterstützt." %}
 
-Nach dem Release einer neuen Version garantieren wir den Support der Version ohne Breaking Changes für mindestens 1 Jahr. Mindestens 6 Monaten nach dem Release und der Verfügbarkeit einer neueren Version wird eine Warnung in jedem Response angezeigt. Wenn der Support für eine Version abgelaufen ist, kann sie nicht mehr verwendet werden und Request zu dieser veralteten Version werden einen `406 Not Acceptable`-Error zurückgeben.
+Nach dem Release einer neuen Version garantieren wir den Support der Version ohne Breaking Changes für mindestens 1 Jahr. Mindestens 6 Monaten nach dem Release und der Verfügbarkeit einer neueren Version wird eine Warnung in jedem Response angezeigt. Wenn der Support für eine Version abgelaufen ist, kann sie nicht mehr verwendet werden und ein Request zu dieser veralteten Version wird einen `406 Not Acceptable`-Error zurückgeben.
 
 ### Versions-Übersicht
 
 | Version      | Status                  | Veröffentlicht | Unterstützt bis           |
 |--------------|-------------------------|----------------|---------------------------|
 | [next]       | :building_construction: | -              | -                         |
+| **[0.20]**   | :heavy_check_mark:      | 2021-07-25     | mindestens 2022-07-25     |
 | **[0.19]**   | :heavy_check_mark:      | 2021-05-30     | mindestens 2022-05-30     |
 | **[0.18]**   | :heavy_check_mark:      | 2021-02-21     | mindestens 2022-02-21     |
 | **[0.17]**   | :warning:               | 2020-08-23     | mindestens 2021-08-23     |
@@ -32,6 +33,7 @@ Nach dem Release einer neuen Version garantieren wir den Support der Version ohn
 | [0.13]       | :x:                     | 2018-12-16     | Version 0.16 - 2020-07-26 |
 
 [next]: ./spec/core/next/index.html
+[0.20]: ./spec/core/0.20/index.html
 [0.19]: ./spec/core/0.19/index.html
 [0.18]: ./spec/core/0.18/index.html
 [0.17]: ./spec/core/0.17/index.html

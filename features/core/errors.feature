@@ -4,7 +4,7 @@ Feature: Error Tests
 
 Scenario: Using the API without Content-Type Json API Header
     Given I have set the "Accept" header with "application/vnd.api+json"
-    And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.19"
+    And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.20"
     When I request "GET /errors/header-errors"
     Then I get a "415" response
     And the correct headers are set
@@ -20,7 +20,7 @@ Scenario: Using the API without Content-Type Json API Header
 
 Scenario: Using the API with Content-Type Json API Header and parameter
     Given I have set the "Accept" header with "application/vnd.api+json"
-    And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.19"
+    And I have set the "Accept" header with "application/vnd.api+json; net.youthweb.api.version=0.20"
     And I have set the "Content-Type" header with "application/vnd.api+json; parameter=value"
     When I request "GET /errors/header-errors"
     Then I get a "415" response
@@ -49,7 +49,7 @@ Scenario: Using the API without Accept Header
     And the "title" property exists
     And the "title" property is a string equalling "Not Acceptable"
     And the "detail" property exists
-    And the "detail" property is a string equalling "You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.19"
+    And the "detail" property is a string equalling "You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.20"
 
 Scenario: Using the API with Accept Header without version parameter
     Given I have set the "Content-Type" header with "application/vnd.api+json"
@@ -65,7 +65,7 @@ Scenario: Using the API with Accept Header without version parameter
     And the "title" property exists
     And the "title" property is a string equalling "Not Acceptable"
     And the "detail" property exists
-    And the "detail" property is a string equalling "You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.19"
+    And the "detail" property is a string equalling "You havn't specified the API version in the Accept Header. You have to use Accept application/vnd.api+json, application/vnd.api+json; net.youthweb.api.version=0.20"
 
 Scenario: Using the API with unsupported version parameter
     Given I have set the "Content-Type" header with "application/vnd.api+json"
@@ -82,7 +82,7 @@ Scenario: Using the API with unsupported version parameter
     And the "title" property exists
     And the "title" property is a string equalling "Not Acceptable"
     And the "detail" property exists
-    And the "detail" property is a string equalling "You have specified an unsupported API version. Please use the current API version 0.19"
+    And the "detail" property is a string equalling "You have specified an unsupported API version. Please use the current API version 0.20"
 
 Scenario: Using the API with deprecated version parameter
     Given I have set the "Content-Type" header with "application/vnd.api+json"
@@ -99,5 +99,5 @@ Scenario: Using the API with deprecated version parameter
     And the "warnings" property contains 1 items
     And the "warnings" property contains at least:
         """
-        You have specified a deprecated API version. Please use the current API version 0.19
+        You have specified a deprecated API version. Please use the current API version 0.20
         """

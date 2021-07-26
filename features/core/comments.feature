@@ -7,10 +7,7 @@ Scenario: Requesting a comment
     When I request "GET /comments/345678"
     Then I get a "200" response
     And the correct headers are set
-    And the "included" property exists
-    And the "included" property is an array
-    And the "meta" property exists
-    And the "meta" property is an object
+    And the response contains 1 items
     And the "data" property exists
     And the "data" property is an object
     And scope into the "data" property
@@ -20,11 +17,13 @@ Scenario: Requesting a comment
     And the "id" property exists
     And the "links" property exists
     And the "attributes" property exists
+    And the "relationships" property exists
     And scope into the "data.attributes" property
-    And the response contains 2 items
+    And the response contains 3 items
     And the properties exist:
         """
         content
+        content_html
         created_at
         """
     And scope into the "data.links" property
@@ -33,13 +32,24 @@ Scenario: Requesting a comment
         """
         self
         """
-    And scope into the "meta" property
-    And the "warnings" property exists
-    And the "warnings" property is an array
-    And the "warnings" property contains 1 items
-    And the "warnings" property contains at least:
+    And scope into the "data.relationships" property
+    And the response contains 2 items
+    And the properties exist:
         """
-        The default inclusion of "parent" and "author" relationships is deprecated since 0.18 and will be removed in future, use "?include=author,parent" in query instead.
+        author
+        parent
+        """
+    And scope into the "data.relationships.author" property
+    And the response contains 1 items
+    And the properties exist:
+        """
+        links
+        """
+    And scope into the "data.relationships.parent" property
+    And the response contains 1 items
+    And the properties exist:
+        """
+        links
         """
 
 Scenario: Requesting the author of a comment
